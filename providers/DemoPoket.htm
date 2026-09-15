@@ -1,0 +1,2099 @@
+﻿<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>Demo</title>
+
+<!--    <script type="text/javascript" src="//shared-static.casinomobule.com/gameinclusion/jquery.min.js"></script> -->
+<!--    <script type="text/javascript" src="//shared-static.casinomobule.com/gameinclusion/library/gameinclusion.js"></script> -->
+
+<!--<script type="text/javascript" src="https://softswissmt-static.casinomodule.com/gameinclusion/library/gameinclusion.js"></script>-->
+    <script src="DemoPoket_files/jquery.min.js"></script>
+
+
+    <style>
+        body { padding: 0; margin: 0; font-size: 2em;}
+
+        .box { position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
+
+        #game { width: 100%; height: 100%; position: absolute; top: 0; right: 0; bottom: 0; left: 0;}
+    </style>
+
+    <style>
+
+        .game {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+	#blockGames {
+display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    justify-content: center;
+display: grid;
+
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+@media (min-width:320px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ body { font-size: 2em; } }
+@media (min-width:480px)  { /* smartphones, Android phones, landscape iPhone */ body { font-size: 2em; } }
+@media (min-width:600px)  { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */ body { font-size: 2em; } }
+@media (min-width:801px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ 
+
+body { font-size: 2em; }
+
+#blockGames {
+display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    justify-content: center;
+}
+
+.game {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+}
+@media (min-width:1025px) {
+body { font-size: 1em; }
+ /* big landscape tablets, laptops, and desktops */ }
+@media (min-width:1281px) { 
+/* hi-res laptops and desktops */ 
+
+body { font-size: 1em; }
+
+#blockGames {
+display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    justify-content: center;
+}
+
+.game {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+
+}
+
+    </style>
+</head>
+<body style="background-color: rgba(32,28,25,.77);">
+
+
+<div style="background: white; padding: 15px 20px;     display: flex;
+    position: relative;
+    column-gap: 10px;
+    row-gap: 20px;
+    overflow: hidden;
+    flex-wrap: wrap;justify-content: center;">
+    <select id="fProvider" style="width: 150px;" onchange="show()">
+<option value="*">Provider: *
+</option><option value="3oaks">Provider: 3Oaks
+</option><option value="amatic">Provider: Amatic
+</option><option value="bgaming">Provider: BGaming
+</option><option value="evoplay">Provider: Evoplay
+</option><option value="greentube">Provider: Greentube
+</option><option value="hacksaw">Provider: Hacksaw
+</option><option value="igrosoft">Provider: Igrosoft
+</option><option value="netent">Provider: Netent
+</option><option value="nolimit">Provider: Nolimit
+</option><option value="pgsoft" selected="selected">Provider: Pocket Games (PG Soft)
+</option><option value="playngo">Provider: Playngo
+</option><option value="playson">Provider: Playson
+</option><option value="pragmatic">Provider: Pragmatic
+</option><option value="pushgaming">Provider: Pushgaming
+</option><option value="redtiger">Provider: Redtiger
+</option><option value="relax">Provider: Relax
+</option><option value="spinomenal">Provider: Spinomenal
+</option><option value="spribe">Provider: Spribe
+</option><option value="megaways">MEGAWAYS
+    </option></select>
+    <select id="fLang">
+        <option value="bg">bg - Bulgarian
+        </option><option value="br">br - Portuguese (Brazil)
+        </option><option value="cn">cn - Chinese (Simplified)
+        </option><option value="cs">cs - Czech
+        </option><option value="da">da - Danish
+        </option><option value="de">de - German
+        </option><option value="el">el - Greek
+        </option><option value="en" selected="selected">en - English
+        </option><option value="es">es - Spanish
+        </option><option value="et">et - Estonian
+        </option><option value="fi">fi - Finnish
+        </option><option value="fr">fr - French
+        </option><option value="hr">hr - Croatian
+        </option><option value="hu">hu - Hungarian
+	</option><option value="ko">ko - Korean
+        </option><option value="it">it - Italian
+	</option><option value="id">id - Indonesian
+	</option><option value="ja">ja - Japanese
+        </option><option value="nl">nl - Dutch
+        </option><option value="no">no - Norwegian
+	</option><option value="nb">nb - Norwegian
+        </option><option value="pl">pl - Polish
+        </option><option value="pt">pt - Portuguese
+        </option><option value="ro">ro - Romanian
+        </option><option value="ru">ru - Russian
+        </option><option value="sk">sk - Slovak
+        </option><option value="sv">sv - Swedish
+        </option><option value="tr">tr - Turkish
+    </option></select>
+
+    <select id="fCurrency" style="width: 250px;"><option value="ADA">ADA - ADA
+</option><option value="AED">AED - UAE Dirham
+</option><option value="AFN">AFN - Afghani
+</option><option value="ALL">ALL - Lek
+</option><option value="AMD">AMD - Armenian Dram
+</option><option value="ANG">ANG - Netherlands Antillean Guilder
+</option><option value="AOA">AOA - Kwanza
+</option><option value="ARS">ARS - Argentine Peso
+</option><option value="AUD">AUD - Australian Dollar
+</option><option value="AWG">AWG - Aruban Florin
+</option><option value="AZN">AZN - Azerbaijanian Manat
+</option><option value="BAM">BAM - Convertible Mark
+</option><option value="BBD">BBD - Barbados Dollar
+</option><option value="BDT">BDT - Taka
+</option><option value="BET">BET - BETCOIN
+</option><option value="BGN">BGN - Bulgarian Lev
+</option><option value="BHD">BHD - Bahraini Dinar
+</option><option value="BIF">BIF - Burundi Franc
+</option><option value="BMD">BMD - Bermudian Dollar
+</option><option value="BMZ">BMZ - BMZ
+</option><option value="BNB">BNB - BNB
+</option><option value="BND">BND - Brunei Dollar
+</option><option value="BOB">BOB - Boliviano
+</option><option value="BOV">BOV - Mvdol
+</option><option value="BRL">BRL - Brazilian Real
+</option><option value="BSD">BSD - Bahamian Dollar
+</option><option value="BTC">BTC - Bitcoin
+</option><option value="BTN">BTN - Ngultrum
+</option><option value="BWP">BWP - Pula
+</option><option value="BYN">BYN - Belarusian Ruble
+</option><option value="BYR">BYR - Belarusian Ruble
+</option><option value="BZD">BZD - Belize Dollar
+</option><option value="CAD">CAD - Canadian Dollar
+</option><option value="CDF">CDF - Congolese Franc
+</option><option value="CHE">CHE - WIR Euro
+</option><option value="CHF">CHF - Swiss Franc
+</option><option value="CHW">CHW - WIR Franc
+</option><option value="CLF">CLF - Unidad de Fomento
+</option><option value="CLP">CLP - Chilean Peso
+</option><option value="CNY">CNY - Yuan Renminbi
+</option><option value="COP">COP - Colombian Peso
+</option><option value="COU">COU - Unidad de Valor Real
+</option><option value="CRC">CRC - Costa Rican Colon
+</option><option value="CUC">CUC - Peso Convertible
+</option><option value="CUP">CUP - Cuban Peso
+</option><option value="CVE">CVE - Cabo Verde Escudo
+</option><option value="CZK">CZK - Czech Koruna
+</option><option value="DJF">DJF - Djibouti Franc
+</option><option value="DKK">DKK - Danish Krone
+</option><option value="DLS">DLS - DLS (Fun Tickets)
+</option><option value="DOGE">DOGE - DOGE
+</option><option value="DOP">DOP - Dominican Peso
+</option><option value="DZD">DZD - Algerian Dinar
+</option><option value="EGP">EGP - Egyptian Pound
+</option><option value="ERN">ERN - Nakfa
+</option><option value="ETB">ETB - Ethiopian Birr
+</option><option value="ETH">ETH - Ethereum
+</option><option value="EUR" selected="selected">EUR - Euro
+</option><option value="EUR_BONUS">EUR_BONUS - EUR (Bonus)
+</option><option value="FJD">FJD - Fiji Dollar
+</option><option value="FKP">FKP - Falkland Islands Pound
+</option><option value="FUN">FUN - FUN
+</option><option value="GBP">GBP - Pound Sterling
+</option><option value="GC">GC - Gold Coin (Fun)
+</option><option value="GEL">GEL - Lari
+</option><option value="GHS">GHS - Ghana Cedi
+</option><option value="GIP">GIP - Gibraltar Pound
+</option><option value="GMD">GMD - Dalasi
+</option><option value="GNF">GNF - Guinea Franc
+</option><option value="GTQ">GTQ - Quetzal
+</option><option value="GYD">GYD - Guyana Dollar
+</option><option value="HKD">HKD - Hong Kong Dollar
+</option><option value="HNL">HNL - Lempira
+</option><option value="HRK">HRK - Kuna
+</option><option value="HTG">HTG - Gourde
+</option><option value="HUF">HUF - Forint
+</option><option value="IDR">IDR - Rupiah
+</option><option value="ILS">ILS - New Israeli Sheqel
+</option><option value="INR">INR - Indian Rupee
+</option><option value="IQD">IQD - Iraqi Dinar
+</option><option value="IRR">IRR - Iranian Rial
+</option><option value="IRR2">IRR2 - Iranian Rial (No Copecs)
+</option><option value="IRT">IRT - Iranian Toman
+</option><option value="ISK">ISK - Iceland Krona
+</option><option value="JC">JC - Jade Coin (USD Like)
+</option><option value="JMD">JMD - Jamaican Dollar
+</option><option value="JOD">JOD - Jordanian Dinar
+</option><option value="JPY">JPY - Yen
+</option><option value="KES">KES - Kenyan Shilling
+</option><option value="KGS">KGS - Som
+</option><option value="KHR">KHR - Riel
+</option><option value="KMF">KMF - Comoro Franc
+</option><option value="KPW">KPW - North Korean Won
+</option><option value="KRW">KRW - Won
+</option><option value="KRW2">KRW2 - Won2
+</option><option value="KWD">KWD - Kuwaiti Dinar
+</option><option value="KYD">KYD - Cayman Islands Dollar
+</option><option value="KZT">KZT - Tenge
+</option><option value="LAK">LAK - Kip
+</option><option value="LBP">LBP - Lebanese Pound
+</option><option value="LKR">LKR - Sri Lanka Rupee
+</option><option value="LRD">LRD - Liberian Dollar
+</option><option value="LSL">LSL - Loti
+</option><option value="LTC">LTC - Litecoin
+</option><option value="LYD">LYD - Libyan Dinar
+</option><option value="MAD">MAD - Moroccan Dirham
+</option><option value="MDL">MDL - Moldovan Leu
+</option><option value="MGA">MGA - Malagasy Ariary
+</option><option value="MKD">MKD - Denar
+</option><option value="MMK">MMK - Kyat
+</option><option value="MNT">MNT - Tugrik
+</option><option value="MOP">MOP - Pataca
+</option><option value="MRO">MRO - Ouguiya
+</option><option value="MUR">MUR - Mauritius Rupee
+</option><option value="MVR">MVR - Rufiyaa
+</option><option value="MWK">MWK - Malawi Kwacha
+</option><option value="MXN">MXN - Mexican Peso
+</option><option value="MXV">MXV - Mexican Unidad de Inversion (UDI)
+</option><option value="MYR">MYR - Malaysian Ringgit
+</option><option value="MZN">MZN - Mozambique Metical
+</option><option value="NAD">NAD - Namibia Dollar
+</option><option value="NGN">NGN - Naira
+</option><option value="NIO">NIO - Cordoba Oro
+</option><option value="NOK">NOK - Norwegian Krone
+</option><option value="NPR">NPR - Nepalese Rupee
+</option><option value="NZD">NZD - New Zealand Dollar
+</option><option value="OMR">OMR - Rial Omani
+</option><option value="PAB">PAB - Balboa
+</option><option value="PEN">PEN - Sol
+</option><option value="PGK">PGK - Kina
+</option><option value="PHP">PHP - Philippine Peso
+</option><option value="PKR">PKR - Pakistan Rupee
+</option><option value="PLN">PLN - Zloty
+</option><option value="PYG">PYG - Guarani
+</option><option value="QAR">QAR - Qatari Rial
+</option><option value="RBX">RBX - RBX (Roblox)
+</option><option value="RON">RON - Romanian Leu
+</option><option value="RSD">RSD - Serbian Dinar
+</option><option value="RUB">RUB - Russian Ruble
+</option><option value="RUB_BONUS">RUB_BONUS - Russian Ruble (Bonus)
+</option><option value="RWF">RWF - Rwanda Franc
+</option><option value="SAR">SAR - Saudi Riyal
+</option><option value="SBD">SBD - Solomon Islands Dollar
+</option><option value="SBS">SBS - SBS
+</option><option value="SC">SC - SC (Fun)
+</option><option value="SCR">SCR - Seychelles Rupee
+</option><option value="SDG">SDG - Sudanese Pound
+</option><option value="SEK">SEK - Swedish Krona
+</option><option value="SGD">SGD - Singapore Dollar
+</option><option value="SHP">SHP - Saint Helena Pound
+</option><option value="SLL">SLL - Leone
+</option><option value="SOL">SOL - SOL
+</option><option value="SOS">SOS - Somali Shilling
+</option><option value="SRD">SRD - Surinam Dollar
+</option><option value="SSP">SSP - South Sudanese Pound
+</option><option value="STD">STD - Dobra
+</option><option value="SVC">SVC - El Salvador Colon
+</option><option value="SYP">SYP - Syrian Pound
+</option><option value="SZL">SZL - Lilangeni
+</option><option value="THB">THB - Baht
+</option><option value="TJS">TJS - Somoni
+</option><option value="TKN">TKN - So Custom USD Convertible
+</option><option value="TMT">TMT - Turkmenistan New Manat
+</option><option value="TND">TND - Tunisian Dinar
+</option><option value="TOM">TOM - TOM
+</option><option value="TOP">TOP - Pa’anga
+</option><option value="TRX">TRX - TRX
+</option><option value="TRY">TRY - Turkish Lira
+</option><option value="TTD">TTD - Trinidad and Tobago Dollar
+</option><option value="TWD">TWD - New Taiwan Dollar
+</option><option value="TZS">TZS - Tanzanian Shilling
+</option><option value="UAH">UAH - Hryvnia
+</option><option value="UAH_BONUS">UAH_BONUS - UAH (Bonus)
+</option><option value="UGX">UGX - Uganda Shilling
+</option><option value="USD">USD - US Dollar
+</option><option value="USDC">USDC - USDC
+</option><option value="USDT">USDT - USDT
+</option><option value="USD_BONUS">USD_BONUS - USD (Bonus)
+</option><option value="USN">USN - US Dollar (Next day)
+</option><option value="UYI">UYI - Uruguay Peso en Unidades Indexadas (URUIURUI)
+</option><option value="UYU">UYU - Peso Uruguayo
+</option><option value="UZS">UZS - Uzbekistan Sum
+</option><option value="VEF">VEF - Bolívar
+</option><option value="VND">VND - Dong
+</option><option value="VUV">VUV - Vatu
+</option><option value="WST">WST - Tala
+</option><option value="XAF">XAF - CFA Franc BEAC
+</option><option value="XCD">XCD - East Caribbean Dollar
+</option><option value="XOF">XOF - CFA Franc BCEAO
+</option><option value="XPF">XPF - CFP Franc
+</option><option value="XRP">XRP - XRP
+</option><option value="YER">YER - Yemeni Rial
+</option><option value="ZAR">ZAR - Rand
+</option><option value="ZMW">ZMW - Zambian Kwacha
+</option><option value="ZWL">ZWL - Zimbabwe Dollar
+</option><option value="mBCH">mBCH - mBCH
+</option><option value="mBTC">mBTC - Bitcoin Milli
+</option><option value="mDASH">mDASH - mDASH
+</option><option value="mETH">mETH - Ethereum Milli
+</option><option value="mLTC">mLTC - Litecoin Milli
+</option><option value="mXMR">mXMR - mXMR
+</option><option value="uBTC">uBTC - Bitcoin Nano
+</option><option value="uETH">uETH - Ethereum Nano
+</option><option value="uLTC">uLTC - Litecoin Nano
+</option></select>
+<input id="fSearch" placeholder="Search" style="width:" 200px;"="">
+
+<div style="display: inline-block; padding: 0.2em;">Party with US: <a href="mailto:copyslots@proton.me" style="color: black;"><b id="contact">copyslots@proton.me</b></a></div>
+
+</div>
+
+<div id="blockGames">
+    <div class="game" style="">
+        <a onclick="start(1950)" target="demogame" class="gameLink" style="cursor: pointer;" title="Bakery Bonanza">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/bakery-bonanza.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Bakery Bonanza" src="DemoPoket_files/bakery-bonanza.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1995)" target="demogame" class="gameLink" style="cursor: pointer;" title="Bali Vacation">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/bali-vacation.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Bali Vacation" src="DemoPoket_files/bali-vacation.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1970)" target="demogame" class="gameLink" style="cursor: pointer;" title="Battleground Royale">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/battleground.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Battleground Royale" src="DemoPoket_files/battleground.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2012)" target="demogame" class="gameLink" style="cursor: pointer;" title="Bikini Paradise">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/bikini-paradise.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Bikini Paradise" src="DemoPoket_files/bikini-paradise.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1983)" target="demogame" class="gameLink" style="cursor: pointer;" title="Buffalo Win">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/buffalo-win.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Buffalo Win" src="DemoPoket_files/buffalo-win.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1973)" target="demogame" class="gameLink" style="cursor: pointer;" title="Butterfly Blossom">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/btrfly-blossom.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Butterfly Blossom" src="DemoPoket_files/btrfly-blossom.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1993)" target="demogame" class="gameLink" style="cursor: pointer;" title="Candy Bonanza">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/candy-bonanza.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Candy Bonanza" src="DemoPoket_files/candy-bonanza.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2000)" target="demogame" class="gameLink" style="cursor: pointer;" title="Captains Bounty">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/captains-bounty.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Captains Bounty" src="DemoPoket_files/captains-bounty.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1979)" target="demogame" class="gameLink" style="cursor: pointer;" title="Cocktail Nights">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/cocktail-nite.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Cocktail Nights" src="DemoPoket_files/cocktail-nite.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1992)" target="demogame" class="gameLink" style="cursor: pointer;" title="Crypto Gold">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/crypto-gold.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Crypto Gold" src="DemoPoket_files/crypto-gold.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1974)" target="demogame" class="gameLink" style="cursor: pointer;" title="Destiny of Sun &amp; Moon">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/dest-sun-moon.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Destiny of Sun &amp; Moon" src="DemoPoket_files/dest-sun-moon.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1955)" target="demogame" class="gameLink" style="cursor: pointer;" title="Diner Delights">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/diner-delights.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Diner Delights" src="DemoPoket_files/diner-delights.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2023)" target="demogame" class="gameLink" style="cursor: pointer;" title="Double Fortune">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/double-fortune.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Double Fortune" src="DemoPoket_files/double-fortune.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1998)" target="demogame" class="gameLink" style="cursor: pointer;" title="Dragon Hatch">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/dragon-hatch.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Dragon Hatch" src="DemoPoket_files/dragon-hatch.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2015)" target="demogame" class="gameLink" style="cursor: pointer;" title="Dreams of Macau">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/dreams-of-macau.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Dreams of Macau" src="DemoPoket_files/dreams-of-macau.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1980)" target="demogame" class="gameLink" style="cursor: pointer;" title="Emoji Riches">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/emoji-riches.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Emoji Riches" src="DemoPoket_files/emoji-riches.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2007)" target="demogame" class="gameLink" style="cursor: pointer;" title="Fortune Mouse">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/fortune-mouse.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Fortune Mouse" src="DemoPoket_files/fortune-mouse.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1966)" target="demogame" class="gameLink" style="cursor: pointer;" title="Fortune OX">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/fortune-ox.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Fortune OX" src="DemoPoket_files/fortune-ox.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1944)" target="demogame" class="gameLink" style="cursor: pointer;" title="Fortune Rabbit">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/fortune-rabbit.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Fortune Rabbit" src="DemoPoket_files/fortune-rabbit.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1976)" target="demogame" class="gameLink" style="cursor: pointer;" title="Fortune Tiger">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/fortune-tiger.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Fortune Tiger" src="DemoPoket_files/fortune-tiger.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1943)" target="demogame" class="gameLink" style="cursor: pointer;" title="Fruit Candy">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/fruity-candy.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Fruit Candy" src="DemoPoket_files/fruity-candy.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2004)" target="demogame" class="gameLink" style="cursor: pointer;" title="Galactic Gems">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/galactic-gems.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Galactic Gems" src="DemoPoket_files/galactic-gems.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2019)" target="demogame" class="gameLink" style="cursor: pointer;" title="Ganesha Fortune">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/ganesha-fortune.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Ganesha Fortune" src="DemoPoket_files/ganesha-fortune.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2020)" target="demogame" class="gameLink" style="cursor: pointer;" title="Ganesha Gold">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/ganesha-gold.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Ganesha Gold" src="DemoPoket_files/ganesha-gold.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1975)" target="demogame" class="gameLink" style="cursor: pointer;" title="Garuda Gems">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/garuda-gems.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Garuda Gems" src="DemoPoket_files/garuda-gems.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2003)" target="demogame" class="gameLink" style="cursor: pointer;" title="Guardians of Ice &amp; Fire">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/gdn-ice-fire.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Guardians of Ice &amp; Fire" src="DemoPoket_files/gdn-ice-fire.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1951)" target="demogame" class="gameLink" style="cursor: pointer;" title="Hawaiian Tiki">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/hawaiian-tiki.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Hawaiian Tiki" src="DemoPoket_files/hawaiian-tiki.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1989)" target="demogame" class="gameLink" style="cursor: pointer;" title="Heist Stakes">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/heist-stakes.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Heist Stakes" src="DemoPoket_files/heist-stakes.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2008)" target="demogame" class="gameLink" style="cursor: pointer;" title="Jack Frost’s Winter">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/jack-frosts.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Jack Frost’s Winter" src="DemoPoket_files/jack-frosts.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2010)" target="demogame" class="gameLink" style="cursor: pointer;" title="Jewels of Prosperity">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/jewels-prosper.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Jewels of Prosperity" src="DemoPoket_files/jewels-prosper.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2018)" target="demogame" class="gameLink" style="cursor: pointer;" title="Jungle Delight">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/jungle-delight.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Jungle Delight" src="DemoPoket_files/jungle-delight.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1987)" target="demogame" class="gameLink" style="cursor: pointer;" title="Jurassic Kingdom">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/jurassic-kdm.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Jurassic Kingdom" src="DemoPoket_files/jurassic-kdm.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1982)" target="demogame" class="gameLink" style="cursor: pointer;" title="Legendary Monkey King">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/lgd-monkey-kg.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Legendary Monkey King" src="DemoPoket_files/lgd-monkey-kg.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2017)" target="demogame" class="gameLink" style="cursor: pointer;" title="Leprechaun Riches">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/leprechaun-riches.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Leprechaun Riches" src="DemoPoket_files/leprechaun-riches.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1946)" target="demogame" class="gameLink" style="cursor: pointer;" title="Lucky Clover Lady">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/lucky-clover.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Lucky Clover Lady" src="DemoPoket_files/lucky-clover.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1965)" target="demogame" class="gameLink" style="cursor: pointer;" title="Lucky Neko">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/lucky-neko.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Lucky Neko" src="DemoPoket_files/lucky-neko.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1962)" target="demogame" class="gameLink" style="cursor: pointer;" title="Lucky Piggy">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/lucky-piggy.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Lucky Piggy" src="DemoPoket_files/lucky-piggy.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1991)" target="demogame" class="gameLink" style="cursor: pointer;" title="Mahjong Ways">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/mahjong-ways.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Mahjong Ways" src="DemoPoket_files/mahjong-ways.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1968)" target="demogame" class="gameLink" style="cursor: pointer;" title="Mahjong Ways 2">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/mahjong-ways2.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Mahjong Ways 2" src="DemoPoket_files/mahjong-ways2.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1994)" target="demogame" class="gameLink" style="cursor: pointer;" title="Majestic Treasures">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/majestic-ts.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Majestic Treasures" src="DemoPoket_files/majestic-ts.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1978)" target="demogame" class="gameLink" style="cursor: pointer;" title="Mask Carnival">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/mask-carnival.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Mask Carnival" src="DemoPoket_files/mask-carnival.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1986)" target="demogame" class="gameLink" style="cursor: pointer;" title="Mermaid Riches">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/mermaid-riches.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Mermaid Riches" src="DemoPoket_files/mermaid-riches.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1953)" target="demogame" class="gameLink" style="cursor: pointer;" title="Midas Fortune">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/midas-fortune.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Midas Fortune" src="DemoPoket_files/midas-fortune.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1948)" target="demogame" class="gameLink" style="cursor: pointer;" title="Mystical Spirits">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/myst-spirits.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Mystical Spirits" src="DemoPoket_files/myst-spirits.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1996)" target="demogame" class="gameLink" style="cursor: pointer;" title="Opera Dynasty">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/opera-dynasty.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Opera Dynasty" src="DemoPoket_files/opera-dynasty.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1977)" target="demogame" class="gameLink" style="cursor: pointer;" title="Oriental Prosperity">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/oriental-pros.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Oriental Prosperity" src="DemoPoket_files/oriental-pros.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2005)" target="demogame" class="gameLink" style="cursor: pointer;" title="Phoenix Rises">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/phoenix-rises.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Phoenix Rises" src="DemoPoket_files/phoenix-rises.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2021)" target="demogame" class="gameLink" style="cursor: pointer;" title="Piggy Gold">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/piggy-gold.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Piggy Gold" src="DemoPoket_files/piggy-gold.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1957)" target="demogame" class="gameLink" style="cursor: pointer;" title="Prosperity Fortune Tree">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/prosper-ftree.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Prosperity Fortune Tree" src="DemoPoket_files/prosper-ftree.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1985)" target="demogame" class="gameLink" style="cursor: pointer;" title="Raider Jane’s Crypt of Fortune">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/crypt-fortune.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Raider Jane’s Crypt of Fortune" src="DemoPoket_files/crypt-fortune.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1952)" target="demogame" class="gameLink" style="cursor: pointer;" title="Rave Party Fever">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/rave-party-fvr.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Rave Party Fever" src="DemoPoket_files/rave-party-fvr.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1988)" target="demogame" class="gameLink" style="cursor: pointer;" title="Rise of Apollo">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/rise-of-apollo.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Rise of Apollo" src="DemoPoket_files/rise-of-apollo.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1972)" target="demogame" class="gameLink" style="cursor: pointer;" title="Rooster Rumble">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/rooster-rbl.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Rooster Rumble" src="DemoPoket_files/rooster-rbl.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1949)" target="demogame" class="gameLink" style="cursor: pointer;" title="Songkran Splash">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/songkran-spl.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Songkran Splash" src="DemoPoket_files/songkran-spl.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1961)" target="demogame" class="gameLink" style="cursor: pointer;" title="Speed Winner">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/speed-winner.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Speed Winner" src="DemoPoket_files/speed-winner.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1981)" target="demogame" class="gameLink" style="cursor: pointer;" title="Spirited Wonders">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/spirit-wonder.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Spirited Wonders" src="DemoPoket_files/spirit-wonder.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1947)" target="demogame" class="gameLink" style="cursor: pointer;" title="Super Golf Drive">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/spr-golf-drive.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Super Golf Drive" src="DemoPoket_files/spr-golf-drive.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1984)" target="demogame" class="gameLink" style="cursor: pointer;" title="Supermarket Spree">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/sprmkt-spree.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Supermarket Spree" src="DemoPoket_files/sprmkt-spree.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2009)" target="demogame" class="gameLink" style="cursor: pointer;" title="Thai River Wonders">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/thai-river.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Thai River Wonders" src="DemoPoket_files/thai-river.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2011)" target="demogame" class="gameLink" style="cursor: pointer;" title="The Great Icescape">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/the-great-icescape.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: The Great Icescape" src="DemoPoket_files/the-great-icescape.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1971)" target="demogame" class="gameLink" style="cursor: pointer;" title="The Queen’s Banquet">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/queen-banquet.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: The Queen’s Banquet" src="DemoPoket_files/queen-banquet.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1956)" target="demogame" class="gameLink" style="cursor: pointer;" title="Totem Wonders">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/totem-wonders.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Totem Wonders" src="DemoPoket_files/totem-wonders.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1964)" target="demogame" class="gameLink" style="cursor: pointer;" title="Treasures Of Aztec">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/treasures-aztec.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Treasures Of Aztec" src="DemoPoket_files/treasures-aztec.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1997)" target="demogame" class="gameLink" style="cursor: pointer;" title="Vampire’s Charm">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/vampires-charm.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Vampire’s Charm" src="DemoPoket_files/vampires-charm.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1969)" target="demogame" class="gameLink" style="cursor: pointer;" title="Ways of the Qilin">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/ways-of-qilin.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Ways of the Qilin" src="DemoPoket_files/ways-of-qilin.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1990)" target="demogame" class="gameLink" style="cursor: pointer;" title="Wild Bandito">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/wild-bandito.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Wild Bandito" src="DemoPoket_files/wild-bandito.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1958)" target="demogame" class="gameLink" style="cursor: pointer;" title="Wild Bounty Showdown">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/wild-bounty-sd.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Wild Bounty Showdown" src="DemoPoket_files/wild-bounty-sd.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1959)" target="demogame" class="gameLink" style="cursor: pointer;" title="Wild Coaster">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/wild-coaster.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Wild Coaster" src="DemoPoket_files/wild-coaster.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2016)" target="demogame" class="gameLink" style="cursor: pointer;" title="Wild Fireworks">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/wild-fireworks.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Wild Fireworks" src="DemoPoket_files/wild-fireworks.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1963)" target="demogame" class="gameLink" style="cursor: pointer;" title="Win Win Fish Prawn Crab">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/pgsoft/156-156/win-win-fpc.png.png"> -->
+	<img width="100%" height="100%" title="pgsoft: Win Win Fish Prawn Crab" src="DemoPoket_files/win-win-fpc.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+</div>
+
+<div id="gameWindow" class="box" style="background: black; display: none; position: fixed;">
+
+    <div style="position: absolute; margin-left: 50%; margin-right: 50%; top: 0px;">
+        <a href="javascript:close()" style="color: white; display: block;
+    padding: 10px 50px;">Закрыть</a>
+    </div>
+
+    <div class="box" style="top:40px;">
+        <iframe id="game" style="width: 100%; height:100%; border: none;"></iframe>
+    </div>
+
+</div>
+
+<script id="gameTpl" type="text/x-template">
+    <div class="game" style="">
+        <a onclick="{$href}" target="demogame" class="gameLink" style="cursor: pointer;" title="{$title}">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/{$icon}.png"> -->
+	<img width="100%" height="100%" title="{$provider}: {$title}"
+                 src="{$icon}">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: {$display};">
+            <h3 style="color: white;">{$label}</h3>
+        </div>
+    </div>
+</script>
+
+<script id="gameTpl_greentube" type="text/x-template">
+    <div class="game" style="">
+        <a onclick="{$href}" target="demogame" class="gameLink" style="cursor: pointer;">
+<img width="100%" height="100%" title="{$title}"
+                 src="{$icon}">
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: {$display};">
+            <h3 style="color: white;">{$label}</h3>
+        </div>
+    </div>
+</script>
+
+<script type="text/javascript">
+    var $ = jQuery
+
+    var gameTpl = document.getElementById('gameTpl').innerText
+    var gameTpl_greentube = document.getElementById('gameTpl_greentube').innerText
+    var defaultLabel = "OFFLINE"
+
+
+    window.addEventListener("load", function load(event){
+
+        loadGames()
+
+
+
+    },false);
+
+    var gamesMap = {}
+    var gamesArray = []
+
+
+    function isMobile(){
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    }
+
+    function loadGames(){
+        //$.get('//partners.casinomobule.com/games.list', function(r){
+$.get('/games-hash-9b2da2.json', function(r){
+            gamesArray = sort(r)
+            gamesMap = {}
+
+            $("#blockGames").empty()
+	    show()	
+	})
+    }
+
+function icon(game){
+   return 'https://cdn.effective-solution.com/CasinoMobule/'+game.provider+'/156-156/' + game.alias + '.png';
+
+
+   if(game.icon && (game.icon.substr(0,2) == '//' || game.icon.substr(0,4) == 'http')){
+	return game.icon;
+   }else if(game.provider == 'netent'){
+        return '//shared-static.casinomobule.com/media/netent/thumbs/500x332/'+game.icon+'.png';
+}else if(game.provider == 'greentube'){
+	//return '//shared-static.casinomobule.com/media/greentube/icons/190x190/jpg/'+game.alias+'.jpg';
+return '//shared-static.casinomobule.com/media/greentube/icons/376x376/'+game.alias+'.png'
+}else{
+return 'not implemented';
+}
+	
+}
+
+    function show(fn){
+
+try {
+            var items = []
+	    var providerSelected = document.getElementById('fProvider').value	
+
+            for(var i=0; i < gamesArray.length; i++){
+                var game = gamesArray[i]
+
+if(!game.is_enabled) continue;
+
+                gamesMap[game.id] = game
+
+                var o = {}
+                for(var k in game){ o[k] =game[k] }
+
+
+                var display = (game.is_enabled ? "none" : "block")
+                var label = defaultLabel
+
+                if(game.desktop_enabled ==false && !isMobile()){
+                    label = "ONLY MOBILE"
+                    display = "block"
+                }else if(game.mobile_enabled == false && isMobile()){
+                    label = "ONLY DESKTOP"
+                    display = "block"
+                }
+
+                o.href = "start("+game.id+")"
+                o.display = display
+                o.label = label
+o.icon = icon(game);
+
+		var item;
+
+		if(game.provider == 'greentube'){
+			item = template(gameTpl_greentube, o)
+		}else{
+	                item = template(gameTpl,o)
+		}
+
+		if(providerSelected == '*' || providerSelected == game.provider || (providerSelected == 'megaways' && (game.title.toLowerCase().indexOf('megaways') > 0))){
+if(fn){
+if(fn(game)) items.push(item);
+}else{
+items.push(item);
+}
+		}
+            }
+
+            document.getElementById('blockGames').innerHTML = items.join("\n")
+}catch(e){
+	console.error("Err while rendering games")
+console.error(e)
+}
+    }
+
+function start(id){
+var game = gamesMap[id]
+var mobile = isMobile() ? 'true' : 'false';
+var lang = document.getElementById('fLang').value
+var domain = (game.provider=='spribe' || game.provider =='pgsoft11') ? 'https://partners.casinomobule.com' : 'https://test.partners.casinomobule.com'
+var curr = $('#fCurrency').val()
+var _bal=parseFloat(localStorage.getItem('z51_balance'));if(isNaN(_bal)||_bal<=0){_bal=100;localStorage.setItem('z51_balance',100);}
+var start_url = domain + '/games.startDemo?partner.alias=demo&game.alias='+game.alias+'&game.provider='+game.provider+'&currency='+curr+'&mobile='+mobile+'&balance='+Math.round(_bal*100)+'&origin=true&lang='+lang +'&lobby_url='+encodeURIComponent(window.location.href)
+
+if(isMobile()){
+	window.location=start_url;
+}else{
+                document.getElementById('game').src=start_url;
+
+                $('#gameWindow').css('display','block')
+                $('body').css('overflow','hidden')
+}
+}
+
+function start_with_lang(game, lang){
+    var mobile = isMobile() ? 'true' : 'false';
+    var domain = (game.provider=='spribe' || game.provider =='pgsoft11') ? 'https://partners.casinomobule.com' : 'https://test.partners.casinomobule.com'
+    var curr = $('#fCurrency').val()
+    var _bal=parseFloat(localStorage.getItem('z51_balance'));if(isNaN(_bal)||_bal<=0){_bal=100;localStorage.setItem('z51_balance',100);}
+var start_url = domain + '/games.startDemo?partner.alias=demo&game.alias='+game.alias+'&game.provider='+game.provider+'&currency='+curr+'&mobile='+mobile+'&balance='+Math.round(_bal*100)+'&origin=true&lang='+lang +'&lobby_url='+encodeURIComponent(window.location.href)
+
+    if(isMobile()){
+        window.location=start_url;
+    }else{
+        document.getElementById('game').src=start_url;
+
+        $('#gameWindow').css('display','block')
+        $('body').css('overflow','hidden')
+    }
+}
+
+
+    function start_old(id){
+
+        var lang = document.getElementById('fLang').value
+
+        var game = gamesMap[id]
+
+
+	if(game.provider == 'greentube'){
+		var start_url = 'https://test.partners.casinomobule.com/games.startDemo?partner.alias=demo&game.alias='+game.alias+'&game.provider='+game.provider+'&currency=RUB&mobile=false&balance=100000&origin=true&lang='+lang 
+                document.getElementById('game').src=start_url;
+
+		$('#gameWindow').css('display','block')
+	        $('body').css('overflow','hidden')
+        }else{
+
+	var domain = (game.provider=='spribe') ? '//partners.casinomobule.com' : '//test.partners.casinomobule.com'
+
+        $.get(
+            domain + '/netent.generateDemoStartConfig',
+            {
+                'partner.alias' : 'demo',
+		'game.provider': game.provider,
+                'game.alias': game.alias,
+                mobile: isMobile(),
+                currency: $('#fCurrency').val(),
+		balance: 500000,
+		origin: true
+            }
+        , function(r){
+
+                if(r.status == 200){
+	                    startFromConfig(r.response)
+                }else{
+                    alert("Error: "+r.message)
+                }
+            })
+	}
+    }
+
+    function startFromConfig(config){
+
+        $('#gameWindow').css('display','block')
+        $('body').css('overflow','hidden')
+
+
+        config.language = document.getElementById('fLang').value
+        //config.mobileParams.lobbyURL = "http://google.com"
+config.mobileParams.lobbyURL = "https://copyslots.com/"
+
+        console.log("@startFromConfig")
+        console.log(config)
+
+        netent.launch(
+            config,
+            function (netEntExtend) {},
+            function (e) {
+                console.log(e);
+            }
+        );
+    }
+
+    function close(){
+        $('#gameWindow').css('display', 'none')
+        $('#game').attr('src','')
+        $('body').css('overflow','auto')
+    }
+
+    function template(text, params){
+        var content = text
+
+        for(var key in params){
+            content = content.replace(new RegExp("\\{\\$"+key+"\\}","g"), params[key])
+        }
+
+        return content;
+    }
+
+    function sort(games){
+        return games.sort(function(a0,b0){
+            var a = a0.title
+            var b = b0.title
+
+ 	    if(a0.provider == 'spribe'){
+		return -1
+	    }else if(b0.provider == 'spribe'){
+		return 1
+	    }else if(a > b){
+                return 1
+            }else if(a < b){
+                return -1
+            }else{
+                return 0
+            }
+        })
+    }
+
+
+    function loadCurrencies(){
+        $.get(
+            '//test.partners.casinomobule.com/currencies.list',
+            {
+                'partner.alias' : 'demo'
+            }
+            , function(r){
+
+                var html = ''
+
+
+                if(r.status == 200){
+                    for( var i=0; i < r.response.length; i++){
+                        var item = r.response[i]
+
+                        html += '<option value="'+item.code_alpha+'">'+item.code_alpha+' - ' + item.title+'\n'
+                    }
+                }else{
+                    alert("Error: "+r.message)
+                }
+
+                $('#fCurrency').html(html)
+                $('#fCurrency').val('EUR')
+
+            })
+    }
+
+    loadCurrencies()
+
+
+var lastsearch = null;
+
+$('#fSearch').on('keyup', (e) => { 
+
+ var s = $(e.target).val().trim().toLowerCase();
+
+if(s == lastsearch) return;
+lastsearch = s;
+ 
+show(g => g.title.toLowerCase().indexOf(s) >= 0)
+ })
+
+</script>
+
+<!-- Oko.Tracker -->
+<script type="text/javascript" async="">
+
+    Oko = window.Oko || { push: function(){} };
+
+    (function (d, w) {
+	return ;
+        var host = 'arken.cc'
+
+        var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
+            n.parentNode.insertBefore(s, n);
+        };
+        s.type = "text/javascript";
+        s.async = true;
+        s.onerror = function(){
+            new Image(1, 1).src = '//'+host + "/e.gif?data=%7B%20event%3A%20%22loader.error%22%20%7D";
+        }
+
+        s.src = "//"+host+"/trek.js";
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else {
+            f();
+        }
+    })(document, window);
+
+// -- BALANCE SYNC FROM GAME IFRAME --
+window.addEventListener('message', function(e) {
+  var data = e.data;
+  if (typeof data === 'string') { try { data = JSON.parse(data); } catch(err) {} }
+  if (!data || typeof data !== 'object') return;
+  function num(v) {
+    if (typeof v === 'number' && v >= 0) return v;
+    if (typeof v === 'string') { var n = parseFloat(v); if (!isNaN(n) && n >= 0) return n; }
+    return null;
+  }
+  function findBalance(obj, depth) {
+    if (!obj || typeof obj !== 'object' || depth > 3) return null;
+    for (var k in obj) {
+      if (k.toLowerCase() === 'balance') { var v = num(obj[k]); if (v !== null) return v; }
+    }
+    for (var k2 in obj) {
+      if (typeof obj[k2] === 'object') { var f = findBalance(obj[k2], depth + 1); if (f !== null) return f; }
+    }
+    return null;
+  }
+  var cents = null;
+  cents = findBalance(data, 0);
+  if (cents === null) {
+    var ev = ((data.type || '') + ' ' + (data.event || '') + ' ' + (data.action || '')).toLowerCase();
+    if (ev.indexOf('balance') >= 0) {
+      if (num(data.value) !== null) cents = num(data.value);
+      else if (num(data.amount) !== null) cents = num(data.amount);
+      else if (data.data) { cents = num(data.data.value) !== null ? num(data.data.value) : num(data.data.amount); }
+    }
+  }
+  if (cents === null && num(data.credits) !== null) cents = num(data.credits);
+  if (cents === null && num(data.credit)  !== null) cents = num(data.credit);
+  if (cents !== null) { localStorage.setItem('z51_balance', Math.max(0, cents/100).toFixed(2)); }
+});
+</script>
+<noscript>
+    <div><img src="//arken.cc/e.gif?data=%7B%20event%3A%20%22loader.noscript%22%20%7D" style="position:absolute; left:-9999px;" alt=""/></div>
+</noscript>
+<!-- /Oko.Tracker -->
+
+
+
+</body></html>

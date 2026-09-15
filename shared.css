@@ -1,0 +1,322 @@
+/* ═══════════════════════════════════════════
+   ZONE 51 — Shared Theme Base
+   Loaded by all pages for consistent design
+═══════════════════════════════════════════ */
+
+/* ── Hide number input spinners ── */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
+
+/* ── CSS VARIABLES ── */
+:root {
+  --bg: #060108;
+  --panel: #0f0510;
+  --panel-2: #180a18;
+  --panel-3: #220e22;
+  --line: rgba(200, 50, 80, 0.28);
+  --line-bright: rgba(255, 30, 55, 0.45);
+  --text: #fff5f5;
+  --muted: #c09898;
+  --gold: #ffcb00;
+  --gold-bright: #ffe600;
+  --gold-dim: rgba(255, 196, 0, 0.35);
+  --red-bright: #ff2244;
+  --red-vivid: #ff0033;
+  --green-bright: #00f077;
+  --glow-gold: 0 0 28px rgba(255, 196, 0, 0.35);
+}
+
+/* ── BASE RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+canvas { position: fixed; inset: 0; z-index: 1; pointer-events: none; }
+.page-wrap { position: relative; z-index: 2; }
+
+/* ── TOPBAR ── */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 28px;
+  height: 60px;
+  background: rgba(3, 3, 5, 0.97);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(24px);
+}
+.topbar::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 4%,
+    var(--red-vivid) 20%,
+    white 28%,
+    var(--gold) 38%,
+    white 50%,
+    var(--gold) 62%,
+    white 72%,
+    var(--red-vivid) 80%,
+    transparent 96%);
+  opacity: 0.55;
+}
+
+/* ── BRAND EMBLEM ANIMATION ── */
+@keyframes emblem-breathe {
+  0%, 100% { box-shadow: 0 0 8px rgba(255,30,50,0.35), inset 0 0 6px rgba(255,30,50,0.1); }
+  50%       { box-shadow: 0 0 28px rgba(255,30,50,0.75), 0 0 60px rgba(255,120,0,0.3), inset 0 0 14px rgba(255,80,0,0.2); }
+}
+
+/* ── BRAND ── */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.brand-emblem {
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255, 20, 50, 0.65);
+  background: rgba(255, 20, 50, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  animation: emblem-breathe 5s ease-in-out infinite;
+}
+.brand-emblem::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 120, 80, 0.09) 0%, transparent 55%);
+  pointer-events: none;
+}
+.brand-emblem::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border: 1px solid rgba(255, 40, 60, 0.45);
+  pointer-events: none;
+}
+.brand-emblem span {
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 900;
+  color: var(--gold-bright);
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 0 14px rgba(255, 80, 30, 0.95), 0 0 30px rgba(255, 200, 0, 0.5);
+}
+.brand-text h1 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 6px;
+  color: var(--gold);
+  text-shadow: 0 0 18px rgba(255, 30, 55, 0.4);
+}
+.brand-text p {
+  color: var(--muted);
+  font-size: 0.58rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 1px;
+}
+.topbar-right { display: flex; gap: 8px; margin-left: auto; align-items: center; }
+
+/* ── BUTTONS ── */
+.btn {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 0.72rem;
+  padding: 0 18px;
+  height: 36px;
+  border: 1px solid;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: none;
+}
+.btn-ghost {
+  border-color: rgba(255, 30, 55, 0.4);
+  background: transparent;
+  color: rgba(255, 40, 60, 0.9);
+}
+.btn-ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(255, 20, 45, 0.08);
+}
+.btn-primary, .btn-gold {
+  border-color: var(--gold);
+  background: rgba(255, 20, 45, 0.14);
+  color: var(--gold-bright);
+}
+.btn-primary:hover, .btn-gold:hover {
+  background: rgba(255, 20, 50, 0.35);
+}
+
+/* ══════════════════════════════════════
+   MOBILE / RESPONSIVE — shared base
+   Applies to all pages using shared.css
+══════════════════════════════════════ */
+
+@media (max-width: 860px) {
+  .topbar { padding: 0 16px; gap: 10px; }
+  .topbar-right .btn-ghost { display: none; }
+  .brand-text p { display: none; }
+}
+
+@media (max-width: 620px) {
+  .topbar { height: 52px; }
+  .brand-emblem { width: 32px; height: 32px; }
+  .brand-text h1 { font-size: 0.85rem; letter-spacing: 4px; }
+
+  /* jackpot bar */
+  #z51-jp-bar { top: 52px; }
+
+  /* buttons scale down */
+  .btn { font-size: 0.64rem; padding: 0 12px; height: 32px; letter-spacing: 1.5px; }
+
+  /* hero sections */
+  .hero { padding: 32px 20px 28px; }
+  .hero-left h2 { font-size: 1.7rem; }
+
+  /* prize strips wrap */
+  .prize-strip { gap: 6px; }
+  .prize-chip { min-width: 76px; padding: 9px 12px; }
+
+  /* section padding */
+  .main { padding: 28px 16px 48px; }
+  .tabs-bar { padding: 0 16px; }
+  .prize-section { padding: 20px 16px; }
+}
+
+@media (max-width: 480px) {
+  /* live feed clears mute button */
+  #z51-feed { bottom: 70px; }
+
+  /* sound btn shifts up to avoid overlap with feed */
+  #z51-sfx-btn { bottom: 130px; }
+
+  /* toast narrower */
+  #z51-toast-wrap { top: 66px; right: 10px; width: calc(100vw - 20px); }
+
+  /* podium collapse to 3-column mobile */
+  .podium-outer { gap: 0; }
+  .podium-col { width: 110px; }
+  .podium-ava { width: 48px; height: 48px; font-size: 0.85rem; }
+  .podium-crown { font-size: 1.1rem; }
+
+  /* info grid single column */
+  .info-grid { grid-template-columns: 1fr; }
+
+  /* hero stats wrap */
+  .hero-stats { flex-wrap: wrap; }
+  .hero-stat { min-width: 50%; border-right: none; border-bottom: 1px solid var(--line); }
+  .hero-stat:last-child { border-bottom: none; }
+
+  /* leaderboard table — hide less important cols */
+  .lb-table thead th:nth-child(3),
+  .lb-table tbody td:nth-child(3) { display: none; }
+}
+
+@media (max-width: 600px) {
+  .topbar { padding: 0 12px; height: 54px; }
+  .brand-emblem { width: 32px; height: 32px; }
+  .brand-emblem span { font-size: 0.62rem; }
+  .brand-text h1 { font-size: 0.82rem; letter-spacing: 4px; }
+  .btn { padding: 0 12px; height: 32px; font-size: 0.65rem; letter-spacing: 1.5px; }
+  /* back button style used in game pages */
+  .back-btn { font-size: 0.65rem; padding: 5px 10px; letter-spacing: 1.5px; }
+  .game-title { font-size: 0.75rem; letter-spacing: 3px; }
+  /* section headers */
+  .page-main  { padding: 24px 14px 60px; }
+  .hero       { padding: 36px 14px 30px; }
+  .hero h2    { font-size: 1.8rem; }
+  .hero-stats { flex-wrap: wrap; gap: 12px; }
+}
+
+@media (max-width: 400px) {
+  .topbar { padding: 0 10px; height: 50px; }
+  .brand-text { display: none; }
+}
+
+/* ══════════════════════════════════════
+   MOBILE UX — touch & performance
+   Applied to all pages using shared.css
+══════════════════════════════════════ */
+
+/* Eliminate 300ms tap delay + remove default blue tap flash */
+a, button, .btn, input, select, textarea, label,
+[role="button"], [tabindex="0"] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* iOS Safari: prevent auto-zoom when focusing inputs (font-size < 16px triggers zoom) */
+@media screen and (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="search"],
+  select,
+  textarea {
+    font-size: max(16px, 1em);
+  }
+}
+
+/* SFX button: compact on tiny phones (< 380px) */
+@media (max-width: 380px) {
+  #z51-sfx-btn {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 0.82rem !important;
+  }
+}
+
+/* Safe area padding for iPhone notch / home-bar (requires viewport-fit=cover) */
+.topbar {
+  padding-top: env(safe-area-inset-top, 0);
+}
+@media (max-width: 620px) {
+  .topbar {
+    padding-left: max(12px, env(safe-area-inset-left, 12px));
+    padding-right: max(12px, env(safe-area-inset-right, 12px));
+  }
+}
+
+/* Smooth scrolling on pages */
+html { scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }

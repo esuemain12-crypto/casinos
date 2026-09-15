@@ -1,0 +1,2868 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>Demo</title>
+
+<!--    <script type="text/javascript" src="//shared-static.casinomobule.com/gameinclusion/jquery.min.js"></script> -->
+<!--    <script type="text/javascript" src="//shared-static.casinomobule.com/gameinclusion/library/gameinclusion.js"></script> -->
+
+<!--<script type="text/javascript" src="https://softswissmt-static.casinomodule.com/gameinclusion/library/gameinclusion.js"></script>-->
+    <script src="DemoEvoplay_files/jquery.min.js"></script>
+
+
+    <style>
+        body { padding: 0; margin: 0; font-size: 2em;}
+
+        .box { position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
+
+        #game { width: 100%; height: 100%; position: absolute; top: 0; right: 0; bottom: 0; left: 0;}
+    </style>
+
+    <style>
+
+        .game {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+	#blockGames {
+display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    justify-content: center;
+display: grid;
+
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+@media (min-width:320px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ body { font-size: 2em; } }
+@media (min-width:480px)  { /* smartphones, Android phones, landscape iPhone */ body { font-size: 2em; } }
+@media (min-width:600px)  { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */ body { font-size: 2em; } }
+@media (min-width:801px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ 
+
+body { font-size: 2em; }
+
+#blockGames {
+display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    justify-content: center;
+}
+
+.game {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+}
+@media (min-width:1025px) {
+body { font-size: 1em; }
+ /* big landscape tablets, laptops, and desktops */ }
+@media (min-width:1281px) { 
+/* hi-res laptops and desktops */ 
+
+body { font-size: 1em; }
+
+#blockGames {
+display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    justify-content: center;
+}
+
+.game {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+
+}
+
+    </style>
+</head>
+<body style="background-color: rgba(32,28,25,.77);">
+
+
+<div style="background: white; padding: 15px 20px;     display: flex;
+    position: relative;
+    column-gap: 10px;
+    row-gap: 20px;
+    overflow: hidden;
+    flex-wrap: wrap;justify-content: center;">
+    <select id="fProvider" style="width: 150px;" onchange="show()">
+<option value="*">Provider: *
+</option><option value="3oaks">Provider: 3Oaks
+</option><option value="amatic">Provider: Amatic
+</option><option value="bgaming">Provider: BGaming
+</option><option value="evoplay" selected="selected">Provider: Evoplay
+</option><option value="greentube">Provider: Greentube
+</option><option value="hacksaw">Provider: Hacksaw
+</option><option value="igrosoft">Provider: Igrosoft
+</option><option value="netent">Provider: Netent
+</option><option value="nolimit">Provider: Nolimit
+</option><option value="pgsoft">Provider: Pocket Games (PG Soft)
+</option><option value="playngo">Provider: Playngo
+</option><option value="playson">Provider: Playson
+</option><option value="pragmatic">Provider: Pragmatic
+</option><option value="pushgaming">Provider: Pushgaming
+</option><option value="redtiger">Provider: Redtiger
+</option><option value="relax">Provider: Relax
+</option><option value="spinomenal">Provider: Spinomenal
+</option><option value="spribe">Provider: Spribe
+</option><option value="megaways">MEGAWAYS
+    </option></select>
+    <select id="fLang">
+        <option value="bg">bg - Bulgarian
+        </option><option value="br">br - Portuguese (Brazil)
+        </option><option value="cn">cn - Chinese (Simplified)
+        </option><option value="cs">cs - Czech
+        </option><option value="da">da - Danish
+        </option><option value="de">de - German
+        </option><option value="el">el - Greek
+        </option><option value="en" selected="selected">en - English
+        </option><option value="es">es - Spanish
+        </option><option value="et">et - Estonian
+        </option><option value="fi">fi - Finnish
+        </option><option value="fr">fr - French
+        </option><option value="hr">hr - Croatian
+        </option><option value="hu">hu - Hungarian
+	</option><option value="ko">ko - Korean
+        </option><option value="it">it - Italian
+	</option><option value="id">id - Indonesian
+	</option><option value="ja">ja - Japanese
+        </option><option value="nl">nl - Dutch
+        </option><option value="no">no - Norwegian
+	</option><option value="nb">nb - Norwegian
+        </option><option value="pl">pl - Polish
+        </option><option value="pt">pt - Portuguese
+        </option><option value="ro">ro - Romanian
+        </option><option value="ru">ru - Russian
+        </option><option value="sk">sk - Slovak
+        </option><option value="sv">sv - Swedish
+        </option><option value="tr">tr - Turkish
+    </option></select>
+
+    <select id="fCurrency" style="width: 250px;"><option value="ADA">ADA - ADA
+</option><option value="AED">AED - UAE Dirham
+</option><option value="AFN">AFN - Afghani
+</option><option value="ALL">ALL - Lek
+</option><option value="AMD">AMD - Armenian Dram
+</option><option value="ANG">ANG - Netherlands Antillean Guilder
+</option><option value="AOA">AOA - Kwanza
+</option><option value="ARS">ARS - Argentine Peso
+</option><option value="AUD">AUD - Australian Dollar
+</option><option value="AWG">AWG - Aruban Florin
+</option><option value="AZN">AZN - Azerbaijanian Manat
+</option><option value="BAM">BAM - Convertible Mark
+</option><option value="BBD">BBD - Barbados Dollar
+</option><option value="BDT">BDT - Taka
+</option><option value="BET">BET - BETCOIN
+</option><option value="BGN">BGN - Bulgarian Lev
+</option><option value="BHD">BHD - Bahraini Dinar
+</option><option value="BIF">BIF - Burundi Franc
+</option><option value="BMD">BMD - Bermudian Dollar
+</option><option value="BMZ">BMZ - BMZ
+</option><option value="BNB">BNB - BNB
+</option><option value="BND">BND - Brunei Dollar
+</option><option value="BOB">BOB - Boliviano
+</option><option value="BOV">BOV - Mvdol
+</option><option value="BRL">BRL - Brazilian Real
+</option><option value="BSD">BSD - Bahamian Dollar
+</option><option value="BTC">BTC - Bitcoin
+</option><option value="BTN">BTN - Ngultrum
+</option><option value="BWP">BWP - Pula
+</option><option value="BYN">BYN - Belarusian Ruble
+</option><option value="BYR">BYR - Belarusian Ruble
+</option><option value="BZD">BZD - Belize Dollar
+</option><option value="CAD">CAD - Canadian Dollar
+</option><option value="CDF">CDF - Congolese Franc
+</option><option value="CHE">CHE - WIR Euro
+</option><option value="CHF">CHF - Swiss Franc
+</option><option value="CHW">CHW - WIR Franc
+</option><option value="CLF">CLF - Unidad de Fomento
+</option><option value="CLP">CLP - Chilean Peso
+</option><option value="CNY">CNY - Yuan Renminbi
+</option><option value="COP">COP - Colombian Peso
+</option><option value="COU">COU - Unidad de Valor Real
+</option><option value="CRC">CRC - Costa Rican Colon
+</option><option value="CUC">CUC - Peso Convertible
+</option><option value="CUP">CUP - Cuban Peso
+</option><option value="CVE">CVE - Cabo Verde Escudo
+</option><option value="CZK">CZK - Czech Koruna
+</option><option value="DJF">DJF - Djibouti Franc
+</option><option value="DKK">DKK - Danish Krone
+</option><option value="DLS">DLS - DLS (Fun Tickets)
+</option><option value="DOGE">DOGE - DOGE
+</option><option value="DOP">DOP - Dominican Peso
+</option><option value="DZD">DZD - Algerian Dinar
+</option><option value="EGP">EGP - Egyptian Pound
+</option><option value="ERN">ERN - Nakfa
+</option><option value="ETB">ETB - Ethiopian Birr
+</option><option value="ETH">ETH - Ethereum
+</option><option value="EUR" selected="selected">EUR - Euro
+</option><option value="EUR_BONUS">EUR_BONUS - EUR (Bonus)
+</option><option value="FJD">FJD - Fiji Dollar
+</option><option value="FKP">FKP - Falkland Islands Pound
+</option><option value="FUN">FUN - FUN
+</option><option value="GBP">GBP - Pound Sterling
+</option><option value="GC">GC - Gold Coin (Fun)
+</option><option value="GEL">GEL - Lari
+</option><option value="GHS">GHS - Ghana Cedi
+</option><option value="GIP">GIP - Gibraltar Pound
+</option><option value="GMD">GMD - Dalasi
+</option><option value="GNF">GNF - Guinea Franc
+</option><option value="GTQ">GTQ - Quetzal
+</option><option value="GYD">GYD - Guyana Dollar
+</option><option value="HKD">HKD - Hong Kong Dollar
+</option><option value="HNL">HNL - Lempira
+</option><option value="HRK">HRK - Kuna
+</option><option value="HTG">HTG - Gourde
+</option><option value="HUF">HUF - Forint
+</option><option value="IDR">IDR - Rupiah
+</option><option value="ILS">ILS - New Israeli Sheqel
+</option><option value="INR">INR - Indian Rupee
+</option><option value="IQD">IQD - Iraqi Dinar
+</option><option value="IRR">IRR - Iranian Rial
+</option><option value="IRR2">IRR2 - Iranian Rial (No Copecs)
+</option><option value="IRT">IRT - Iranian Toman
+</option><option value="ISK">ISK - Iceland Krona
+</option><option value="JC">JC - Jade Coin (USD Like)
+</option><option value="JMD">JMD - Jamaican Dollar
+</option><option value="JOD">JOD - Jordanian Dinar
+</option><option value="JPY">JPY - Yen
+</option><option value="KES">KES - Kenyan Shilling
+</option><option value="KGS">KGS - Som
+</option><option value="KHR">KHR - Riel
+</option><option value="KMF">KMF - Comoro Franc
+</option><option value="KPW">KPW - North Korean Won
+</option><option value="KRW">KRW - Won
+</option><option value="KRW2">KRW2 - Won2
+</option><option value="KWD">KWD - Kuwaiti Dinar
+</option><option value="KYD">KYD - Cayman Islands Dollar
+</option><option value="KZT">KZT - Tenge
+</option><option value="LAK">LAK - Kip
+</option><option value="LBP">LBP - Lebanese Pound
+</option><option value="LKR">LKR - Sri Lanka Rupee
+</option><option value="LRD">LRD - Liberian Dollar
+</option><option value="LSL">LSL - Loti
+</option><option value="LTC">LTC - Litecoin
+</option><option value="LYD">LYD - Libyan Dinar
+</option><option value="MAD">MAD - Moroccan Dirham
+</option><option value="MDL">MDL - Moldovan Leu
+</option><option value="MGA">MGA - Malagasy Ariary
+</option><option value="MKD">MKD - Denar
+</option><option value="MMK">MMK - Kyat
+</option><option value="MNT">MNT - Tugrik
+</option><option value="MOP">MOP - Pataca
+</option><option value="MRO">MRO - Ouguiya
+</option><option value="MUR">MUR - Mauritius Rupee
+</option><option value="MVR">MVR - Rufiyaa
+</option><option value="MWK">MWK - Malawi Kwacha
+</option><option value="MXN">MXN - Mexican Peso
+</option><option value="MXV">MXV - Mexican Unidad de Inversion (UDI)
+</option><option value="MYR">MYR - Malaysian Ringgit
+</option><option value="MZN">MZN - Mozambique Metical
+</option><option value="NAD">NAD - Namibia Dollar
+</option><option value="NGN">NGN - Naira
+</option><option value="NIO">NIO - Cordoba Oro
+</option><option value="NOK">NOK - Norwegian Krone
+</option><option value="NPR">NPR - Nepalese Rupee
+</option><option value="NZD">NZD - New Zealand Dollar
+</option><option value="OMR">OMR - Rial Omani
+</option><option value="PAB">PAB - Balboa
+</option><option value="PEN">PEN - Sol
+</option><option value="PGK">PGK - Kina
+</option><option value="PHP">PHP - Philippine Peso
+</option><option value="PKR">PKR - Pakistan Rupee
+</option><option value="PLN">PLN - Zloty
+</option><option value="PYG">PYG - Guarani
+</option><option value="QAR">QAR - Qatari Rial
+</option><option value="RBX">RBX - RBX (Roblox)
+</option><option value="RON">RON - Romanian Leu
+</option><option value="RSD">RSD - Serbian Dinar
+</option><option value="RUB">RUB - Russian Ruble
+</option><option value="RUB_BONUS">RUB_BONUS - Russian Ruble (Bonus)
+</option><option value="RWF">RWF - Rwanda Franc
+</option><option value="SAR">SAR - Saudi Riyal
+</option><option value="SBD">SBD - Solomon Islands Dollar
+</option><option value="SBS">SBS - SBS
+</option><option value="SC">SC - SC (Fun)
+</option><option value="SCR">SCR - Seychelles Rupee
+</option><option value="SDG">SDG - Sudanese Pound
+</option><option value="SEK">SEK - Swedish Krona
+</option><option value="SGD">SGD - Singapore Dollar
+</option><option value="SHP">SHP - Saint Helena Pound
+</option><option value="SLL">SLL - Leone
+</option><option value="SOL">SOL - SOL
+</option><option value="SOS">SOS - Somali Shilling
+</option><option value="SRD">SRD - Surinam Dollar
+</option><option value="SSP">SSP - South Sudanese Pound
+</option><option value="STD">STD - Dobra
+</option><option value="SVC">SVC - El Salvador Colon
+</option><option value="SYP">SYP - Syrian Pound
+</option><option value="SZL">SZL - Lilangeni
+</option><option value="THB">THB - Baht
+</option><option value="TJS">TJS - Somoni
+</option><option value="TKN">TKN - So Custom USD Convertible
+</option><option value="TMT">TMT - Turkmenistan New Manat
+</option><option value="TND">TND - Tunisian Dinar
+</option><option value="TOM">TOM - TOM
+</option><option value="TOP">TOP - Pa’anga
+</option><option value="TRX">TRX - TRX
+</option><option value="TRY">TRY - Turkish Lira
+</option><option value="TTD">TTD - Trinidad and Tobago Dollar
+</option><option value="TWD">TWD - New Taiwan Dollar
+</option><option value="TZS">TZS - Tanzanian Shilling
+</option><option value="UAH">UAH - Hryvnia
+</option><option value="UAH_BONUS">UAH_BONUS - UAH (Bonus)
+</option><option value="UGX">UGX - Uganda Shilling
+</option><option value="USD">USD - US Dollar
+</option><option value="USDC">USDC - USDC
+</option><option value="USDT">USDT - USDT
+</option><option value="USD_BONUS">USD_BONUS - USD (Bonus)
+</option><option value="USN">USN - US Dollar (Next day)
+</option><option value="UYI">UYI - Uruguay Peso en Unidades Indexadas (URUIURUI)
+</option><option value="UYU">UYU - Peso Uruguayo
+</option><option value="UZS">UZS - Uzbekistan Sum
+</option><option value="VEF">VEF - Bolívar
+</option><option value="VND">VND - Dong
+</option><option value="VUV">VUV - Vatu
+</option><option value="WST">WST - Tala
+</option><option value="XAF">XAF - CFA Franc BEAC
+</option><option value="XCD">XCD - East Caribbean Dollar
+</option><option value="XOF">XOF - CFA Franc BCEAO
+</option><option value="XPF">XPF - CFP Franc
+</option><option value="XRP">XRP - XRP
+</option><option value="YER">YER - Yemeni Rial
+</option><option value="ZAR">ZAR - Rand
+</option><option value="ZMW">ZMW - Zambian Kwacha
+</option><option value="ZWL">ZWL - Zimbabwe Dollar
+</option><option value="mBCH">mBCH - mBCH
+</option><option value="mBTC">mBTC - Bitcoin Milli
+</option><option value="mDASH">mDASH - mDASH
+</option><option value="mETH">mETH - Ethereum Milli
+</option><option value="mLTC">mLTC - Litecoin Milli
+</option><option value="mXMR">mXMR - mXMR
+</option><option value="uBTC">uBTC - Bitcoin Nano
+</option><option value="uETH">uETH - Ethereum Nano
+</option><option value="uLTC">uLTC - Litecoin Nano
+</option></select>
+<input id="fSearch" placeholder="Search" style="width:" 200px;"="">
+
+<div style="display: inline-block; padding: 0.2em;">Party with US: <a href="mailto:copyslots@proton.me" style="color: black;"><b id="contact">copyslots@proton.me</b></a></div>
+
+</div>
+
+<div id="blockGames">
+    <div class="game" style="">
+        <a onclick="start(2467)" target="demogame" class="gameLink" style="cursor: pointer;" title="Ace Round">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_aceround.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Ace Round" src="DemoEvoplay_files/evo_aceround.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2449)" target="demogame" class="gameLink" style="cursor: pointer;" title="Animal Quest">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_animalquest.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Animal Quest" src="DemoEvoplay_files/evo_animalquest.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2414)" target="demogame" class="gameLink" style="cursor: pointer;" title="Anubis’ Moon">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_anubismoon.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Anubis’ Moon" src="DemoEvoplay_files/evo_anubismoon.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2342)" target="demogame" class="gameLink" style="cursor: pointer;" title="Bandit Bust Bonus Buy">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_banditbustbb.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Bandit Bust Bonus Buy" src="DemoEvoplay_files/evo_banditbustbb.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2480)" target="demogame" class="gameLink" style="cursor: pointer;" title="Basketball">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_basketball.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Basketball" src="DemoEvoplay_files/evo_basketball.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2351)" target="demogame" class="gameLink" style="cursor: pointer;" title="Battle Roosters">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_battleroosters.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Battle Roosters" src="DemoEvoplay_files/evo_battleroosters.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2348)" target="demogame" class="gameLink" style="cursor: pointer;" title="Battle Roosters Bonus Buy">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_battleroostersbb.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Battle Roosters Bonus Buy" src="DemoEvoplay_files/evo_battleroostersbb.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2341)" target="demogame" class="gameLink" style="cursor: pointer;" title="Belfry Bliss">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_belfrybliss.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Belfry Bliss" src="DemoEvoplay_files/evo_belfrybliss.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2398)" target="demogame" class="gameLink" style="cursor: pointer;" title="Blessed Flame">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_blessedflame.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Blessed Flame" src="DemoEvoplay_files/evo_blessedflame.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2470)" target="demogame" class="gameLink" style="cursor: pointer;" title="Book of Rest">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_bookofrest.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Book of Rest" src="DemoEvoplay_files/evo_bookofrest.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2385)" target="demogame" class="gameLink" style="cursor: pointer;" title="Book of the Priestess">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_bookofthepriestess.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Book of the Priestess" src="DemoEvoplay_files/evo_bookofthepriestess.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2380)" target="demogame" class="gameLink" style="cursor: pointer;" title="Book of the Priestess Bonus Buy">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_bookofthepriestessbb.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Book of the Priestess Bonus Buy" src="DemoEvoplay_files/evo_bookofthepriestessbb.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2464)" target="demogame" class="gameLink" style="cursor: pointer;" title="Brutal Santa">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_brutalsanta.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Brutal Santa" src="DemoEvoplay_files/evo_brutalsanta.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2418)" target="demogame" class="gameLink" style="cursor: pointer;" title="Budai Reels">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_budaireels.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Budai Reels" src="DemoEvoplay_files/evo_budaireels.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2338)" target="demogame" class="gameLink" style="cursor: pointer;" title="Bull’s Club">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_bullsclub.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Bull’s Club" src="DemoEvoplay_files/evo_bullsclub.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2408)" target="demogame" class="gameLink" style="cursor: pointer;" title="Camino de Chili">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_caminodechili.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Camino de Chili" src="DemoEvoplay_files/evo_caminodechili.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2473)" target="demogame" class="gameLink" style="cursor: pointer;" title="Candy Dreams">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_candydreams.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Candy Dreams" src="DemoEvoplay_files/evo_candydreams.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2407)" target="demogame" class="gameLink" style="cursor: pointer;" title="Candy Dreams: Sweet Planet">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_candydreamssweetplanet.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Candy Dreams: Sweet Planet" src="DemoEvoplay_files/evo_candydreamssweetplanet.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2401)" target="demogame" class="gameLink" style="cursor: pointer;" title="Candy Dreams: Sweet Planet Bonus Buy">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_candydreamssweetplanetbb.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Candy Dreams: Sweet Planet Bonus Buy" src="DemoEvoplay_files/evo_candydreamssweetplanetbb.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2360)" target="demogame" class="gameLink" style="cursor: pointer;" title="Catch the Wind">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_catchthewind.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Catch the Wind" src="DemoEvoplay_files/evo_catchthewind.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2355)" target="demogame" class="gameLink" style="cursor: pointer;" title="Catch the Wind Bonus Buy">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_catchthewindbb.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Catch the Wind Bonus Buy" src="DemoEvoplay_files/evo_catchthewindbb.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2320)" target="demogame" class="gameLink" style="cursor: pointer;" title="Cat’s Blessing">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_catsblessing.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Cat’s Blessing" src="DemoEvoplay_files/evo_catsblessing.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2477)" target="demogame" class="gameLink" style="cursor: pointer;" title="Chinese New Year">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_chinesenewyear.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Chinese New Year" src="DemoEvoplay_files/evo_chinesenewyear.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2329)" target="demogame" class="gameLink" style="cursor: pointer;" title="Chosen by the Gods">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_chosenbythegods.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Chosen by the Gods" src="DemoEvoplay_files/evo_chosenbythegods.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2422)" target="demogame" class="gameLink" style="cursor: pointer;" title="Christmas Reach">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_christmasreach.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Christmas Reach" src="DemoEvoplay_files/evo_christmasreach.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2478)" target="demogame" class="gameLink" style="cursor: pointer;" title="Clash of Pirates">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_clashofpirates.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Clash of Pirates" src="DemoEvoplay_files/evo_clashofpirates.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2395)" target="demogame" class="gameLink" style="cursor: pointer;" title="Collapsed Castle">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_collapsedcastle.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Collapsed Castle" src="DemoEvoplay_files/evo_collapsedcastle.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2388)" target="demogame" class="gameLink" style="cursor: pointer;" title="Collapsed Castle Bonus Buy">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_collapsedcastlebb.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Collapsed Castle Bonus Buy" src="DemoEvoplay_files/evo_collapsedcastlebb.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2356)" target="demogame" class="gameLink" style="cursor: pointer;" title="Cursed Can">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_cursedcan.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Cursed Can" src="DemoEvoplay_files/evo_cursedcan.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2353)" target="demogame" class="gameLink" style="cursor: pointer;" title="Cursed Can Bonus Buy">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_cursedcanbb.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Cursed Can Bonus Buy" src="DemoEvoplay_files/evo_cursedcanbb.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2378)" target="demogame" class="gameLink" style="cursor: pointer;" title="Cycle of Luck">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_cycleofluck.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Cycle of Luck" src="DemoEvoplay_files/evo_cycleofluck.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2426)" target="demogame" class="gameLink" style="cursor: pointer;" title="Cycle of Luck Bonus Buy">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_cycleofluckbonusbuy.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Cycle of Luck Bonus Buy" src="DemoEvoplay_files/evo_cycleofluckbonusbuy.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2479)" target="demogame" class="gameLink" style="cursor: pointer;" title="Egypt Gods">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_egyptgods.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Egypt Gods" src="DemoEvoplay_files/evo_egyptgods.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2445)" target="demogame" class="gameLink" style="cursor: pointer;" title="Ellen’s Fortune">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_ellensfortune.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Ellen’s Fortune" src="DemoEvoplay_files/evo_ellensfortune.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2468)" target="demogame" class="gameLink" style="cursor: pointer;" title="Epic Gladiators">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_epicgladiators.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Epic Gladiators" src="DemoEvoplay_files/evo_epicgladiators.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2465)" target="demogame" class="gameLink" style="cursor: pointer;" title="Epic Legends">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_epiclegends.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Epic Legends" src="DemoEvoplay_files/evo_epiclegends.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2444)" target="demogame" class="gameLink" style="cursor: pointer;" title="Europe Transit">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_europetransit.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Europe Transit" src="DemoEvoplay_files/evo_europetransit.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2362)" target="demogame" class="gameLink" style="cursor: pointer;" title="Europe Transit Bonus Buy">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_europetransitbb.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Europe Transit Bonus Buy" src="DemoEvoplay_files/evo_europetransitbb.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2366)" target="demogame" class="gameLink" style="cursor: pointer;" title="Europe Transit Snowdrift">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_europetransitsnowdrift.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Europe Transit Snowdrift" src="DemoEvoplay_files/evo_europetransitsnowdrift.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2331)" target="demogame" class="gameLink" style="cursor: pointer;" title="Expanding Master">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_expandingmaster.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Expanding Master" src="DemoEvoplay_files/evo_expandingmaster.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2412)" target="demogame" class="gameLink" style="cursor: pointer;" title="Exploding Fruits">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_explodingfruits.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Exploding Fruits" src="DemoEvoplay_files/evo_explodingfruits.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2456)" target="demogame" class="gameLink" style="cursor: pointer;" title="Fluffy Rangers">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_fluffyrangers.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Fluffy Rangers" src="DemoEvoplay_files/evo_fluffyrangers.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2454)" target="demogame" class="gameLink" style="cursor: pointer;" title="Food Feast">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_foodfeast.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Food Feast" src="DemoEvoplay_files/evo_foodfeast.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2469)" target="demogame" class="gameLink" style="cursor: pointer;" title="Fruit Super Nova 100">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_fruitsupernova100.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Fruit Super Nova 100" src="DemoEvoplay_files/evo_fruitsupernova100.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2429)" target="demogame" class="gameLink" style="cursor: pointer;" title="Fruit Super Nova 30">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_fruitsupernova30.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Fruit Super Nova 30" src="DemoEvoplay_files/evo_fruitsupernova30.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2432)" target="demogame" class="gameLink" style="cursor: pointer;" title="Fruit Super Nova 40">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_fruitsupernova40.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Fruit Super Nova 40" src="DemoEvoplay_files/evo_fruitsupernova40.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2434)" target="demogame" class="gameLink" style="cursor: pointer;" title="Fruit Super Nova 60">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_fruitsupernova60.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Fruit Super Nova 60" src="DemoEvoplay_files/evo_fruitsupernova60.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2430)" target="demogame" class="gameLink" style="cursor: pointer;" title="Fruit Super Nova 80">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_fruitsupernova80.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Fruit Super Nova 80" src="DemoEvoplay_files/evo_fruitsupernova80.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2404)" target="demogame" class="gameLink" style="cursor: pointer;" title="Fruitburst">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_fruitburst.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Fruitburst" src="DemoEvoplay_files/evo_fruitburst.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2365)" target="demogame" class="gameLink" style="cursor: pointer;" title="Gold of Sirens">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_goldofsirens.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Gold of Sirens" src="DemoEvoplay_files/evo_goldofsirens.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2333)" target="demogame" class="gameLink" style="cursor: pointer;" title="Hot Volcano Bonus Buy">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_hotvolcanobb.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Hot Volcano Bonus Buy" src="DemoEvoplay_files/evo_hotvolcanobb.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2394)" target="demogame" class="gameLink" style="cursor: pointer;" title="Hungry Night">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_hungrynight.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Hungry Night" src="DemoEvoplay_files/evo_hungrynight.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2460)" target="demogame" class="gameLink" style="cursor: pointer;" title="Indiana’s Quest">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_indianasquest.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Indiana’s Quest" src="DemoEvoplay_files/evo_indianasquest.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2462)" target="demogame" class="gameLink" style="cursor: pointer;" title="Inner Fire">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_innerfire.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Inner Fire" src="DemoEvoplay_files/evo_innerfire.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2389)" target="demogame" class="gameLink" style="cursor: pointer;" title="Inner Fire Bonus Buy">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_innerfirebb.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Inner Fire Bonus Buy" src="DemoEvoplay_files/evo_innerfirebb.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2322)" target="demogame" class="gameLink" style="cursor: pointer;" title="Irish Reels">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_irishreels.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Irish Reels" src="DemoEvoplay_files/evo_irishreels.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2457)" target="demogame" class="gameLink" style="cursor: pointer;" title="Irish Weekend">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_irishweekend.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Irish Weekend" src="DemoEvoplay_files/evo_irishweekend.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2373)" target="demogame" class="gameLink" style="cursor: pointer;" title="Jelly Boom">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_jellyboom.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Jelly Boom" src="DemoEvoplay_files/evo_jellyboom.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2453)" target="demogame" class="gameLink" style="cursor: pointer;" title="Jhana of God">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_jhanaofgod.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Jhana of God" src="DemoEvoplay_files/evo_jhanaofgod.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2358)" target="demogame" class="gameLink" style="cursor: pointer;" title="Jhana of God Bonus Buy">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_jhanaofgodbb.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Jhana of God Bonus Buy" src="DemoEvoplay_files/evo_jhanaofgodbb.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2466)" target="demogame" class="gameLink" style="cursor: pointer;" title="Juicy Gems">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_juicygems.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Juicy Gems" src="DemoEvoplay_files/evo_juicygems.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2411)" target="demogame" class="gameLink" style="cursor: pointer;" title="Juicy Gems Bonus Buy">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_juicygemsbb.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Juicy Gems Bonus Buy" src="DemoEvoplay_files/evo_juicygemsbb.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2413)" target="demogame" class="gameLink" style="cursor: pointer;" title="Legacy of the Sages">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_legacyofthesages.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Legacy of the Sages" src="DemoEvoplay_files/evo_legacyofthesages.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2343)" target="demogame" class="gameLink" style="cursor: pointer;" title="Legend of Ra">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_legendofra.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Legend of Ra" src="DemoEvoplay_files/evo_legendofra.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2361)" target="demogame" class="gameLink" style="cursor: pointer;" title="Massive Luck">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_massiveluck.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Massive Luck" src="DemoEvoplay_files/evo_massiveluck.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2402)" target="demogame" class="gameLink" style="cursor: pointer;" title="Massive Luck Bonus Buy">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_massiveluckbb.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Massive Luck Bonus Buy" src="DemoEvoplay_files/evo_massiveluckbb.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2390)" target="demogame" class="gameLink" style="cursor: pointer;" title="Maze: Desire for Power">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_maze.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Maze: Desire for Power" src="DemoEvoplay_files/evo_maze.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2419)" target="demogame" class="gameLink" style="cursor: pointer;" title="Money Minter">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_moneyminter.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Money Minter" src="DemoEvoplay_files/evo_moneyminter.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2405)" target="demogame" class="gameLink" style="cursor: pointer;" title="Money Minter Bonus Buy">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_moneyminterbb.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Money Minter Bonus Buy" src="DemoEvoplay_files/evo_moneyminterbb.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2459)" target="demogame" class="gameLink" style="cursor: pointer;" title="Neon Capital">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_neoncapital.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Neon Capital" src="DemoEvoplay_files/evo_neoncapital.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2375)" target="demogame" class="gameLink" style="cursor: pointer;" title="Northern Temple">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_northerntemple.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Northern Temple" src="DemoEvoplay_files/evo_northerntemple.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2370)" target="demogame" class="gameLink" style="cursor: pointer;" title="Northern Temple Bonus Buy">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_northerntemplebb.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Northern Temple Bonus Buy" src="DemoEvoplay_files/evo_northerntemplebb.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2364)" target="demogame" class="gameLink" style="cursor: pointer;" title="Nuke World">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_nukeworld.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Nuke World" src="DemoEvoplay_files/evo_nukeworld.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2436)" target="demogame" class="gameLink" style="cursor: pointer;" title="Pyro Joker">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_pyrojokerevo.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Pyro Joker" src="DemoEvoplay_files/evo_pyrojokerevo.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2330)" target="demogame" class="gameLink" style="cursor: pointer;" title="Raccoon Tales">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_raccoontales.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Raccoon Tales" src="DemoEvoplay_files/evo_raccoontales.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2447)" target="demogame" class="gameLink" style="cursor: pointer;" title="Redrose Sanctuary">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_redrosesanctuary.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Redrose Sanctuary" src="DemoEvoplay_files/evo_redrosesanctuary.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2396)" target="demogame" class="gameLink" style="cursor: pointer;" title="Redrose Sanctuary Bonus Buy">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_redrosesanctuarybb.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Redrose Sanctuary Bonus Buy" src="DemoEvoplay_files/evo_redrosesanctuarybb.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2383)" target="demogame" class="gameLink" style="cursor: pointer;" title="Reign Of Dragons">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_reignofdragons.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Reign Of Dragons" src="DemoEvoplay_files/evo_reignofdragons.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2450)" target="demogame" class="gameLink" style="cursor: pointer;" title="Rise of Horus">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_riseofhorus.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Rise of Horus" src="DemoEvoplay_files/evo_riseofhorus.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2441)" target="demogame" class="gameLink" style="cursor: pointer;" title="Robin Hood">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_robinhood.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Robin Hood" src="DemoEvoplay_files/evo_robinhood.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2476)" target="demogame" class="gameLink" style="cursor: pointer;" title="Rocket Stars">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_rocketstars.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Rocket Stars" src="DemoEvoplay_files/evo_rocketstars.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2340)" target="demogame" class="gameLink" style="cursor: pointer;" title="Rueda De Chile">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_ruedadechile.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Rueda De Chile" src="DemoEvoplay_files/evo_ruedadechile.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2397)" target="demogame" class="gameLink" style="cursor: pointer;" title="Rueda de Chile Bonus Buy">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_ruedadechilebb.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Rueda de Chile Bonus Buy" src="DemoEvoplay_files/evo_ruedadechilebb.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2393)" target="demogame" class="gameLink" style="cursor: pointer;" title="Rumble in the Shadows">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_rumbleintheshadows.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Rumble in the Shadows" src="DemoEvoplay_files/evo_rumbleintheshadows.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2463)" target="demogame" class="gameLink" style="cursor: pointer;" title="Shadow of Luxor">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_shadowofluxor.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Shadow of Luxor" src="DemoEvoplay_files/evo_shadowofluxor.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2435)" target="demogame" class="gameLink" style="cursor: pointer;" title="Sold It">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_soldit.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Sold It" src="DemoEvoplay_files/evo_soldit.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2472)" target="demogame" class="gameLink" style="cursor: pointer;" title="Sold It Bonus Buy">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_solditbb.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Sold It Bonus Buy" src="DemoEvoplay_files/evo_solditbb.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2354)" target="demogame" class="gameLink" style="cursor: pointer;" title="Sweet Sugar">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_sweetsugar.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Sweet Sugar" src="DemoEvoplay_files/evo_sweetsugar.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2452)" target="demogame" class="gameLink" style="cursor: pointer;" title="Talismans of Fortune">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_talismansoffortune.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Talismans of Fortune" src="DemoEvoplay_files/evo_talismansoffortune.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2443)" target="demogame" class="gameLink" style="cursor: pointer;" title="Temple of Dead">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_templeofdead.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Temple of Dead" src="DemoEvoplay_files/evo_templeofdead.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2475)" target="demogame" class="gameLink" style="cursor: pointer;" title="Temple of Dead Bonus Buy">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_templeofdeadbonusbuy.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Temple of Dead Bonus Buy" src="DemoEvoplay_files/evo_templeofdeadbonusbuy.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2417)" target="demogame" class="gameLink" style="cursor: pointer;" title="Temple of Thunder">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_templeofthunder.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Temple of Thunder" src="DemoEvoplay_files/evo_templeofthunder.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2431)" target="demogame" class="gameLink" style="cursor: pointer;" title="Temple of Thunder II">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_templeofthunder2.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Temple of Thunder II" src="DemoEvoplay_files/evo_templeofthunder2.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2347)" target="demogame" class="gameLink" style="cursor: pointer;" title="The Belt of Champion">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_thebeltofchampion.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: The Belt of Champion" src="DemoEvoplay_files/evo_thebeltofchampion.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2344)" target="demogame" class="gameLink" style="cursor: pointer;" title="The Belt of Champion Bonus Buy">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_thebeltofchampionbb.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: The Belt of Champion Bonus Buy" src="DemoEvoplay_files/evo_thebeltofchampionbb.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2350)" target="demogame" class="gameLink" style="cursor: pointer;" title="The Emperor’s Tomb">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_emperorstomb.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: The Emperor’s Tomb" src="DemoEvoplay_files/evo_emperorstomb.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2325)" target="demogame" class="gameLink" style="cursor: pointer;" title="The Slavs">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_slavs.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: The Slavs" src="DemoEvoplay_files/evo_slavs.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2391)" target="demogame" class="gameLink" style="cursor: pointer;" title="Treasure-Snipes: Christmas">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_treasuresnipeschristmas.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Treasure-Snipes: Christmas" src="DemoEvoplay_files/evo_treasuresnipeschristmas.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2400)" target="demogame" class="gameLink" style="cursor: pointer;" title="Tree of Light">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_treeoflight.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Tree of Light" src="DemoEvoplay_files/evo_treeoflight.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2376)" target="demogame" class="gameLink" style="cursor: pointer;" title="Unlimited Treasures">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_unlimitedtreasures.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Unlimited Treasures" src="DemoEvoplay_files/evo_unlimitedtreasures.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2446)" target="demogame" class="gameLink" style="cursor: pointer;" title="Unlimited Wishes">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_unlimitedwishes.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Unlimited Wishes" src="DemoEvoplay_files/evo_unlimitedwishes.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2442)" target="demogame" class="gameLink" style="cursor: pointer;" title="Valley of Dreams">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_valleyofdreams.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Valley of Dreams" src="DemoEvoplay_files/evo_valleyofdreams.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2474)" target="demogame" class="gameLink" style="cursor: pointer;" title="Vegas Nights">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_vegasnights.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Vegas Nights" src="DemoEvoplay_files/evo_vegasnights.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2339)" target="demogame" class="gameLink" style="cursor: pointer;" title="Venice Festival">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_venicefestival.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Venice Festival" src="DemoEvoplay_files/evo_venicefestival.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2458)" target="demogame" class="gameLink" style="cursor: pointer;" title="Western Reels">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_westernreels.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Western Reels" src="DemoEvoplay_files/evo_westernreels.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2451)" target="demogame" class="gameLink" style="cursor: pointer;" title="Wild Bullets">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_wildbullets.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Wild Bullets" src="DemoEvoplay_files/evo_wildbullets.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2421)" target="demogame" class="gameLink" style="cursor: pointer;" title="Wild Overlords">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_wildoverlords.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Wild Overlords" src="DemoEvoplay_files/evo_wildoverlords.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2403)" target="demogame" class="gameLink" style="cursor: pointer;" title="Wolf Hiding">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_wolfhiding.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Wolf Hiding" src="DemoEvoplay_files/evo_wolfhiding.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2392)" target="demogame" class="gameLink" style="cursor: pointer;" title="Wolf Hiding Bonus Buy">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_wolfhidingbb.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Wolf Hiding Bonus Buy" src="DemoEvoplay_files/evo_wolfhidingbb.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2382)" target="demogame" class="gameLink" style="cursor: pointer;" title="Wonder Farm">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_wonderfarm.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: Wonder Farm" src="DemoEvoplay_files/evo_wonderfarm.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(2367)" target="demogame" class="gameLink" style="cursor: pointer;" title="X-Demon">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/evoplay/156-156/evo_xdemon.png.png"> -->
+	<img width="100%" height="100%" title="evoplay: X-Demon" src="DemoEvoplay_files/evo_xdemon.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+</div>
+
+<div id="gameWindow" class="box" style="background: black; display: none; position: fixed;">
+
+    <div style="position: absolute; margin-left: 50%; margin-right: 50%; top: 0px;">
+        <a href="javascript:close()" style="color: white; display: block;
+    padding: 10px 50px;">Закрыть</a>
+    </div>
+
+    <div class="box" style="top:40px;">
+        <iframe id="game" style="width: 100%; height:100%; border: none;"></iframe>
+    </div>
+
+</div>
+
+<script id="gameTpl" type="text/x-template">
+    <div class="game" style="">
+        <a onclick="{$href}" target="demogame" class="gameLink" style="cursor: pointer;" title="{$title}">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/{$icon}.png"> -->
+	<img width="100%" height="100%" title="{$provider}: {$title}"
+                 src="{$icon}">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: {$display};">
+            <h3 style="color: white;">{$label}</h3>
+        </div>
+    </div>
+</script>
+
+<script id="gameTpl_greentube" type="text/x-template">
+    <div class="game" style="">
+        <a onclick="{$href}" target="demogame" class="gameLink" style="cursor: pointer;">
+<img width="100%" height="100%" title="{$title}"
+                 src="{$icon}">
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: {$display};">
+            <h3 style="color: white;">{$label}</h3>
+        </div>
+    </div>
+</script>
+
+<script type="text/javascript">
+    var $ = jQuery
+
+    var gameTpl = document.getElementById('gameTpl').innerText
+    var gameTpl_greentube = document.getElementById('gameTpl_greentube').innerText
+    var defaultLabel = "OFFLINE"
+
+
+    window.addEventListener("load", function load(event){
+
+        loadGames()
+
+
+
+    },false);
+
+    var gamesMap = {}
+    var gamesArray = []
+
+
+    function isMobile(){
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    }
+
+    function loadGames(){
+        //$.get('//partners.casinomobule.com/games.list', function(r){
+$.get('/games-hash-9b2da2.json', function(r){
+            gamesArray = sort(r)
+            gamesMap = {}
+
+            $("#blockGames").empty()
+	    show()	
+	})
+    }
+
+function icon(game){
+   return 'https://cdn.effective-solution.com/CasinoMobule/'+game.provider+'/156-156/' + game.alias + '.png';
+
+
+   if(game.icon && (game.icon.substr(0,2) == '//' || game.icon.substr(0,4) == 'http')){
+	return game.icon;
+   }else if(game.provider == 'netent'){
+        return '//shared-static.casinomobule.com/media/netent/thumbs/500x332/'+game.icon+'.png';
+}else if(game.provider == 'greentube'){
+	//return '//shared-static.casinomobule.com/media/greentube/icons/190x190/jpg/'+game.alias+'.jpg';
+return '//shared-static.casinomobule.com/media/greentube/icons/376x376/'+game.alias+'.png'
+}else{
+return 'not implemented';
+}
+	
+}
+
+    function show(fn){
+
+try {
+            var items = []
+	    var providerSelected = document.getElementById('fProvider').value	
+
+            for(var i=0; i < gamesArray.length; i++){
+                var game = gamesArray[i]
+
+if(!game.is_enabled) continue;
+
+                gamesMap[game.id] = game
+
+                var o = {}
+                for(var k in game){ o[k] =game[k] }
+
+
+                var display = (game.is_enabled ? "none" : "block")
+                var label = defaultLabel
+
+                if(game.desktop_enabled ==false && !isMobile()){
+                    label = "ONLY MOBILE"
+                    display = "block"
+                }else if(game.mobile_enabled == false && isMobile()){
+                    label = "ONLY DESKTOP"
+                    display = "block"
+                }
+
+                o.href = "start("+game.id+")"
+                o.display = display
+                o.label = label
+o.icon = icon(game);
+
+		var item;
+
+		if(game.provider == 'greentube'){
+			item = template(gameTpl_greentube, o)
+		}else{
+	                item = template(gameTpl,o)
+		}
+
+		if(providerSelected == '*' || providerSelected == game.provider || (providerSelected == 'megaways' && (game.title.toLowerCase().indexOf('megaways') > 0))){
+if(fn){
+if(fn(game)) items.push(item);
+}else{
+items.push(item);
+}
+		}
+            }
+
+            document.getElementById('blockGames').innerHTML = items.join("\n")
+}catch(e){
+	console.error("Err while rendering games")
+console.error(e)
+}
+    }
+
+function start(id){
+var game = gamesMap[id]
+var mobile = isMobile() ? 'true' : 'false';
+var lang = document.getElementById('fLang').value
+var domain = (game.provider=='spribe' || game.provider =='pgsoft11') ? 'https://partners.casinomobule.com' : 'https://test.partners.casinomobule.com'
+var curr = $('#fCurrency').val()
+var _bal=parseFloat(localStorage.getItem('z51_balance'));if(isNaN(_bal)||_bal<=0){_bal=100;localStorage.setItem('z51_balance',100);}
+var start_url = domain + '/games.startDemo?partner.alias=demo&game.alias='+game.alias+'&game.provider='+game.provider+'&currency='+curr+'&mobile='+mobile+'&balance='+Math.round(_bal*100)+'&origin=true&lang='+lang +'&lobby_url='+encodeURIComponent(window.location.href)
+
+if(isMobile()){
+	window.location=start_url;
+}else{
+                document.getElementById('game').src=start_url;
+
+                $('#gameWindow').css('display','block')
+                $('body').css('overflow','hidden')
+}
+}
+
+function start_with_lang(game, lang){
+    var mobile = isMobile() ? 'true' : 'false';
+    var domain = (game.provider=='spribe' || game.provider =='pgsoft11') ? 'https://partners.casinomobule.com' : 'https://test.partners.casinomobule.com'
+    var curr = $('#fCurrency').val()
+    var _bal=parseFloat(localStorage.getItem('z51_balance'));if(isNaN(_bal)||_bal<=0){_bal=100;localStorage.setItem('z51_balance',100);}
+    var start_url = domain + '/games.startDemo?partner.alias=demo&game.alias='+game.alias+'&game.provider='+game.provider+'&currency='+curr+'&mobile='+mobile+'&balance='+Math.round(_bal*100)+'&origin=true&lang='+lang +'&lobby_url='+encodeURIComponent(window.location.href)
+
+    if(isMobile()){
+        window.location=start_url;
+    }else{
+        document.getElementById('game').src=start_url;
+
+        $('#gameWindow').css('display','block')
+        $('body').css('overflow','hidden')
+    }
+}
+
+
+    function start_old(id){
+
+        var lang = document.getElementById('fLang').value
+
+        var game = gamesMap[id]
+
+
+	if(game.provider == 'greentube'){
+		var start_url = 'https://test.partners.casinomobule.com/games.startDemo?partner.alias=demo&game.alias='+game.alias+'&game.provider='+game.provider+'&currency=RUB&mobile=false&balance=100000&origin=true&lang='+lang 
+                document.getElementById('game').src=start_url;
+
+		$('#gameWindow').css('display','block')
+	        $('body').css('overflow','hidden')
+        }else{
+
+	var domain = (game.provider=='spribe') ? '//partners.casinomobule.com' : '//test.partners.casinomobule.com'
+
+        $.get(
+            domain + '/netent.generateDemoStartConfig',
+            {
+                'partner.alias' : 'demo',
+		'game.provider': game.provider,
+                'game.alias': game.alias,
+                mobile: isMobile(),
+                currency: $('#fCurrency').val(),
+		balance: 500000,
+		origin: true
+            }
+        , function(r){
+
+                if(r.status == 200){
+	                    startFromConfig(r.response)
+                }else{
+                    alert("Error: "+r.message)
+                }
+            })
+	}
+    }
+
+    function startFromConfig(config){
+
+        $('#gameWindow').css('display','block')
+        $('body').css('overflow','hidden')
+
+
+        config.language = document.getElementById('fLang').value
+        //config.mobileParams.lobbyURL = "http://google.com"
+config.mobileParams.lobbyURL = "https://copyslots.com/"
+
+        console.log("@startFromConfig")
+        console.log(config)
+
+        netent.launch(
+            config,
+            function (netEntExtend) {},
+            function (e) {
+                console.log(e);
+            }
+        );
+    }
+
+    function close(){
+        $('#gameWindow').css('display', 'none')
+        $('#game').attr('src','')
+        $('body').css('overflow','auto')
+    }
+
+    function template(text, params){
+        var content = text
+
+        for(var key in params){
+            content = content.replace(new RegExp("\\{\\$"+key+"\\}","g"), params[key])
+        }
+
+        return content;
+    }
+
+    function sort(games){
+        return games.sort(function(a0,b0){
+            var a = a0.title
+            var b = b0.title
+
+ 	    if(a0.provider == 'spribe'){
+		return -1
+	    }else if(b0.provider == 'spribe'){
+		return 1
+	    }else if(a > b){
+                return 1
+            }else if(a < b){
+                return -1
+            }else{
+                return 0
+            }
+        })
+    }
+
+
+    function loadCurrencies(){
+        $.get(
+            '//test.partners.casinomobule.com/currencies.list',
+            {
+                'partner.alias' : 'demo'
+            }
+            , function(r){
+
+                var html = ''
+
+
+                if(r.status == 200){
+                    for( var i=0; i < r.response.length; i++){
+                        var item = r.response[i]
+
+                        html += '<option value="'+item.code_alpha+'">'+item.code_alpha+' - ' + item.title+'\n'
+                    }
+                }else{
+                    alert("Error: "+r.message)
+                }
+
+                $('#fCurrency').html(html)
+                $('#fCurrency').val('EUR')
+
+            })
+    }
+
+    loadCurrencies()
+
+
+var lastsearch = null;
+
+$('#fSearch').on('keyup', (e) => { 
+
+ var s = $(e.target).val().trim().toLowerCase();
+
+if(s == lastsearch) return;
+lastsearch = s;
+ 
+show(g => g.title.toLowerCase().indexOf(s) >= 0)
+ })
+
+// -- BALANCE SYNC FROM GAME IFRAME --
+window.addEventListener('message', function(e) {
+  var data = e.data;
+  if (typeof data === 'string') { try { data = JSON.parse(data); } catch(err) {} }
+  if (!data || typeof data !== 'object') return;
+  if (data.event === 'gameChangeCash' && Array.isArray(data.data) && typeof data.data[0] === 'number') {
+    localStorage.setItem('z51_balance', Math.max(0, data.data[0] / 100).toFixed(2)); return;
+  }
+  function num(v) {
+    if (typeof v === 'number' && v >= 0) return v;
+    if (typeof v === 'string') { var n = parseFloat(v); if (!isNaN(n) && n >= 0) return n; }
+    return null;
+  }
+  function findBalance(obj, depth) {
+    if (!obj || typeof obj !== 'object' || depth > 4) return null;
+    for (var k in obj) { if (k.toLowerCase().indexOf('balance') !== -1) { var v = num(obj[k]); if (v !== null) return v; } }
+    for (var k2 in obj) { if (typeof obj[k2] === 'object') { var f = findBalance(obj[k2], depth + 1); if (f !== null) return f; } }
+    return null;
+  }
+  var cents = findBalance(data, 0);
+  if (cents === null && num(data.credits) !== null) cents = num(data.credits);
+  if (cents === null && num(data.credit)  !== null) cents = num(data.credit);
+  if (cents !== null) { localStorage.setItem('z51_balance', Math.max(0, cents / 100).toFixed(2)); }
+});
+
+</script>
+
+<!-- Oko.Tracker -->
+<script type="text/javascript" async="">
+
+    Oko = window.Oko || { push: function(){} };
+
+    (function (d, w) {
+	return ;
+        var host = 'arken.cc'
+
+        var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
+            n.parentNode.insertBefore(s, n);
+        };
+        s.type = "text/javascript";
+        s.async = true;
+        s.onerror = function(){
+            new Image(1, 1).src = '//'+host + "/e.gif?data=%7B%20event%3A%20%22loader.error%22%20%7D";
+        }
+
+        s.src = "//"+host+"/trek.js";
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else {
+            f();
+        }
+    })(document, window);
+</script>
+<noscript>
+    <div><img src="//arken.cc/e.gif?data=%7B%20event%3A%20%22loader.noscript%22%20%7D" style="position:absolute; left:-9999px;" alt=""/></div>
+</noscript>
+<!-- /Oko.Tracker -->
+
+
+
+</body></html>

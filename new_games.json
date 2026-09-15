@@ -1,0 +1,4961 @@
+﻿[
+    {
+        "id":  3109,
+        "alias":  "AliceWonderLuck",
+        "title":  "Alice WonderLuck",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3110,
+        "alias":  "AlienFruits",
+        "title":  "Alien Fruits",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3111,
+        "alias":  "AlienFruits2",
+        "title":  "Alien Fruits 2",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3112,
+        "alias":  "AllLuckyClover",
+        "title":  "All Lucky Clover",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3113,
+        "alias":  "AllStarFruits",
+        "title":  "All-Star Fruits",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3114,
+        "alias":  "AlohaKingElvis",
+        "title":  "Aloha King Elvis",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3115,
+        "alias":  "AlwaysUp",
+        "title":  "Always Up!",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3116,
+        "alias":  "ArrowSlot",
+        "title":  "Arrow Slot",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3117,
+        "alias":  "Avalon",
+        "title":  "Avalon: The Lost Kingdom",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3118,
+        "alias":  "AztecClusters",
+        "title":  "Aztec Clusters",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3119,
+        "alias":  "AztecIrwin",
+        "title":  "Aztec Irwin",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3120,
+        "alias":  "AztecMagicBonanza",
+        "title":  "Aztec Magic Bonanza",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3121,
+        "alias":  "AztecMagicDeluxe",
+        "title":  "Aztec Magic Deluxe",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3122,
+        "alias":  "AztecMagicMegaways",
+        "title":  "Aztec Magic Megaways",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3123,
+        "alias":  "BeastBand",
+        "title":  "Beast Band",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3124,
+        "alias":  "BeerBonanza",
+        "title":  "Beer Bonanza",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3125,
+        "alias":  "BigAtlantisFrenzy",
+        "title":  "Big Atlantis Frenzy",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3126,
+        "alias":  "BonanzaBillion",
+        "title":  "Bonanza Billion",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3127,
+        "alias":  "BonanzaTrillion",
+        "title":  "Bonanza Trillion",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3128,
+        "alias":  "BoneBonanza",
+        "title":  "Bone Bonanza",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3129,
+        "alias":  "BookOfCats",
+        "title":  "Book of Cats",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3130,
+        "alias":  "BookOfCatsMegaways",
+        "title":  "Book of Cats Megaways",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3131,
+        "alias":  "BookOfKemet",
+        "title":  "Book of Kemet",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3132,
+        "alias":  "BookOfPanda",
+        "title":  "Book of Panda Megaways",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3133,
+        "alias":  "BookOfPyramids",
+        "title":  "Book of Pyramids",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3134,
+        "alias":  "BurningChilli243",
+        "title":  "Burning Chilli 243",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3135,
+        "alias":  "BurningChilliX",
+        "title":  "Burning Chilli X",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3136,
+        "alias":  "CandyMonsta",
+        "title":  "Candy Monsta",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3137,
+        "alias":  "CarnivalBonanza",
+        "title":  "Carnival Bonanza",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3138,
+        "alias":  "CatchTheGoldHoldAndWin",
+        "title":  "Catch The Gold Hold And Win",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3139,
+        "alias":  "Catdiana",
+        "title":  "Catdiana",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3140,
+        "alias":  "CatsSoup",
+        "title":  "Cat\u0027s Soup",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3141,
+        "alias":  "ChickenRush",
+        "title":  "Chicken Rush",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3142,
+        "alias":  "CloverBonanza",
+        "title":  "Clover Bonanza",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3143,
+        "alias":  "CrystalClusters",
+        "title":  "Crystal Clusters",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3144,
+        "alias":  "DeepSea",
+        "title":  "Deep Sea",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3145,
+        "alias":  "DiamondOfJungle",
+        "title":  "Diamond Of Jungle",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3146,
+        "alias":  "DiceBonanza",
+        "title":  "Dice Bonanza",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3147,
+        "alias":  "DiceMillion",
+        "title":  "Dice Million",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3148,
+        "alias":  "DigDigDigger",
+        "title":  "Dig Dig Digger",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3149,
+        "alias":  "DiscoParty",
+        "title":  "Disco Party",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3150,
+        "alias":  "DivineQueenHeartOfIce",
+        "title":  "Divine Queen: Heart of Ice",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3151,
+        "alias":  "DomnitorsTreasure",
+        "title":  "Domnitors Treasure",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3152,
+        "alias":  "DoomsdaySaloon",
+        "title":  "Doomsday Saloon",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3153,
+        "alias":  "DragonAge",
+        "title":  "Dragon Age",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3154,
+        "alias":  "DragonQueenMegaways",
+        "title":  "Dragon Queen Megaways",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3155,
+        "alias":  "DragonsGold100",
+        "title":  "Dragon\u0027s Gold 100",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3156,
+        "alias":  "EasterHeist",
+        "title":  "Easter Heist",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3157,
+        "alias":  "ElvisFrog",
+        "title":  "Elvis Frog",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3158,
+        "alias":  "ElvisFrogTrueways",
+        "title":  "Elvis Frog Trueways",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3159,
+        "alias":  "FaceOff",
+        "title":  "Face Off",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3160,
+        "alias":  "FiestaClusters",
+        "title":  "Fiesta Clusters",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3161,
+        "alias":  "FireLightning",
+        "title":  "Fire Lightning",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3162,
+        "alias":  "Forgotten",
+        "title":  "Forgotten",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3163,
+        "alias":  "FortuneBells",
+        "title":  "Fortune Bells",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3164,
+        "alias":  "FortyFruityMillion",
+        "title":  "Forty Fruity Million",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3165,
+        "alias":  "FourLuckyClover",
+        "title":  "Four Lucky Clover",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3166,
+        "alias":  "FourLuckyDiamonds",
+        "title":  "Four Lucky Diamonds",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3167,
+        "alias":  "FrozenFruit",
+        "title":  "Frozen Fruit",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3168,
+        "alias":  "FruitMillion",
+        "title":  "Fruit Million",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3169,
+        "alias":  "Gangsterz",
+        "title":  "Gangsterz",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3170,
+        "alias":  "Gemhalla",
+        "title":  "Gemhalla",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3171,
+        "alias":  "Gemza",
+        "title":  "Gemza",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3172,
+        "alias":  "GiftRush",
+        "title":  "Gift Rush",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3173,
+        "alias":  "GodOfWealthHoldAndWin",
+        "title":  "God of Wealth Hold And Win",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3174,
+        "alias":  "GoldMagnate",
+        "title":  "Gold Magnate",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3175,
+        "alias":  "GoldOfMinos",
+        "title":  "Gold of Minos",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3177,
+        "alias":  "GoldenPawHoldAndWin",
+        "title":  "Golden Paw: Hold\u0026amp;Win",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3178,
+        "alias":  "GoldenPride",
+        "title":  "Golden Pride",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3176,
+        "alias":  "GoldRushWithJohnny",
+        "title":  "GoldRushWithJohnny",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3179,
+        "alias":  "GrandMustang",
+        "title":  "Grand Mustang",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3180,
+        "alias":  "HalloweenBonanza",
+        "title":  "Halloween Bonanza",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3181,
+        "alias":  "HauntedReels",
+        "title":  "Haunted Reels",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3182,
+        "alias":  "HitTheRoute",
+        "title":  "Hit The Route",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3183,
+        "alias":  "HotChilliBells",
+        "title":  "Hot Chilli Bells",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3184,
+        "alias":  "HotChilliBells100",
+        "title":  "Hot Chilli Bells 100",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3185,
+        "alias":  "Hottest666",
+        "title":  "Hottest 666",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3186,
+        "alias":  "JohnnyCash",
+        "title":  "Johnny Cash",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3187,
+        "alias":  "JokerQueen",
+        "title":  "Joker Queen",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3188,
+        "alias":  "JokersMillion",
+        "title":  "Joker\u0027s Million",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3189,
+        "alias":  "KrakensHunger",
+        "title":  "Kraken\u0027s Hunger",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3190,
+        "alias":  "LadyLuckyGun",
+        "title":  "Lady Lucky Gun",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3200,
+        "alias":  "LuckyLadyMoon",
+        "title":  "Lady Wolf Moon",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3201,
+        "alias":  "LuckyLadyMoonMegaways",
+        "title":  "Lady Wolf Moon Megaways",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3191,
+        "alias":  "LokiLoot",
+        "title":  "Loki Loot",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3192,
+        "alias":  "LuckAndMagic",
+        "title":  "Luck and Magic",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3193,
+        "alias":  "Lucky8MergeUp",
+        "title":  "Lucky 8 Merge Up",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3194,
+        "alias":  "LuckyCrew",
+        "title":  "Lucky Crew",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3195,
+        "alias":  "LuckyDamaMuerta",
+        "title":  "Lucky Dama Muerta",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3196,
+        "alias":  "LuckyDragonMultiDiceX",
+        "title":  "Lucky Dragon MultiDice X",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3197,
+        "alias":  "LuckyDucky",
+        "title":  "Lucky Ducky",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3198,
+        "alias":  "LuckyFarmBonanza",
+        "title":  "Lucky Farm Bonanza",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3199,
+        "alias":  "LuckyLadyClover",
+        "title":  "Lucky Lady\u0027s Clover",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3202,
+        "alias":  "LuckyLagerX9990",
+        "title":  "Lucky Lager x9990",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3203,
+        "alias":  "LuckyLu",
+        "title":  "Lucky Lu",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3204,
+        "alias":  "LuckyOak",
+        "title":  "Lucky Oak",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3205,
+        "alias":  "Maneki88Fortunes",
+        "title":  "Maneki 88 Fortunes",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3206,
+        "alias":  "Maneki88Gold",
+        "title":  "Maneki 88 Gold",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3207,
+        "alias":  "MechanicalClover",
+        "title":  "Mechanical Clover",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3208,
+        "alias":  "MergeUp",
+        "title":  "Merge Up",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3209,
+        "alias":  "MergeUp2",
+        "title":  "Merge Up 2",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3210,
+        "alias":  "MiceAndMagic",
+        "title":  "Mice \u0026amp; Magic Wonder Spin",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3211,
+        "alias":  "MissCherryFruits",
+        "title":  "Miss Cherry Fruits",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3212,
+        "alias":  "MonsterHunt",
+        "title":  "Monster Hunt",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3213,
+        "alias":  "MummysGold",
+        "title":  "Mummy\u0027s Gold",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3214,
+        "alias":  "MysteryGarden",
+        "title":  "Mystery Garden",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3215,
+        "alias":  "OlympusTrueways",
+        "title":  "Olympus TRUEWAYS",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3216,
+        "alias":  "Oof",
+        "title":  "Oof",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3217,
+        "alias":  "PandaLuck",
+        "title":  "Panda Luck",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3218,
+        "alias":  "PennyPelican",
+        "title":  "Penny Pelican",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3219,
+        "alias":  "PlatinumLightningDeluxe",
+        "title":  "Platinum Lightning Deluxe",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3220,
+        "alias":  "PopZen",
+        "title":  "Pop Zen",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3221,
+        "alias":  "PotionSpells",
+        "title":  "Potion Spells",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3222,
+        "alias":  "Road2Riches",
+        "title":  "Road 2 Riches",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3223,
+        "alias":  "RotatingElement",
+        "title":  "Rotating Element",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3224,
+        "alias":  "RoyalFruitsMultiLines",
+        "title":  "Royal Fruits MultiLines",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3225,
+        "alias":  "RoyalHighRoad",
+        "title":  "Royal High-Road",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3226,
+        "alias":  "SakuraRiches60",
+        "title":  "Sakura Riches 60",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3227,
+        "alias":  "SavageBuffaloSpirit",
+        "title":  "Savage Buffalo Spirit",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3228,
+        "alias":  "SavageBuffaloSpiritMegaways",
+        "title":  "Savage Buffalo Spirit Megaways",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3229,
+        "alias":  "SecretBarMultiDiceX",
+        "title":  "Secret Bar MultiDice X",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3230,
+        "alias":  "SlotMachine",
+        "title":  "Slot Machine",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3231,
+        "alias":  "SnoopDoggDollars",
+        "title":  "Snoop Dogg Dollars",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3232,
+        "alias":  "Soccermania",
+        "title":  "Soccermania",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3233,
+        "alias":  "SpinAndSpell",
+        "title":  "Spin And Spell",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3234,
+        "alias":  "SweetRushMegaways",
+        "title":  "Sweet Rush Megaways",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3235,
+        "alias":  "TotallyHot",
+        "title":  "Totally Hot",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3236,
+        "alias":  "TrainToRioGrande",
+        "title":  "Train to Rio Grande",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3237,
+        "alias":  "TrampDay",
+        "title":  "Tramp Day",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3238,
+        "alias":  "TrampDayTrueways",
+        "title":  "Tramp Day Trueways",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3239,
+        "alias":  "TreasureOfAnubis",
+        "title":  "Treasure of Anubis",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3240,
+        "alias":  "UFOPyramids",
+        "title":  "UFO Pyramids",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3241,
+        "alias":  "VoodooPeople",
+        "title":  "Voodoo People",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3242,
+        "alias":  "WbcRingOfRiches",
+        "title":  "WBC Ring Of Riches",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3243,
+        "alias":  "WestTown",
+        "title":  "West Town",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3244,
+        "alias":  "WildCardGang",
+        "title":  "Wild Card Gang",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3245,
+        "alias":  "WildCash",
+        "title":  "Wild Cash",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3246,
+        "alias":  "WildCashDice",
+        "title":  "Wild Cash Dice",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3247,
+        "alias":  "WildCashX9990",
+        "title":  "Wild Cash x9990",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3248,
+        "alias":  "WildChicago",
+        "title":  "Wild Chicago",
+        "provider":  "bgaming",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3249,
+        "alias":  "WildHeart",
+        "title":  "Wild Heart",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3250,
+        "alias":  "WildMillion",
+        "title":  "Wild Million",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3251,
+        "alias":  "WildMoonThieves",
+        "title":  "Wild Moon Thieves",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3252,
+        "alias":  "WildTiger",
+        "title":  "Wild Tiger",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3253,
+        "alias":  "WildTiger2",
+        "title":  "Wild Tiger 2",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3254,
+        "alias":  "WildWestTrueways",
+        "title":  "Wild West TRUEWAYS",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  3255,
+        "alias":  "WildWick",
+        "title":  "Wild Wick",
+        "provider":  "bgaming",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  114,
+        "alias":  "aloha",
+        "title":  "Aloha",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  244,
+        "alias":  "alohaxmas",
+        "title":  "Aloha! Christmas",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  225,
+        "alias":  "arcane",
+        "title":  "Arcane Reel Chaos Slot",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  238,
+        "alias":  "archangels",
+        "title":  "Archangels: Salvation Slot",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  163,
+        "alias":  "asgardianstones",
+        "title":  "AsgardianStones",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1481,
+        "alias":  "beehivebonanza",
+        "title":  "Bee Hive Bonanza",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  164,
+        "alias":  "berryburst",
+        "title":  "BerryBurst",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  165,
+        "alias":  "berryburstmax",
+        "title":  "BerryBurstMax",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  115,
+        "alias":  "bloodsuckers",
+        "title":  "Blood Suckers",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  160,
+        "alias":  "bloodsuckers2",
+        "title":  "Blood Suckers 2",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  194,
+        "alias":  "bollywoodstory",
+        "title":  "Bollywood Story",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1484,
+        "alias":  "bustersbones",
+        "title":  "Buster\u0027s Bones",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  116,
+        "alias":  "butterflystaxx",
+        "title":  "ButterflyStaxx",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  182,
+        "alias":  "butterflystaxx2",
+        "title":  "ButterflyStaxx2",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  228,
+        "alias":  "cashnoire",
+        "title":  "Cash Noireâ¢",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1383,
+        "alias":  "cashomatic",
+        "title":  "Cash-o-Matic",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  226,
+        "alias":  "hiddencoinsofegypt",
+        "title":  "Coins of Egypt",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  117,
+        "alias":  "colossalpinatas",
+        "title":  "ColossalPinatas",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  183,
+        "alias":  "conan",
+        "title":  "Conan",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  118,
+        "alias":  "copycats",
+        "title":  "CopyCats",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1482,
+        "alias":  "cornelius",
+        "title":  "Cornelius",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1486,
+        "alias":  "cupcakes",
+        "title":  "Cupcakes",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  236,
+        "alias":  "darkking",
+        "title":  "Dark King: Forbidden Riches",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  119,
+        "alias":  "dazzleme",
+        "title":  "Dazzle Me",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  243,
+        "alias":  "dazzlemw",
+        "title":  "Dazzle Me MegaWaysâ¢",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  219,
+        "alias":  "deadoralive2fb",
+        "title":  "Dead or Alive 2 Feature Buy",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  120,
+        "alias":  "deadoralive",
+        "title":  "DeadOrAlive",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  166,
+        "alias":  "deadoralive2",
+        "title":  "DeadOrAlive2",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  246,
+        "alias":  "discodanny",
+        "title":  "Disco Danny",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  242,
+        "alias":  "divinemegaways",
+        "title":  "Divine Fortune MegaWaysâ¢",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  195,
+        "alias":  "doublestacks",
+        "title":  "Double Stacks",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  121,
+        "alias":  "dracula",
+        "title":  "Dracula",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  247,
+        "alias":  "druidsdream",
+        "title":  "Druids\u0027 Dream",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  167,
+        "alias":  "eggomatic",
+        "title":  "EggOMatic",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  235,
+        "alias":  "elements",
+        "title":  "Elements: The Awakening",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  192,
+        "alias":  "excalibur",
+        "title":  "Excalibur",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  124,
+        "alias":  "fairyred",
+        "title":  "FairyRed",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  162,
+        "alias":  "finn",
+        "title":  "Finn",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  168,
+        "alias":  "flowers",
+        "title":  "Flowers",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  169,
+        "alias":  "flowerschristmas",
+        "title":  "FlowersChristmas",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  126,
+        "alias":  "football",
+        "title":  "Football",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  241,
+        "alias":  "fortunerangers",
+        "title":  "Fortune Rangers Slot",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  245,
+        "alias":  "nt_fruits",
+        "title":  "Fruit Case",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  231,
+        "alias":  "fruitshopmegaways",
+        "title":  "Fruit Shop MegaWaysâ¢",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  259,
+        "alias":  "jewelfruits",
+        "title":  "Fruit Spin",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  127,
+        "alias":  "fruitshop",
+        "title":  "Fruitshop",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1380,
+        "alias":  "funkmaster",
+        "title":  "Funk Master",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  248,
+        "alias":  "godsofgold",
+        "title":  "Gods of Gold INFINIREELS",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  128,
+        "alias":  "godsoffortune",
+        "title":  "GodsOfFortune",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  170,
+        "alias":  "goldengrimoire",
+        "title":  "GoldenGrimoire",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1384,
+        "alias":  "gonzosgold",
+        "title":  "Gonzo\u0027s Gold",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  122,
+        "alias":  "eldorado",
+        "title":  "Gonzo\u0027s Quest",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  230,
+        "alias":  "gorillakingdom",
+        "title":  "Gorilla Kingdom Slot",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  129,
+        "alias":  "gunsnroses",
+        "title":  "Gunsnroses",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  249,
+        "alias":  "halloweenjack",
+        "title":  "Halloween Jack",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  131,
+        "alias":  "hooksheroes",
+        "title":  "HooksHeroes",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  171,
+        "alias":  "hotline",
+        "title":  "Hotline",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  220,
+        "alias":  "hotline2",
+        "title":  "Hotline 2",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  132,
+        "alias":  "invisibleman",
+        "title":  "InvisibleMan",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  257,
+        "alias":  "irishpotluck",
+        "title":  "Irish Pot Luck",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  172,
+        "alias":  "jackandbeanstalk",
+        "title":  "JackAndBeansTalk",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  133,
+        "alias":  "jackhammer",
+        "title":  "JackHammer",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  134,
+        "alias":  "jackhammer2",
+        "title":  "JackHammer2",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  135,
+        "alias":  "jimihendrix",
+        "title":  "JimiHendrix",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  233,
+        "alias":  "jinglespin",
+        "title":  "Jingle Spin",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  136,
+        "alias":  "jokerpro",
+        "title":  "JokerPro",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  173,
+        "alias":  "jumanji",
+        "title":  "Jumanji",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  137,
+        "alias":  "junglespirit",
+        "title":  "JungleSpirit",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  250,
+        "alias":  "kingof3kingdoms",
+        "title":  "King of 3 Kingdoms",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  189,
+        "alias":  "kingofslots",
+        "title":  "King of Slots",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1381,
+        "alias":  "knightrider",
+        "title":  "Knight Rider",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  138,
+        "alias":  "koiprincess",
+        "title":  "KoiPrincess",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1485,
+        "alias":  "letitburn",
+        "title":  "Let It Burn",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  125,
+        "alias":  "lights",
+        "title":  "Lights (Fireflies)",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  251,
+        "alias":  "longpao",
+        "title":  "Long Pao",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  174,
+        "alias":  "lostrelics",
+        "title":  "LostRelics",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  139,
+        "alias":  "luckyangler",
+        "title":  "LuckyAngler",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  140,
+        "alias":  "magicportals",
+        "title":  "MagicPortals",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  237,
+        "alias":  "motorhead",
+        "title":  "MotÃ¶rhead Slot",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  142,
+        "alias":  "multipliermayhem",
+        "title":  "MultiplierMayhem",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  143,
+        "alias":  "mythicmaiden",
+        "title":  "MythicMaiden",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  144,
+        "alias":  "neonstaxx",
+        "title":  "NeonStaxx",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  252,
+        "alias":  "oceanstreasure",
+        "title":  "Ocean\u0027s Treasure",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  224,
+        "alias":  "parthenon",
+        "title":  "Parthenon: Quest for Immortalityâ¢",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  146,
+        "alias":  "piggyriches",
+        "title":  "Piggy Riches",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  145,
+        "alias":  "pyramid",
+        "title":  "Pyramid",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  232,
+        "alias":  "rageoftheseas",
+        "title":  "Rage of the Seas",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  253,
+        "alias":  "reefraider_r1",
+        "title":  "Reef Raider",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  147,
+        "alias":  "reelrush",
+        "title":  "ReelRush",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  186,
+        "alias":  "reelrush2",
+        "title":  "ReelRush2",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  190,
+        "alias":  "santavsrudolf",
+        "title":  "Santa vs Rudolf",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  148,
+        "alias":  "scruffyduck",
+        "title":  "ScruffyDuck",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  130,
+        "alias":  "highlights",
+        "title":  "Secrets Of Atlantis",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  149,
+        "alias":  "secretsofchristmas",
+        "title":  "SecretsOfChristmas",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  175,
+        "alias":  "shangrila",
+        "title":  "ShangriLa",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1379,
+        "alias":  "spacewars2",
+        "title":  "Space Wars 2",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  177,
+        "alias":  "spacewars",
+        "title":  "SpaceWars",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  150,
+        "alias":  "sparks",
+        "title":  "Sparks",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  188,
+        "alias":  "spellcast",
+        "title":  "Spellcast",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  176,
+        "alias":  "spinatagrande",
+        "title":  "SpinataGrande",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  181,
+        "alias":  "spinsane",
+        "title":  "Spinsane",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  151,
+        "alias":  "starburst",
+        "title":  "StarBurst",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1382,
+        "alias":  "starburstxtreme",
+        "title":  "Starburst XXXtreme",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  152,
+        "alias":  "steamtower",
+        "title":  "SteamTower",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  153,
+        "alias":  "stickers",
+        "title":  "Stickers",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1480,
+        "alias":  "superstars",
+        "title":  "Superstars",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  184,
+        "alias":  "sweetyhoneyfruity",
+        "title":  "Sweety Honey Fruity",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1483,
+        "alias":  "tacofury",
+        "title":  "Taco Fury XXXtreme",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  178,
+        "alias":  "templeofnudges",
+        "title":  "TempleOfNudges",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  234,
+        "alias":  "blacklagoon",
+        "title":  "The Creature from the Black Lagoon Slot",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  191,
+        "alias":  "reelsteal",
+        "title":  "The Reel Steal",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  239,
+        "alias":  "wishmasteroct",
+        "title":  "The Wish Master Slot",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  185,
+        "alias":  "wolfsnight",
+        "title":  "The Wolfâs Bane",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  154,
+        "alias":  "themepark",
+        "title":  "ThemePark",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  179,
+        "alias":  "turnyourfortune",
+        "title":  "TurnYourFortune",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  197,
+        "alias":  "twinspindeluxe",
+        "title":  "Twin Spin Deluxe",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  227,
+        "alias":  "twinspinmw",
+        "title":  "Twin Spin MegaWays",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  187,
+        "alias":  "twinhappiness",
+        "title":  "TwinHappiness",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  155,
+        "alias":  "twinspin",
+        "title":  "TwinSpin",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  156,
+        "alias":  "victorious",
+        "title":  "Victorious",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  254,
+        "alias":  "vikings",
+        "title":  "Vikings",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  229,
+        "alias":  "warlords",
+        "title":  "Warlords Slot",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  255,
+        "alias":  "whosthebride",
+        "title":  "Who\u0027s the Bride",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  240,
+        "alias":  "wildbazaar",
+        "title":  "Wild Bazaar Slot",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  193,
+        "alias":  "wildturkey",
+        "title":  "Wild Turkey",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  196,
+        "alias":  "wildotron",
+        "title":  "Wild-O-Tron 3000",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  158,
+        "alias":  "wildwater",
+        "title":  "WildWater",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  159,
+        "alias":  "wildwildwest",
+        "title":  "WildWildWest",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  180,
+        "alias":  "wildworlds",
+        "title":  "WildWorlds",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  256,
+        "alias":  "willyshotchillies",
+        "title":  "Willyâs Hot Chillies",
+        "provider":  "netent",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  258,
+        "alias":  "wingsofriches",
+        "title":  "Wings of Riches",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  161,
+        "alias":  "wolfcub",
+        "title":  "Wolf Cub",
+        "provider":  "netent",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1054,
+        "alias":  "BarbarianFury",
+        "title":  "Barbarian Fury",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1056,
+        "alias":  "BenjiKilledInVegas",
+        "title":  "Benji Killed in Vegas",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1057,
+        "alias":  "BloodAndShadow",
+        "title":  "Blood \u0026 Shadow",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1058,
+        "alias":  "BloodAndShadow2",
+        "title":  "Blood \u0026 Shadow 2",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1059,
+        "alias":  "BloodDiamond",
+        "title":  "Blood Diamond",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1060,
+        "alias":  "BonusBunnies",
+        "title":  "Bonus Bunnies",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1064,
+        "alias":  "BruteForce",
+        "title":  "Brute Force",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1066,
+        "alias":  "BushidoWays",
+        "title":  "Bushido Ways xNudgeÂ®",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1067,
+        "alias":  "CasinoWinSpin",
+        "title":  "Casino Win Spin",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1068,
+        "alias":  "CoinsOfFortune",
+        "title":  "Coins Of Fortune",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1069,
+        "alias":  "DasxBoot",
+        "title":  "Das xBoot",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1071,
+        "alias":  "DeadCanary",
+        "title":  "Dead Canary",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1072,
+        "alias":  "DeadDeadOrDeader",
+        "title":  "Dead, Dead Or Deader",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1075,
+        "alias":  "DevilsCrossroad",
+        "title":  "Devil\u0027s Crossroad",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1076,
+        "alias":  "Disturbed",
+        "title":  "Disturbed",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1077,
+        "alias":  "DjPsycho",
+        "title":  "DJ Psycho",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1080,
+        "alias":  "DungeonQuest",
+        "title":  "Dungeon Quest",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1083,
+        "alias":  "EvilGoblins",
+        "title":  "Evil Goblins",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1084,
+        "alias":  "FireInTheHole",
+        "title":  "Fire In The Hole",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1085,
+        "alias":  "FireInTheHole2",
+        "title":  "Fire in the Hole 2",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1087,
+        "alias":  "Fruits",
+        "title":  "Fruits",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1089,
+        "alias":  "Gluttony",
+        "title":  "Gluttony",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1091,
+        "alias":  "Harlequin",
+        "title":  "Harlequin Carnival",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1093,
+        "alias":  "Hot4Cash",
+        "title":  "Hot 4 Cash",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1094,
+        "alias":  "HotNudge",
+        "title":  "Hot Nudge",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1095,
+        "alias":  "IceIceYeti",
+        "title":  "Ice Ice Yeti",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1098,
+        "alias":  "JingleBalls",
+        "title":  "Jingle Balls",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1101,
+        "alias":  "KissMyChainsaw",
+        "title":  "Kiss My Chainsaw",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1104,
+        "alias":  "LegionX",
+        "title":  "Legion X",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1105,
+        "alias":  "LittleBighorn",
+        "title":  "Little Bighorn",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2024,
+        "alias":  "ManhattanGoesWild",
+        "title":  "Manhattan Goes Wild",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2026,
+        "alias":  "Mental",
+        "title":  "Mental",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2027,
+        "alias":  "Mental2",
+        "title":  "Mental II",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2028,
+        "alias":  "MilkyWays",
+        "title":  "Milky Ways",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2030,
+        "alias":  "MonkeysGold",
+        "title":  "Monkey\u0027s Gold xPays",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2031,
+        "alias":  "Munchies",
+        "title":  "Munchies",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2032,
+        "alias":  "NineToFive",
+        "title":  "Nine to Five",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2034,
+        "alias":  "Outsourced",
+        "title":  "Outsourced",
+        "provider":  "nolimit",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2036,
+        "alias":  "Payday",
+        "title":  "Outsourced: Payday",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2035,
+        "alias":  "Owls",
+        "title":  "Owls",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2037,
+        "alias":  "PearlHarbor",
+        "title":  "Pearl Harbor",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2039,
+        "alias":  "PoisonEve",
+        "title":  "Poison Eve",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2041,
+        "alias":  "PunkRocker",
+        "title":  "Punk Rocker",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2042,
+        "alias":  "PunkRocker2",
+        "title":  "Punk Rocker 2",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2043,
+        "alias":  "PunkToilet",
+        "title":  "Punk Toilet",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2044,
+        "alias":  "RememberGulag",
+        "title":  "Remember Gulag",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2047,
+        "alias":  "RockBottom",
+        "title":  "Rock Bottom",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2048,
+        "alias":  "SanQuentin",
+        "title":  "San Quentin",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2266,
+        "alias":  "SpaceDonkey",
+        "title":  "Space Donkey",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2268,
+        "alias":  "StockholmSyndrome",
+        "title":  "Stockholm Syndrome",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2269,
+        "alias":  "Tanked",
+        "title":  "Tanked",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2270,
+        "alias":  "TeslaJolt",
+        "title":  "Tesla Jolt",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2271,
+        "alias":  "TheBorder",
+        "title":  "The Border",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2272,
+        "alias":  "TheCage",
+        "title":  "The Cage",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2275,
+        "alias":  "TheRave",
+        "title":  "The Rave",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2276,
+        "alias":  "Thor",
+        "title":  "Thor: Hammer Time",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2277,
+        "alias":  "TombOfAkhenaten",
+        "title":  "Tomb of Akhenaten",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2279,
+        "alias":  "Tombstone",
+        "title":  "Tombstone",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2281,
+        "alias":  "TombstoneRip",
+        "title":  "Tombstone R.I.P.",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2282,
+        "alias":  "TombstoneSlaughter",
+        "title":  "Tombstone Slaughter: El Gordo\u0027s Revenge",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2280,
+        "alias":  "TombstoneNoMercy",
+        "title":  "Tombstone: No Mercy",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2283,
+        "alias":  "TractorBeam",
+        "title":  "Tractor Beam",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2284,
+        "alias":  "TrueGrit",
+        "title":  "True Grit Redemption",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2285,
+        "alias":  "TrueKult",
+        "title":  "True Kult",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2286,
+        "alias":  "UgliestCatch",
+        "title":  "Ugliest Catch",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2288,
+        "alias":  "WarriorGraveyard",
+        "title":  "Warrior Graveyard",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2292,
+        "alias":  "XwaysHoarder2",
+        "title":  "xWays Hoarder 2",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  2291,
+        "alias":  "XwaysHoarder",
+        "title":  "xWays Hoarder xSplit",
+        "provider":  "nolimit",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  305,
+        "alias":  "10001nights",
+        "title":  "10001 Nights",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  303,
+        "alias":  "skywarrior",
+        "title":  "1942: Sky Warrior",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  373,
+        "alias":  "24hourgrandprix",
+        "title":  "24 Hour Grand Prix",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  358,
+        "alias":  "4squad",
+        "title":  "4Squad",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  402,
+        "alias":  "5families",
+        "title":  "5 Families",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  307,
+        "alias":  "777strike",
+        "title":  "777 Strike",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  361,
+        "alias":  "ageofakkadia",
+        "title":  "Age of Akkadia",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  433,
+        "alias":  "agentroyale",
+        "title":  "Agent Royale",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  352,
+        "alias":  "alibabasluck",
+        "title":  "Ali Baba\u0027s Luck",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  348,
+        "alias":  "alibabasluckmegaways",
+        "title":  "Ali Baba\u0027s Luck Megaways",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  327,
+        "alias":  "amazonislandmegaways",
+        "title":  "Amazon Island Megaways",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  359,
+        "alias":  "ancientscript",
+        "title":  "Ancient Script",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  376,
+        "alias":  "ancientsblessing",
+        "title":  "Ancients Blessing",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  382,
+        "alias":  "arcadebomb",
+        "title":  "Arcade Bomb",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  407,
+        "alias":  "atlantis",
+        "title":  "Atlantis",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  383,
+        "alias":  "aurumcodex",
+        "title":  "Aurum Codex",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  375,
+        "alias":  "aztecspins",
+        "title":  "Aztec Spins",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  337,
+        "alias":  "beriched",
+        "title":  "Beriched",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  438,
+        "alias":  "bettyborisandboo",
+        "title":  "Betty, Boris and Boo",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  410,
+        "alias":  "bluediamond",
+        "title":  "Blue Diamond",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  446,
+        "alias":  "bombuster",
+        "title":  "Bombuster",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  377,
+        "alias":  "bountyraid",
+        "title":  "Bounty Raid",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  347,
+        "alias":  "cashultimate",
+        "title":  "Cash Ultimate",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  306,
+        "alias":  "cashvolt",
+        "title":  "Cash Volt",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  329,
+        "alias":  "casinospin",
+        "title":  "Casino Spin",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  346,
+        "alias":  "chinesetreasures",
+        "title":  "Chinese Treasures",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  360,
+        "alias":  "cinderellasball",
+        "title":  "Cinderella\u0027s Ball",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  470,
+        "alias":  "cirquedelafortune",
+        "title":  "Cirque De La Fortune",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  401,
+        "alias":  "clashofthebeasts",
+        "title":  "Clash of the Beasts",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  349,
+        "alias":  "classicblackjack",
+        "title":  "Classic Blackjack",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  398,
+        "alias":  "crazygenie",
+        "title":  "Crazy Genie",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  395,
+        "alias":  "crystalmirror",
+        "title":  "Crystal Mirror",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  356,
+        "alias":  "devilsnumber",
+        "title":  "Devil\u0027s Number",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  342,
+        "alias":  "diamondblitz",
+        "title":  "Diamond Blitz",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  440,
+        "alias":  "dicedicedice",
+        "title":  "Dice Dice Dice",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  304,
+        "alias":  "draculaawakening",
+        "title":  "Dracula Awakening",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  315,
+        "alias":  "dragonkinglegendoftheseas",
+        "title":  "Dragon King: Legend of the Seas",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  309,
+        "alias":  "dragonsfire",
+        "title":  "Dragon\u0027s Fire",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  415,
+        "alias":  "dragonsfireinfinireels",
+        "title":  "Dragon\u0027s Fire Infinireels",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  312,
+        "alias":  "dragonsfiremegaways",
+        "title":  "Dragons Fire MegaWays",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  324,
+        "alias":  "dragonsluck",
+        "title":  "Dragon\u0027s Luck",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  335,
+        "alias":  "dragonsluckdeluxe",
+        "title":  "Dragon\u0027s Luck Deluxe",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  409,
+        "alias":  "dragonsluckmegaways",
+        "title":  "Dragons Luck MegaWays",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  483,
+        "alias":  "dragonsluckpowerreels",
+        "title":  "Dragon\u0027s Luck Power Reels",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  431,
+        "alias":  "dreamdestiny",
+        "title":  "Dream Destiny",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  326,
+        "alias":  "dynamiteriches",
+        "title":  "Dynamite Riches",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  308,
+        "alias":  "dynamiterichesmegaways",
+        "title":  "Dynamite Riches MegaWays",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  443,
+        "alias":  "eagleriches",
+        "title":  "Eagle Riches",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  412,
+        "alias":  "elvenmagic",
+        "title":  "Elven Magic",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  452,
+        "alias":  "emeralddiamond",
+        "title":  "Emerald Diamond",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  406,
+        "alias":  "epicjourney",
+        "title":  "Epic Journey",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  404,
+        "alias":  "esqueletomariachi",
+        "title":  "Esqueleto Mariachi",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  370,
+        "alias":  "europeanroulette",
+        "title":  "European Roulette",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  374,
+        "alias":  "fivestar",
+        "title":  "Five Star",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  448,
+        "alias":  "fivestarpowerreels",
+        "title":  "Five Star Power Reels",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  444,
+        "alias":  "flamingfox",
+        "title":  "Flaming Fox",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  322,
+        "alias":  "forever7",
+        "title":  "Forever 7\u0027s",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  428,
+        "alias":  "fortunecharm",
+        "title":  "Fortune Charm",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  432,
+        "alias":  "fortunefest",
+        "title":  "Fortune Fest",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  478,
+        "alias":  "fortunehouse",
+        "title":  "Fortune House",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  320,
+        "alias":  "fortunehousepowerreels",
+        "title":  "Fortune House Power Reels",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  435,
+        "alias":  "fruitblox",
+        "title":  "Fruit Blox",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  460,
+        "alias":  "fruitsnap",
+        "title":  "Fruit Snap",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  450,
+        "alias":  "gemsgonewild",
+        "title":  "Gems Gone Wild",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  426,
+        "alias":  "gemsgonewildpowerreels",
+        "title":  "Gems Gone Wild Power Reels",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  459,
+        "alias":  "gemtastic",
+        "title":  "Gemtastic",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  463,
+        "alias":  "godofwealth",
+        "title":  "God of Wealth",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  482,
+        "alias":  "goldstar",
+        "title":  "Gold Star",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  328,
+        "alias":  "goldencryptex",
+        "title":  "Golden Cryptex",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  405,
+        "alias":  "goldenleprechaunmegaways",
+        "title":  "Golden Leprechaun MegaWays",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  408,
+        "alias":  "goldenlotus",
+        "title":  "Golden Lotus",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  420,
+        "alias":  "goldenoffer",
+        "title":  "Golden Offer",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  485,
+        "alias":  "goldentemple",
+        "title":  "Golden Temple",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  313,
+        "alias":  "goldentsar",
+        "title":  "Golden Tsar",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  301,
+        "alias":  "gonzosmegaways",
+        "title":  "Gonzo\u0027s Quest Megaways",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  411,
+        "alias":  "grandwheel",
+        "title":  "Grand Wheel",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  310,
+        "alias":  "hammergods",
+        "title":  "Hammer Gods",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  458,
+        "alias":  "harlecoin",
+        "title":  "HarleCoin",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  353,
+        "alias":  "hoardofposeidon",
+        "title":  "Hoard of Poseidon",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  299,
+        "alias":  "hothotchillipot",
+        "title":  "Hot Hot Chilli Pot",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  474,
+        "alias":  "imperialpalace",
+        "title":  "Imperial Palace",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  476,
+        "alias":  "jackinapot",
+        "title":  "Jack in a pot",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  457,
+        "alias":  "jackpotquest",
+        "title":  "Jackpot Quest",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  423,
+        "alias":  "jadecharms",
+        "title":  "Jade Charms",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  430,
+        "alias":  "jesterspins",
+        "title":  "Jester Spins",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  417,
+        "alias":  "jewelscarabs",
+        "title":  "Jewel Scarabs",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  357,
+        "alias":  "jinglebells",
+        "title":  "Jingle Bells",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  343,
+        "alias":  "jinglebellspowerreels",
+        "title":  "Jingle Bells Power Reels",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  393,
+        "alias":  "jinglewaysmegaways",
+        "title":  "Jingle Ways Megaways",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  368,
+        "alias":  "joeexotic",
+        "title":  "Joe Exotic",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  439,
+        "alias":  "laserfruit",
+        "title":  "Laser Fruit",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  319,
+        "alias":  "legendofathena",
+        "title":  "Legend of Athena",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  424,
+        "alias":  "legendaryexcalibur",
+        "title":  "Legendary Excalibur",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  456,
+        "alias":  "leprechaunsmagic",
+        "title":  "Leprechaun\u0027s Magic",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  384,
+        "alias":  "leprechaunsmagicmegaways",
+        "title":  "Leprechaun\u0027s Magic Megaways",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  429,
+        "alias":  "liondance",
+        "title":  "Lion Dance",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  334,
+        "alias":  "lionshoard",
+        "title":  "Lion\u0027s Hoard",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  453,
+        "alias":  "luckyeaster",
+        "title":  "Lucky Easter",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  397,
+        "alias":  "luckyfortunecat",
+        "title":  "Lucky Fortune Cat",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  471,
+        "alias":  "luckyfridays",
+        "title":  "Lucky Fridays",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  351,
+        "alias":  "luckyhalloween",
+        "title":  "Lucky Halloween",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  480,
+        "alias":  "luckylittledevil",
+        "title":  "Lucky Little Devil",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  422,
+        "alias":  "luckyoktoberfest",
+        "title":  "Lucky Oktoberfest",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  341,
+        "alias":  "luckyvalentine",
+        "title":  "Lucky Valentine",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  441,
+        "alias":  "luckywizard",
+        "title":  "Lucky Wizard",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  442,
+        "alias":  "magicgate",
+        "title":  "Magic Gate",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  445,
+        "alias":  "masquerade",
+        "title":  "Masquerade",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  416,
+        "alias":  "mayangods",
+        "title":  "Mayan Gods",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  381,
+        "alias":  "megadragon",
+        "title":  "Mega Dragon",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  472,
+        "alias":  "megajade",
+        "title":  "Mega Jade",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  425,
+        "alias":  "megapyramid",
+        "title":  "Mega Pyramid",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  403,
+        "alias":  "megarise",
+        "title":  "Mega Rise",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  396,
+        "alias":  "midasgold",
+        "title":  "Midas Gold",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  372,
+        "alias":  "multiplierriches",
+        "title":  "Multiplier Riches",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  298,
+        "alias":  "mysteryreels",
+        "title":  "Mystery Reels",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  323,
+        "alias":  "mysteryreelsmegaways",
+        "title":  "Mystery Reels Mega Ways",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  400,
+        "alias":  "mysteryreelspowerreels",
+        "title":  "Mystery Reels Power Reels",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  371,
+        "alias":  "mysticstaxx",
+        "title":  "Mystic Staxx",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  437,
+        "alias":  "mysticwheel",
+        "title":  "Mystic Wheel",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  336,
+        "alias":  "neonlinks",
+        "title":  "Neon Links",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  316,
+        "alias":  "nftmegaways",
+        "title":  "NFT Megaways",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  421,
+        "alias":  "nightroller",
+        "title":  "Night Roller",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  385,
+        "alias":  "ninjaways",
+        "title":  "Ninja Ways",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  469,
+        "alias":  "oceanfortune",
+        "title":  "Ocean Fortune",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  418,
+        "alias":  "pathofdestiny",
+        "title":  "Path of Destiny",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  486,
+        "alias":  "persianfortune",
+        "title":  "Persian Fortune",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  427,
+        "alias":  "phoenix",
+        "title":  "Phoenix",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  354,
+        "alias":  "phoenixfirepowerreels",
+        "title":  "Phoenix Fire Power Reels",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  394,
+        "alias":  "piggypirates",
+        "title":  "Piggy Pirates",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  302,
+        "alias":  "piggyrichesmegaways",
+        "title":  "Piggy Riches Megaways",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  414,
+        "alias":  "piratesplentybattleforgold",
+        "title":  "Pirates\u0027 Plenty Battle For Gold",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  318,
+        "alias":  "piratesplentymegaways",
+        "title":  "Pirates\u0027 Plenty Megaways",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  331,
+        "alias":  "primateking",
+        "title":  "Primate King",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  487,
+        "alias":  "puntobanco",
+        "title":  "Punto Banco",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  462,
+        "alias":  "pussnboots",
+        "title":  "Puss\u0027n Boots",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  340,
+        "alias":  "rainbowjackpots",
+        "title":  "Rainbow Jackpots",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  333,
+        "alias":  "rainbowjackpotspowerlines",
+        "title":  "Rainbow Jackpots Power Lines",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  481,
+        "alias":  "raslegend",
+        "title":  "Ra\u0027s Legend",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  465,
+        "alias":  "reactor",
+        "title":  "Reactor",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  434,
+        "alias":  "reddiamond",
+        "title":  "Red Diamond",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  436,
+        "alias":  "reelheist",
+        "title":  "Reel Heist",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  332,
+        "alias":  "reelkeeper",
+        "title":  "Reel Keeper",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  388,
+        "alias":  "reelkingmega",
+        "title":  "Reel King Mega",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  362,
+        "alias":  "regalbeasts",
+        "title":  "Regal Beasts",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  390,
+        "alias":  "regalstreak",
+        "title":  "Regal Streak",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  451,
+        "alias":  "reptizillionspowerreels",
+        "title":  "Reptizillions Power Reels",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  364,
+        "alias":  "riddleofthesphinx",
+        "title":  "Riddle of the Sphinx",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  387,
+        "alias":  "riostars",
+        "title":  "Rio Stars",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  317,
+        "alias":  "robinhoodswildforest",
+        "title":  "Robin Hoods Wild Forest",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  454,
+        "alias":  "rocketmen",
+        "title":  "Rocket Men",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  488,
+        "alias":  "royalgems",
+        "title":  "Royal Gems",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  311,
+        "alias":  "shahmat",
+        "title":  "Shah Mat",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  391,
+        "alias":  "snowwildandthe7features",
+        "title":  "Snow Wild and the 7 Features",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  489,
+        "alias":  "spintown",
+        "title":  "Spin Town",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  449,
+        "alias":  "stage888",
+        "title":  "Stage 888",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  473,
+        "alias":  "sumospins",
+        "title":  "Sumo Spins",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  479,
+        "alias":  "sylvanspirits",
+        "title":  "Sylvan Spirits",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  490,
+        "alias":  "tenelements",
+        "title":  "Ten Elements",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  491,
+        "alias":  "theequalizer",
+        "title":  "The Equalizer",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  455,
+        "alias":  "thegreatesttrainrobbery",
+        "title":  "The Greatest Train Robbery",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  413,
+        "alias":  "thetrillionaire",
+        "title":  "The Trillionaire",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  363,
+        "alias":  "thewildhatter",
+        "title":  "The Wild Hatter",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  392,
+        "alias":  "thewisecrackerlightning",
+        "title":  "The Wisecracker Lightning",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  367,
+        "alias":  "thorslightning",
+        "title":  "Thor\u0027s Lightning",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  355,
+        "alias":  "thorsvengeance",
+        "title":  "Thor\u0027s Vengeance",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  466,
+        "alias":  "threekingdoms",
+        "title":  "Three Kingdoms",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  477,
+        "alias":  "threemusketeers",
+        "title":  "Three Musketeers",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  344,
+        "alias":  "tikifruits",
+        "title":  "Tiki Fruits",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  350,
+        "alias":  "tikifruitstotemfrenzy",
+        "title":  "Tiki Fruits Totem Frenzy",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  484,
+        "alias":  "totemlightning",
+        "title":  "Totem Lightning",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  461,
+        "alias":  "totemlightningpowerreels",
+        "title":  "Totem Lightning Power Reels",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  369,
+        "alias":  "treasuremine",
+        "title":  "Treasure Mine",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  365,
+        "alias":  "treasureminepowerreels",
+        "title":  "Treasure Mine Power Reels",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  339,
+        "alias":  "vaultcracker",
+        "title":  "Vault Cracker",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  468,
+        "alias":  "vaultofanubis",
+        "title":  "Vault of Anubis",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  492,
+        "alias":  "vickyventura",
+        "title":  "Vicky Ventura",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  386,
+        "alias":  "warofgods",
+        "title":  "War Of Gods",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  314,
+        "alias":  "wellofwildsmegaways",
+        "title":  "Well of Wilds MegaWays",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  379,
+        "alias":  "wellofwishes",
+        "title":  "Well Of Wishes",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  325,
+        "alias":  "whatthefoxmegaways",
+        "title":  "What the Fox Megaways",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  366,
+        "alias":  "wildcatsmultiline",
+        "title":  "Wild Cats Multiline",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  389,
+        "alias":  "wildcircus",
+        "title":  "Wild Circus",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  447,
+        "alias":  "wildelements",
+        "title":  "Wild Elements",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  300,
+        "alias":  "wildexpedition",
+        "title":  "Wild Expedition",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  419,
+        "alias":  "wildfight",
+        "title":  "Wild Fight",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  321,
+        "alias":  "wildhotchillireels",
+        "title":  "Wild Hot Chilli Reels",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  464,
+        "alias":  "wildnords",
+        "title":  "Wild Nords",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  338,
+        "alias":  "wildoclock",
+        "title":  "Wild O\u0027Clock",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  475,
+        "alias":  "wildspartans",
+        "title":  "Wild Spartans",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  380,
+        "alias":  "wildwildchest",
+        "title":  "Wild Wild Chest",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  467,
+        "alias":  "winescalator",
+        "title":  "Win Escalator",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  330,
+        "alias":  "wingsofra",
+        "title":  "Wings of Ra",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  378,
+        "alias":  "winterwonders",
+        "title":  "Winter Wonders",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  399,
+        "alias":  "yucatansmystery",
+        "title":  "Yucatan\u0027s Mystery",
+        "provider":  "redtiger",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  345,
+        "alias":  "zeuslightningpowerreels",
+        "title":  "Zeus Lightning Power Reels",
+        "provider":  "redtiger",
+        "is_enabled":  false,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1350,
+        "alias":  "aviator",
+        "title":  "Aviator",
+        "provider":  "spribe",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1922,
+        "alias":  "dice",
+        "title":  "Dice",
+        "provider":  "spribe",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1921,
+        "alias":  "goal",
+        "title":  "Goal",
+        "provider":  "spribe",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1920,
+        "alias":  "hilo",
+        "title":  "Hilo",
+        "provider":  "spribe",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1923,
+        "alias":  "spribe-hotline",
+        "title":  "Hotline",
+        "provider":  "spribe",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1924,
+        "alias":  "keno",
+        "title":  "Keno",
+        "provider":  "spribe",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1919,
+        "alias":  "mines",
+        "title":  "Mines",
+        "provider":  "spribe",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1925,
+        "alias":  "mini-roulette",
+        "title":  "Mini Roulette",
+        "provider":  "spribe",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    },
+    {
+        "id":  1918,
+        "alias":  "plinko",
+        "title":  "Plinko",
+        "provider":  "spribe",
+        "is_enabled":  true,
+        "desktop_enabled":  true,
+        "mobile_enabled":  true
+    }
+]

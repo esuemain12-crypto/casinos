@@ -1,0 +1,1 @@
+UPDATE "User" SET balance = 0;

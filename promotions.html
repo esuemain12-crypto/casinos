@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>ZONE 51 — Promotions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <script src="cloak.js"></script>
+  <script src="cursor.js"></script>  <style>
+    
+    /* hero */
+    .hero{padding:72px 40px 56px;position:relative;text-align:center;overflow:hidden;}
+    .hero::after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:900px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,30,55,0.4),transparent);}
+    .hero-bg-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:"Orbitron",sans-serif;font-size:12rem;font-weight:900;color: rgba(255,20,50,0.35) ;white-space:nowrap;pointer-events:none;letter-spacing:10px;user-select:none;overflow:hidden;max-width:100%;}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,30,55,0.4);padding:6px 18px;margin-bottom:24px;font-size:0.58rem;letter-spacing:4px;text-transform:uppercase;color:rgba(255,30,55,0.8);position:relative;}
+    .hero-badge::before{content:"";width:5px;height:5px;background:var(--gold);border-radius:50%;animation:hpulse 2s infinite;}
+    @keyframes hpulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.35;transform:scale(1.6);}}
+    .hero h2{font-family:"Orbitron",sans-serif;font-size:3rem;font-weight:900;letter-spacing:8px;color:var(--gold-bright);text-shadow:0 0 60px rgba(255,30,55,0.55),0 0 120px rgba(255,20,45,0.14);margin-bottom:14px;position:relative;}
+    .hero-sub{font-size:0.92rem;color:var(--text);opacity:0.65;max-width:480px;margin:0 auto 42px;line-height:1.8;position:relative;}
+    .hero-stats{display:flex;gap:0;border:1px solid rgba(255,20,50,0.35);position:relative;width:fit-content;margin:0 auto;}
+    .hero-stat{flex:1;padding:16px 28px;text-align:center;border-right:1px solid rgba(255,20,45,0.14);min-width:0;}
+    .hero-stat:last-child{border-right:none;}
+    .hs-val{font-family:"Orbitron",sans-serif;font-size:1.4rem;font-weight:900;color:var(--gold-bright);}
+    .hs-lbl{font-size:0.54rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);margin-top:4px;}
+    .hero-inner{max-width:720px;margin:0 auto;position:relative;text-align:center;}
+    /* main */
+    .main{max-width:1200px;margin:0 auto;padding:56px 40px 100px;}
+    .sec-head{display:flex;align-items:center;gap:18px;margin-bottom:36px;}
+    .sec-head-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(255,30,55,0.4),transparent);}
+    .sec-head-line.right{background:linear-gradient(270deg,rgba(255,30,55,0.4),transparent);}
+    .sec-head-title{font-family:"Orbitron",sans-serif;font-size:0.62rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);white-space:nowrap;}
+    /* grid */
+    .bonus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+    /* card */
+    .bcard{background:var(--panel);border:1px solid rgba(255,20,50,0.35);overflow:hidden;display:flex;flex-direction:column;position:relative;transition:border-color .2s,box-shadow .2s,transform .18s;}
+    .bcard:hover{border-color: rgba(255,20,50,0.35) ;box-shadow:0 0 40px rgba(255,20,45,0.12),0 8px 32px rgba(0,0,0,0.5);transform:translateY(-3px);}
+    .bcard-glow{height:2px;width:100%;background:linear-gradient(90deg,transparent 0%,var(--gold) 50%,transparent 100%);opacity:0.7;}
+    .bcard-img{height:160px;background:linear-gradient(135deg,#0c0c14 0%,#14100a 50%,#0c0106 100%);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .bcard-img.has-bg{background-size:cover;background-position:center;}
+    .bcard-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 30%,rgba(10,1,5,0.94) 100%);}
+    .bcard-img-default{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 60%,rgba(255,20,45,0.08) 0%,transparent 55%),radial-gradient(ellipse at 70% 40%,rgba(255,20,45,0.06) 0%,transparent 50%);}
+    .bcard-img-icon{font-size:3.5rem;position:relative;z-index:1;filter:drop-shadow(0 0 20px  rgba(255,20,50,0.35) );line-height:1;}
+    .bcard-fs-badge{position:absolute;top:14px;right:14px;z-index:2;background:rgba(4,4,6,0.88);border:1px solid rgba(255,20,50,0.35);padding:6px 12px;display:flex;flex-direction:column;align-items:center;backdrop-filter:blur(4px);}
+    .bcard-fs-num{font-family:"Orbitron",sans-serif;font-size:1.4rem;font-weight:900;color:var(--gold-bright);line-height:1;text-shadow:0 0 16px rgba(242,208,96,0.7);}
+    .bcard-fs-lbl{font-size:0.46rem;letter-spacing:2px;text-transform:uppercase;color: rgba(255,20,50,0.35) ;margin-top:2px;}
+    .bcard-body{padding:22px 22px 18px;flex:1;display:flex;flex-direction:column;gap:10px;}
+    .bcard-tag{display:inline-flex;align-items:center;gap:5px;font-size:0.5rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);border:1px solid rgba(255,30,55,0.4);padding:3px 9px;width:fit-content;}
+    .bcard-title{font-family:"Orbitron",sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:1.5px;color:var(--text);line-height:1.4;}
+    .bcard-desc{font-size:0.75rem;color:var(--muted);line-height:1.65;flex:1;}
+    .bcard-stats{display:flex;gap:0;border:1px solid rgba(255,20,45,0.14);background: rgba(255,20,50,0.35) ;margin-top:4px;}
+    .bcard-stat{flex:1;padding:10px 14px;text-align:center;border-right:1px solid rgba(255,20,45,0.14);}
+    .bcard-stat:last-child{border-right:none;}
+    .bcard-stat-val{font-family:"Orbitron",sans-serif;font-size:0.85rem;font-weight:700;color:var(--gold-bright);}
+    .bcard-stat-lbl{font-size:0.5rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-top:3px;}
+    .bcard-footer{padding:14px 22px 18px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,20,40,0.1);margin-top:auto;}
+    .bcard-expiry{font-size:0.6rem;color:var(--muted);display:flex;align-items:center;gap:5px;}
+    .bcard-claim{font-family:"Orbitron",sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:10px 22px;border:1px solid rgba(255,20,50,0.35);background:rgba(255,20,40,0.1);color:var(--gold-bright);cursor:pointer;transition:all .18s;position:relative;overflow:hidden;}
+    .bcard-claim::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent, rgba(255,20,50,0.35) ,transparent);transform:translateX(-100%);transition:transform .4s;}
+    .bcard-claim:hover{background: rgba(255,20,50,0.35) ;border-color:var(--gold);box-shadow:0 0 20px rgba(255,30,55,0.4);color:#fff;}
+    .bcard-claim:hover::before{transform:translateX(100%);}
+    .bcard-claim:active{transform:scale(.97);}
+    .bcard-claim:disabled{opacity:0.5;cursor:not-allowed;}
+    /* empty + loading */
+    .empty-state{grid-column:1/-1;padding:80px 40px;text-align:center;border:1px solid rgba(255,20,40,0.1);background: rgba(255,20,50,0.35) ;}
+    .empty-icon{font-size:3rem;margin-bottom:20px;opacity:0.4;filter:grayscale(1);}
+    .empty-title{font-family:"Orbitron",sans-serif;font-size:0.65rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+    .empty-sub{font-size:0.78rem;color:var(--muted);}
+    .loading-state{grid-column:1/-1;padding:60px;text-align:center;}
+    .loader{width:40px;height:40px;border:2px solid rgba(255,20,45,0.14);border-top-color:rgba(255,30,55,0.8);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 16px;}
+    @keyframes spin{to{transform:rotate(360deg);}}
+    .loader-txt{font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);}
+    /* toast */
+    .toast{position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(20px);background:#0d0d12;border:1px solid rgba(255,30,55,0.5);padding:14px 24px;font-size:0.78rem;color:var(--text);box-shadow:0 8px 40px rgba(0,0,0,0.7);opacity:0;transition:all .3s;pointer-events:none;z-index:999;white-space:nowrap;}
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+    .toast.error{border-color:rgba(248,113,113,0.4);color:#f87171;}
+    .toast.success{border-color:rgba(74,222,128,0.4);color:#4ade80;}
+    /* responsive */
+    @media(max-width:1000px){.bonus-grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:650px){
+      .bonus-grid{grid-template-columns:1fr;}
+      .hero h2{font-size:2rem;}
+      .hero{padding:48px 20px 40px;}
+      .main{padding:36px 16px 80px;}
+      .hero-bg-text{font-size:5rem;opacity:0.3;}
+      .hero-stats{width:100%;}
+      .hero-stat{padding:12px 8px;}
+      .hs-val{font-size:1rem;}
+      .hs-lbl{font-size:0.48rem;letter-spacing:1.5px;}
+      .topbar-right .btn-ghost{display:none;}
+      .topbar{padding:0 14px;}
+    }
+    @media(max-width:400px){
+      .topbar{padding:0 10px;height:50px;}
+      .brand-text{display:none;}
+      .brand-emblem{width:30px;height:30px;}
+      .hero h2{font-size:1.6rem;}
+      .hero-bg-text{display:none;}
+      .main{padding:24px 12px 80px;}
+      .hero-stat{padding:10px 6px;}
+    }
+  </style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<div class="page-wrap">
+
+  <header class="topbar">
+    <a href="index.html" class="brand">
+      <div class="brand-emblem"><span>51</span></div>
+      <div class="brand-text"><h1>ZONE 51</h1><p>Access Level: Unrestricted</p></div>
+    </a>
+    <div class="topbar-right">
+      <a href="vip.html"         class="btn btn-ghost">VIP Club</a>
+      <a href="leaderboard.html" class="btn btn-ghost">Leaderboard</a>
+      <a href="games.html"       class="btn btn-ghost">Games</a>
+      <a href="index.html"       class="btn btn-gold">&#8592; Lobby</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-bg-text">BONUS</div>
+    <div class="hero-inner">
+      <div class="hero-badge">Active Bonuses — April 2026</div>
+      <h2>PROMOTIONS</h2>
+      <p class="hero-sub">Exclusive free spins bonuses crafted by our team. Claim, play Alien Rush Bonanza, and pocket your winnings.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hs-val" id="hs-count">—</div><div class="hs-lbl">Active Bonuses</div></div>
+        <div class="hero-stat"><div class="hs-val" id="hs-spins">—</div><div class="hs-lbl">Total Free Spins</div></div>
+        <div class="hero-stat"><div class="hs-val">Slot</div><div class="hs-lbl">Game: Alien Rush</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="main">
+    <div class="sec-head">
+      <div class="sec-head-line"></div>
+      <span class="sec-head-title">🎁 Current Offers</span>
+      <div class="sec-head-line right"></div>
+    </div>
+    <div class="bonus-grid" id="bonus-grid">
+      <div class="loading-state">
+        <div class="loader"></div>
+        <div class="loader-txt">Loading bonuses...</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+  /* Stars */
+  var c=document.getElementById('stars'),ctx=c.getContext('2d'),stars=[];
+  function resize(){c.width=window.innerWidth;c.height=window.innerHeight;}
+  function init(){stars=[];for(var i=0;i<160;i++)stars.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*0.8+0.15,a:Math.random()*0.4+0.08,ph:Math.random()*Math.PI*2,sp:Math.random()*0.004+0.001});}
+  function draw(){ctx.clearRect(0,0,c.width,c.height);stars.forEach(function(s){s.ph+=s.sp;var a=s.a*(0.45+0.55*Math.sin(s.ph));ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle='rgba(195,178,130,'+a+')';ctx.fill();});requestAnimationFrame(draw);}
+  resize();init();draw();
+  window.addEventListener('resize',function(){resize();init();});
+
+  /* Toast */
+  var _tt=null;
+  function showToast(msg,type){var el=document.getElementById('toast');el.textContent=msg;el.className='toast '+(type||'');el.classList.add('show');clearTimeout(_tt);_tt=setTimeout(function(){el.classList.remove('show');},3500);}
+
+  /* Escape HTML */
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+  /* Build card */
+  function buildCard(b){
+    var hasImg=b.image_url&&b.image_url.trim();
+    var imgStyle=hasImg?'background-image:url('+esc(b.image_url)+');background-size:cover;background-position:center;':'';
+    var expiry=b.expires_in_days
+      ?'<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Expires in '+b.expires_in_days+' day'+(b.expires_in_days>1?'s':'')
+      :'<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> No expiry';
+    return '<div class="bcard" data-id="'+b.id+'">'
+      +'<div class="bcard-glow"></div>'
+      +'<div class="bcard-img'+(hasImg?' has-bg':'')+'" style="'+imgStyle+'">'
+        +(!hasImg?'<div class="bcard-img-default"></div><div class="bcard-img-icon">🎰</div>':'')
+        +'<div class="bcard-fs-badge">'
+          +'<span class="bcard-fs-num">'+b.freespins+'</span>'
+          +'<span class="bcard-fs-lbl">FREE SPINS</span>'
+        +'</div>'
+      +'</div>'
+      +'<div class="bcard-body">'
+        +'<div class="bcard-tag">🎁 Bonus</div>'
+        +'<div class="bcard-title">'+esc(b.title)+'</div>'
+        +(b.description?'<div class="bcard-desc">'+esc(b.description)+'</div>':'')
+        +'<div class="bcard-stats">'
+          +'<div class="bcard-stat"><div class="bcard-stat-val">'+b.freespins+'</div><div class="bcard-stat-lbl">Free Spins</div></div>'
+          +'<div class="bcard-stat"><div class="bcard-stat-val">\u20ac'+parseFloat(b.min_deposit).toFixed(0)+'</div><div class="bcard-stat-lbl">Min Deposit</div></div>'
+          +'<div class="bcard-stat"><div class="bcard-stat-val">'+(b.expires_in_days?b.expires_in_days+'d':'\u221e')+'</div><div class="bcard-stat-lbl">Duration</div></div>'
+        +'</div>'
+      +'</div>'
+      +'<div class="bcard-footer">'
+        +'<span class="bcard-expiry">'+expiry+'</span>'
+        +'<button class="bcard-claim" onclick="claimBonus(\''+b.id+'\')">CLAIM</button>'
+      +'</div>'
+    +'</div>';
+  }
+
+  /* Claim */
+  function claimBonus(bonusId){
+    var token=localStorage.getItem('z51_token');
+    var _sess=null;try{_sess=JSON.parse(localStorage.getItem('z51_session')||'null');}catch(e){}
+    var uid=_sess?(_sess.userId||_sess.id||''):'';
+    if(!token||!uid){showToast('Please log in to claim this bonus.','error');return;}
+    var btn=document.querySelector('[data-id="'+bonusId+'"] .bcard-claim');
+    if(btn){btn.textContent='CLAIMING...';btn.disabled=true;}
+    fetch('http://localhost:8767/bonus/claim',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({bonus_id:bonusId,uid:uid})
+    })
+    .then(function(r){return r.json();})
+    .then(function(res){
+      if(res.ok){
+        localStorage.setItem('z51_slot_freespins',res.freespins);
+        localStorage.setItem('z51_bonus_active',JSON.stringify({bonus_id:bonusId,freespins:res.freespins,won:0}));
+        showToast('\u2713 '+res.freespins+' free spins claimed! Launching slot...','success');
+        setTimeout(function(){window.location.href='slot.html';},1200);
+      } else {
+        showToast(res.error||'Could not claim bonus.','error');
+        if(btn){btn.textContent='CLAIM';btn.disabled=false;}
+      }
+    })
+    .catch(function(){
+      showToast('Service unavailable. Is the server running?','error');
+      if(btn){btn.textContent='CLAIM';btn.disabled=false;}
+    });
+  }
+
+  /* Load bonuses */
+  (function loadBonuses(){
+    fetch('http://localhost:8767/bonuses')
+    .then(function(r){return r.json();})
+    .then(function(res){
+      var grid=document.getElementById('bonus-grid');
+      grid.innerHTML='';
+      var bonuses=(res.ok&&res.bonuses)?res.bonuses:[];
+      if(!bonuses.length){
+        grid.innerHTML='<div class="empty-state"><div class="empty-icon">&#128760;</div><div class="empty-title">No Active Bonuses</div><div class="empty-sub">Check back soon &mdash; the admin team is preparing new offers.</div></div>';
+        document.getElementById('hs-count').textContent='0';
+        document.getElementById('hs-spins').textContent='0';
+        return;
+      }
+      bonuses.forEach(function(b){
+        var tmp=document.createElement('div');
+        tmp.innerHTML=buildCard(b);
+        grid.appendChild(tmp.firstChild);
+      });
+      document.getElementById('hs-count').textContent=bonuses.length;
+      var total=bonuses.reduce(function(s,b){return s+(b.freespins||0);},0);
+      document.getElementById('hs-spins').textContent=total;
+    })
+    .catch(function(){
+      var grid=document.getElementById('bonus-grid');
+      grid.innerHTML='<div class="empty-state"><div class="empty-icon">&#128225;</div><div class="empty-title">Server Unavailable</div><div class="empty-sub">Could not connect to the bonus server. Please try again later.</div></div>';
+      document.getElementById('hs-count').textContent='--';
+      document.getElementById('hs-spins').textContent='--';
+    });
+  })();
+</script>
+<script src="i18n.js"></script>
+<script>document.body.insertAdjacentHTML('beforeend', Z51_FOOTER_HTML('.'));</script>
+<script src="cookie-banner.js"></script>
+
+  <script src="toast.js"></script>
+  <script src="sound.js"></script>
+  <script src="loader.js"></script>
+</body>
+</html>

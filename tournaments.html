@@ -1,0 +1,707 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>ZONE 51 — Tournaments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <script src="cloak.js"></script>
+  <script src="cursor.js"></script>  <style>
+    
+
+    /* HERO */
+    .hero{padding:64px 40px 52px;text-align:center;position:relative;overflow:hidden;}
+    .hero::before{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:900px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,30,55,0.4),transparent);}
+    .hero-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:"Orbitron",sans-serif;font-size:10rem;font-weight:900;color: rgba(255,20,50,0.35) ;white-space:nowrap;pointer-events:none;letter-spacing:8px;overflow:hidden;max-width:100%;}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,30,55,0.4);padding:6px 16px;margin-bottom:22px;font-size:0.58rem;letter-spacing:4px;text-transform:uppercase;color:rgba(255,30,55,0.8);}
+    .live-dot{width:6px;height:6px;background:#e84c4c;border-radius:50%;animation:pulse 1.4s infinite;}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.35;transform:scale(1.6);}}
+    .hero h2{font-family:"Orbitron",sans-serif;font-size:2.8rem;font-weight:900;letter-spacing:6px;color:var(--gold-bright);text-shadow:0 0 60px rgba(255,30,55,0.5);margin-bottom:14px;position:relative;}
+    .hero-sub{font-size:0.92rem;color:var(--text);opacity:0.75;max-width:520px;margin:0 auto 36px;line-height:1.75;position:relative;}
+    .hero-stats{display:flex;justify-content:center;gap:0;border:1px solid var(--line);max-width:640px;margin:0 auto 36px;width:100%;}
+    .hs-item{flex:1;min-width:0;padding:18px 12px;text-align:center;border-right:1px solid var(--line);}
+    .hs-item:last-child{border-right:none;}
+    .hs-val{font-family:"Orbitron",sans-serif;font-size:1.2rem;font-weight:700;color:var(--gold-bright);}
+    .hs-lbl{font-size:0.57rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:4px;}
+    .hero-inner{max-width:720px;margin:0 auto;position:relative;text-align:center;}
+
+    /* FILTER */
+    .filter-bar{padding:0 40px;border-bottom:1px solid var(--line);background:var(--panel);position:sticky;top:60px;z-index:100;}
+    .filter-inner{max-width:1200px;margin:0 auto;display:flex;gap:0;}
+    .ftab{font-family:"Inter",sans-serif;font-size:0.68rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:0 22px;height:48px;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--muted);cursor:pointer;transition:all 0.18s;display:flex;align-items:center;gap:8px;white-space:nowrap;}
+    .ftab:hover{color:var(--text);}
+    .ftab.active{color:var(--gold-bright);border-bottom-color:var(--gold);}
+    .ftab .dot{width:6px;height:6px;border-radius:50%;}
+    .ftab .dot.live{background:#e84c4c;animation:pulse 1.4s infinite;}
+    .ftab .cnt{font-size:0.55rem;background: rgba(255,20,50,0.35) ;color:var(--gold);padding:2px 6px;}
+
+    /* MAIN */
+    .main{max-width:1200px;margin:0 auto;padding:40px 40px 80px;}
+
+    /* FEATURE TOURNAMENT */
+    .featured-t{border:1px solid rgba(255,30,55,0.5);background:linear-gradient(130deg,rgba(255,20,45,0.08),rgba(4,4,6,0) 60%),var(--panel);position:relative;overflow:hidden;margin-bottom:48px;}
+    .featured-t::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent, rgba(255,20,50,0.35) ,transparent);}
+    .ft-header{padding:28px 36px 22px;display:flex;align-items:center;gap:20px;border-bottom:1px solid var(--line);}
+    .ft-trophy{width:54px;height:54px;border:1px solid rgba(255,30,55,0.4);display:flex;align-items:center;justify-content:center;color:var(--gold);flex-shrink:0;position:relative;}
+    .ft-trophy::before{content:"";position:absolute;inset:4px;border:1px solid rgba(255,20,40,0.1);}
+    .ft-header-info{flex:1;}
+    .ft-tag{font-size:0.55rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);border:1px solid rgba(255,30,55,0.4);padding:3px 8px;display:inline-block;margin-bottom:8px;}
+    .ft-header-info h3{font-family:"Orbitron",sans-serif;font-size:1.4rem;font-weight:900;letter-spacing:3px;color:var(--gold-bright);}
+    .ft-header-info p{font-size:0.78rem;color:var(--muted);margin-top:4px;}
+    .ft-live-badge{font-family:"Orbitron",sans-serif;font-size:0.55rem;letter-spacing:3px;font-weight:700;background:#e84c4c;color:#fff;padding:6px 14px;display:flex;align-items:center;gap:6px;flex-shrink:0;}
+
+    .ft-body{padding:28px 36px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:start;}
+    .ft-desc{font-size:0.82rem;color:var(--text);line-height:1.75;margin-bottom:20px;max-width:560px;}
+    .ft-rules{display:flex;flex-direction:column;gap:8px;margin-bottom:24px;}
+    .ft-rule{display:flex;align-items:center;gap:10px;font-size:0.76rem;color:var(--muted);}
+    .ft-rule::before{content:"";width:4px;height:4px;background:var(--gold);flex-shrink:0;}
+    .ft-btns{display:flex;gap:10px;flex-wrap:wrap;}
+    .ft-right{display:flex;flex-direction:column;gap:2px;min-width:240px;}
+    .ft-timer-label{font-size:0.58rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+    .ft-timer{display:flex;gap:6px;align-items:center;margin-bottom:22px;}
+    .ft-tunit{text-align:center;}
+    .ft-tnum{font-family:"Orbitron",sans-serif;font-size:1.35rem;font-weight:700;color:var(--gold-bright);background:var(--panel-2);border:1px solid var(--line);padding:8px 12px;display:block;min-width:44px;}
+    .ft-tlbl{font-size:0.5rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);display:block;margin-top:4px;}
+    .ft-tsep{font-family:"Orbitron",sans-serif;font-size:1.2rem;color:var(--muted);padding-bottom:14px;}
+    .ft-prizes{border:1px solid var(--line);background:var(--panel-2);}
+    .ft-prize-row{display:flex;align-items:center;gap:0;border-bottom:1px solid var(--line);padding:10px 14px;}
+    .ft-prize-row:last-child{border-bottom:none;}
+    .ft-prize-rank{font-family:"Orbitron",sans-serif;font-size:0.6rem;font-weight:700;width:28px;color:var(--muted);}
+    .ft-prize-rank.g{color:#ffe600;}
+    .ft-prize-rank.s{color:#9ba8b8;}
+    .ft-prize-rank.b{color:#c07543;}
+    .ft-prize-name{flex:1;font-size:0.72rem;color:var(--text);padding:0 10px;}
+    .ft-prize-amt{font-family:"Orbitron",sans-serif;font-size:0.8rem;font-weight:700;color:var(--gold-bright);}
+
+    /* SECTION HEADER */
+    .sec-header{display:flex;align-items:center;gap:20px;margin:40px 0 24px;}
+    .sec-line{flex:1;height:1px;background:var(--line);}
+    .sec-title{font-family:"Orbitron",sans-serif;font-size:0.68rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);white-space:nowrap;}
+
+    /* TOURNAMENT GRID */
+    .t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-bottom:48px;}
+    .t-card{background:var(--panel);position:relative;overflow:hidden;transition:background 0.2s;}
+    .t-card:hover{background: rgba(255,20,50,0.35) ;}
+    .tc-bar{height:3px;}
+    .tc-bar.gold{background:linear-gradient(90deg,var(--gold),transparent);}
+    .tc-bar.blue{background:linear-gradient(90deg,#5b8dd9,transparent);}
+    .tc-bar.green{background:linear-gradient(90deg,#4caf7d,transparent);}
+    .tc-bar.red{background:linear-gradient(90deg,#e84c4c,transparent);}
+    .tc-bar.purple{background:linear-gradient(90deg,#a78bfa,transparent);}
+    .tc-bar.cyan{background:linear-gradient(90deg,#38bdf8,transparent);}
+    .tc-bar.orange{background:linear-gradient(90deg,#e8832a,transparent);}
+    .tc-inner{padding:24px 22px;}
+    .tc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+    .tc-icon{width:44px;height:44px;border:1px solid rgba(255,20,50,0.35);display:flex;align-items:center;justify-content:center;color:var(--gold);}
+    .tc-badges{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end;}
+    .tc-badge{font-size:0.5rem;letter-spacing:1.5px;font-weight:700;text-transform:uppercase;padding:3px 7px;border:1px solid;}
+    .tc-badge.live{border-color:rgba(232,76,76,0.4);color:#e84c4c;background:rgba(232,76,76,0.07);}
+    .tc-badge.soon{border-color:rgba(91,141,217,0.4);color:#5b8dd9;background:rgba(91,141,217,0.07);}
+    .tc-badge.ended{border-color:rgba(82,77,69,0.5);color:var(--muted);background:rgba(82,77,69,0.06);}
+    .tc-badge.vip{border-color:rgba(167,139,250,0.4);color:#a78bfa;background:rgba(167,139,250,0.07);}
+    .tc-badge.free{border-color:rgba(76,175,125,0.4);color:#4caf7d;background:rgba(76,175,125,0.07);}
+    .tc-name{font-family:"Orbitron",sans-serif;font-size:0.58rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:5px;}
+    .tc-title{font-size:0.92rem;font-weight:600;color:var(--text);margin-bottom:8px;line-height:1.3;}
+    .tc-desc{font-size:0.74rem;color:var(--muted);line-height:1.6;margin-bottom:14px;}
+    .tc-pool{font-family:"Orbitron",sans-serif;font-size:1.5rem;font-weight:900;color:var(--gold-bright);margin-bottom:4px;}
+    .tc-pool-lbl{font-size:0.58rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:16px;}
+    .tc-meta{display:flex;gap:16px;margin-bottom:16px;flex-wrap:wrap;}
+    .tc-meta-item{font-size:0.66rem;color:var(--muted);display:flex;align-items:center;gap:5px;}
+    .tc-meta-item svg{color: rgba(255,20,50,0.35) ;}
+    .tc-footer{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:14px;margin-top:auto;}
+    .tc-timer{font-family:"Orbitron",sans-serif;font-size:0.68rem;font-weight:700;color:var(--gold);}
+    .tc-timer.ended{color:var(--muted);}
+    .tc-btn{font-size:0.62rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:8px 14px;border:1px solid rgba(255,30,55,0.5);background:transparent;color:var(--gold);cursor:pointer;transition:all 0.18s;}
+    .tc-btn:hover{background:rgba(255,20,45,0.14);border-color:var(--gold);}
+    .tc-btn.disabled{border-color:rgba(82,77,69,0.4);color:var(--muted);cursor:default;}
+    .tc-btn.disabled:hover{background:transparent;border-color:rgba(82,77,69,0.4);}
+
+    /* PROGRESS BAR */
+    .prog-wrap{margin:10px 0 14px;}
+    .prog-label{display:flex;justify-content:space-between;font-size:0.6rem;color:var(--muted);margin-bottom:5px;}
+    .prog-bar{height:3px;background:var(--panel-3);}
+    .prog-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-bright));}
+
+    /* LEADERBOARD PREVIEW */
+    .lb-preview{border:1px solid var(--line);background:var(--panel);overflow:hidden;margin-bottom:48px;}
+    .lb-prev-head{padding:20px 28px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;}
+    .lb-prev-head h4{font-family:"Orbitron",sans-serif;font-size:0.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold-bright);}
+    .lb-prev-head a{font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,30,55,0.8);text-decoration:none;transition:color 0.15s;}
+    .lb-prev-head a:hover{color:var(--gold);}
+    .lb-table{width:100%;border-collapse:collapse;}
+    .lb-table thead tr{border-bottom:1px solid var(--line);}
+    .lb-table th{padding:10px 24px;font-size:0.56rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-align:left;font-weight:600;}
+    .lb-table th:last-child,.lb-table td:last-child{text-align:right;padding-right:28px;}
+    .lb-table tbody tr{border-bottom:1px solid rgba(160,120,40,0.05);transition:background 0.15s;}
+    .lb-table tbody tr:hover{background: rgba(255,20,50,0.35) ;}
+    .lb-table td{padding:13px 24px;font-size:0.78rem;color:var(--text);}
+    .lb-rank{font-family:"Orbitron",sans-serif;font-size:0.7rem;font-weight:700;width:32px;text-align:center;}
+    .lb-rank.r1{color:#ffe600;}
+    .lb-rank.r2{color:#9ba8b8;}
+    .lb-rank.r3{color:#c07543;}
+    .lb-rank.r-other{color:var(--muted);}
+    .lb-avatar{width:28px;height:28px;background:var(--panel-3);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;color:var(--gold);letter-spacing:1px;}
+    .lb-name-cell{display:flex;align-items:center;gap:12px;}
+    .lb-pts{font-family:"Orbitron",sans-serif;font-size:0.7rem;font-weight:700;color:var(--text);}
+    .lb-prize-cell{font-family:"Orbitron",sans-serif;font-size:0.75rem;font-weight:700;color:var(--gold-bright);}
+
+    /* HOW IT WORKS */
+    .how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);margin-bottom:48px;}
+    .how-card{background:var(--panel);padding:28px 24px;position:relative;}
+    .how-num{font-family:"Orbitron",sans-serif;font-size:3rem;font-weight:900;color:rgba(255,20,45,0.08);line-height:1;margin-bottom:16px;}
+    .how-icon{color:var(--gold);margin-bottom:14px;}
+    .how-card h5{font-family:"Orbitron",sans-serif;font-size:0.6rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-bright);margin-bottom:8px;}
+    .how-card p{font-size:0.76rem;color:var(--muted);line-height:1.65;}
+
+    /* PRIZES TABLE */
+    .prizes-section{border:1px solid var(--line);background:var(--panel);overflow:hidden;margin-bottom:48px;}
+    .ps-head{padding:20px 28px;border-bottom:1px solid var(--line);}
+    .ps-head h4{font-family:"Orbitron",sans-serif;font-size:0.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold-bright);}
+    .ps-head p{font-size:0.75rem;color:var(--muted);margin-top:5px;}
+    .ps-table{width:100%;border-collapse:collapse;}
+    .ps-table th{padding:10px 24px;font-size:0.56rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-align:left;font-weight:600;border-bottom:1px solid var(--line);}
+    .ps-table td{padding:11px 24px;font-size:0.78rem;color:var(--text);border-bottom:1px solid rgba(160,120,40,0.05);}
+    .ps-table tr:last-child td{border-bottom:none;}
+    .ps-table tr:hover td{background: rgba(255,20,50,0.35) ;}
+    .ps-rank{font-family:"Orbitron",sans-serif;font-size:0.68rem;font-weight:700;}
+    .ps-prize{font-family:"Orbitron",sans-serif;font-size:0.78rem;font-weight:700;color:var(--gold-bright);}
+    .ps-pct{font-size:0.7rem;color:var(--muted);}
+
+    /* TERMS */
+    .terms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);}
+    .term-card{background:var(--panel);padding:24px 22px;}
+    .term-card h5{font-family:"Orbitron",sans-serif;font-size:0.58rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+    .term-card p{font-size:0.74rem;color:var(--muted);line-height:1.6;}
+
+    @media(max-width:900px){
+      .t-grid{grid-template-columns:repeat(2,1fr);}
+      .how-grid{grid-template-columns:repeat(2,1fr);}
+      .ft-body{grid-template-columns:1fr;}
+      .terms-grid{grid-template-columns:repeat(2,1fr);}
+      .hero-stats{max-width:100%;}
+      .hs-item{padding:14px 8px;}
+      .hs-val{font-size:1rem;}
+    }
+    @media(max-width:580px){
+      .t-grid{grid-template-columns:1fr;}
+      .how-grid{grid-template-columns:1fr;}
+      .hero h2{font-size:1.8rem;}
+      .main,.filter-bar,.hero{padding-left:16px;padding-right:16px;}
+      .main{padding-bottom:60px;}
+      .terms-grid{grid-template-columns:1fr;}
+      .topbar-right .btn-ghost{display:none;}
+      .topbar{padding:0 14px;}
+      .hero-bg{font-size:5rem;}
+      .filter-bar{overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+      .filter-bar::-webkit-scrollbar{display:none;}
+      .filter-pill{flex-shrink:0;white-space:nowrap;}
+      .hs-item{padding:10px 6px;}
+      .hs-lbl{font-size:0.48rem;letter-spacing:1px;}
+    }
+    @media(max-width:400px){
+      .topbar{padding:0 10px;height:50px;}
+      .brand-text{display:none;}
+      .brand-emblem{width:30px;height:30px;}
+      .t-grid{grid-template-columns:1fr;}
+      .hero h2{font-size:1.5rem;}
+      .hero-bg{display:none;}
+      .hs-lbl{display:none;}
+    }
+  </style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<div class="page-wrap">
+
+  <header class="topbar">
+    <a href="index.html" class="brand">
+      <div class="brand-emblem"><span>51</span></div>
+      <div class="brand-text"><h1>ZONE 51</h1><p>Access Level: Unrestricted</p></div>
+    </a>
+    <div class="topbar-right">
+      <a href="promotions.html" class="btn btn-ghost">Promotions</a>
+      <a href="leaderboard.html" class="btn btn-ghost">Leaderboard</a>
+      <a href="games.html" class="btn btn-ghost">Games</a>
+      <a href="index.html" class="btn btn-gold">&#8592; Lobby</a>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-bg">ARENA</div>
+    <div class="hero-inner">
+      <div class="hero-badge"><span class="live-dot"></span><span>Live Events Running Now</span></div>
+      <h2>TOURNAMENTS</h2>
+      <p class="hero-sub">Compete against players worldwide. Every wager earns points — every point puts you closer to the top of the prize pool.</p>
+      <div class="hero-stats">
+        <div class="hs-item"><div class="hs-val">14</div><div class="hs-lbl">Active Now</div></div>
+        <div class="hs-item"><div class="hs-val">$127K</div><div class="hs-lbl">Total Prize Pool</div></div>
+        <div class="hs-item"><div class="hs-val">4,830</div><div class="hs-lbl">Players Competing</div></div>
+        <div class="hs-item"><div class="hs-val">$0</div><div class="hs-lbl">Entry Fee</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-bar">
+    <div class="filter-inner">
+      <button class="ftab active" onclick="filterTab(this,'all')">All Tournaments <span class="cnt">14</span></button>
+      <button class="ftab" onclick="filterTab(this,'live')"><span class="dot live"></span> Live <span class="cnt">6</span></button>
+      <button class="ftab" onclick="filterTab(this,'soon')">Upcoming <span class="cnt">5</span></button>
+      <button class="ftab" onclick="filterTab(this,'ended')">Completed <span class="cnt">3</span></button>
+    </div>
+  </div>
+
+  <div class="main">
+
+    <!-- FEATURED / FLAGSHIP -->
+    <div class="featured-t" id="flagship">
+      <div class="ft-header">
+        <div class="ft-trophy">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+        </div>
+        <div class="ft-header-info">
+          <div class="ft-tag">Flagship Weekly</div>
+          <h3>CLASSIFIED GRAND PRIX — WEEK 17</h3>
+          <p>All providers · Any game in the catalog · No registration required</p>
+        </div>
+        <div class="ft-live-badge"><span class="live-dot" style="background:#fff;"></span> LIVE</div>
+      </div>
+      <div class="ft-body">
+        <div class="ft-left">
+          <p class="ft-desc">The biggest weekly tournament at Zone 51. Every $100 wagered on any game earns 100 tournament points. Points accumulate in real time — the leaderboard updates every 60 seconds. Top 20 players split the prize pool. No entry fee, no registration, no opt-in — just play.</p>
+          <div class="ft-rules">
+            <div class="ft-rule">Every $100 wagered = 100 tournament points</div>
+            <div class="ft-rule">All games in the catalog are eligible</div>
+            <div class="ft-rule">Top 20 players receive cash prizes</div>
+            <div class="ft-rule">Real cash — no wagering requirements</div>
+            <div class="ft-rule">Prizes credited within 60 minutes of tournament end</div>
+          </div>
+          <div class="ft-btns">
+            <a href="games.html" class="btn btn-gold">Play Now</a>
+            <a href="leaderboard.html" class="btn btn-ghost">View Live Rankings</a>
+          </div>
+        </div>
+        <div class="ft-right">
+          <div class="ft-timer-label">Time Remaining</div>
+          <div class="ft-timer">
+            <div class="ft-tunit"><span class="ft-tnum" id="f-d">--</span><span class="ft-tlbl">Days</span></div>
+            <div class="ft-tsep">:</div>
+            <div class="ft-tunit"><span class="ft-tnum" id="f-h">--</span><span class="ft-tlbl">Hrs</span></div>
+            <div class="ft-tsep">:</div>
+            <div class="ft-tunit"><span class="ft-tnum" id="f-m">--</span><span class="ft-tlbl">Min</span></div>
+            <div class="ft-tsep">:</div>
+            <div class="ft-tunit"><span class="ft-tnum" id="f-s">--</span><span class="ft-tlbl">Sec</span></div>
+          </div>
+          <div class="ft-prizes">
+            <div class="ft-prize-row"><span class="ft-prize-rank g">1st</span><span class="ft-prize-name">First Place</span><span class="ft-prize-amt">$5,000</span></div>
+            <div class="ft-prize-row"><span class="ft-prize-rank s">2nd</span><span class="ft-prize-name">Second Place</span><span class="ft-prize-amt">$2,500</span></div>
+            <div class="ft-prize-row"><span class="ft-prize-rank b">3rd</span><span class="ft-prize-name">Third Place</span><span class="ft-prize-amt">$1,000</span></div>
+            <div class="ft-prize-row"><span class="ft-prize-rank">4–5</span><span class="ft-prize-name">Top 5</span><span class="ft-prize-amt">$400</span></div>
+            <div class="ft-prize-row"><span class="ft-prize-rank">6–10</span><span class="ft-prize-name">Top 10</span><span class="ft-prize-amt">$150</span></div>
+            <div class="ft-prize-row"><span class="ft-prize-rank">11–20</span><span class="ft-prize-name">Top 20</span><span class="ft-prize-amt">$50</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIVE SECTION -->
+    <div class="sec-header"><div class="sec-line"></div><span class="sec-title"><span style="display:inline-block;width:6px;height:6px;background:#e84c4c;border-radius:50%;margin-right:8px;vertical-align:middle;animation:pulse 1.4s infinite;"></span>Live Tournaments</span><div class="sec-line"></div></div>
+    <div class="t-grid" id="t-grid-live">
+
+      <!-- Hacksaw Blitz -->
+      <div class="t-card" data-status="live">
+        <div class="tc-bar gold"></div>
+        <div class="tc-inner">
+          <div class="tc-top"><div class="tc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="tc-badges"><span class="tc-badge live">Live</span><span class="tc-badge free">Free Entry</span></div></div>
+          <div class="tc-name">Hacksaw Gaming</div>
+          <div class="tc-title">Hacksaw High Voltage Blitz</div>
+          <div class="tc-desc">Spin exclusively on Hacksaw titles this weekend and compete for a massive prize pot. Big bass multipliers score extra points.</div>
+          <div class="tc-pool">$12,000</div>
+          <div class="tc-pool-lbl">Prize Pool</div>
+          <div class="tc-meta">
+            <span class="tc-meta-item"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 892 players</span>
+            <span class="tc-meta-item"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Hacksaw games only</span>
+          </div>
+          <div class="prog-wrap">
+            <div class="prog-label"><span>Your position</span><span style="color:var(--gold);">Not in top 20</span></div>
+            <div class="prog-bar"><div class="prog-fill" style="width:62%"></div></div>
+          </div>
+          <div class="tc-footer">
+            <span class="tc-timer" id="tc1-timer">--:--:--</span>
+            <button class="tc-btn">Join Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pragmatic Race -->
+      <div class="t-card" data-status="live">
+        <div class="tc-bar red"></div>
+        <div class="tc-inner">
+          <div class="tc-top"><div class="tc-icon" style="border-color:rgba(232,76,76,0.2);color:#e84c4c;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="tc-badges"><span class="tc-badge live">Live</span></div></div>
+          <div class="tc-name">Pragmatic Play</div>
+          <div class="tc-title">Drops &amp; Wins — April Race</div>
+          <div class="tc-desc">Official Pragmatic Play network tournament. Cash prizes drop randomly every hour. Qualify by wagering $1+ on any PP slot. Top weekly ranks earn extra.</div>
+          <div class="tc-pool">$50,000</div>
+          <div class="tc-pool-lbl">Network Prize Pool</div>
+          <div class="tc-meta">
+            <span class="tc-meta-item"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 18,400+ players</span>
+            <span class="tc-meta-item"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> PP games only</span>
+          </div>
+          <div class="tc-footer">
+            <span class="tc-timer" id="tc2-timer">--:--:--</span>
+            <button class="tc-btn" style="border-color:rgba(232,76,76,0.3);color:#e84c4c;">Join Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slots Race -->
+      <div class="t-card" data-status="live">
+        <div class="tc-bar blue"></div>
+        <div class="tc-inner">
+          <div class="tc-top"><div class="tc-icon" style="border-color:rgba(91,141,217,0.2);color:#5b8dd9;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div><div class="tc-badges"><span class="tc-badge live">Live</span><span class="tc-badge free">Free Entry</span></div></div>
+          <div class="tc-name">All Providers</div>
+          <div class="tc-title">Weekend Slots Race</div>
+          <div class="tc-desc">Any slot from any provider earns you race points this weekend. Biggest single-spin win ratio determines the standings. Top 50 players cash out.</div>
+          <div class="tc-pool">$8,500</div>
+          <div class="tc-pool-lbl">Prize Pool</div>
+          <div class="tc-meta">
+            <span class="tc-meta-item"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 1,247 players</span>
+            <span class="tc-meta-item"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> All slots</span>
+          </div>
+          <div class="tc-footer">
+            <span class="tc-timer" id="tc3-timer">--:--:--</span>
+            <button class="tc-btn" style="border-color:rgba(91,141,217,0.3);color:#5b8dd9;">Join Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIP Exclusive -->
+      <div class="t-card" data-status="live">
+        <div class="tc-bar purple"></div>
+        <div class="tc-inner">
+          <div class="tc-top"><div class="tc-icon" style="border-color:rgba(167,139,250,0.2);color:#a78bfa;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 20l4-4h12a2 2 0 002-2V5a2 2 0 00-2-2H6a2 2 0 00-2 2v9"/><path d="M9 9l2 2 4-4"/></svg></div><div class="tc-badges"><span class="tc-badge live">Live</span><span class="tc-badge vip">VIP Only</span></div></div>
+          <div class="tc-name">VIP Exclusive</div>
+          <div class="tc-title">Shadow Council Invitational</div>
+          <div class="tc-desc">Restricted to Director and Shadow rank players. Private leaderboard, no public tracking. Top 5 split the entire pool — winner takes $10,000.</div>
+          <div class="tc-pool">$20,000</div>
+          <div class="tc-pool-lbl">Exclusive Pool</div>
+          <div class="tc-meta">
+            <span class="tc-meta-item"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 38 players</span>
+            <span class="tc-meta-item"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Director+ only</span>
+          </div>
+          <div class="tc-footer">
+            <span class="tc-timer" id="tc4-timer">--:--:--</span>
+            <a href="vip.html" class="tc-btn" style="border-color:rgba(167,139,250,0.3);color:#a78bfa;">Unlock VIP</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nolimit City -->
+      <div class="t-card" data-status="live">
+        <div class="tc-bar orange"></div>
+        <div class="tc-inner">
+          <div class="tc-top"><div class="tc-icon" style="border-color:rgba(232,131,42,0.2);color:#e8832a;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="tc-badges"><span class="tc-badge live">Live</span></div></div>
+          <div class="tc-name">Nolimit City</div>
+          <div class="tc-title">xWays Detonator Series</div>
+          <div class="tc-desc">Play any Nolimit City title. Activating xWays or xBomb features awards bonus tournament points on top of your normal wager score. First to 50,000 pts wins $3,000.</div>
+          <div class="tc-pool">$7,200</div>
+          <div class="tc-pool-lbl">Prize Pool</div>
+          <div class="tc-meta">
+            <span class="tc-meta-item"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 344 players</span>
+            <span class="tc-meta-item"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Nolimit only</span>
+          </div>
+          <div class="tc-footer">
+            <span class="tc-timer" id="tc5-timer">--:--:--</span>
+            <button class="tc-btn" style="border-color:rgba(232,131,42,0.3);color:#e8832a;">Join Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bonus Hunt -->
+      <div class="t-card" data-status="live">
+        <div class="tc-bar cyan"></div>
+        <div class="tc-inner">
+          <div class="tc-top"><div class="tc-icon" style="border-color:rgba(56,189,248,0.2);color:#38bdf8;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5" rx="1"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg></div><div class="tc-badges"><span class="tc-badge live">Live</span><span class="tc-badge free">Free Entry</span></div></div>
+          <div class="tc-name">All Providers</div>
+          <div class="tc-title">Bonus Buy Sprint</div>
+          <div class="tc-desc">Trigger a bonus buy on any eligible game and land in the top 3 multipliers of the day. Updated in real time. Biggest multiplier wins the jackpot prize.</div>
+          <div class="tc-pool">$4,000</div>
+          <div class="tc-pool-lbl">Jackpot Prize</div>
+          <div class="tc-meta">
+            <span class="tc-meta-item"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 601 players</span>
+            <span class="tc-meta-item"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Bonus Buy games</span>
+          </div>
+          <div class="tc-footer">
+            <span class="tc-timer" id="tc6-timer">--:--:--</span>
+            <button class="tc-btn" style="border-color:rgba(56,189,248,0.3);color:#38bdf8;">Join Now</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /live grid -->
+
+    <!-- UPCOMING -->
+    <div class="sec-header"><div class="sec-line"></div><span class="sec-title">Upcoming Tournaments</span><div class="sec-line"></div></div>
+    <div class="t-grid" id="t-grid-soon">
+
+      <div class="t-card" data-status="soon">
+        <div class="tc-bar gold"></div>
+        <div class="tc-inner">
+          <div class="tc-top"><div class="tc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div><div class="tc-badges"><span class="tc-badge soon">Starts in 2d</span></div></div>
+          <div class="tc-name">Monthly Championship</div>
+          <div class="tc-title">Zone 51 May Grand Championship</div>
+          <div class="tc-desc">The monthly all-star tournament. Full 4-week run, all games eligible. Biggest prize pool of the month — open to all registered players.</div>
+          <div class="tc-pool">$30,000</div>
+          <div class="tc-pool-lbl">Monthly Pool</div>
+          <div class="tc-meta"><span class="tc-meta-item"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> May 1 — May 31</span></div>
+          <div class="tc-footer"><span class="tc-timer soon">Starts May 1, 00:00 UTC</span><button class="tc-btn">Remind Me</button></div>
+        </div>
+      </div>
+
+      <div class="t-card" data-status="soon">
+        <div class="tc-bar green"></div>
+        <div class="tc-inner">
+          <div class="tc-top"><div class="tc-icon" style="border-color:rgba(76,175,125,0.2);color:#4caf7d;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21.5 2v6h-6"/><path d="M2.5 22v-6h6"/><path d="M22 11.5A10 10 0 0 0 3.2 7.2M2 12.5a10 10 0 0 0 18.8 4.2"/></svg></div><div class="tc-badges"><span class="tc-badge soon">Starts in 3d</span><span class="tc-badge free">Free Entry</span></div></div>
+          <div class="tc-name">Playson</div>
+          <div class="tc-title">Solar Queen Challenge</div>
+          <div class="tc-desc">Playson network event with unique solar-multiplier scoring. The more Solar Queen symbols you land, the higher your position climbs.</div>
+          <div class="tc-pool">$6,000</div>
+          <div class="tc-pool-lbl">Prize Pool</div>
+          <div class="tc-meta"><span class="tc-meta-item"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Playson titles only</span></div>
+          <div class="tc-footer"><span class="tc-timer soon" style="color:#4caf7d;">Starts Apr 29</span><button class="tc-btn" style="border-color:rgba(76,175,125,0.3);color:#4caf7d;">Remind Me</button></div>
+        </div>
+      </div>
+
+      <div class="t-card" data-status="soon">
+        <div class="tc-bar purple"></div>
+        <div class="tc-inner">
+          <div class="tc-top"><div class="tc-icon" style="border-color:rgba(167,139,250,0.2);color:#a78bfa;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg></div><div class="tc-badges"><span class="tc-badge soon">Starts in 5d</span><span class="tc-badge vip">VIP Only</span></div></div>
+          <div class="tc-name">VIP Monthly</div>
+          <div class="tc-title">Black Ops Monthly — May Edition</div>
+          <div class="tc-desc">Monthly VIP-exclusive event open to Operative rank and above. High-stakes, private standings, personal bonuses for all top-10 finishers regardless of prize structure.</div>
+          <div class="tc-pool">$15,000</div>
+          <div class="tc-pool-lbl">VIP Pool</div>
+          <div class="tc-meta"><span class="tc-meta-item"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Operative+ required</span></div>
+          <div class="tc-footer"><span class="tc-timer soon" style="color:#a78bfa;">Starts May 1</span><a href="vip.html" class="tc-btn" style="border-color:rgba(167,139,250,0.3);color:#a78bfa;">View VIP</a></div>
+        </div>
+      </div>
+
+      <div class="t-card" data-status="soon">
+        <div class="tc-bar red"></div>
+        <div class="tc-inner">
+          <div class="tc-top"><div class="tc-icon" style="border-color:rgba(232,76,76,0.2);color:#e84c4c;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="tc-badges"><span class="tc-badge soon">Starts in 6d</span></div></div>
+          <div class="tc-name">3 Oaks Gaming</div>
+          <div class="tc-title">Hot Fiesta Showdown</div>
+          <div class="tc-desc">3 Oaks network tournament scoring based on largest win multiplier in a single spin. Qualifier phase runs Saturday, finals on Sunday.</div>
+          <div class="tc-pool">$5,500</div>
+          <div class="tc-pool-lbl">Prize Pool</div>
+          <div class="tc-meta"><span class="tc-meta-item"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 3 Oaks titles only</span></div>
+          <div class="tc-footer"><span class="tc-timer soon" style="color:#e84c4c;">Starts May 2</span><button class="tc-btn" style="border-color:rgba(232,76,76,0.3);color:#e84c4c;">Remind Me</button></div>
+        </div>
+      </div>
+
+      <div class="t-card" data-status="soon">
+        <div class="tc-bar cyan"></div>
+        <div class="tc-inner">
+          <div class="tc-top"><div class="tc-icon" style="border-color:rgba(56,189,248,0.2);color:#38bdf8;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><polygon points="10,8.5 16,12 10,15.5" fill="currentColor" stroke="none"/></svg></div><div class="tc-badges"><span class="tc-badge soon">Starts in 7d</span><span class="tc-badge free">Free Entry</span></div></div>
+          <div class="tc-name">Live Casino</div>
+          <div class="tc-title">Live Dealer Lightning Cup</div>
+          <div class="tc-desc">First-ever live casino tournament at Zone 51. Points awarded per hand won at live Blackjack and live Baccarat. No slots — pure table strategy.</div>
+          <div class="tc-pool">$9,000</div>
+          <div class="tc-pool-lbl">Prize Pool</div>
+          <div class="tc-meta"><span class="tc-meta-item"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Live tables only</span></div>
+          <div class="tc-footer"><span class="tc-timer soon" style="color:#38bdf8;">Starts May 3</span><button class="tc-btn" style="border-color:rgba(56,189,248,0.3);color:#38bdf8;">Remind Me</button></div>
+        </div>
+      </div>
+
+    </div><!-- /upcoming grid -->
+
+    <!-- COMPLETED -->
+    <div class="sec-header"><div class="sec-line"></div><span class="sec-title">Recent Completed</span><div class="sec-line"></div></div>
+    <div class="t-grid" id="t-grid-ended">
+      <div class="t-card" data-status="ended">
+        <div class="tc-bar gold"></div>
+        <div class="tc-inner">
+          <div class="tc-top"><div class="tc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div><div class="tc-badges"><span class="tc-badge ended">Ended</span></div></div>
+          <div class="tc-name">Flagship Weekly</div>
+          <div class="tc-title">Classified Grand Prix — Week 16</div>
+          <div class="tc-desc">78 players competed. Player <strong>usr_kx7**</strong> claimed first place with 412,000 points — taking home $5,000.</div>
+          <div class="tc-pool">$9,500</div><div class="tc-pool-lbl">Final Pool</div>
+          <div class="tc-footer"><span class="tc-timer ended">Ended Apr 21</span><button class="tc-btn disabled">Results</button></div>
+        </div>
+      </div>
+      <div class="t-card" data-status="ended">
+        <div class="tc-bar red"></div>
+        <div class="tc-inner">
+          <div class="tc-top"><div class="tc-icon" style="border-color:rgba(232,76,76,0.2);color:#e84c4c;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="tc-badges"><span class="tc-badge ended">Ended</span></div></div>
+          <div class="tc-name">Pragmatic Play</div>
+          <div class="tc-title">April Mid-Month Drops</div>
+          <div class="tc-desc">Over 22,000 players globally participated. $48,500 in cash prizes distributed. 200+ random drops awarded during the event period.</div>
+          <div class="tc-pool">$50,000</div><div class="tc-pool-lbl">Total Awarded</div>
+          <div class="tc-footer"><span class="tc-timer ended">Ended Apr 20</span><button class="tc-btn disabled">Results</button></div>
+        </div>
+      </div>
+      <div class="t-card" data-status="ended">
+        <div class="tc-bar blue"></div>
+        <div class="tc-inner">
+          <div class="tc-top"><div class="tc-icon" style="border-color:rgba(91,141,217,0.2);color:#5b8dd9;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div><div class="tc-badges"><span class="tc-badge ended">Ended</span></div></div>
+          <div class="tc-name">All Providers</div>
+          <div class="tc-title">Weekend Slots Race — Apr 19</div>
+          <div class="tc-desc">540 players entered. Top prize went to usr_m4**8 with a 2,200× single-spin win ratio. $8,500 split across 50 positions.</div>
+          <div class="tc-pool">$8,500</div><div class="tc-pool-lbl">Final Pool</div>
+          <div class="tc-footer"><span class="tc-timer ended">Ended Apr 20</span><button class="tc-btn disabled">Results</button></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CURRENT STANDINGS PREVIEW -->
+    <div class="sec-header"><div class="sec-line"></div><span class="sec-title">Live Standings — Classified Grand Prix Week 17</span><div class="sec-line"></div></div>
+    <div class="lb-preview">
+      <div class="lb-prev-head">
+        <h4>Top 10 Players Right Now</h4>
+        <a href="leaderboard.html">Full Leaderboard &#8594;</a>
+      </div>
+      <table class="lb-table">
+        <thead><tr><th>#</th><th>Player</th><th>Points</th><th>Wager</th><th>Prize</th></tr></thead>
+        <tbody>
+          <tr><td><span class="lb-rank r1">1</span></td><td><div class="lb-name-cell"><div class="lb-avatar">KX</div>usr_kx7**</div></td><td><span class="lb-pts">186,400</span></td><td>$18,640</td><td><span class="lb-prize-cell">$5,000</span></td></tr>
+          <tr><td><span class="lb-rank r2">2</span></td><td><div class="lb-name-cell"><div class="lb-avatar">JR</div>usr_jr2**</div></td><td><span class="lb-pts">141,200</span></td><td>$14,120</td><td><span class="lb-prize-cell">$2,500</span></td></tr>
+          <tr><td><span class="lb-rank r3">3</span></td><td><div class="lb-name-cell"><div class="lb-avatar">VL</div>usr_vl9**</div></td><td><span class="lb-pts">128,800</span></td><td>$12,880</td><td><span class="lb-prize-cell">$1,000</span></td></tr>
+          <tr><td><span class="lb-rank r-other">4</span></td><td><div class="lb-name-cell"><div class="lb-avatar">AM</div>usr_am5**</div></td><td><span class="lb-pts">97,600</span></td><td>$9,760</td><td><span class="lb-prize-cell">$400</span></td></tr>
+          <tr><td><span class="lb-rank r-other">5</span></td><td><div class="lb-name-cell"><div class="lb-avatar">DX</div>usr_dx1**</div></td><td><span class="lb-pts">84,100</span></td><td>$8,410</td><td><span class="lb-prize-cell">$400</span></td></tr>
+          <tr><td><span class="lb-rank r-other">6</span></td><td><div class="lb-name-cell"><div class="lb-avatar">PR</div>usr_pr8**</div></td><td><span class="lb-pts">71,550</span></td><td>$7,155</td><td><span class="lb-prize-cell">$150</span></td></tr>
+          <tr><td><span class="lb-rank r-other">7</span></td><td><div class="lb-name-cell"><div class="lb-avatar">SN</div>usr_sn3**</div></td><td><span class="lb-pts">65,200</span></td><td>$6,520</td><td><span class="lb-prize-cell">$150</span></td></tr>
+          <tr><td><span class="lb-rank r-other">8</span></td><td><div class="lb-name-cell"><div class="lb-avatar">RK</div>usr_rk6**</div></td><td><span class="lb-pts">59,800</span></td><td>$5,980</td><td><span class="lb-prize-cell">$150</span></td></tr>
+          <tr><td><span class="lb-rank r-other">9</span></td><td><div class="lb-name-cell"><div class="lb-avatar">TM</div>usr_tm4**</div></td><td><span class="lb-pts">54,400</span></td><td>$5,440</td><td><span class="lb-prize-cell">$150</span></td></tr>
+          <tr><td><span class="lb-rank r-other">10</span></td><td><div class="lb-name-cell"><div class="lb-avatar">LW</div>usr_lw7**</div></td><td><span class="lb-pts">48,900</span></td><td>$4,890</td><td><span class="lb-prize-cell">$150</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="sec-header"><div class="sec-line"></div><span class="sec-title">How Tournaments Work</span><div class="sec-line"></div></div>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-num">01</div>
+        <div class="how-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h5>Auto Entry</h5>
+        <p>No registration, no opt-in. The moment you place a qualifying wager in an active tournament game, you are automatically entered and your points start accumulating.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num">02</div>
+        <div class="how-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <h5>Earn Points</h5>
+        <p>Standard scoring: 100 points per $100 wagered. Some events use multiplier scoring based on win ratios or special symbol triggers. Check each tournament for details.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num">03</div>
+        <div class="how-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <h5>Climb the Board</h5>
+        <p>Live standings update every 60 seconds. Track your position in real time on the Leaderboard page. Points from multiple sessions in the same event are combined automatically.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num">04</div>
+        <div class="how-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+        <h5>Win Real Cash</h5>
+        <p>Prizes are credited directly to your main balance within 60 minutes of tournament end. Cash prizes carry zero wagering requirements — withdraw immediately or keep playing.</p>
+      </div>
+    </div>
+
+    <!-- PRIZE DISTRIBUTION -->
+    <div class="prizes-section">
+      <div class="ps-head">
+        <h4>Standard Prize Distribution — Weekly Flagship</h4>
+        <p>Full breakdown of prize allocation for the Classified Grand Prix weekly tournament format.</p>
+      </div>
+      <table class="ps-table">
+        <thead><tr><th>Position</th><th>Prize Amount</th><th>% of Pool</th><th>Points Required (Est.)</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ps-rank" style="color:#ffe600;">1st Place</span></td><td><span class="ps-prize">$5,000</span></td><td><span class="ps-pct">52.6%</span></td><td>~150,000+</td></tr>
+          <tr><td><span class="ps-rank" style="color:#9ba8b8;">2nd Place</span></td><td><span class="ps-prize">$2,500</span></td><td><span class="ps-pct">26.3%</span></td><td>~100,000+</td></tr>
+          <tr><td><span class="ps-rank" style="color:#c07543;">3rd Place</span></td><td><span class="ps-prize">$1,000</span></td><td><span class="ps-pct">10.5%</span></td><td>~75,000+</td></tr>
+          <tr><td><span class="ps-rank">4th Place</span></td><td><span class="ps-prize">$400</span></td><td><span class="ps-pct">4.2%</span></td><td>~50,000+</td></tr>
+          <tr><td><span class="ps-rank">5th Place</span></td><td><span class="ps-prize">$400</span></td><td><span class="ps-pct">4.2%</span></td><td>~40,000+</td></tr>
+          <tr><td><span class="ps-rank">6th–10th</span></td><td><span class="ps-prize">$150 each</span></td><td><span class="ps-pct">~7.9% total</span></td><td>~20,000+</td></tr>
+          <tr><td><span class="ps-rank">11th–20th</span></td><td><span class="ps-prize">$50 each</span></td><td><span class="ps-pct">~5.3% total</span></td><td>~10,000+</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- TERMS -->
+    <div class="terms-grid">
+      <div class="term-card"><h5>Eligibility</h5><p>All verified Zone 51 accounts are eligible unless otherwise stated. VIP-exclusive tournaments require the specified rank. One account per player.</p></div>
+      <div class="term-card"><h5>Point Calculation</h5><p>Standard rate: 100pts per $100 wagered. Real money wagers only — bonus bets do not count toward tournament points under any event format.</p></div>
+      <div class="term-card"><h5>Prize Delivery</h5><p>All cash prizes are credited to the main wallet within 60 minutes of final standings confirmation. No wagering requirements apply to tournament winnings.</p></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // Stars
+  var c=document.getElementById('stars'),ctx=c.getContext('2d'),stars=[];
+  function resize(){c.width=window.innerWidth;c.height=window.innerHeight;}
+  function init(){stars=[];for(var i=0;i<160;i++)stars.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*0.8+0.15,a:Math.random()*0.4+0.08,ph:Math.random()*Math.PI*2,sp:Math.random()*0.004+0.001});}
+  function draw(){ctx.clearRect(0,0,c.width,c.height);stars.forEach(function(s){s.ph+=s.sp;var a=s.a*(0.45+0.55*Math.sin(s.ph));ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle='rgba(195,178,130,'+a+')';ctx.fill();});requestAnimationFrame(draw);}
+  resize();init();draw();
+  window.addEventListener('resize',function(){resize();init();});
+
+  // Filter tabs
+  function filterTab(el,cat){
+    document.querySelectorAll('.ftab').forEach(function(t){t.classList.remove('active');});
+    el.classList.add('active');
+    if(cat==='all'){
+      document.getElementById('flagship').style.display='';
+      document.getElementById('t-grid-live').style.display='grid';
+      document.getElementById('t-grid-soon').style.display='grid';
+      document.getElementById('t-grid-ended').style.display='grid';
+    } else {
+      document.getElementById('flagship').style.display=(cat==='live')?'':'none';
+      var showLive=cat==='live';
+      var showSoon=cat==='soon';
+      var showEnded=cat==='ended';
+      document.getElementById('t-grid-live').style.display=showLive?'grid':'none';
+      document.getElementById('t-grid-soon').style.display=showSoon?'grid':'none';
+      document.getElementById('t-grid-ended').style.display=showEnded?'grid':'none';
+    }
+  }
+
+  // Countdowns
+  function getNextMonday(){var d=new Date();var day=d.getUTCDay();var diff=(8-day)%7||7;d.setUTCDate(d.getUTCDate()+diff);d.setUTCHours(0,0,0,0);return d;}
+  function getNextSunday(){var d=new Date();var day=d.getUTCDay();var diff=(7-day)%7||7;d.setUTCDate(d.getUTCDate()+diff);d.setUTCHours(23,59,59,0);return d;}
+  function fmt(v){return String(v).padStart(2,'0');}
+  function updateTimers(){
+    var mainEnd=getNextMonday();
+    var diff=mainEnd-new Date();
+    var d=Math.floor(diff/86400000);
+    var h=Math.floor((diff%86400000)/3600000);
+    var m=Math.floor((diff%3600000)/60000);
+    var s=Math.floor((diff%60000)/1000);
+    ['f-d','f-h','f-m','f-s'].forEach(function(id,i){var el=document.getElementById(id);if(el)el.textContent=fmt([d,h,m,s][i]);});
+    // live card timers — stagger slightly for realism
+    var offsets=[0,3600000,7200000,86400000,43200000,21600000];
+    for(var i=1;i<=6;i++){
+      var el=document.getElementById('tc'+i+'-timer');
+      if(!el)continue;
+      var tdiff=mainEnd-new Date()-offsets[i-1];
+      var th=Math.floor((tdiff%86400000)/3600000);
+      var tm=Math.floor((tdiff%3600000)/60000);
+      var ts=Math.floor((tdiff%60000)/1000);
+      el.textContent=fmt(Math.floor(tdiff/86400000))+'d '+fmt(th)+'h '+fmt(tm)+'m';
+    }
+  }
+  setInterval(updateTimers,1000);
+  updateTimers();
+</script>
+<script src="i18n.js"></script>
+<script>document.body.insertAdjacentHTML('beforeend', Z51_FOOTER_HTML('.'));</script>
+<script src="cookie-banner.js"></script>
+
+  <script src="toast.js"></script>
+  <script src="sound.js"></script>
+  <script src="loader.js"></script>
+</body>
+</html>

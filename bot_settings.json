@@ -1,0 +1,22 @@
+{
+  "enabled": true,
+  "status": "online",
+  "welcome_msg": "зд",
+  "offline_msg": "Support is currently offline. Leave your message and we'll get back to you shortly.",
+  "ticket_seq": 28,
+  "reply_name": "Jeffrey epstein",
+  "templates": [
+    {
+      "id": "6c4182",
+      "name": "5 мин",
+      "text": "привет жди 5 минут я отвечу"
+    },
+    {
+      "id": "1b4eb6",
+      "name": "ожидайте переведу вас на техниче",
+      "text": "ожидайте переведу вас на технический отдел"
+    }
+  ],
+  "require_registration": true,
+  "chat_id": "-1003964257973"
+}

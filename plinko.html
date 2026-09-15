@@ -1,0 +1,903 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>ZONE 51 — Drop Zone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css" />
+  <script src="cloak.js"></script>
+  <script src="cursor.js"></script>  <style>
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; overflow: hidden; background: var(--bg); color: var(--text); font-family: "Inter", sans-serif; }
+
+    /* TOPBAR */
+    .topbar {
+      height: 60px; display: flex; align-items: center; justify-content: space-between;
+      padding: 0 24px; border-bottom: 1px solid var(--line);
+      background: rgba(3,3,5,0.97); position: relative; z-index: 10;
+    }
+    .topbar::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent 5%, var(--gold) 50%, transparent 95%); opacity: 0.35;
+    }
+    .tb-left { display: flex; align-items: center; gap: 20px; }
+    .back-btn {
+      text-decoration: none; color: var(--muted); font-size: 0.72rem; letter-spacing: 2px;
+      text-transform: uppercase; padding: 6px 14px; border: 1px solid var(--line); transition: all 0.18s;
+    }
+    .back-btn:hover { color: var(--gold); border-color: rgba(255,30,55,0.5); }
+    .game-title { font-family: "Orbitron", sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 5px; }
+    .game-title em { color: var(--gold); font-style: normal; }
+    .tb-right { display: flex; align-items: center; gap: 24px; }
+    .tb-stat { display: flex; flex-direction: column; align-items: flex-end; }
+    .tb-stat-lbl { font-size: 0.5rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); opacity: 0.55; }
+    .tb-stat-val { font-family: "Orbitron", sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--gold); letter-spacing: 1px; }
+    .tb-stat-val.flash-up { color: var(--green-bright); }
+    .tb-stat-val.flash-down { color: var(--red-bright); }
+
+    /* LAYOUT */
+    .game-layout { display: grid; grid-template-columns: 230px 1fr 230px; height: calc(100vh - 60px); }
+
+    /* LEFT / RIGHT PANELS */
+    .left-panel, .right-panel {
+      border-right: 1px solid var(--line); background: rgba(3,3,5,0.85);
+      display: flex; flex-direction: column; overflow: hidden;
+    }
+    .right-panel { border-right: none; border-left: 1px solid var(--line); }
+
+    .panel-sec { padding: 16px 16px 14px; border-bottom: 1px solid var(--line); flex-shrink: 0; }
+    .panel-lbl { font-size: 0.52rem; letter-spacing: 3.5px; text-transform: uppercase; color: var(--muted); opacity: 0.45; margin-bottom: 10px; }
+
+    /* BET CONTROLS */
+    .ctrl-lbl { font-size: 0.52rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); opacity: 0.55; margin-bottom: 6px; display: block; }
+    .bet-row { display: flex; }
+    .bet-adj {
+      width: 30px; background: rgba(255,255,255,0.04); border: 1px solid var(--line);
+      color: var(--muted); font-size: 1rem; cursor: pointer; display: flex;
+      align-items: center; justify-content: center; transition: all 0.15s; flex-shrink: 0;
+    }
+    .bet-adj:hover { color: var(--gold); border-color: rgba(255,30,55,0.5); }
+    .bet-input {
+      flex: 1; padding: 8px 6px; background: rgba(255,255,255,0.025);
+      border: 1px solid var(--line); border-left: none; border-right: none;
+      color: var(--text); font-size: 0.82rem; font-family: "Orbitron", sans-serif;
+      font-weight: 600; text-align: center; outline: none;
+    }
+    .bet-input:focus { border-color: rgba(255,30,55,0.55); }
+    .bet-presets { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 5px; }
+    .bet-preset {
+      padding: 3px 7px; font-size: 0.58rem; border: 1px solid var(--line);
+      background: transparent; color: var(--muted); cursor: pointer;
+      font-family: "Inter", sans-serif; transition: all 0.15s;
+    }
+    .bet-preset:hover { color: var(--gold); border-color: rgba(255,30,55,0.5); }
+
+    /* RISK SELECTOR */
+    .risk-row { display: flex; gap: 3px; }
+    .risk-btn {
+      flex: 1; padding: 8px 4px; border: 1px solid var(--line); background: transparent;
+      color: var(--muted); font-size: 0.6rem; font-weight: 600; letter-spacing: 1.5px;
+      text-transform: uppercase; cursor: pointer; font-family: "Inter", sans-serif; transition: all 0.18s;
+    }
+    .risk-btn.active-low  { border-color: var(--green-bright); background: rgba(34,168,98,0.07); color: var(--green-bright); }
+    .risk-btn.active-mid  { border-color: var(--gold); background: rgba(255,20,40,0.09); color: var(--gold); }
+    .risk-btn.active-high { border-color: var(--red-bright); background: rgba(196,37,60,0.07); color: var(--red-bright); }
+
+    /* ROWS SELECTOR */
+    .rows-row { display: flex; gap: 3px; flex-wrap: wrap; }
+    .rows-btn {
+      padding: 5px 8px; border: 1px solid var(--line); background: transparent;
+      color: var(--muted); font-size: 0.62rem; font-family: "Orbitron", sans-serif;
+      cursor: pointer; letter-spacing: 0.5px; transition: all 0.15s;
+    }
+    .rows-btn.active { border-color: var(--gold); color: var(--gold); background: rgba(255,20,45,0.08); }
+
+    /* AUTO DROP */
+    .auto-row { display: flex; align-items: center; gap: 10px; }
+    .toggle {
+      width: 34px; height: 17px; background: rgba(255,255,255,0.05);
+      border: 1px solid var(--line); border-radius: 9px; position: relative;
+      cursor: pointer; transition: all 0.2s; flex-shrink: 0;
+    }
+    .toggle.on { background: rgba(255,20,50,0.35); border-color: rgba(255,30,55,0.45); }
+    .toggle::after {
+      content: ""; position: absolute; width: 11px; height: 11px; border-radius: 50%;
+      background: var(--muted); top: 2px; left: 2px; transition: all 0.2s;
+    }
+    .toggle.on::after { background: var(--gold); left: 19px; }
+    .auto-lbl { font-size: 0.7rem; color: var(--muted); }
+
+    /* DROP BUTTON */
+    .drop-btn {
+      width: calc(100% - 32px); margin: 14px 16px;
+      padding: 14px; font-family: "Orbitron", sans-serif; font-size: 0.72rem;
+      font-weight: 700; letter-spacing: 4px; text-transform: uppercase;
+      border: 1px solid var(--gold); background: rgba(255,20,45,0.14);
+      color: var(--gold-bright); cursor: pointer; transition: all 0.18s;
+    }
+    .drop-btn:hover { background: rgba(255,30,55,0.4); box-shadow: 0 0 28px rgba(255,20,50,0.35); }
+    .drop-btn:disabled { border-color: var(--line); background: transparent; color: var(--muted); cursor: not-allowed; box-shadow: none; }
+
+    /* MULTIPLIER BUCKETS PREVIEW */
+    .buckets-preview { display: flex; gap: 2px; margin: 0 16px 14px; }
+    .bkt-p {
+      flex: 1; padding: 4px 2px; text-align: center;
+      font-family: "Orbitron", sans-serif; font-size: 0.48rem; font-weight: 700;
+      letter-spacing: 0.3px; border: 1px solid;
+    }
+
+    /* SESSION STRIP */
+    .session-strip {
+      margin-top: auto; border-top: 1px solid var(--line);
+      display: flex; flex-direction: column; gap: 0; flex-shrink: 0;
+    }
+    .sess-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 16px; border-bottom: 1px solid rgba(255,20,45,0.06);
+      font-size: 0.72rem;
+    }
+    .sess-row .lbl { color: var(--muted); font-size: 0.62rem; letter-spacing: 1px; }
+    .sess-row .val { font-family: "Orbitron", sans-serif; font-size: 0.78rem; font-weight: 700; color: var(--text); }
+    .sess-row .val.pos { color: var(--green-bright); }
+    .sess-row .val.neg { color: var(--red-bright); }
+
+    /* GAME AREA */
+    .game-area { display: flex; flex-direction: column; align-items: center; overflow: hidden; position: relative; background: #060608; }
+    #plinko-canvas { display: block; }
+
+    /* WIN FLASH */
+    .win-flash {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 60px;
+      pointer-events: none; opacity: 0; transition: opacity 0.12s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .win-flash.show { opacity: 1; }
+    .win-flash-text {
+      font-family: "Orbitron", sans-serif; font-size: 1.6rem; font-weight: 900;
+      letter-spacing: 3px; text-shadow: 0 0 30px currentColor;
+    }
+
+    /* HISTORY */
+    .hist-scroll { flex: 1; overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(255,20,40,0.1) transparent; }
+    .hist-scroll::-webkit-scrollbar { width: 3px; }
+    .hist-scroll::-webkit-scrollbar-thumb { background: rgba(255,20,45,0.14); }
+    .hist-row {
+      display: grid; grid-template-columns: 1fr auto auto;
+      padding: 7px 14px; border-bottom: 1px solid rgba(255,20,50,0.35);
+      font-size: 0.72rem; gap: 6px; align-items: center;
+    }
+    .hist-row:hover { background: rgba(255,255,255,0.012); }
+    .h-bet { color: var(--muted); font-size: 0.64rem; }
+    .h-mult { font-family: "Orbitron", sans-serif; font-size: 0.65rem; font-weight: 700; }
+    .h-pnl { font-family: "Orbitron", sans-serif; font-size: 0.7rem; font-weight: 700; text-align: right; }
+
+    @media (max-width: 900px) {
+      .game-layout { grid-template-columns: 1fr; height: auto; }
+      .left-panel, .right-panel { display: none; }
+      .game-area { height: calc(100vw * 0.9); min-height: 300px; }
+      #plinko-canvas { width: 100% !important; height: 100% !important; }
+    }
+
+    /* MOBILE CONTROLS — shown only on small screens */
+    .mobile-controls {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      padding: 14px;
+      background: rgba(6,2,10,0.98);
+      border-top: 1px solid var(--line);
+    }
+    .mobile-controls .mc-row { display: flex; gap: 8px; align-items: center; }
+    .mobile-controls .mc-label {
+      font-size: 0.52rem; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--muted); opacity: 0.55; margin-bottom: 4px; display: block;
+    }
+    .mobile-controls .bet-row { flex: 1; }
+    .mobile-controls .drop-btn-m {
+      flex: 1; padding: 13px; font-family: "Orbitron", sans-serif; font-size: 0.72rem;
+      font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+      border: 1px solid var(--gold); background: rgba(255,20,45,0.14);
+      color: var(--gold-bright); cursor: pointer; transition: all 0.18s;
+    }
+    .mobile-controls .drop-btn-m:hover { background: rgba(255,30,55,0.4); }
+    .mobile-controls .risk-row { gap: 4px; }
+    .mobile-controls .risk-btn  { padding: 9px 6px; font-size: 0.58rem; }
+    .mobile-controls .rows-row  { gap: 4px; flex-wrap: wrap; }
+    .mobile-controls .rows-btn  { padding: 7px 10px; }
+    .mobile-bal-strip {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 6px 0; border-bottom: 1px solid var(--line);
+    }
+    .mobile-bal-strip .lbl { font-size: 0.5rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); opacity: 0.55; }
+    .mobile-bal-strip .val { font-family: "Orbitron", sans-serif; font-size: 0.88rem; font-weight: 700; color: var(--gold); }
+
+    @media (max-width: 900px) {
+      .mobile-controls { display: flex; }
+      .topbar .brand { display: flex; }
+      .game-title { font-size: 0.78rem; letter-spacing: 3px; }
+      .tb-right { display: none; }  /* balance moved to mobile-controls */
+    }
+
+    @media (max-width: 480px) {
+      .topbar { padding: 0 12px; height: 52px; }
+      .back-btn { padding: 5px 10px; font-size: 0.65rem; letter-spacing: 1.5px; }
+      .brand-emblem { width: 30px; height: 30px; }
+      .brand-text h1 { font-size: 0.8rem; letter-spacing: 3px; }
+      .brand-text p  { display: none; }
+      .game-title    { display: none; }
+    }
+
+    @media (max-width: 380px) {
+      .brand-text { display: none; }
+      .topbar { padding: 0 10px; height: 50px; }
+    }
+  </style>
+  <script src="security.js"></script>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="tb-left">
+    <a href="index.html" class="brand" style="text-decoration:none;">
+      <div class="brand-emblem"><span>51</span></div>
+      <div class="brand-text"><h1>ZONE 51</h1><p>Access Level: Unrestricted</p></div>
+    </a>
+    <a href="index.html" class="back-btn">← Lobby</a>
+    <div class="game-title">DROP <em>ZONE</em></div>
+  </div>
+  <div class="tb-right">
+    <div class="tb-stat">
+      <div class="tb-stat-lbl">Balance</div>
+      <div class="tb-stat-val" id="balance-el">$ 0.00</div>
+    </div>
+  </div>
+</div>
+
+<div class="game-layout">
+
+  <!-- LEFT -->
+  <div class="left-panel">
+    <div class="panel-sec">
+      <div class="panel-lbl">Bet Amount</div>
+      <div class="bet-row">
+        <button class="bet-adj" id="bet-minus">−</button>
+        <input type="number" class="bet-input" id="bet-input" value="10" min="1">
+        <button class="bet-adj" id="bet-plus">+</button>
+      </div>
+      <div class="bet-presets">
+        <button class="bet-preset" data-v="1">$1</button>
+        <button class="bet-preset" data-v="5">$5</button>
+        <button class="bet-preset" data-v="10">$10</button>
+        <button class="bet-preset" data-v="25">$25</button>
+        <button class="bet-preset" data-v="50">$50</button>
+        <button class="bet-preset" data-v="100">$100</button>
+        <button class="bet-preset" data-v="half">½</button>
+        <button class="bet-preset" data-v="double">×2</button>
+      </div>
+    </div>
+
+    <div class="panel-sec">
+      <div class="panel-lbl">Risk Level</div>
+      <div class="risk-row">
+        <button class="risk-btn active-low" data-risk="low">Low</button>
+        <button class="risk-btn" data-risk="mid">Mid</button>
+        <button class="risk-btn" data-risk="high">High</button>
+      </div>
+    </div>
+
+    <div class="panel-sec">
+      <div class="panel-lbl">Rows</div>
+      <div class="rows-row" id="rows-row">
+        <button class="rows-btn" data-rows="8">8</button>
+        <button class="rows-btn active" data-rows="10">10</button>
+        <button class="rows-btn" data-rows="12">12</button>
+        <button class="rows-btn" data-rows="14">14</button>
+        <button class="rows-btn" data-rows="16">16</button>
+      </div>
+    </div>
+
+    <div class="panel-sec">
+      <div class="panel-lbl">Auto Drop</div>
+      <div class="auto-row">
+        <div class="toggle" id="auto-toggle"></div>
+        <span class="auto-lbl">Drop continuously</span>
+      </div>
+    </div>
+
+    <button class="drop-btn" id="drop-btn">Drop Ball</button>
+
+    <div id="buckets-preview" class="buckets-preview"></div>
+
+    <div class="session-strip">
+      <div class="sess-row"><span class="lbl">Drops</span><span class="val" id="s-drops">0</span></div>
+      <div class="sess-row"><span class="lbl">Best win</span><span class="val pos" id="s-best">—</span></div>
+      <div class="sess-row"><span class="lbl">P&amp;L</span><span class="val" id="s-pnl">$ 0.00</span></div>
+    </div>
+  </div>
+
+  <!-- CANVAS -->
+  <div class="game-area">
+    <canvas id="plinko-canvas"></canvas>
+    <div class="win-flash" id="win-flash">
+      <div class="win-flash-text" id="win-flash-text"></div>
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right-panel">
+    <div class="panel-sec" style="flex-shrink:0;">
+      <div class="panel-lbl">Drop History</div>
+    </div>
+    <div class="hist-scroll">
+      <div id="hist-list"></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- MOBILE CONTROLS — visible only on ≤900px -->
+<div class="mobile-controls" id="mobile-controls">
+  <div class="mobile-bal-strip">
+    <span class="lbl">Balance</span>
+    <span class="val" id="balance-el-m">$ 0.00</span>
+  </div>
+  <div>
+    <span class="mc-label">Bet Amount</span>
+    <div class="mc-row">
+      <div class="bet-row" style="flex:1;">
+        <button class="bet-adj" id="bet-minus-m">−</button>
+        <input type="number" class="bet-input" id="bet-input-m" value="10" min="1">
+        <button class="bet-adj" id="bet-plus-m">+</button>
+      </div>
+    </div>
+    <div class="bet-presets" style="margin-top:6px;">
+      <button class="bet-preset" data-vm="1">$1</button>
+      <button class="bet-preset" data-vm="5">$5</button>
+      <button class="bet-preset" data-vm="10">$10</button>
+      <button class="bet-preset" data-vm="25">$25</button>
+      <button class="bet-preset" data-vm="50">$50</button>
+      <button class="bet-preset" data-vm="half">½</button>
+      <button class="bet-preset" data-vm="double">×2</button>
+    </div>
+  </div>
+  <div>
+    <span class="mc-label">Risk</span>
+    <div class="risk-row">
+      <button class="risk-btn active-low" data-risk-m="low">Low</button>
+      <button class="risk-btn" data-risk-m="mid">Mid</button>
+      <button class="risk-btn" data-risk-m="high">High</button>
+    </div>
+  </div>
+  <div>
+    <span class="mc-label">Rows</span>
+    <div class="rows-row" id="rows-row-m">
+      <button class="rows-btn" data-rows-m="8">8</button>
+      <button class="rows-btn active" data-rows-m="10">10</button>
+      <button class="rows-btn" data-rows-m="12">12</button>
+      <button class="rows-btn" data-rows-m="14">14</button>
+      <button class="rows-btn" data-rows-m="16">16</button>
+    </div>
+  </div>
+  <button class="drop-btn-m" id="drop-btn-m">▼ DROP BALL</button>
+</div>
+
+<script>
+/* ── CONFIG ── */
+const ROWS_OPTIONS = [8, 10, 12, 14, 16];
+const MULTIPLIERS = {
+  low: {
+    8:  [5.6, 2.1, 1.1, 1.0, 0.5, 1.0, 1.1, 2.1, 5.6],
+    10: [8.9, 3.0, 1.4, 1.1, 1.0, 0.5, 1.0, 1.1, 1.4, 3.0, 8.9],
+    12: [10,  4.0, 1.6, 1.4, 1.1, 1.0, 0.5, 1.0, 1.1, 1.4, 1.6, 4.0, 10],
+    14: [18,  5.0, 2.0, 1.4, 1.1, 1.0, 0.5, 0.5, 1.0, 1.1, 1.4, 2.0, 5.0, 18],
+    16: [16,  9.0, 2.0, 1.4, 1.1, 1.0, 0.5, 0.3, 0.5, 1.0, 1.1, 1.4, 2.0, 9.0, 16],
+  },
+  mid: {
+    8:  [13, 3.0, 1.3, 0.7, 0.4, 0.7, 1.3, 3.0, 13],
+    10: [22, 5.0, 2.0, 1.4, 0.6, 0.4, 0.6, 1.4, 2.0, 5.0, 22],
+    12: [33, 11, 4.0, 2.0, 1.1, 0.6, 0.3, 0.6, 1.1, 2.0, 4.0, 11, 33],
+    14: [58, 15, 7.0, 2.0, 1.5, 0.7, 0.3, 0.3, 0.7, 1.5, 2.0, 7.0, 15, 58],
+    16: [110,41, 10, 5.0, 3.0, 1.5, 1.0, 0.5, 1.0, 1.5, 3.0, 5.0, 10, 41, 110],
+  },
+  high: {
+    8:  [29,  4.0, 1.5, 0.3, 0.2, 0.3, 1.5, 4.0, 29],
+    10: [76,  10,  3.0, 0.9, 0.3, 0.2, 0.3, 0.9, 3.0, 10, 76],
+    12: [170, 24,  8.1, 2.0, 0.7, 0.2, 0.2, 0.7, 2.0, 8.1, 24, 170],
+    14: [420, 56,  18,  5.0, 1.9, 0.3, 0.2, 0.3, 1.9, 5.0, 18,  56, 420],
+    16: [1000,130, 26,  9.0, 4.0, 2.0, 0.2, 0.2, 2.0, 4.0, 9.0, 26, 130,1000],
+  }
+};
+
+/* ── STATE ── */
+const _Z51_BAL_KEY = 'z51_balance';
+function _z51ReadBal() { var v = parseFloat(localStorage.getItem(_Z51_BAL_KEY)); return (isNaN(v)) ? 0 : v; }
+let balance = _z51ReadBal();
+let betAmt  = 10;
+let risk    = 'low';
+let rows    = 10;
+let autoOn  = false;
+let autoTimer = null;
+let sDrops = 0, sBest = 0, sPnl = 0;
+let histData = [];
+let activeBalls = [];
+let animId = null;
+
+/* ── CANVAS ── */
+const canvas = document.getElementById('plinko-canvas');
+const ctx    = canvas.getContext('2d');
+const area   = canvas.parentElement;
+
+/* layout constants (computed on resize) */
+let CW, CH, PIN_R, BALL_R, PAD_T, PAD_B, PIN_ROWS, PIN_COLS, PIN_GAP_X, PIN_GAP_Y, BOARD_X, BOARD_W, BUCKET_H;
+
+function layout() {
+  CW = area.clientWidth;
+  CH = area.clientHeight;
+  canvas.width  = CW;
+  canvas.height = CH;
+
+  PIN_ROWS  = rows;
+  PAD_T     = 40;
+  PAD_B     = 64;
+  BUCKET_H  = 32;
+
+  const usableH = CH - PAD_T - PAD_B - BUCKET_H;
+  PIN_GAP_Y = usableH / PIN_ROWS;
+  PIN_GAP_X = Math.min(PIN_GAP_Y * 0.9, (CW * 0.85) / (PIN_ROWS + 1));
+
+  BOARD_W   = PIN_GAP_X * (PIN_ROWS + 1);
+  BOARD_X   = (CW - BOARD_W) / 2;
+
+  PIN_R  = Math.max(3.5, PIN_GAP_X * 0.09);
+  BALL_R = Math.max(5,   PIN_GAP_X * 0.13);
+
+  renderBucketsPreview();
+}
+
+window.addEventListener('resize', () => { layout(); });
+
+/* ── BUCKET COLORS ── */
+function bucketColor(m, maxM) {
+  if (m >= maxM * 0.7) return { stroke: '#a78bfa', bg: 'rgba(167,139,250,0.12)', text: '#a78bfa' };
+  if (m >= 5)          return { stroke: '#c4253c', bg: 'rgba(196,37,60,0.1)',     text: '#e07070' };
+  if (m >= 2)          return { stroke: '#ff4060', bg: 'rgba(255,20,40,0.1)',   text: '#ffe600' };
+  if (m >= 1)          return { stroke: 'rgba(255,30,55,0.4)', bg: ' rgba(255,20,50,0.35) ', text: 'rgba(255,40,60,0.9)' };
+  return               { stroke: 'rgba(196,37,60,0.2)', bg: 'rgba(196,37,60,0.04)', text: '#7a3a3a' };
+}
+
+function getMults() { return MULTIPLIERS[risk][rows]; }
+
+function renderBucketsPreview() {
+  const mults = getMults();
+  const maxM  = Math.max(...mults);
+  const el    = document.getElementById('buckets-preview');
+  el.innerHTML = mults.map(m => {
+    const c = bucketColor(m, maxM);
+    return `<div class="bkt-p" style="border-color:${c.stroke};background:${c.bg};color:${c.text};">${m}×</div>`;
+  }).join('');
+}
+
+/* ── PIN POSITIONS ── */
+function pinPos(row, col) {
+  const cols = row + 2;
+  const startX = BOARD_X + (BOARD_W - PIN_GAP_X * (cols - 1)) / 2;
+  return {
+    x: startX + col * PIN_GAP_X,
+    y: PAD_T + row * PIN_GAP_Y + PIN_GAP_Y / 2
+  };
+}
+
+function allPins() {
+  const pins = [];
+  for (let r = 0; r < PIN_ROWS; r++) {
+    for (let c = 0; c <= r + 1; c++) {
+      pins.push(pinPos(r, c));
+    }
+  }
+  return pins;
+}
+
+/* ── BUCKET RECTS ── */
+function buckets() {
+  const mults = getMults();
+  const n     = mults.length;
+  const totalW = PIN_GAP_X * (PIN_ROWS + 1);
+  const bw     = totalW / n;
+  const by     = CH - PAD_B - BUCKET_H;
+  return mults.map((m, i) => ({
+    m, x: BOARD_X + i * bw, y: by, w: bw, h: BUCKET_H
+  }));
+}
+
+/* ── BALL PHYSICS ── */
+function spawnBall(bet) {
+  if (bet > balance) return;
+  balance -= bet;
+  updateBalanceEl(false);
+
+  const startX = BOARD_X + BOARD_W / 2 + (Math.random() - 0.5) * 2;
+  const startY = PAD_T - 10;
+
+  activeBalls.push({
+    x: startX, y: startY,
+    vx: (Math.random() - 0.5) * 0.4,
+    vy: 0,
+    bet,
+    trail: [],
+    landedBucket: -1,
+    flash: 0,
+    done: false,
+  });
+}
+
+const GRAVITY  = 0.28;
+const FRICTION = 0.62;
+const BOUNCE   = 0.38;
+
+function stepBall(b) {
+  if (b.done) return;
+
+  b.trail.push({ x: b.x, y: b.y });
+  if (b.trail.length > 14) b.trail.shift();
+
+  b.vy += GRAVITY;
+  b.x  += b.vx;
+  b.y  += b.vy;
+
+  /* pin collisions */
+  const pins = allPins();
+  for (const p of pins) {
+    const dx = b.x - p.x, dy = b.y - p.y;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    const minD = PIN_R + BALL_R;
+    if (dist < minD && dist > 0.01) {
+      const nx = dx / dist, ny = dy / dist;
+      const overlap = minD - dist;
+      b.x += nx * overlap;
+      b.y += ny * overlap;
+      const dot = b.vx * nx + b.vy * ny;
+      b.vx = (b.vx - 2 * dot * nx) * BOUNCE + (Math.random() - 0.5) * 0.6;
+      b.vy = (b.vy - 2 * dot * ny) * BOUNCE;
+      b.vx *= FRICTION;
+    }
+  }
+
+  /* wall bounce */
+  if (b.x < BOARD_X + BALL_R) { b.x = BOARD_X + BALL_R; b.vx = Math.abs(b.vx) * BOUNCE; }
+  if (b.x > BOARD_X + BOARD_W - BALL_R) { b.x = BOARD_X + BOARD_W - BALL_R; b.vx = -Math.abs(b.vx) * BOUNCE; }
+
+  /* bucket landing */
+  const bkts = buckets();
+  const landY = bkts[0].y + BUCKET_H * 0.5;
+  if (b.y >= landY) {
+    b.y = landY;
+    b.vy = 0; b.vx = 0;
+    b.done = true;
+
+    /* find bucket */
+    let idx = bkts.findIndex(bk => b.x >= bk.x && b.x < bk.x + bk.w);
+    if (idx < 0) idx = b.x < BOARD_X + BOARD_W / 2 ? 0 : bkts.length - 1;
+    b.landedBucket = idx;
+    b.flash = 1.0;
+
+    const m   = bkts[idx].m;
+    const win = b.bet * m;
+    const pnl = win - b.bet;
+    balance += win;
+    sPnl    += pnl;
+    sDrops++;
+    if (win > sBest) sBest = win;
+
+    updateBalanceEl(pnl >= 0);
+    pushHistory(b.bet, m, win);
+    updateSession();
+    showWinFlash(m, win);
+  }
+}
+
+/* ── DRAW ── */
+function drawFrame() {
+  ctx.clearRect(0, 0, CW, CH);
+  ctx.fillStyle = '#060608';
+  ctx.fillRect(0, 0, CW, CH);
+
+  /* subtle grid */
+  ctx.strokeStyle = 'rgba(160,120,40,0.04)';
+  ctx.lineWidth = 1;
+  for (let x = 0; x < CW; x += 50) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,CH); ctx.stroke(); }
+  for (let y = 0; y < CH; y += 50) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(CW,y); ctx.stroke(); }
+
+  /* buckets */
+  const bkts  = buckets();
+  const maxM  = Math.max(...getMults());
+  bkts.forEach((bk, i) => {
+    const c = bucketColor(bk.m, maxM);
+    /* flash if any ball landed here */
+    const flash = activeBalls.filter(b => b.landedBucket === i && b.flash > 0);
+    const extra = flash.length > 0 ? flash[0].flash : 0;
+    ctx.strokeStyle = c.stroke;
+    ctx.lineWidth   = 1 + extra * 2;
+    ctx.fillStyle   = extra > 0 ? c.stroke.replace(')', `,${0.2 + extra * 0.3})`.replace('rgb', 'rgba')) : c.bg;
+    ctx.fillRect(bk.x + 1, bk.y, bk.w - 2, bk.h);
+    ctx.strokeRect(bk.x + 0.5, bk.y + 0.5, bk.w - 2, bk.h - 1);
+
+    ctx.fillStyle = c.text;
+    ctx.font = `700 ${Math.min(11, PIN_GAP_X * 0.28)}px Orbitron, monospace`;
+    ctx.textAlign = 'center';
+    ctx.fillText(bk.m + '×', bk.x + bk.w / 2, bk.y + BUCKET_H * 0.62);
+  });
+
+  /* pins */
+  const pins = allPins();
+  pins.forEach(p => {
+    ctx.beginPath(); ctx.arc(p.x, p.y, PIN_R, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255,100,100,0.75)';
+    ctx.shadowBlur = 5; ctx.shadowColor = 'rgba(255,30,55,0.5)';
+    ctx.fill(); ctx.shadowBlur = 0;
+  });
+
+  /* balls */
+  activeBalls.forEach(b => {
+    /* trail */
+    b.trail.forEach((t, i) => {
+      const a = (i / b.trail.length) * 0.3;
+      ctx.beginPath(); ctx.arc(t.x, t.y, BALL_R * 0.6, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(232,200,90,${a})`;
+      ctx.fill();
+    });
+
+    /* ball */
+    const grad = ctx.createRadialGradient(b.x - BALL_R * 0.3, b.y - BALL_R * 0.3, 1, b.x, b.y, BALL_R);
+    grad.addColorStop(0, '#fff5cc');
+    grad.addColorStop(0.5, '#ffe600');
+    grad.addColorStop(1, '#9a6e1a');
+    ctx.beginPath(); ctx.arc(b.x, b.y, BALL_R, 0, Math.PI * 2);
+    ctx.shadowBlur = 14; ctx.shadowColor = 'rgba(255,40,60,0.9)';
+    ctx.fillStyle = grad; ctx.fill(); ctx.shadowBlur = 0;
+
+    if (b.flash > 0) b.flash = Math.max(0, b.flash - 0.04);
+  });
+
+  /* remove balls that have fully settled */
+  activeBalls = activeBalls.filter(b => !b.done || b.trail.length > 0 || b.flash > 0);
+
+  activeBalls.forEach(b => { if (!b.done) stepBall(b); });
+}
+
+function loop() { drawFrame(); animId = requestAnimationFrame(loop); }
+
+/* ── UI ── */
+function updateBalanceEl(up) {
+  const el = document.getElementById('balance-el');
+  el.textContent = `$ ${balance.toFixed(2)}`;
+  localStorage.setItem(_Z51_BAL_KEY, balance.toFixed(2));
+  el.classList.remove('flash-up', 'flash-down');
+  void el.offsetWidth;
+  el.classList.add(up ? 'flash-up' : 'flash-down');
+  setTimeout(() => el.classList.remove('flash-up', 'flash-down'), 700);
+}
+
+function updateSession() {
+  document.getElementById('s-drops').textContent = sDrops;
+  document.getElementById('s-best').textContent  = sBest > 0 ? `$ ${sBest.toFixed(2)}` : '—';
+  const pnlEl = document.getElementById('s-pnl');
+  pnlEl.textContent = (sPnl >= 0 ? '+' : '') + `$ ${sPnl.toFixed(2)}`;
+  pnlEl.className   = 'val' + (sPnl > 0 ? ' pos' : sPnl < 0 ? ' neg' : '');
+}
+
+function showWinFlash(m, win) {
+  const el   = document.getElementById('win-flash');
+  const txt  = document.getElementById('win-flash-text');
+  const maxM = Math.max(...getMults());
+  const c    = bucketColor(m, maxM);
+  txt.style.color = c.text;
+  txt.textContent = m >= 10 ? `×${m} !! +$ ${win.toFixed(2)}` : `×${m}  +$ ${win.toFixed(2)}`;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 1200);
+}
+
+function pushHistory(bet, m, win) {
+  const maxM = Math.max(...getMults());
+  const c    = bucketColor(m, maxM);
+  const pnl  = win - bet;
+  histData.unshift({ bet, m, win, pnl, c });
+  if (histData.length > 60) histData.pop();
+  const el = document.getElementById('hist-list');
+  el.innerHTML = histData.map(d => `
+    <div class="hist-row">
+      <div class="h-bet" style="color:var(--muted)">$${d.bet.toFixed(0)}</div>
+      <div class="h-mult" style="color:${d.c.text}">${d.m}×</div>
+      <div class="h-pnl" style="color:${d.pnl >= 0 ? 'var(--green-bright)' : 'var(--red-bright)'}">
+        ${d.pnl >= 0 ? '+' : ''}$${d.pnl.toFixed(2)}
+      </div>
+    </div>`).join('');
+}
+
+/* ── CONTROLS ── */
+function doDrop() {
+  const a = parseFloat(document.getElementById('bet-input').value) || 0;
+  if (a < 1 || a > balance) {
+    const inp = document.getElementById('bet-input');
+    inp.style.borderColor = 'var(--red-bright)';
+    setTimeout(() => inp.style.borderColor = '', 900);
+    return;
+  }
+  betAmt = a;
+  spawnBall(betAmt);
+}
+
+document.getElementById('drop-btn').addEventListener('click', doDrop);
+
+document.addEventListener('keydown', e => {
+  if (e.code === 'Space' && !e.target.matches('input')) { e.preventDefault(); doDrop(); }
+});
+
+const betInputEl = document.getElementById('bet-input');
+document.getElementById('bet-minus').addEventListener('click', () => {
+  const steps = [1,2,5,10,25,50,100,200,500];
+  const cur = parseFloat(betInputEl.value) || 1;
+  const v = [...steps].reverse().find(s => s < cur) || 1;
+  betInputEl.value = v; betAmt = v;
+});
+document.getElementById('bet-plus').addEventListener('click', () => {
+  const steps = [1,2,5,10,25,50,100,200,500];
+  const cur = parseFloat(betInputEl.value) || 1;
+  const v = Math.min(steps.find(s => s > cur) || 500, balance);
+  betInputEl.value = v; betAmt = v;
+});
+document.querySelectorAll('.bet-preset').forEach(b => {
+  b.addEventListener('click', () => {
+    let v;
+    if (b.dataset.v === 'half')   v = Math.max(1, Math.floor((parseFloat(betInputEl.value)||1) / 2));
+    else if (b.dataset.v === 'double') v = Math.min((parseFloat(betInputEl.value)||1) * 2, balance);
+    else v = parseFloat(b.dataset.v);
+    betInputEl.value = v; betAmt = v;
+  });
+});
+
+/* RISK */
+document.querySelectorAll('.risk-btn').forEach(b => {
+  b.addEventListener('click', () => {
+    risk = b.dataset.risk;
+    document.querySelectorAll('.risk-btn').forEach(x => x.className = 'risk-btn');
+    b.classList.add(`active-${risk}`);
+    renderBucketsPreview();
+  });
+});
+
+/* ROWS */
+document.querySelectorAll('.rows-btn').forEach(b => {
+  b.addEventListener('click', () => {
+    rows = parseInt(b.dataset.rows);
+    document.querySelectorAll('.rows-btn').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    activeBalls = [];
+    layout();
+  });
+});
+
+/* AUTO */
+const autoToggleEl = document.getElementById('auto-toggle');
+autoToggleEl.addEventListener('click', () => {
+  autoOn = !autoOn;
+  autoToggleEl.classList.toggle('on', autoOn);
+  if (autoOn) {
+    autoTimer = setInterval(() => {
+      const a = parseFloat(betInputEl.value) || 10;
+      if (a <= balance) spawnBall(a);
+    }, 800);
+  } else {
+    clearInterval(autoTimer);
+  }
+});
+
+/* ── START ── */
+layout();
+loop();
+
+/* ── MOBILE CONTROLS SYNC ── */
+(function() {
+  const isMobile = () => window.innerWidth <= 900;
+
+  // Bet minus/plus
+  const betInputM = document.getElementById('bet-input-m');
+  const betMinusM = document.getElementById('bet-minus-m');
+  const betPlusM  = document.getElementById('bet-plus-m');
+  const balElM    = document.getElementById('balance-el-m');
+
+  function syncBalM() {
+    if (balElM) balElM.textContent = '$ ' + _z51ReadBal().toFixed(2);
+  }
+  syncBalM();
+
+  if (betInputM) {
+    betInputM.addEventListener('change', () => {
+      betAmt = parseFloat(betInputM.value) || 1;
+      betInputEl.value = betAmt;
+    });
+  }
+  if (betMinusM) {
+    betMinusM.addEventListener('click', () => {
+      betAmt = Math.max(1, betAmt - 1);
+      betInputEl.value = betAmt;
+      if (betInputM) betInputM.value = betAmt;
+    });
+  }
+  if (betPlusM) {
+    betPlusM.addEventListener('click', () => {
+      betAmt = betAmt + 1;
+      betInputEl.value = betAmt;
+      if (betInputM) betInputM.value = betAmt;
+    });
+  }
+
+  // Bet presets mobile
+  document.querySelectorAll('[data-vm]').forEach(b => {
+    b.addEventListener('click', () => {
+      const v = b.dataset.vm;
+      if (v === 'half')   betAmt = Math.max(1, Math.floor(betAmt / 2));
+      else if (v === 'double') betAmt = betAmt * 2;
+      else betAmt = parseFloat(v);
+      betInputEl.value = betAmt;
+      if (betInputM) betInputM.value = betAmt;
+    });
+  });
+
+  // Risk mobile
+  document.querySelectorAll('[data-risk-m]').forEach(b => {
+    b.addEventListener('click', () => {
+      risk = b.dataset.riskM;
+      document.querySelectorAll('[data-risk-m]').forEach(x => {
+        x.className = 'risk-btn';
+      });
+      b.classList.add('active-' + risk);
+      // sync desktop
+      document.querySelectorAll('[data-risk]').forEach(x => {
+        x.className = 'risk-btn';
+        if (x.dataset.risk === risk) x.classList.add('active-' + risk);
+      });
+      buildBuckets();
+    });
+  });
+
+  // Rows mobile
+  document.querySelectorAll('[data-rows-m]').forEach(b => {
+    b.addEventListener('click', () => {
+      rows = parseInt(b.dataset.rowsM);
+      document.querySelectorAll('[data-rows-m]').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      // sync desktop
+      document.querySelectorAll('[data-rows]').forEach(x => {
+        x.classList.toggle('active', parseInt(x.dataset.rows) === rows);
+      });
+      buildBuckets();
+      layout();
+    });
+  });
+
+  // Drop button mobile
+  const dropBtnM = document.getElementById('drop-btn-m');
+  if (dropBtnM) {
+    dropBtnM.addEventListener('click', () => {
+      const a = parseFloat(betInputM ? betInputM.value : betInputEl.value) || 10;
+      if (a <= _z51ReadBal()) spawnBall(a);
+      syncBalM();
+    });
+  }
+
+  // Keep balance synced
+  setInterval(syncBalM, 1000);
+})();
+</script>
+<script src="cookie-banner.js"></script>
+
+  <script src="toast.js"></script>
+  <script src="sound.js"></script>
+  <script src="loader.js"></script>
+</body>
+</html>

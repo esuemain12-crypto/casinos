@@ -1,0 +1,446 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>ZONE 51 — VIP Club</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <script src="cloak.js"></script>
+  <script src="cursor.js"></script>  <style>
+    
+
+    /* ── HERO ── */
+    .hero{text-align:center;padding:50px 24px 52px;position:relative;overflow:hidden;}
+    .hero::after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:700px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,30,55,0.5),transparent);}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,30,55,0.4);padding:6px 14px;margin-bottom:24px;font-size:0.58rem;letter-spacing:4px;text-transform:uppercase;color:rgba(255,30,55,0.8);}
+    .hero-badge::before{content:"";width:5px;height:5px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite;}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(1.5);}}
+    .hero h2{font-family:"Orbitron",sans-serif;font-size:3rem;font-weight:900;letter-spacing:6px;color:var(--gold-bright);text-shadow:0 0 50px rgba(255,30,55,0.55);margin-bottom:18px;}
+    .hero-sub{font-size:1rem;color:var(--text);max-width:560px;margin:0 auto 36px;line-height:1.75;opacity:0.8;}
+    .hero-stats{display:flex;justify-content:center;gap:0;border:1px solid var(--line);max-width:520px;margin:0 auto 36px;width:100%;}
+    .hero-stat{flex:1;min-width:0;padding:18px 20px;text-align:center;border-right:1px solid var(--line);}
+    .hero-stat:last-child{border-right:none;}
+    .hero-inner{max-width:700px;margin:0 auto;position:relative;text-align:center;}
+    .hero-stat-val{font-family:"Orbitron",sans-serif;font-size:1.3rem;font-weight:700;color:var(--gold-bright);}
+    .hero-stat-lbl{font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:4px;}
+
+    /* ── SECTION ── */
+    .section{padding:60px 40px;max-width:1200px;margin:0 auto;}
+    .sec-header{display:flex;align-items:center;gap:20px;margin-bottom:36px;}
+    .sec-line{flex:1;height:1px;background:var(--line);}
+    .sec-title{font-family:"Orbitron",sans-serif;font-size:0.7rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);white-space:nowrap;}
+    .sec-subtitle{color:var(--muted);font-size:0.72rem;text-align:center;margin-top:-20px;margin-bottom:32px;letter-spacing:1px;}
+
+    /* ── VIP LEVELS ── */
+    .levels-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:0;border:1px solid var(--line);}
+    .level-card{padding:28px 18px 24px;border-right:1px solid var(--line);position:relative;transition:background 0.2s;background:var(--panel);}
+    .level-card:last-child{border-right:none;}
+    .level-card:hover{background: rgba(255,20,50,0.35) ;}
+    .level-card.featured{background:linear-gradient(180deg,rgba(255,20,40,0.09) 0%,var(--panel) 60%);}
+    .level-card.featured::before{content:"POPULAR";position:absolute;top:-1px;left:50%;transform:translateX(-50%);font-size:0.48rem;letter-spacing:2.5px;font-weight:700;background:var(--gold);color:#050507;padding:3px 10px;white-space:nowrap;}
+    .rank-icon{width:56px;height:56px;margin:0 auto 18px;position:relative;display:flex;align-items:center;justify-content:center;}
+    .rank-icon svg{position:relative;z-index:1;}
+    .rank-glow{position:absolute;inset:0;border-radius:50%;filter:blur(10px);opacity:0.3;}
+    .level-name{font-family:"Orbitron",sans-serif;font-size:0.62rem;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:5px;}
+    .level-pts{font-size:0.66rem;color:var(--muted);text-align:center;margin-bottom:18px;letter-spacing:0.5px;}
+    .level-divider{height:1px;background:var(--line);margin-bottom:14px;}
+    .level-perks{list-style:none;}
+    .level-perks li{font-size:0.72rem;color:var(--text);padding:5px 0;display:flex;align-items:flex-start;gap:7px;line-height:1.45;}
+    .level-perks li::before{content:"—";color:var(--gold);opacity:0.45;font-size:0.58rem;flex-shrink:0;margin-top:2px;}
+
+    /* ── HOW IT WORKS ── */
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);}
+    .step{background:var(--panel);padding:32px 24px;position:relative;}
+    .step-num{font-family:"Orbitron",sans-serif;font-size:2.5rem;font-weight:900;color:rgba(255,20,40,0.09);position:absolute;top:16px;right:20px;line-height:1;}
+    .step-icon{width:44px;height:44px;border:1px solid rgba(255,30,55,0.4);background:rgba(255,20,45,0.07);display:flex;align-items:center;justify-content:center;color:var(--gold);margin-bottom:18px;}
+    .step h4{font-family:"Orbitron",sans-serif;font-size:0.62rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-bright);margin-bottom:8px;}
+    .step p{font-size:0.78rem;color:var(--muted);line-height:1.65;}
+
+    /* ── BENEFITS ── */
+    .benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);}
+    .benefit{background:var(--panel);padding:30px 26px;}
+    .benefit-head{display:flex;align-items:center;gap:14px;margin-bottom:12px;}
+    .benefit-icon{width:40px;height:40px;border:1px solid rgba(255,20,50,0.35);background:rgba(255,20,45,0.07);display:flex;align-items:center;justify-content:center;color:var(--gold);flex-shrink:0;}
+    .benefit h4{font-family:"Orbitron",sans-serif;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold-bright);}
+    .benefit p{font-size:0.78rem;color:var(--muted);line-height:1.65;}
+
+    /* ── CASHBACK TABLE ── */
+    .cb-table{width:100%;border-collapse:collapse;}
+    .cb-table th{text-align:left;padding:10px 18px;font-size:0.58rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line);font-weight:600;}
+    .cb-table td{padding:13px 18px;font-size:0.8rem;border-bottom:1px solid rgba(255,255,255,0.03);}
+    .cb-table tr:last-child td{border-bottom:none;}
+    .cb-table tr:hover td{background: rgba(255,20,50,0.35) ;}
+    .cb-table .val{font-family:"Orbitron",sans-serif;font-size:0.75rem;font-weight:700;color:var(--gold);}
+    .cb-table .yes{color:#4caf7d;}
+    .cb-table .no{color:var(--muted);opacity:0.4;}
+
+    /* ── FAQ ── */
+    .faq{display:flex;flex-direction:column;gap:1px;background:var(--line);}
+    .faq-item{background:var(--panel);}
+    .faq-q{width:100%;background:none;border:none;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;text-align:left;gap:16px;}
+    .faq-q-text{font-size:0.84rem;font-weight:500;color:var(--text);font-family:"Inter",sans-serif;}
+    .faq-arrow{color:var(--gold);font-size:1rem;flex-shrink:0;transition:transform 0.2s;}
+    .faq-item.open .faq-arrow{transform:rotate(45deg);}
+    .faq-a{display:none;padding:0 24px 18px;font-size:0.78rem;color:var(--muted);line-height:1.7;}
+    .faq-item.open .faq-a{display:block;}
+
+    /* ── CTA ── */
+    .cta{margin:0 40px 60px;margin-left:auto;margin-right:auto;max-width:1120px;border:1px solid rgba(255,20,50,0.35);background:linear-gradient(135deg,rgba(255,20,45,0.08) 0%,rgba(10,1,5,0.96) 100%);padding:56px 48px;text-align:center;position:relative;overflow:hidden;}
+    .cta::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent, rgba(255,20,50,0.35) ,transparent);}
+    .cta::after{content:"51";position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-family:"Orbitron",sans-serif;font-size:10rem;font-weight:900;color: rgba(255,20,50,0.35) ;line-height:1;pointer-events:none;}
+    .cta h3{font-family:"Orbitron",sans-serif;font-size:1.2rem;letter-spacing:5px;color:var(--gold-bright);margin-bottom:12px;}
+    .cta p{color:var(--text);font-size:0.88rem;margin-bottom:30px;opacity:0.8;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;}
+    .cta-btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+
+    @media(max-width:1000px){.levels-grid{grid-template-columns:repeat(3,1fr);}.level-card{border-bottom:1px solid var(--line);}}
+    @media(max-width:700px){
+      .hero h2{font-size:1.8rem;}
+      .levels-grid{grid-template-columns:repeat(2,1fr);}
+      .steps,.benefits-grid{grid-template-columns:1fr;}
+      .section{padding:40px 16px;}
+      .cta{padding:36px 20px;margin:0 16px 40px;}
+      .cta-btns{flex-direction:column;align-items:stretch;}
+      .cta-btns .btn{text-align:center;justify-content:center;}
+      .topbar-right .btn-ghost{display:none;}
+      .topbar{padding:0 14px;}
+      .hero{padding:48px 16px 36px;}
+      .hero-stats{max-width:100%;}
+      .hero-stat{padding:12px 8px;}
+      .hero-stat-val{font-size:1rem;}
+      .hero-stat-lbl{font-size:0.52rem;letter-spacing:1px;}
+      .faq-a{padding:0 16px 14px;}
+    }
+    @media(max-width:400px){
+      .levels-grid{grid-template-columns:1fr;}
+      .topbar{padding:0 10px;height:50px;}
+      .brand-text{display:none;}
+      .brand-emblem{width:30px;height:30px;}
+      .cta::after{display:none;}
+      .hero-stat-lbl{display:none;}
+    }
+  </style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<div class="page-wrap">
+
+  <header class="topbar">
+    <a href="index.html" class="brand">
+      <div class="brand-emblem"><span>51</span></div>
+      <div class="brand-text"><h1>ZONE 51</h1><p>Access Level: Unrestricted</p></div>
+    </a>
+    <div class="topbar-right">
+      <a href="leaderboard.html" class="btn btn-ghost">Leaderboard</a>
+      <a href="games.html" class="btn btn-ghost">Games</a>
+      <a href="index.html" class="btn btn-gold">&#8592; Lobby</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge"><span>Zone 51 Exclusive Program</span></div>
+      <h2>VIP CLUB</h2>
+      <p class="hero-sub">An elite rewards program designed for dedicated players. Every wager earns you VIP Points — climb the ranks and unlock increasingly powerful benefits with each level.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-val">6</div><div class="hero-stat-lbl">VIP Levels</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">25%</div><div class="hero-stat-lbl">Max Cashback</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">24/7</div><div class="hero-stat-lbl">VIP Support</div></div>
+      </div>
+      <a href="games.html" class="btn btn-gold">Start Earning Points</a>
+    </div>
+  </div>
+
+  <!-- VIP LEVELS -->
+  <div class="section">
+    <div class="sec-header"><div class="sec-line"></div><span class="sec-title">VIP Levels</span><div class="sec-line"></div></div>
+    <p class="sec-subtitle">Earn 1 VIP Point per $10 wagered &nbsp;·&nbsp; Points never expire &nbsp;·&nbsp; Level-ups applied every Monday</p>
+    <div class="levels-grid">
+      <div class="level-card">
+        <div class="rank-icon">
+          <div class="rank-glow" style="background:#5b8dd9;"></div>
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <polygon points="20,5 24,16 36,16 26,23 30,35 20,28 10,35 14,23 4,16 16,16" stroke="#5b8dd9" stroke-width="1.5" fill="rgba(91,141,217,0.12)"/>
+          </svg>
+        </div>
+        <div class="level-name">Recruit</div>
+        <div class="level-pts">0 – 500 pts</div>
+        <div class="level-divider"></div>
+        <ul class="level-perks">
+          <li>Welcome bonus package</li>
+          <li>Weekly free spins (5)</li>
+          <li>Email &amp; chat support</li>
+          <li>Standard withdrawal speed</li>
+        </ul>
+      </div>
+      <div class="level-card">
+        <div class="rank-icon">
+          <div class="rank-glow" style="background:#4caf7d;"></div>
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <path d="M20 4 L34 12 L34 26 C34 32 27 37 20 39 C13 37 6 32 6 26 L6 12 Z" stroke="#4caf7d" stroke-width="1.5" fill="rgba(76,175,125,0.1)"/>
+            <path d="M14 20 l4 4 8-8" stroke="#4caf7d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="level-name">Agent</div>
+        <div class="level-pts">500 – 2,000 pts</div>
+        <div class="level-divider"></div>
+        <ul class="level-perks">
+          <li>5% weekly cashback</li>
+          <li>Reload bonuses (2×/month)</li>
+          <li>Weekly free spins (15)</li>
+          <li>Priority support</li>
+        </ul>
+      </div>
+      <div class="level-card featured">
+        <div class="rank-icon">
+          <div class="rank-glow" style="background:#ff4060;"></div>
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <polygon points="20,4 23,15 34,15 25,22 28,33 20,26 12,33 15,22 6,15 17,15" stroke="#ff4060" stroke-width="1.6" fill=" rgba(255,20,50,0.35) "/>
+            <circle cx="20" cy="18" r="3.5" fill="#ff4060" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="level-name">Operative</div>
+        <div class="level-pts">2,000 – 8,000 pts</div>
+        <div class="level-divider"></div>
+        <ul class="level-perks">
+          <li>10% weekly cashback</li>
+          <li>Monthly bonus (up to $500)</li>
+          <li>Weekly free spins (30)</li>
+          <li>Live chat support</li>
+          <li>Higher bet limits</li>
+        </ul>
+      </div>
+      <div class="level-card">
+        <div class="rank-icon">
+          <div class="rank-glow" style="background:#e8832a;"></div>
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <path d="M20 5 L8 12 L5 26 L12 35 L28 35 L35 26 L32 12 Z" stroke="#e8832a" stroke-width="1.5" fill="rgba(232,131,42,0.1)"/>
+            <path d="M14 20 L18 24 L26 16" stroke="#e8832a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="20" cy="10" r="2" fill="#e8832a" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="level-name">Commander</div>
+        <div class="level-pts">8,000 – 25,000 pts</div>
+        <div class="level-divider"></div>
+        <ul class="level-perks">
+          <li>15% weekly cashback</li>
+          <li>Personal account manager</li>
+          <li>Exclusive event invitations</li>
+          <li>Custom deposit limits</li>
+          <li>Free spins (60/week)</li>
+        </ul>
+      </div>
+      <div class="level-card">
+        <div class="rank-icon">
+          <div class="rank-glow" style="background:#e84c4c;"></div>
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <path d="M20 3 L5 10 L5 23 L20 37 L35 23 L35 10 Z" stroke="#e84c4c" stroke-width="1.5" fill="rgba(232,76,76,0.1)"/>
+            <polygon points="20,11 22,17 29,17 23,21 25,28 20,24 15,28 17,21 11,17 18,17" fill="rgba(232,76,76,0.25)" stroke="#e84c4c" stroke-width="0.8"/>
+          </svg>
+        </div>
+        <div class="level-name">Director</div>
+        <div class="level-pts">25,000 – 75,000 pts</div>
+        <div class="level-divider"></div>
+        <ul class="level-perks">
+          <li>20% weekly cashback</li>
+          <li>Dedicated VIP host</li>
+          <li>Luxury gifts &amp; experiences</li>
+          <li>Same-day withdrawals</li>
+          <li>Higher table limits</li>
+        </ul>
+      </div>
+      <div class="level-card">
+        <div class="rank-icon">
+          <div class="rank-glow" style="background:#a78bfa;"></div>
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <path d="M20 2 L4 10 L4 22 L12 34 L28 34 L36 22 L36 10 Z" stroke="#a78bfa" stroke-width="1.5" fill="rgba(167,139,250,0.1)"/>
+            <polygon points="20,9 22,16 30,16 23.5,20.5 26,28 20,23.5 14,28 16.5,20.5 10,16 18,16" fill="rgba(167,139,250,0.18)" stroke="#a78bfa" stroke-width="1"/>
+            <circle cx="20" cy="18" r="2.5" fill="#a78bfa" opacity="0.8"/>
+          </svg>
+        </div>
+        <div class="level-name">Shadow</div>
+        <div class="level-pts">75,000+ pts</div>
+        <div class="level-divider"></div>
+        <ul class="level-perks">
+          <li>25% weekly cashback</li>
+          <li>Bespoke bonus packages</li>
+          <li>Private tournaments</li>
+          <li>Instant withdrawals</li>
+          <li>Real-world event access</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="section" style="padding-top:0;">
+    <div class="sec-header"><div class="sec-line"></div><span class="sec-title">How It Works</span><div class="sec-line"></div></div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M12 8v4l3 3"/></svg></div>
+        <h4>Play Any Game</h4>
+        <p>Every real-money bet across all game providers earns VIP Points. Slots, live tables, sports — all count equally toward your total.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <h4>Accumulate Points</h4>
+        <p>Earn <strong style="color:var(--gold)">1 VIP Point per $10 wagered</strong>. Points accumulate in real time and are visible on your profile dashboard.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 20l4-4h12a2 2 0 002-2V5a2 2 0 00-2-2H6a2 2 0 00-2 2v9"/><path d="M9 9l2 2 4-4"/></svg></div>
+        <h4>Level Up</h4>
+        <p>Once your points reach the next tier threshold, you are promoted automatically every Monday. All benefits activate immediately.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+        <h4>Claim Rewards</h4>
+        <p>Cashback is credited every Monday — no wagering requirements. Bonus offers and free spins are delivered straight to your inbox.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASHBACK TABLE -->
+  <div class="section" style="padding-top:0;">
+    <div class="sec-header"><div class="sec-line"></div><span class="sec-title">Cashback &amp; Benefits Comparison</span><div class="sec-line"></div></div>
+    <div style="border:1px solid var(--line);overflow:hidden;">
+      <table class="cb-table">
+        <thead>
+          <tr>
+            <th>Level</th>
+            <th>Weekly Cashback</th>
+            <th>Withdrawal Speed</th>
+            <th>Personal Manager</th>
+            <th>Custom Limits</th>
+            <th>Free Spins/Week</th>
+            <th>Min. Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="color:var(--text);font-weight:500;">Recruit</td><td><span class="val">—</span></td><td>1–3 days</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td>5</td><td>0</td></tr>
+          <tr><td style="color:var(--text);font-weight:500;">Agent</td><td><span class="val">5%</span></td><td>1–2 days</td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td>15</td><td>500</td></tr>
+          <tr><td style="color:var(--gold);font-weight:600;">Operative</td><td><span class="val">10%</span></td><td>24 hours</td><td><span class="no">✕</span></td><td><span class="yes">✓</span></td><td>30</td><td>2,000</td></tr>
+          <tr><td style="color:var(--text);font-weight:500;">Commander</td><td><span class="val">15%</span></td><td>12 hours</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td>60</td><td>8,000</td></tr>
+          <tr><td style="color:var(--text);font-weight:500;">Director</td><td><span class="val">20%</span></td><td>Same day</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td>100</td><td>25,000</td></tr>
+          <tr><td style="color:#a78bfa;font-weight:600;">Shadow</td><td><span class="val">25%</span></td><td>Instant</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td>Unlimited</td><td>75,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- BENEFITS -->
+  <div class="section" style="padding-top:0;">
+    <div class="sec-header"><div class="sec-line"></div><span class="sec-title">Program Benefits</span><div class="sec-line"></div></div>
+    <div class="benefits-grid">
+      <div class="benefit">
+        <div class="benefit-head">
+          <div class="benefit-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg></div>
+          <h4>Weekly Cashback</h4>
+        </div>
+        <p>Receive a percentage of your net losses returned every Monday. Cashback is credited in cash — no wagering requirements, no conditions. The higher your level, the more you recover.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-head">
+          <div class="benefit-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <h4>Personal Manager</h4>
+        </div>
+        <p>From Commander level you receive a dedicated account manager — available via phone, private chat and email. Ready to handle bonuses, limits and requests 24/7, 365 days a year.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-head">
+          <div class="benefit-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+          <h4>Priority Withdrawals</h4>
+        </div>
+        <p>VIP members skip the standard processing queue. Directors receive same-day payouts regardless of method. Shadow members enjoy instant settlement on all supported payment channels.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-head">
+          <div class="benefit-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+          <h4>Tailored Bonuses</h4>
+        </div>
+        <p>Forget generic promotions. From Operative level, every bonus is crafted specifically for you — matching your preferred games and wagering style. Reload offers, drop bonuses and surprise packages.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-head">
+          <div class="benefit-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <h4>Exclusive Tournaments</h4>
+        </div>
+        <p>Commander and above receive invitations to closed high-stakes tournaments — not accessible to the general player base. Larger prize pools, smaller fields and significantly better win odds.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-head">
+          <div class="benefit-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <h4>Real-World Experiences</h4>
+        </div>
+        <p>Shadow-level members receive personal invitations to Zone 51 exclusive events — private dinners, Formula 1 hospitality, boxing front-rows, curated travel packages and bespoke gifting.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="section" style="padding-top:0;">
+    <div class="sec-header"><div class="sec-line"></div><span class="sec-title">Frequently Asked Questions</span><div class="sec-line"></div></div>
+    <div class="faq">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do VIP Points expire?</span><span class="faq-arrow">+</span></button>
+        <div class="faq-a">No. VIP Points never expire as long as your account remains active (at least one login per 6 months). Points accumulate indefinitely and contribute to your lifetime level calculation.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can I be demoted to a lower level?</span><span class="faq-arrow">+</span></button>
+        <div class="faq-a">Once you reach a VIP level, it is yours permanently — we do not downgrade players. Your level only moves upward as you accumulate more points.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How is cashback calculated?</span><span class="faq-arrow">+</span></button>
+        <div class="faq-a">Cashback is calculated on your net losses for the previous Monday–Sunday period. Net losses = total bets placed minus total winnings. The cashback percentage from your current level is applied and credited every Monday before noon UTC.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Which games contribute to VIP Point earnings?</span><span class="faq-arrow">+</span></button>
+        <div class="faq-a">All games in the Zone 51 catalog contribute to VIP Point earnings. Slots, live casino, table games and sports all count. Bonus play (spins awarded from bonuses) does not contribute to point accumulation.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How do I claim my weekly free spins?</span><span class="faq-arrow">+</span></button>
+        <div class="faq-a">Weekly free spins are automatically credited every Monday morning. You will receive an inbox notification. Spins must be used within 7 days and are assigned to featured games selected by Zone 51.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How do I contact my personal manager?</span><span class="faq-arrow">+</span></button>
+        <div class="faq-a">Once you reach Commander level, your dedicated manager will make first contact via your registered email. A private chat channel and direct phone number will be provided at that time.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h3>BEGIN YOUR ASCENT</h3>
+    <p>Every bet moves you closer to the next tier. The Zone 51 VIP Club rewards loyalty with real, tangible benefits. Start playing now.</p>
+    <div class="cta-btns">
+      <a href="games.html" class="btn btn-gold">Explore Games</a>
+      <a href="leaderboard.html" class="btn btn-ghost">View Leaderboard</a>
+    </div>
+  </div>
+
+</div>
+<script>
+  var c=document.getElementById('stars'),ctx=c.getContext('2d'),stars=[];
+  function resize(){c.width=window.innerWidth;c.height=window.innerHeight;}
+  function init(){stars=[];for(var i=0;i<160;i++)stars.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*0.8+0.15,a:Math.random()*0.4+0.08,ph:Math.random()*Math.PI*2,sp:Math.random()*0.004+0.001});}
+  function draw(){ctx.clearRect(0,0,c.width,c.height);stars.forEach(function(s){s.ph+=s.sp;var a=s.a*(0.45+0.55*Math.sin(s.ph));ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle='rgba(195,178,130,'+a+')';ctx.fill();});requestAnimationFrame(draw);}
+  resize();init();draw();
+  window.addEventListener('resize',function(){resize();init();});
+  function toggleFaq(btn){btn.parentElement.classList.toggle('open');}
+</script>
+<script src="i18n.js"></script>
+<script>document.body.insertAdjacentHTML('beforeend', Z51_FOOTER_HTML('.'));</script>
+<script src="cookie-banner.js"></script>
+
+  <script src="toast.js"></script>
+  <script src="sound.js"></script>
+  <script src="loader.js"></script>
+</body>
+</html>

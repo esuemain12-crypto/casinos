@@ -1,0 +1,548 @@
+{
+  "partners": {
+    "8669408399": {
+      "name": "obmanul_sel",
+      "code": "ny7itipn",
+      "commission_pct": 10.0,
+      "balance": 0.0,
+      "total_earned": 0.0,
+      "total_withdrawn": 0.0,
+      "referrals_count": 0,
+      "deposits_count": 0,
+      "total_volume": 0.0,
+      "created_at": "30.04.2026 08:57 UTC"
+    },
+    "1032995314": {
+      "name": "durov_kod",
+      "code": "98cur5i8",
+      "commission_pct": 10.0,
+      "balance": 0.0,
+      "total_earned": 0.0,
+      "total_withdrawn": 0.0,
+      "referrals_count": 0,
+      "deposits_count": 0,
+      "total_volume": 0.0,
+      "created_at": "01.05.2026 13:11 UTC"
+    },
+    "8432031003": {
+      "name": "leavingmabestlife",
+      "code": "a8pi2dd3",
+      "commission_pct": 10.0,
+      "balance": 0.0,
+      "total_earned": 0.0,
+      "total_withdrawn": 0.0,
+      "referrals_count": 0,
+      "deposits_count": 0,
+      "total_volume": 0.0,
+      "created_at": "01.05.2026 15:35 UTC"
+    },
+    "6633431907": {
+      "name": "dontwritemy",
+      "code": "j0qlaiwv",
+      "commission_pct": 10.0,
+      "balance": 0.0,
+      "total_earned": 0.0,
+      "total_withdrawn": 0.0,
+      "referrals_count": 2,
+      "deposits_count": 0,
+      "total_volume": 0.0,
+      "created_at": "04.05.2026 15:24 UTC"
+    }
+  },
+  "codes": {
+    "ny7itipn": "8669408399",
+    "98cur5i8": "1032995314",
+    "a8pi2dd3": "8432031003",
+    "j0qlaiwv": "6633431907"
+  },
+  "referred_users": {
+    "cmordko4g00002cirlhxlkaj0": "6633431907",
+    "cmorg64c40006h4ir82o62w3l": "6633431907"
+  },
+  "settings": {
+    "default_commission_pct": 10.0
+  },
+  "partner_withdrawals": {},
+  "creatives": {
+    "41fb685a-c288-4a9c-b60a-7f087479196e": {
+      "id": "41fb685a-c288-4a9c-b60a-7f087479196e",
+      "partner_id": "8669408399",
+      "partner_name": "obmanul_sel",
+      "freespins": 150,
+      "deposit_bonus_pct": 100,
+      "promo_codes": [
+        "Z51-9EHX22",
+        "Z51-G9TR0N",
+        "Z51-ZQG1TC",
+        "Z51-D8QYAN",
+        "Z51-LH7268",
+        "Z51-EC9RPV"
+      ],
+      "created_at": "04.05.2026 15:24 UTC"
+    },
+    "55cc18f1-de4c-41e8-97db-f6803b34aa1e": {
+      "id": "55cc18f1-de4c-41e8-97db-f6803b34aa1e",
+      "partner_id": "1032995314",
+      "partner_name": "durov_kod",
+      "freespins": 50,
+      "deposit_bonus_pct": 100,
+      "promo_codes": [
+        "Z51-W5ICEW",
+        "Z51-1RHB9F",
+        "Z51-YYHNWE",
+        "Z51-O0AASB",
+        "Z51-DFNXK4",
+        "Z51-9CNNO4"
+      ],
+      "created_at": "04.05.2026 15:25 UTC"
+    },
+    "8751a2f3-964e-4a6f-9c3d-dbe7e46198a4": {
+      "id": "8751a2f3-964e-4a6f-9c3d-dbe7e46198a4",
+      "partner_id": "6633431907",
+      "partner_name": "dontwritemy",
+      "freespins": 25,
+      "deposit_bonus_pct": 25,
+      "promo_codes": [
+        "Z51-14XLZP",
+        "Z51-TWTI5C",
+        "Z51-UTEJN9",
+        "Z51-IUT3R7",
+        "Z51-EP9627",
+        "Z51-6SRZ3H"
+      ],
+      "created_at": "04.05.2026 15:53 UTC"
+    },
+    "9a8ef6c5-fa6d-4506-820c-bc6979b95022": {
+      "id": "9a8ef6c5-fa6d-4506-820c-bc6979b95022",
+      "partner_id": "6633431907",
+      "partner_name": "dontwritemy",
+      "freespins": 100,
+      "deposit_bonus_pct": 75,
+      "promo_codes": [
+        "Z51-TRXRHC",
+        "Z51-5ZHS2H",
+        "Z51-FSXSMM",
+        "Z51-YADPL2",
+        "Z51-6IY76L",
+        "Z51-DD1VWX"
+      ],
+      "created_at": "04.05.2026 16:12 UTC"
+    },
+    "3c5c287b-364c-4e1e-9f93-d77b47d95cb1": {
+      "id": "3c5c287b-364c-4e1e-9f93-d77b47d95cb1",
+      "partner_id": "6633431907",
+      "partner_name": "dontwritemy",
+      "freespins": 25,
+      "deposit_bonus_pct": 25,
+      "promo_codes": [
+        "Z51-LSNXLS",
+        "Z51-IPT1V7",
+        "Z51-H3NJIU",
+        "Z51-8XO0LS",
+        "Z51-USQEIX",
+        "Z51-QNR81U"
+      ],
+      "created_at": "04.05.2026 16:52 UTC"
+    }
+  },
+  "promo_codes": {
+    "Z51-9EHX22": {
+      "code": "Z51-9EHX22",
+      "creative_id": "41fb685a-c288-4a9c-b60a-7f087479196e",
+      "partner_id": "8669408399",
+      "partner_name": "obmanul_sel",
+      "freespins": 150,
+      "deposit_bonus_pct": 100,
+      "claimed": false,
+      "claimed_by": null,
+      "claimed_at": null,
+      "created_at": "04.05.2026 15:24 UTC"
+    },
+    "Z51-G9TR0N": {
+      "code": "Z51-G9TR0N",
+      "creative_id": "41fb685a-c288-4a9c-b60a-7f087479196e",
+      "partner_id": "8669408399",
+      "partner_name": "obmanul_sel",
+      "freespins": 150,
+      "deposit_bonus_pct": 100,
+      "claimed": false,
+      "claimed_by": null,
+      "claimed_at": null,
+      "created_at": "04.05.2026 15:24 UTC"
+    },
+    "Z51-ZQG1TC": {
+      "code": "Z51-ZQG1TC",
+      "creative_id": "41fb685a-c288-4a9c-b60a-7f087479196e",
+      "partner_id": "8669408399",
+      "partner_name": "obmanul_sel",
+      "freespins": 150,
+      "deposit_bonus_pct": 100,
+      "claimed": false,
+      "claimed_by": null,
+      "claimed_at": null,
+      "created_at": "04.05.2026 15:24 UTC"
+    },
+    "Z51-D8QYAN": {
+      "code": "Z51-D8QYAN",
+      "creative_id": "41fb685a-c288-4a9c-b60a-7f087479196e",
+      "partner_id": "8669408399",
+      "partner_name": "obmanul_sel",
+      "freespins": 150,
+      "deposit_bonus_pct": 100,
+      "claimed": false,
+      "claimed_by": null,
+      "claimed_at": null,
+      "created_at": "04.05.2026 15:24 UTC"
+    },
+    "Z51-LH7268": {
+      "code": "Z51-LH7268",
+      "creative_id": "41fb685a-c288-4a9c-b60a-7f087479196e",
+      "partner_id": "8669408399",
+      "partner_name": "obmanul_sel",
+      "freespins": 150,
+      "deposit_bonus_pct": 100,
+      "claimed": false,
+      "claimed_by": null,
+      "claimed_at": null,
+      "created_at": "04.05.2026 15:24 UTC"
+    },
+    "Z51-EC9RPV": {
+      "code": "Z51-EC9RPV",
+      "creative_id": "41fb685a-c288-4a9c-b60a-7f087479196e",
+      "partner_id": "8669408399",
+      "partner_name": "obmanul_sel",
+      "freespins": 150,
+      "deposit_bonus_pct": 100,
+      "claimed": false,
+      "claimed_by": null,
+      "claimed_at": null,
+      "created_at": "04.05.2026 15:24 UTC"
+    },
+    "Z51-W5ICEW": {
+      "code": "Z51-W5ICEW",
+      "creative_id": "55cc18f1-de4c-41e8-97db-f6803b34aa1e",
+      "partner_id": "1032995314",
+      "partner_name": "durov_kod",
+      "freespins": 50,
+      "deposit_bonus_pct": 100,
+      "claimed": false,
+      "claimed_by": null,
+      "claimed_at": null,
+      "created_at": "04.05.2026 15:25 UTC"
+    },
+    "Z51-1RHB9F": {
+      "code": "Z51-1RHB9F",
+      "creative_id": "55cc18f1-de4c-41e8-97db-f6803b34aa1e",
+      "partner_id": "1032995314",
+      "partner_name": "durov_kod",
+      "freespins": 50,
+      "deposit_bonus_pct": 100,
+      "claimed": false,
+      "claimed_by": null,
+      "claimed_at": null,
+      "created_at": "04.05.2026 15:25 UTC"
+    },
+    "Z51-YYHNWE": {
+      "code": "Z51-YYHNWE",
+      "creative_id": "55cc18f1-de4c-41e8-97db-f6803b34aa1e",
+      "partner_id": "1032995314",
+      "partner_name": "durov_kod",
+      "freespins": 50,
+      "deposit_bonus_pct": 100,
+      "claimed": false,
+      "claimed_by": null,
+      "claimed_at": null,
+      "created_at": "04.05.2026 15:25 UTC"
+    },
+    "Z51-O0AASB": {
+      "code": "Z51-O0AASB",
+      "creative_id": "55cc18f1-de4c-41e8-97db-f6803b34aa1e",
+      "partner_id": "1032995314",
+      "partner_name": "durov_kod",
+      "freespins": 50,
+      "deposit_bonus_pct": 100,
+      "claimed": false,
+      "claimed_by": null,
+      "claimed_at": null,
+      "created_at": "04.05.2026 15:25 UTC"
+    },
+    "Z51-DFNXK4": {
+      "code": "Z51-DFNXK4",
+      "creative_id": "55cc18f1-de4c-41e8-97db-f6803b34aa1e",
+      "partner_id": "1032995314",
+      "partner_name": "durov_kod",
+      "freespins": 50,
+      "deposit_bonus_pct": 100,
+      "claimed": false,
+      "claimed_by": null,
+      "claimed_at": null,
+      "created_at": "04.05.2026 15:25 UTC"
+    },
+    "Z51-9CNNO4": {
+      "code": "Z51-9CNNO4",
+      "creative_id": "55cc18f1-de4c-41e8-97db-f6803b34aa1e",
+      "partner_id": "1032995314",
+      "partner_name": "durov_kod",
+      "freespins": 50,
+      "deposit_bonus_pct": 100,
+      "claimed": false,
+      "claimed_by": null,
+      "claimed_at": null,
+      "created_at": "04.05.2026 15:25 UTC"
+    },
+    "Z51-14XLZP": {
+      "code": "Z51-14XLZP",
+      "creative_id": "8751a2f3-964e-4a6f-9c3d-dbe7e46198a4",
+      "partner_id": "6633431907",
+      "partner_name": "dontwritemy",
+      "freespins": 25,
+      "deposit_bonus_pct": 25,
+      "claimed_by": [
+        "cmordko4g00002cirlhxlkaj0"
+      ],
+      "use_count": 1,
+      "created_at": "04.05.2026 15:53 UTC"
+    },
+    "Z51-TWTI5C": {
+      "code": "Z51-TWTI5C",
+      "creative_id": "8751a2f3-964e-4a6f-9c3d-dbe7e46198a4",
+      "partner_id": "6633431907",
+      "partner_name": "dontwritemy",
+      "freespins": 25,
+      "deposit_bonus_pct": 25,
+      "claimed_by": [
+        "cmordko4g00002cirlhxlkaj0"
+      ],
+      "use_count": 1,
+      "created_at": "04.05.2026 15:53 UTC"
+    },
+    "Z51-UTEJN9": {
+      "code": "Z51-UTEJN9",
+      "creative_id": "8751a2f3-964e-4a6f-9c3d-dbe7e46198a4",
+      "partner_id": "6633431907",
+      "partner_name": "dontwritemy",
+      "freespins": 25,
+      "deposit_bonus_pct": 25,
+      "claimed_by": [],
+      "use_count": 0,
+      "created_at": "04.05.2026 15:53 UTC"
+    },
+    "Z51-IUT3R7": {
+      "code": "Z51-IUT3R7",
+      "creative_id": "8751a2f3-964e-4a6f-9c3d-dbe7e46198a4",
+      "partner_id": "6633431907",
+      "partner_name": "dontwritemy",
+      "freespins": 25,
+      "deposit_bonus_pct": 25,
+      "claimed_by": [],
+      "use_count": 0,
+      "created_at": "04.05.2026 15:53 UTC"
+    },
+    "Z51-EP9627": {
+      "code": "Z51-EP9627",
+      "creative_id": "8751a2f3-964e-4a6f-9c3d-dbe7e46198a4",
+      "partner_id": "6633431907",
+      "partner_name": "dontwritemy",
+      "freespins": 25,
+      "deposit_bonus_pct": 25,
+      "claimed_by": [],
+      "use_count": 0,
+      "created_at": "04.05.2026 15:53 UTC"
+    },
+    "Z51-6SRZ3H": {
+      "code": "Z51-6SRZ3H",
+      "creative_id": "8751a2f3-964e-4a6f-9c3d-dbe7e46198a4",
+      "partner_id": "6633431907",
+      "partner_name": "dontwritemy",
+      "freespins": 25,
+      "deposit_bonus_pct": 25,
+      "claimed_by": [
+        "cmordko4g00002cirlhxlkaj0"
+      ],
+      "use_count": 1,
+      "created_at": "04.05.2026 15:53 UTC"
+    },
+    "Z51-TRXRHC": {
+      "code": "Z51-TRXRHC",
+      "creative_id": "9a8ef6c5-fa6d-4506-820c-bc6979b95022",
+      "partner_id": "6633431907",
+      "partner_name": "dontwritemy",
+      "freespins": 100,
+      "deposit_bonus_pct": 75,
+      "claimed_by": [],
+      "use_count": 0,
+      "created_at": "04.05.2026 16:12 UTC"
+    },
+    "Z51-5ZHS2H": {
+      "code": "Z51-5ZHS2H",
+      "creative_id": "9a8ef6c5-fa6d-4506-820c-bc6979b95022",
+      "partner_id": "6633431907",
+      "partner_name": "dontwritemy",
+      "freespins": 100,
+      "deposit_bonus_pct": 75,
+      "claimed_by": [
+        "cmorfhiuv0001a0ircq81jdto"
+      ],
+      "use_count": 1,
+      "created_at": "04.05.2026 16:12 UTC"
+    },
+    "Z51-FSXSMM": {
+      "code": "Z51-FSXSMM",
+      "creative_id": "9a8ef6c5-fa6d-4506-820c-bc6979b95022",
+      "partner_id": "6633431907",
+      "partner_name": "dontwritemy",
+      "freespins": 100,
+      "deposit_bonus_pct": 75,
+      "claimed_by": [],
+      "use_count": 0,
+      "created_at": "04.05.2026 16:12 UTC"
+    },
+    "Z51-YADPL2": {
+      "code": "Z51-YADPL2",
+      "creative_id": "9a8ef6c5-fa6d-4506-820c-bc6979b95022",
+      "partner_id": "6633431907",
+      "partner_name": "dontwritemy",
+      "freespins": 100,
+      "deposit_bonus_pct": 75,
+      "claimed_by": [],
+      "use_count": 0,
+      "created_at": "04.05.2026 16:12 UTC"
+    },
+    "Z51-6IY76L": {
+      "code": "Z51-6IY76L",
+      "creative_id": "9a8ef6c5-fa6d-4506-820c-bc6979b95022",
+      "partner_id": "6633431907",
+      "partner_name": "dontwritemy",
+      "freespins": 100,
+      "deposit_bonus_pct": 75,
+      "claimed_by": [],
+      "use_count": 0,
+      "created_at": "04.05.2026 16:12 UTC"
+    },
+    "Z51-DD1VWX": {
+      "code": "Z51-DD1VWX",
+      "creative_id": "9a8ef6c5-fa6d-4506-820c-bc6979b95022",
+      "partner_id": "6633431907",
+      "partner_name": "dontwritemy",
+      "freespins": 100,
+      "deposit_bonus_pct": 75,
+      "claimed_by": [
+        "cmored30900032cir0fqt6eun"
+      ],
+      "use_count": 1,
+      "created_at": "04.05.2026 16:12 UTC"
+    },
+    "Z51-LSNXLS": {
+      "code": "Z51-LSNXLS",
+      "creative_id": "3c5c287b-364c-4e1e-9f93-d77b47d95cb1",
+      "partner_id": "6633431907",
+      "partner_name": "dontwritemy",
+      "freespins": 25,
+      "deposit_bonus_pct": 25,
+      "claimed_by": [
+        "cmorfu7540000h4ir50vlfhgw"
+      ],
+      "use_count": 1,
+      "created_at": "04.05.2026 16:52 UTC"
+    },
+    "Z51-IPT1V7": {
+      "code": "Z51-IPT1V7",
+      "creative_id": "3c5c287b-364c-4e1e-9f93-d77b47d95cb1",
+      "partner_id": "6633431907",
+      "partner_name": "dontwritemy",
+      "freespins": 25,
+      "deposit_bonus_pct": 25,
+      "claimed_by": [],
+      "use_count": 0,
+      "created_at": "04.05.2026 16:52 UTC"
+    },
+    "Z51-H3NJIU": {
+      "code": "Z51-H3NJIU",
+      "creative_id": "3c5c287b-364c-4e1e-9f93-d77b47d95cb1",
+      "partner_id": "6633431907",
+      "partner_name": "dontwritemy",
+      "freespins": 25,
+      "deposit_bonus_pct": 25,
+      "claimed_by": [],
+      "use_count": 0,
+      "created_at": "04.05.2026 16:52 UTC"
+    },
+    "Z51-8XO0LS": {
+      "code": "Z51-8XO0LS",
+      "creative_id": "3c5c287b-364c-4e1e-9f93-d77b47d95cb1",
+      "partner_id": "6633431907",
+      "partner_name": "dontwritemy",
+      "freespins": 25,
+      "deposit_bonus_pct": 25,
+      "claimed_by": [],
+      "use_count": 0,
+      "created_at": "04.05.2026 16:52 UTC"
+    },
+    "Z51-USQEIX": {
+      "code": "Z51-USQEIX",
+      "creative_id": "3c5c287b-364c-4e1e-9f93-d77b47d95cb1",
+      "partner_id": "6633431907",
+      "partner_name": "dontwritemy",
+      "freespins": 25,
+      "deposit_bonus_pct": 25,
+      "claimed_by": [],
+      "use_count": 0,
+      "created_at": "04.05.2026 16:52 UTC"
+    },
+    "Z51-QNR81U": {
+      "code": "Z51-QNR81U",
+      "creative_id": "3c5c287b-364c-4e1e-9f93-d77b47d95cb1",
+      "partner_id": "6633431907",
+      "partner_name": "dontwritemy",
+      "freespins": 25,
+      "deposit_bonus_pct": 25,
+      "claimed_by": [
+        "cmorg64c40006h4ir82o62w3l"
+      ],
+      "use_count": 1,
+      "created_at": "04.05.2026 16:52 UTC"
+    }
+  },
+  "promo_bonuses": {
+    "cmordko4g00002cirlhxlkaj0": {
+      "freespins": 25,
+      "deposit_bonus_pct": 25,
+      "code": "Z51-6SRZ3H",
+      "partner_id": "6633431907",
+      "used_deposit": false,
+      "activated_at": "04.05.2026 15:57 UTC"
+    },
+    "cmored30900032cir0fqt6eun": {
+      "freespins": 100,
+      "deposit_bonus_pct": 75,
+      "code": "Z51-DD1VWX",
+      "partner_id": "6633431907",
+      "used_deposit": true,
+      "activated_at": "04.05.2026 16:14 UTC"
+    },
+    "cmorfhiuv0001a0ircq81jdto": {
+      "freespins": 100,
+      "deposit_bonus_pct": 75,
+      "code": "Z51-5ZHS2H",
+      "partner_id": "6633431907",
+      "used_deposit": true,
+      "activated_at": "04.05.2026 16:43 UTC"
+    },
+    "cmorfu7540000h4ir50vlfhgw": {
+      "freespins": 25,
+      "deposit_bonus_pct": 25,
+      "code": "Z51-LSNXLS",
+      "partner_id": "6633431907",
+      "used_deposit": true,
+      "activated_at": "04.05.2026 16:53 UTC"
+    },
+    "cmorg64c40006h4ir82o62w3l": {
+      "freespins": 25,
+      "deposit_bonus_pct": 25,
+      "code": "Z51-QNR81U",
+      "partner_id": "6633431907",
+      "used_deposit": false,
+      "activated_at": "04.05.2026 17:02 UTC"
+    }
+  }
+}

@@ -1,0 +1,916 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>ZONE 51 — Final Shot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="../cursor.js"></script>
+  <style>
+    :root {
+      --bg: #060108; --panel: #0c0106; --line: rgba(160,120,40,0.1);
+      --text: #bdb5a6; --muted: #524d45;
+      --gold: #ff4060; --gold-bright: #ffe600;
+      --red-bright: #c4253c; --green-bright: #22a862;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; color: var(--text); font-family: "Inter", sans-serif; overflow: hidden; }
+    body {
+      background-color: #060608;
+      background-image:
+        linear-gradient(rgba(160,120,40,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(160,120,40,0.045) 1px, transparent 1px);
+      background-size: 50px 50px;
+      background-attachment: fixed;
+    }
+
+    /* TOPBAR */
+    .topbar {
+      height: 56px; display: flex; align-items: center; justify-content: space-between;
+      padding: 0 24px; border-bottom: 1px solid var(--line);
+      background: transparent; position: relative; z-index: 10;
+    }
+    .topbar::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent 5%, var(--gold) 50%, transparent 95%); opacity: 0.35;
+    }
+    .tb-left { display: flex; align-items: center; gap: 20px; }
+    .back-btn {
+      text-decoration: none; color: var(--muted); font-size: 0.72rem;
+      letter-spacing: 2px; text-transform: uppercase; padding: 6px 14px;
+      border: 1px solid var(--line); transition: all 0.18s;
+    }
+    .back-btn:hover { color: var(--gold); border-color: rgba(255,30,55,0.5); }
+    .game-title { font-family: "Orbitron", sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 5px; }
+    .game-title em { color: var(--gold); font-style: normal; }
+    .tb-right { display: flex; align-items: center; gap: 24px; }
+    .tb-stat { display: flex; flex-direction: column; align-items: flex-end; }
+    .tb-lbl { font-size: 0.5rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); opacity: 0.55; }
+    .tb-val { font-family: "Orbitron", sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--gold); letter-spacing: 1px; transition: color 0.3s; }
+    .tb-val.up   { color: var(--green-bright); }
+    .tb-val.down { color: var(--red-bright); }
+
+    /* LAYOUT */
+    .wrap { height: calc(100vh - 56px); display: grid; grid-template-columns: 1fr 340px; }
+
+    /* STAGE */
+    .stage {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      overflow: hidden; position: relative; background: transparent;
+    }
+
+    #field-canvas { display: block; max-width: 100%; }
+
+    /* ZONE GRID */
+    .zone-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 4px; width: 420px; margin-top: 14px;
+    }
+    .zone-btn {
+      padding: 11px 6px; border: 1px solid rgba(255,20,50,0.35);
+      background: rgba(255,255,255,0.02); color: var(--muted);
+      font-family: "Orbitron", sans-serif; font-size: 0.55rem;
+      letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.15s;
+      display: flex; align-items: center; justify-content: center; gap: 5px;
+    }
+    .zone-btn:hover:not(:disabled) {
+      border-color: rgba(255,30,55,0.5); color: var(--gold);
+      background: rgba(255,20,45,0.07);
+    }
+    .zone-btn.selected {
+      border-color: var(--gold); color: var(--gold-bright);
+      background: rgba(255,20,45,0.14); box-shadow: 0 0 14px rgba(255,20,50,0.35);
+    }
+    .zone-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+    /* SHOOT BUTTON */
+    .shoot-btn {
+      margin-top: 12px; width: 420px; padding: 15px;
+      font-family: "Orbitron", sans-serif; font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 5px; text-transform: uppercase;
+      border: 1px solid var(--gold); background: rgba(255,20,45,0.14);
+      color: var(--gold-bright); cursor: pointer; transition: all 0.18s;
+    }
+    .shoot-btn:hover:not(:disabled) { background: rgba(255,30,55,0.4); box-shadow: 0 0 30px rgba(255,20,50,0.35); }
+    .shoot-btn:disabled { border-color: var(--line); background: transparent; color: var(--muted); cursor: not-allowed; }
+
+    /* RESULT */
+    .result-wrap { margin-top: 10px; text-align: center; height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .result-text {
+      font-family: "Orbitron", sans-serif; font-size: 1.5rem; font-weight: 900;
+      letter-spacing: 6px; opacity: 0; transition: opacity 0.25s;
+    }
+    .result-text.show { opacity: 1; }
+    .result-text.win  { color: var(--green-bright); text-shadow: 0 0 30px rgba(34,168,98,0.55); }
+    .result-text.lose { color: var(--red-bright);   text-shadow: 0 0 30px rgba(196,37,60,0.45); }
+    .result-sub {
+      font-size: 0.7rem; color: var(--muted); letter-spacing: 3px; text-transform: uppercase;
+      margin-top: 4px; opacity: 0; transition: opacity 0.25s;
+    }
+    .result-sub.show { opacity: 1; }
+
+    /* ODDS */
+    .odds-strip {
+      position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 28px; opacity: 0.38;
+    }
+    .odds-item { text-align: center; }
+    .odds-lbl { font-size: 0.5rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); }
+    .odds-val { font-family: "Orbitron", sans-serif; font-size: 0.78rem; color: var(--text); margin-top: 2px; }
+
+    /* RIGHT PANEL */
+    .right-panel {
+      border-left: 1px solid var(--line); background: transparent;
+      display: flex; flex-direction: column; overflow: hidden;
+    }
+    .panel-sec { padding: 16px; border-bottom: 1px solid var(--line); flex-shrink: 0; background: transparent; }
+    .panel-lbl { font-size: 0.52rem; letter-spacing: 3.5px; text-transform: uppercase; color: var(--muted); opacity: 0.45; margin-bottom: 10px; }
+    .ctrl-lbl { font-size: 0.52rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); opacity: 0.55; display: block; margin-bottom: 6px; }
+    .bet-row { display: flex; }
+    .bet-adj {
+      width: 30px; background: rgba(255,255,255,0.04); border: 1px solid var(--line);
+      color: var(--muted); font-size: 1rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; transition: all 0.15s;
+    }
+    .bet-adj:hover { color: var(--gold); border-color: rgba(255,30,55,0.5); }
+    .bet-input {
+      flex: 1; padding: 8px 6px; background: rgba(255,255,255,0.025);
+      border: 1px solid var(--line); border-left: none; border-right: none;
+      color: var(--text); font-size: 0.9rem; font-family: "Orbitron", sans-serif;
+      font-weight: 600; text-align: center; outline: none;
+    }
+    .bet-input:focus { border-color: rgba(255,30,55,0.55); }
+    .bet-presets { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 5px; }
+    .preset {
+      padding: 3px 7px; font-size: 0.58rem; border: 1px solid var(--line);
+      background: transparent; color: var(--muted); cursor: pointer;
+      font-family: "Inter", sans-serif; transition: all 0.15s;
+    }
+    .preset:hover { color: var(--gold); border-color: rgba(255,30,55,0.5); }
+    .potential {
+      margin-top: 8px; padding: 10px 12px;
+      background: rgba(255,20,50,0.35); border: 1px solid rgba(255,20,40,0.1);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .potential .plbl { font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+    .potential .pval { font-family: "Orbitron", sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--gold); }
+    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(160,120,40,0.08); }
+    .stat-cell { background: transparent; padding: 12px 14px; }
+    .s-lbl { font-size: 0.5rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); opacity: 0.55; margin-bottom: 5px; }
+    .s-val { font-family: "Orbitron", sans-serif; font-size: 1rem; font-weight: 700; color: var(--gold); }
+    .s-val.pos { color: var(--green-bright); }
+    .s-val.neg { color: var(--red-bright); }
+    .hist-scroll { flex: 1; overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(255,20,40,0.1) transparent; }
+    .hist-scroll::-webkit-scrollbar { width: 3px; }
+    .hist-scroll::-webkit-scrollbar-thumb { background: rgba(255,20,45,0.14); }
+    .hist-item {
+      display: grid; grid-template-columns: 30px 1fr auto auto;
+      gap: 8px; align-items: center;
+      padding: 8px 14px; border-bottom: 1px solid rgba(255,20,50,0.35);
+      font-size: 0.72rem; transition: background 0.15s;
+    }
+    .hist-item:hover { background: rgba(255,255,255,0.012); }
+    .hist-zone {
+      font-family: "Orbitron", sans-serif; font-size: 0.58rem; font-weight: 700;
+      text-align: center; padding: 2px 3px; border: 1px solid;
+    }
+    .hist-side { color: var(--text); font-size: 0.68rem; }
+    .hist-bet  { color: var(--muted); font-size: 0.64rem; }
+    .hist-res  { font-family: "Orbitron", sans-serif; font-size: 0.68rem; font-weight: 700; text-align: right; }
+
+    @media (max-width: 700px) {
+      html, body { overflow: auto; height: auto; }
+      .wrap { grid-template-columns: 1fr; height: auto; min-height: calc(100vh - 56px); }
+      .right-panel { display: none; }
+      .zone-grid { width: min(96vw, 380px); }
+      .shoot-btn  { width: min(96vw, 380px); }
+      #field-canvas { max-width: 96vw; }
+      .stage { padding: 12px 0 20px; min-height: 300px; }
+      .topbar { height: 50px; padding: 0 12px; }
+      .back-btn { font-size: 0.65rem; padding: 5px 10px; }
+      .game-title { font-size: 0.75rem; letter-spacing: 3px; }
+    }
+    @media (max-width: 400px) {
+      .tb-right  { display: none; }
+      .zone-btn  { font-size: 0.5rem; padding: 9px 4px; }
+    }
+    /* Mobile touch UX */
+    a, button, input, label, [role="button"] {
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    @media screen and (max-width: 768px) {
+      input[type="number"], input[type="text"], select { font-size: max(16px, 1em); }
+    }
+  </style>
+  <script src="../security.js"></script>
+<script src="../cursor.js"></script>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="tb-left">
+    <a href="index.html" class="back-btn">← Lobby</a>
+    <div class="game-title">FINAL <em>SHOT</em></div>
+  </div>
+  <div class="tb-right">
+    <div class="tb-stat">
+      <div class="tb-lbl">Balance</div>
+      <div class="tb-val" id="balance-el">$ 0.00</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- STAGE -->
+  <div class="stage">
+    <canvas id="field-canvas" width="560" height="300"></canvas>
+
+    <div class="zone-grid" id="zone-grid">
+      <button class="zone-btn" data-zone="TL">↖ Top Left</button>
+      <button class="zone-btn" data-zone="TC">↑ Top Mid</button>
+      <button class="zone-btn" data-zone="TR">↗ Top Right</button>
+      <button class="zone-btn" data-zone="BL">← Bot Left</button>
+      <button class="zone-btn" data-zone="BC">↓ Bot Mid</button>
+      <button class="zone-btn" data-zone="BR">→ Bot Right</button>
+    </div>
+
+    <button class="shoot-btn" id="shoot-btn" disabled>Select a Zone</button>
+
+    <div class="result-wrap">
+      <div class="result-text" id="result-text"></div>
+      <div class="result-sub"  id="result-sub"></div>
+    </div>
+
+    <div class="odds-strip">
+      <div class="odds-item"><div class="odds-lbl">Zones</div><div class="odds-val">6</div></div>
+      <div class="odds-item"><div class="odds-lbl">Multiplier</div><div class="odds-val">×1.40</div></div>
+      <div class="odds-item"><div class="odds-lbl">Win chance</div><div class="odds-val">66.7%</div></div>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="right-panel">
+    <div class="panel-sec">
+      <span class="ctrl-lbl">Bet Amount</span>
+      <div class="bet-row">
+        <button class="bet-adj" id="bet-minus">−</button>
+        <input type="number" class="bet-input" id="bet-input" value="10" min="1">
+        <button class="bet-adj" id="bet-plus">+</button>
+      </div>
+      <div class="bet-presets">
+        <button class="preset" data-v="1">$1</button>
+        <button class="preset" data-v="5">$5</button>
+        <button class="preset" data-v="10">$10</button>
+        <button class="preset" data-v="25">$25</button>
+        <button class="preset" data-v="50">$50</button>
+        <button class="preset" data-v="100">$100</button>
+        <button class="preset" data-v="half">½</button>
+        <button class="preset" data-v="double">×2</button>
+      </div>
+      <div class="potential">
+        <span class="plbl">Potential Win</span>
+        <span class="pval" id="pot-val">$ 14.00</span>
+      </div>
+    </div>
+
+    <div class="panel-sec">
+      <div class="panel-lbl">Session Stats</div>
+      <div class="stats-grid">
+        <div class="stat-cell"><div class="s-lbl">Shots</div><div class="s-val" id="s-shots">0</div></div>
+        <div class="stat-cell"><div class="s-lbl">Goals</div><div class="s-val pos" id="s-goals">0</div></div>
+        <div class="stat-cell"><div class="s-lbl">Best Win</div><div class="s-val pos" id="s-best">—</div></div>
+        <div class="stat-cell"><div class="s-lbl">P&amp;L</div><div class="s-val" id="s-pnl">$ 0</div></div>
+      </div>
+    </div>
+
+    <div class="panel-lbl" style="padding:12px 16px 6px;flex-shrink:0;">Shot History</div>
+    <div class="hist-scroll">
+      <div id="hist-list"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const MULT = 1.40;
+  const _Z51_BAL_KEY = 'z51_balance';
+  function _z51ReadBal() { var v = parseFloat(localStorage.getItem(_Z51_BAL_KEY)); return (isNaN(v)) ? 0 : v; }
+  let balance  = _z51ReadBal();
+  let shooting = false;
+  let selectedZone = null;
+  let sShots = 0, sGoals = 0, sPnl = 0, sBest = 0;
+  let histData = [];
+
+  // ── Canvas ──
+  const canvas = document.getElementById('field-canvas');
+  const ctx    = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+
+  // Goal geometry
+  const GL = 90, GR = 470, GT = 22, GB = 220;
+  const GW = GR - GL, GH = GB - GT;
+
+  // Zone centers + keeper column
+  const ZONES = {
+    TL: { x: GL + GW*1/6, y: GT + GH*0.28, col: 'L' },
+    TC: { x: GL + GW*3/6, y: GT + GH*0.28, col: 'C' },
+    TR: { x: GL + GW*5/6, y: GT + GH*0.28, col: 'R' },
+    BL: { x: GL + GW*1/6, y: GT + GH*0.72, col: 'L' },
+    BC: { x: GL + GW*3/6, y: GT + GH*0.72, col: 'C' },
+    BR: { x: GL + GW*5/6, y: GT + GH*0.72, col: 'R' },
+  };
+
+  // Keeper rest + dive positions
+  const KS = { x: GL + GW/2, y: GT + GH * 0.62 }; // start
+  const KP = {
+    L: { x: GL + GW*0.14, y: GT + GH * 0.55 },
+    C: { x: GL + GW*0.50, y: GT + GH * 0.38 },
+    R: { x: GL + GW*0.86, y: GT + GH * 0.55 },
+  };
+
+  // Ball start (penalty spot)
+  const BS = { x: W / 2, y: H - 20 };
+
+  // Anim state
+  let animPhase = 'idle';  // idle | shoot | result
+  let animStart = 0;
+  const SHOOT_DUR  = 900;
+  const RESULT_DUR = 2600;
+
+  let curKeeperCol = null;
+  let curZone      = null;
+  let curOutcome   = null; // 'goal' | 'miss'
+  let pendingBet   = 0;
+
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function easeIn(t)  { return t * t * t; }
+  function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+  // ── Drawing ──
+
+  function drawField() {
+    // Match body grid pattern inside canvas area
+    ctx.fillStyle = '#060608';
+    ctx.fillRect(0, 0, W, H);
+    ctx.strokeStyle = 'rgba(160,120,40,0.045)';
+    ctx.lineWidth = 1;
+    // Align grid lines with body grid (50px tiles, anchored to viewport top-left)
+    const rect = canvas.getBoundingClientRect();
+    const ox = -((rect.left) % 50);
+    const oy = -((rect.top)  % 50);
+    for (let x = ox; x <= W; x += 50) { ctx.beginPath(); ctx.moveTo(x + 0.5, 0); ctx.lineTo(x + 0.5, H); ctx.stroke(); }
+    for (let y = oy; y <= H; y += 50) { ctx.beginPath(); ctx.moveTo(0, y + 0.5); ctx.lineTo(W, y + 0.5); ctx.stroke(); }
+
+    // Penalty area box
+    ctx.strokeStyle = 'rgba(100,180,70,0.1)';
+    ctx.lineWidth = 1;
+    const bx1 = W/2 - 160, bx2 = W/2 + 160, by1 = H - 90, by2 = H;
+    ctx.strokeRect(bx1, by1, bx2 - bx1, by2 - by1);
+
+    // Penalty arc
+    ctx.beginPath();
+    ctx.arc(W/2, H - 20, 80, Math.PI * 1.12, Math.PI * 1.88);
+    ctx.stroke();
+
+    // Penalty spot
+    ctx.fillStyle = 'rgba(140,200,100,0.4)';
+    ctx.beginPath();
+    ctx.arc(BS.x, BS.y, 3, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  function drawNet() {
+    // Net grid lines only — no dark fill so body grid shows through
+    const nx = 20, ny = 11;
+    ctx.strokeStyle = 'rgba(210,210,210,0.09)';
+    ctx.lineWidth = 0.7;
+    for (let i = 0; i <= nx; i++) {
+      const x = GL + (GW / nx) * i;
+      ctx.beginPath(); ctx.moveTo(x, GT); ctx.lineTo(x, GB); ctx.stroke();
+    }
+    for (let j = 0; j <= ny; j++) {
+      const y = GT + (GH / ny) * j;
+      ctx.beginPath(); ctx.moveTo(GL, y); ctx.lineTo(GR, y); ctx.stroke();
+    }
+  }
+
+  function drawZoneOverlays(highlight, revealKeeper) {
+    const cols = {
+      L: { x1: GL,          x2: GL + GW/3 },
+      C: { x1: GL + GW/3,   x2: GL + 2*GW/3 },
+      R: { x1: GL + 2*GW/3, x2: GR },
+    };
+    const rows = {
+      T: { y1: GT,         y2: GT + GH/2 },
+      B: { y1: GT + GH/2,  y2: GB },
+    };
+    const map = {
+      TL: { col: cols.L, row: rows.T },
+      TC: { col: cols.C, row: rows.T },
+      TR: { col: cols.R, row: rows.T },
+      BL: { col: cols.L, row: rows.B },
+      BC: { col: cols.C, row: rows.B },
+      BR: { col: cols.R, row: rows.B },
+    };
+
+    Object.entries(map).forEach(([key, z]) => {
+      const x = z.col.x1, y = z.row.y1;
+      const w = z.col.x2 - z.col.x1, h = z.row.y2 - z.row.y1;
+      const zoneCol = ZONES[key].col;
+      let fill = 'rgba(255,255,255,0)';
+      let stroke = 'rgba(255,255,255,0.045)';
+
+      if (key === highlight && !revealKeeper) {
+        fill   = 'rgba(255,20,45,0.14)';
+        stroke = 'rgba(255,100,100,0.75)';
+      }
+      if (revealKeeper) {
+        if (zoneCol === curKeeperCol) {
+          fill = 'rgba(196,37,60,0.18)';
+          stroke = 'rgba(196,37,60,0.5)';
+        }
+        if (key === highlight) {
+          if (zoneCol !== curKeeperCol) {
+            fill = 'rgba(34,168,98,0.14)';
+            stroke = 'rgba(34,168,98,0.6)';
+          } else {
+            fill = 'rgba(196,37,60,0.22)';
+            stroke = 'rgba(196,37,60,0.7)';
+          }
+        }
+      }
+
+      ctx.fillStyle = fill;
+      ctx.fillRect(x, y, w, h);
+      ctx.strokeStyle = stroke;
+      ctx.lineWidth = 1.2;
+      ctx.strokeRect(x + 0.5, y + 0.5, w - 1, h - 1);
+    });
+  }
+
+  function drawGoalPosts() {
+    ctx.save();
+    ctx.lineWidth = 4;
+    ctx.lineCap = 'round';
+    ctx.strokeStyle = '#d4b04a';
+    ctx.shadowColor = ' rgba(255,20,50,0.35) ';
+    ctx.shadowBlur = 10;
+
+    // Left post
+    ctx.beginPath(); ctx.moveTo(GL, GT); ctx.lineTo(GL, GB + 6); ctx.stroke();
+    // Right post
+    ctx.beginPath(); ctx.moveTo(GR, GT); ctx.lineTo(GR, GB + 6); ctx.stroke();
+    // Crossbar
+    ctx.beginPath(); ctx.moveTo(GL, GT); ctx.lineTo(GR, GT); ctx.stroke();
+
+    ctx.shadowBlur = 0;
+    // Ground line (subtle)
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = 'rgba(255,30,55,0.4)';
+    ctx.beginPath(); ctx.moveTo(GL, GB + 6); ctx.lineTo(GR, GB + 6); ctx.stroke();
+    ctx.restore();
+  }
+
+  function drawKeeper(kx, ky, diving, col) {
+    ctx.save();
+    ctx.translate(kx, ky);
+
+    // Lean angle for dives
+    let angle = 0;
+    if (diving && col === 'L') angle = -0.38;
+    if (diving && col === 'R') angle =  0.38;
+    ctx.rotate(angle);
+
+    // Shadow on ground
+    ctx.fillStyle = 'rgba(0,0,0,0.35)';
+    ctx.beginPath();
+    ctx.ellipse(0, 44, 18, 6, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Legs — alien green/teal suit
+    ctx.strokeStyle = '#1a3d2a';
+    ctx.lineWidth = 9;
+    ctx.lineCap = 'round';
+    if (diving && col === 'L') {
+      ctx.beginPath(); ctx.moveTo(-3, 22); ctx.lineTo(-14, 44); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(4,  22); ctx.lineTo(20, 40);  ctx.stroke();
+    } else if (diving && col === 'R') {
+      ctx.beginPath(); ctx.moveTo(-3, 22); ctx.lineTo(-20, 40); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(4,  22); ctx.lineTo(14, 44);  ctx.stroke();
+    } else {
+      ctx.beginPath(); ctx.moveTo(-5, 22); ctx.lineTo(-9, 44); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(5,  22); ctx.lineTo(9, 44);  ctx.stroke();
+    }
+
+    // Shorts
+    ctx.fillStyle = '#0a1f14';
+    ctx.fillRect(-10, 16, 20, 10);
+
+    // Jersey — alien suit
+    const jg = ctx.createLinearGradient(0, -18, 0, 22);
+    jg.addColorStop(0, '#2d6a4a');
+    jg.addColorStop(1, '#1a3d2a');
+    ctx.fillStyle = jg;
+    ctx.beginPath();
+    ctx.moveTo(-14, -18); ctx.lineTo(14, -18);
+    ctx.lineTo(16, 22); ctx.lineTo(-16, 22);
+    ctx.closePath(); ctx.fill();
+
+    // Jersey stripes — gold
+    ctx.strokeStyle = 'rgba(232,200,90,0.55)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(-14, -6); ctx.lineTo(14, -6); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(-14,  4); ctx.lineTo(14,  4); ctx.stroke();
+
+    // Number
+    ctx.fillStyle = '#ffe600';
+    ctx.font = 'bold 9px "Orbitron", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('51', 0, 11);
+
+    // Arms
+    ctx.strokeStyle = '#1a3d2a';
+    ctx.lineWidth = 8;
+    ctx.lineCap = 'round';
+    if (diving && col === 'L') {
+      ctx.beginPath(); ctx.moveTo(-13, -10); ctx.lineTo(-38, -26); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(-13, -2);  ctx.lineTo(-34, -12); ctx.stroke();
+    } else if (diving && col === 'R') {
+      ctx.beginPath(); ctx.moveTo(13, -10);  ctx.lineTo(38, -26); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(13, -2);   ctx.lineTo(34, -12); ctx.stroke();
+    } else if (diving && col === 'C') {
+      ctx.beginPath(); ctx.moveTo(-13, -12); ctx.lineTo(-20, -38); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(13,  -12); ctx.lineTo(20,  -38); ctx.stroke();
+    } else {
+      ctx.beginPath(); ctx.moveTo(-13, -6); ctx.lineTo(-22, 10); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(13,  -6); ctx.lineTo(22,  10); ctx.stroke();
+    }
+
+    // Hands — slim 4-finger alien hands (just glow blobs)
+    ctx.fillStyle = '#a8d8b0';
+    ctx.shadowColor = 'rgba(168,216,176,0.6)';
+    ctx.shadowBlur = 8;
+    if (diving && col === 'L') {
+      ctx.beginPath(); ctx.arc(-38, -26, 6, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(-34, -12, 5, 0, Math.PI*2); ctx.fill();
+    } else if (diving && col === 'R') {
+      ctx.beginPath(); ctx.arc(38, -26,  6, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(34, -12,  5, 0, Math.PI*2); ctx.fill();
+    } else if (diving && col === 'C') {
+      ctx.beginPath(); ctx.arc(-20, -38, 5, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(20,  -38, 5, 0, Math.PI*2); ctx.fill();
+    } else {
+      ctx.beginPath(); ctx.arc(-22, 10,  5, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(22,  10,  5, 0, Math.PI*2); ctx.fill();
+    }
+    ctx.shadowBlur = 0;
+
+    // Neck — alien skin
+    ctx.fillStyle = '#a8d8b0';
+    ctx.fillRect(-4, -22, 8, 6);
+
+    // Head — large alien dome
+    const hg = ctx.createRadialGradient(-3, -36, 2, 0, -32, 16);
+    hg.addColorStop(0, '#d4f0d8');
+    hg.addColorStop(0.6, '#a8d8b0');
+    hg.addColorStop(1, '#5a8a68');
+    ctx.fillStyle = hg;
+    ctx.beginPath();
+    ctx.ellipse(0, -34, 13, 17, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Big almond eyes
+    ctx.fillStyle = '#0a0a0a';
+    ctx.beginPath();
+    ctx.ellipse(-5, -33, 3.5, 5.5, -0.35, 0, Math.PI*2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(5, -33, 3.5, 5.5, 0.35, 0, Math.PI*2);
+    ctx.fill();
+    // Eye shine
+    ctx.fillStyle = 'rgba(255,255,255,0.7)';
+    ctx.beginPath(); ctx.arc(-5, -35, 0.9, 0, Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.arc(5,  -35, 0.9, 0, Math.PI*2); ctx.fill();
+
+    // Tiny mouth
+    ctx.strokeStyle = 'rgba(40,60,40,0.6)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(-2, -22); ctx.lineTo(2, -22);
+    ctx.stroke();
+
+    // Antenna with gold tip
+    ctx.strokeStyle = '#5a8a68';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(0, -50); ctx.lineTo(0, -56);
+    ctx.stroke();
+    ctx.fillStyle = '#ffe600';
+    ctx.shadowColor = 'rgba(232,200,90,0.8)';
+    ctx.shadowBlur = 6;
+    ctx.beginPath(); ctx.arc(0, -57, 2, 0, Math.PI*2); ctx.fill();
+    ctx.shadowBlur = 0;
+
+    ctx.restore();
+  }
+
+  function drawBall(bx, by, scale, spin) {
+    ctx.save();
+    ctx.translate(bx, by);
+    ctx.scale(scale, scale);
+    ctx.rotate(spin);
+
+    const r = 13;
+    ctx.shadowColor = 'rgba(255,255,255,0.5)';
+    ctx.shadowBlur = 12;
+
+    // Main body
+    const bg = ctx.createRadialGradient(-4, -4, 1, 0, 0, r);
+    bg.addColorStop(0, '#ffffff');
+    bg.addColorStop(0.4, '#e8e4d8');
+    bg.addColorStop(1, '#7a7060');
+    ctx.fillStyle = bg;
+    ctx.beginPath();
+    ctx.arc(0, 0, r, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+
+    // Black patches (pentagon style, simplified)
+    ctx.fillStyle = 'rgba(10,10,10,0.85)';
+    // Center patch
+    const p5 = 5;
+    ctx.beginPath();
+    for (let i = 0; i < p5; i++) {
+      const a = (i / p5) * Math.PI * 2 - Math.PI / 2;
+      const px = Math.cos(a) * 4.5, py = Math.sin(a) * 4.5;
+      i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+    }
+    ctx.closePath(); ctx.fill();
+    // Side patches
+    const patchAngles = [0, Math.PI * 2 / 5, Math.PI * 4 / 5, Math.PI * 6 / 5, Math.PI * 8 / 5];
+    patchAngles.forEach(pa => {
+      const cx = Math.cos(pa) * 8, cy = Math.sin(pa) * 8;
+      ctx.beginPath();
+      for (let i = 0; i < p5; i++) {
+        const a = (i / p5) * Math.PI * 2 + pa;
+        const px = cx + Math.cos(a) * 3, py = cy + Math.sin(a) * 3;
+        i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+      }
+      ctx.closePath(); ctx.fill();
+    });
+
+    // Shine
+    ctx.fillStyle = 'rgba(255,255,255,0.28)';
+    ctx.beginPath();
+    ctx.ellipse(-4, -5, 4, 2.5, -0.6, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.restore();
+  }
+
+  // ── Render loop ──
+  let ballSpin = 0;
+
+  function render(ts) {
+    ctx.clearRect(0, 0, W, H);
+    drawField();
+    drawNet();
+
+    if (animPhase === 'idle') {
+      drawZoneOverlays(selectedZone, false);
+      drawGoalPosts();
+      drawKeeper(KS.x, KS.y, false, null);
+      drawBall(BS.x, BS.y, 1, 0);
+
+    } else if (animPhase === 'shoot') {
+      if (!animStart) animStart = ts;
+      const raw = Math.min((ts - animStart) / SHOOT_DUR, 1);
+
+      // Keeper dives in
+      const kt = easeOut(raw);
+      const kp = KP[curKeeperCol];
+      const kx = lerp(KS.x, kp.x, kt);
+      const ky = lerp(KS.y, kp.y, kt);
+
+      drawZoneOverlays(selectedZone, false);
+      drawGoalPosts();
+      drawKeeper(kx, ky, raw > 0.25, curKeeperCol);
+
+      // Ball flies toward zone
+      const bt    = easeIn(raw);
+      const zc    = ZONES[curZone];
+      const bx    = lerp(BS.x, zc.x, bt);
+      const by    = lerp(BS.y, zc.y, bt);
+      const bscale = lerp(1, 0.55, bt);
+      ballSpin = bt * Math.PI * 6;
+      drawBall(bx, by, bscale, ballSpin);
+
+      if (raw >= 1) {
+        animPhase = 'result';
+        animStart = ts;
+        resolveShot();
+      }
+
+    } else if (animPhase === 'result') {
+      if (!animStart) animStart = ts;
+      const elapsed = ts - animStart;
+      const kp = KP[curKeeperCol];
+
+      drawZoneOverlays(curZone, true);
+      drawGoalPosts();
+      drawKeeper(kp.x, kp.y, true, curKeeperCol);
+
+      const zc = ZONES[curZone];
+      if (curOutcome === 'goal') {
+        // Ball in net, slight oscillate
+        const shake = Math.sin(elapsed * 0.03) * 4 * Math.max(0, 1 - elapsed / 800);
+        drawBall(zc.x + shake, zc.y, 0.55, ballSpin);
+      } else {
+        // Ball deflected by keeper
+        const deflect = Math.min(elapsed / 500, 1);
+        const bx = lerp(zc.x, kp.x * 0.7 + zc.x * 0.3, deflect * 0.6);
+        const by = lerp(zc.y, kp.y + 25, deflect * 0.7);
+        const bs = lerp(0.55, 0.7, deflect * 0.5);
+        drawBall(bx, by, bs, ballSpin + deflect * 2);
+      }
+
+      if (elapsed >= RESULT_DUR) {
+        animPhase = 'idle';
+        animStart = 0;
+        afterShot();
+      }
+    }
+
+    requestAnimationFrame(render);
+  }
+  requestAnimationFrame(render);
+
+  // ── Game logic ──
+
+  function shoot() {
+    if (shooting || !selectedZone) return;
+    const bet = parseFloat(document.getElementById('bet-input').value) || 0;
+    if (bet < 1 || bet > balance) {
+      const inp = document.getElementById('bet-input');
+      inp.style.borderColor = 'var(--red-bright)';
+      setTimeout(() => inp.style.borderColor = '', 900);
+      return;
+    }
+    shooting   = true;
+    pendingBet = bet;
+    curZone    = selectedZone;
+    setControls(false);
+    setBalance(balance - bet, false);
+
+    // Keeper picks random column (L/C/R equal probability)
+    curKeeperCol = ['L','C','R'][Math.floor(Math.random() * 3)];
+    curOutcome   = ZONES[curZone].col !== curKeeperCol ? 'goal' : 'miss';
+
+    animPhase = 'shoot';
+    animStart = 0;
+
+    document.getElementById('result-text').className = 'result-text';
+    document.getElementById('result-sub').className  = 'result-sub';
+    sShots++;
+  }
+
+  function resolveShot() {
+    const won    = curOutcome === 'goal';
+    const payout = won ? pendingBet * MULT : 0;
+    const pnl    = won ? payout - pendingBet : -pendingBet;
+
+    if (won) {
+      setBalance(balance + payout, true);
+      sGoals++;
+      if (payout > sBest) sBest = payout;
+    }
+    sPnl += pnl;
+
+    const rtEl = document.getElementById('result-text');
+    const rsEl = document.getElementById('result-sub');
+    rtEl.textContent = won ? '⚽  GOAL!' : 'SAVED!';
+    rtEl.className   = 'result-text show ' + (won ? 'win' : 'lose');
+    rsEl.textContent = won
+      ? `+$ ${(payout - pendingBet).toFixed(2)}  ·  ×${MULT}`
+      : `Keeper blocked — −$ ${pendingBet.toFixed(2)}`;
+    rsEl.className = 'result-sub show';
+
+    pushHistory(curZone, curKeeperCol, pendingBet, won, pnl);
+    updateSession();
+  }
+
+  function afterShot() {
+    shooting = false;
+    setControls(true);
+  }
+
+  function setControls(on) {
+    document.querySelectorAll('.zone-btn').forEach(b => b.disabled = !on);
+    const sb = document.getElementById('shoot-btn');
+    sb.disabled   = !on || !selectedZone;
+    sb.textContent = !on ? '...' : selectedZone ? 'Shoot' : 'Select a Zone';
+  }
+
+  // ── UI helpers ──
+
+  function setBalance(v, up) {
+    balance = v;
+    localStorage.setItem(_Z51_BAL_KEY, balance.toFixed(2));
+    const el = document.getElementById('balance-el');
+    el.textContent = `$ ${balance.toFixed(2)}`;
+    el.classList.remove('up','down');
+    void el.offsetWidth;
+    el.classList.add(up ? 'up' : 'down');
+    setTimeout(() => el.classList.remove('up','down'), 700);
+  }
+
+  function updatePot() {
+    const b = parseFloat(document.getElementById('bet-input').value) || 0;
+    document.getElementById('pot-val').textContent = `$ ${(b * MULT).toFixed(2)}`;
+  }
+
+  function updateSession() {
+    document.getElementById('s-shots').textContent = sShots;
+    document.getElementById('s-goals').textContent = sGoals;
+    document.getElementById('s-best').textContent  = sBest > 0 ? `$ ${sBest.toFixed(2)}` : '—';
+    const el = document.getElementById('s-pnl');
+    el.textContent = (sPnl >= 0 ? '+' : '') + `$ ${sPnl.toFixed(2)}`;
+    el.className = 's-val' + (sPnl > 0 ? ' pos' : sPnl < 0 ? ' neg' : '');
+  }
+
+  function pushHistory(zone, keeperCol, bet, won, pnl) {
+    histData.unshift({ zone, keeperCol, bet, won, pnl });
+    if (histData.length > 60) histData.pop();
+    const el = document.getElementById('hist-list');
+    el.innerHTML = histData.map(d => {
+      const c = d.won ? 'var(--green-bright)' : 'var(--red-bright)';
+      return `<div class="hist-item">
+        <div class="hist-zone" style="color:${c};border-color:${c}">${d.zone}</div>
+        <div class="hist-side">${d.won ? 'Goal' : 'Saved'} · GK:${d.keeperCol}</div>
+        <div class="hist-bet">$${d.bet.toFixed(0)}</div>
+        <div class="hist-res" style="color:${c}">${d.won ? '+' : '−'}$${Math.abs(d.pnl).toFixed(2)}</div>
+      </div>`;
+    }).join('');
+  }
+
+  // ── Event listeners ──
+
+  document.querySelectorAll('.zone-btn').forEach(b => {
+    b.addEventListener('click', () => {
+      if (shooting) return;
+      selectedZone = b.dataset.zone;
+      document.querySelectorAll('.zone-btn').forEach(x => x.classList.remove('selected'));
+      b.classList.add('selected');
+      const sb = document.getElementById('shoot-btn');
+      sb.disabled    = false;
+      sb.textContent = 'Shoot';
+    });
+  });
+
+  document.getElementById('shoot-btn').addEventListener('click', shoot);
+  document.addEventListener('keydown', e => {
+    if (e.code === 'Space' && !e.target.matches('input')) { e.preventDefault(); shoot(); }
+  });
+
+  const betInputEl = document.getElementById('bet-input');
+  betInputEl.addEventListener('input', updatePot);
+
+  document.getElementById('bet-minus').addEventListener('click', () => {
+    const steps = [1,2,5,10,25,50,100,200,500];
+    const cur = parseFloat(betInputEl.value) || 1;
+    betInputEl.value = [...steps].reverse().find(s => s < cur) || 1;
+    updatePot();
+  });
+
+  document.getElementById('bet-plus').addEventListener('click', () => {
+    const steps = [1,2,5,10,25,50,100,200,500];
+    const cur = parseFloat(betInputEl.value) || 1;
+    betInputEl.value = Math.min(steps.find(s => s > cur) || 500, balance);
+    updatePot();
+  });
+
+  document.querySelectorAll('.preset').forEach(b => {
+    b.addEventListener('click', () => {
+      let v;
+      if (b.dataset.v === 'half')   v = Math.max(1, Math.floor((parseFloat(betInputEl.value)||1) / 2));
+      else if (b.dataset.v === 'double') v = Math.min((parseFloat(betInputEl.value)||1) * 2, balance);
+      else v = parseFloat(b.dataset.v);
+      betInputEl.value = v; updatePot();
+    });
+  });
+
+  updatePot();
+</script>
+<script src="../cookie-banner.js"></script>
+
+  <script src="../toast.js"></script>
+  <script src="../sound.js"></script>
+  <script src="../loader.js"></script>
+</body>
+</html>

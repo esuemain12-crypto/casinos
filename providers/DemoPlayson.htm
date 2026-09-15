@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>Demo</title>
+
+<!--    <script type="text/javascript" src="//shared-static.casinomobule.com/gameinclusion/jquery.min.js"></script> -->
+<!--    <script type="text/javascript" src="//shared-static.casinomobule.com/gameinclusion/library/gameinclusion.js"></script> -->
+
+<!--<script type="text/javascript" src="https://softswissmt-static.casinomodule.com/gameinclusion/library/gameinclusion.js"></script>-->
+    <script src="DemoPlayson_files/jquery.min.js"></script>
+
+
+    <style>
+        body { padding: 0; margin: 0; font-size: 2em;}
+
+        .box { position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
+
+        #game { width: 100%; height: 100%; position: absolute; top: 0; right: 0; bottom: 0; left: 0;}
+    </style>
+
+    <style>
+
+        .game {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+	#blockGames {
+display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    justify-content: center;
+display: grid;
+
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+@media (min-width:320px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ body { font-size: 2em; } }
+@media (min-width:480px)  { /* smartphones, Android phones, landscape iPhone */ body { font-size: 2em; } }
+@media (min-width:600px)  { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */ body { font-size: 2em; } }
+@media (min-width:801px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ 
+
+body { font-size: 2em; }
+
+#blockGames {
+display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    justify-content: center;
+}
+
+.game {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+}
+@media (min-width:1025px) {
+body { font-size: 1em; }
+ /* big landscape tablets, laptops, and desktops */ }
+@media (min-width:1281px) { 
+/* hi-res laptops and desktops */ 
+
+body { font-size: 1em; }
+
+#blockGames {
+display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    justify-content: center;
+}
+
+.game {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+
+}
+
+    </style>
+</head>
+<body style="background-color: rgba(32,28,25,.77);">
+
+
+<div style="background: white; padding: 15px 20px;     display: flex;
+    position: relative;
+    column-gap: 10px;
+    row-gap: 20px;
+    overflow: hidden;
+    flex-wrap: wrap;justify-content: center;">
+    <select id="fProvider" style="width: 150px;" onchange="show()">
+<option value="*">Provider: *
+</option><option value="3oaks">Provider: 3Oaks
+</option><option value="amatic">Provider: Amatic
+</option><option value="bgaming">Provider: BGaming
+</option><option value="evoplay">Provider: Evoplay
+</option><option value="greentube">Provider: Greentube
+</option><option value="hacksaw">Provider: Hacksaw
+</option><option value="igrosoft">Provider: Igrosoft
+</option><option value="netent">Provider: Netent
+</option><option value="nolimit">Provider: Nolimit
+</option><option value="pgsoft">Provider: Pocket Games (PG Soft)
+</option><option value="playngo">Provider: Playngo
+</option><option value="playson" selected="selected">Provider: Playson
+</option><option value="pragmatic">Provider: Pragmatic
+</option><option value="pushgaming">Provider: Pushgaming
+</option><option value="redtiger">Provider: Redtiger
+</option><option value="relax">Provider: Relax
+</option><option value="spinomenal">Provider: Spinomenal
+</option><option value="spribe">Provider: Spribe
+</option><option value="megaways">MEGAWAYS
+    </option></select>
+    <select id="fLang">
+        <option value="bg">bg - Bulgarian
+        </option><option value="br">br - Portuguese (Brazil)
+        </option><option value="cn">cn - Chinese (Simplified)
+        </option><option value="cs">cs - Czech
+        </option><option value="da">da - Danish
+        </option><option value="de">de - German
+        </option><option value="el">el - Greek
+        </option><option value="en" selected="selected">en - English
+        </option><option value="es">es - Spanish
+        </option><option value="et">et - Estonian
+        </option><option value="fi">fi - Finnish
+        </option><option value="fr">fr - French
+        </option><option value="hr">hr - Croatian
+        </option><option value="hu">hu - Hungarian
+	</option><option value="ko">ko - Korean
+        </option><option value="it">it - Italian
+	</option><option value="id">id - Indonesian
+	</option><option value="ja">ja - Japanese
+        </option><option value="nl">nl - Dutch
+        </option><option value="no">no - Norwegian
+	</option><option value="nb">nb - Norwegian
+        </option><option value="pl">pl - Polish
+        </option><option value="pt">pt - Portuguese
+        </option><option value="ro">ro - Romanian
+        </option><option value="ru">ru - Russian
+        </option><option value="sk">sk - Slovak
+        </option><option value="sv">sv - Swedish
+        </option><option value="tr">tr - Turkish
+    </option></select>
+
+    <select id="fCurrency" style="width: 250px;"><option value="ADA">ADA - ADA
+</option><option value="AED">AED - UAE Dirham
+</option><option value="AFN">AFN - Afghani
+</option><option value="ALL">ALL - Lek
+</option><option value="AMD">AMD - Armenian Dram
+</option><option value="ANG">ANG - Netherlands Antillean Guilder
+</option><option value="AOA">AOA - Kwanza
+</option><option value="ARS">ARS - Argentine Peso
+</option><option value="AUD">AUD - Australian Dollar
+</option><option value="AWG">AWG - Aruban Florin
+</option><option value="AZN">AZN - Azerbaijanian Manat
+</option><option value="BAM">BAM - Convertible Mark
+</option><option value="BBD">BBD - Barbados Dollar
+</option><option value="BDT">BDT - Taka
+</option><option value="BET">BET - BETCOIN
+</option><option value="BGN">BGN - Bulgarian Lev
+</option><option value="BHD">BHD - Bahraini Dinar
+</option><option value="BIF">BIF - Burundi Franc
+</option><option value="BMD">BMD - Bermudian Dollar
+</option><option value="BMZ">BMZ - BMZ
+</option><option value="BNB">BNB - BNB
+</option><option value="BND">BND - Brunei Dollar
+</option><option value="BOB">BOB - Boliviano
+</option><option value="BOV">BOV - Mvdol
+</option><option value="BRL">BRL - Brazilian Real
+</option><option value="BSD">BSD - Bahamian Dollar
+</option><option value="BTC">BTC - Bitcoin
+</option><option value="BTN">BTN - Ngultrum
+</option><option value="BWP">BWP - Pula
+</option><option value="BYN">BYN - Belarusian Ruble
+</option><option value="BYR">BYR - Belarusian Ruble
+</option><option value="BZD">BZD - Belize Dollar
+</option><option value="CAD">CAD - Canadian Dollar
+</option><option value="CDF">CDF - Congolese Franc
+</option><option value="CHE">CHE - WIR Euro
+</option><option value="CHF">CHF - Swiss Franc
+</option><option value="CHW">CHW - WIR Franc
+</option><option value="CLF">CLF - Unidad de Fomento
+</option><option value="CLP">CLP - Chilean Peso
+</option><option value="CNY">CNY - Yuan Renminbi
+</option><option value="COP">COP - Colombian Peso
+</option><option value="COU">COU - Unidad de Valor Real
+</option><option value="CRC">CRC - Costa Rican Colon
+</option><option value="CUC">CUC - Peso Convertible
+</option><option value="CUP">CUP - Cuban Peso
+</option><option value="CVE">CVE - Cabo Verde Escudo
+</option><option value="CZK">CZK - Czech Koruna
+</option><option value="DJF">DJF - Djibouti Franc
+</option><option value="DKK">DKK - Danish Krone
+</option><option value="DLS">DLS - DLS (Fun Tickets)
+</option><option value="DOGE">DOGE - DOGE
+</option><option value="DOP">DOP - Dominican Peso
+</option><option value="DZD">DZD - Algerian Dinar
+</option><option value="EGP">EGP - Egyptian Pound
+</option><option value="ERN">ERN - Nakfa
+</option><option value="ETB">ETB - Ethiopian Birr
+</option><option value="ETH">ETH - Ethereum
+</option><option value="EUR" selected="selected">EUR - Euro
+</option><option value="EUR_BONUS">EUR_BONUS - EUR (Bonus)
+</option><option value="FJD">FJD - Fiji Dollar
+</option><option value="FKP">FKP - Falkland Islands Pound
+</option><option value="FUN">FUN - FUN
+</option><option value="GBP">GBP - Pound Sterling
+</option><option value="GC">GC - Gold Coin (Fun)
+</option><option value="GEL">GEL - Lari
+</option><option value="GHS">GHS - Ghana Cedi
+</option><option value="GIP">GIP - Gibraltar Pound
+</option><option value="GMD">GMD - Dalasi
+</option><option value="GNF">GNF - Guinea Franc
+</option><option value="GTQ">GTQ - Quetzal
+</option><option value="GYD">GYD - Guyana Dollar
+</option><option value="HKD">HKD - Hong Kong Dollar
+</option><option value="HNL">HNL - Lempira
+</option><option value="HRK">HRK - Kuna
+</option><option value="HTG">HTG - Gourde
+</option><option value="HUF">HUF - Forint
+</option><option value="IDR">IDR - Rupiah
+</option><option value="ILS">ILS - New Israeli Sheqel
+</option><option value="INR">INR - Indian Rupee
+</option><option value="IQD">IQD - Iraqi Dinar
+</option><option value="IRR">IRR - Iranian Rial
+</option><option value="IRR2">IRR2 - Iranian Rial (No Copecs)
+</option><option value="IRT">IRT - Iranian Toman
+</option><option value="ISK">ISK - Iceland Krona
+</option><option value="JC">JC - Jade Coin (USD Like)
+</option><option value="JMD">JMD - Jamaican Dollar
+</option><option value="JOD">JOD - Jordanian Dinar
+</option><option value="JPY">JPY - Yen
+</option><option value="KES">KES - Kenyan Shilling
+</option><option value="KGS">KGS - Som
+</option><option value="KHR">KHR - Riel
+</option><option value="KMF">KMF - Comoro Franc
+</option><option value="KPW">KPW - North Korean Won
+</option><option value="KRW">KRW - Won
+</option><option value="KRW2">KRW2 - Won2
+</option><option value="KWD">KWD - Kuwaiti Dinar
+</option><option value="KYD">KYD - Cayman Islands Dollar
+</option><option value="KZT">KZT - Tenge
+</option><option value="LAK">LAK - Kip
+</option><option value="LBP">LBP - Lebanese Pound
+</option><option value="LKR">LKR - Sri Lanka Rupee
+</option><option value="LRD">LRD - Liberian Dollar
+</option><option value="LSL">LSL - Loti
+</option><option value="LTC">LTC - Litecoin
+</option><option value="LYD">LYD - Libyan Dinar
+</option><option value="MAD">MAD - Moroccan Dirham
+</option><option value="MDL">MDL - Moldovan Leu
+</option><option value="MGA">MGA - Malagasy Ariary
+</option><option value="MKD">MKD - Denar
+</option><option value="MMK">MMK - Kyat
+</option><option value="MNT">MNT - Tugrik
+</option><option value="MOP">MOP - Pataca
+</option><option value="MRO">MRO - Ouguiya
+</option><option value="MUR">MUR - Mauritius Rupee
+</option><option value="MVR">MVR - Rufiyaa
+</option><option value="MWK">MWK - Malawi Kwacha
+</option><option value="MXN">MXN - Mexican Peso
+</option><option value="MXV">MXV - Mexican Unidad de Inversion (UDI)
+</option><option value="MYR">MYR - Malaysian Ringgit
+</option><option value="MZN">MZN - Mozambique Metical
+</option><option value="NAD">NAD - Namibia Dollar
+</option><option value="NGN">NGN - Naira
+</option><option value="NIO">NIO - Cordoba Oro
+</option><option value="NOK">NOK - Norwegian Krone
+</option><option value="NPR">NPR - Nepalese Rupee
+</option><option value="NZD">NZD - New Zealand Dollar
+</option><option value="OMR">OMR - Rial Omani
+</option><option value="PAB">PAB - Balboa
+</option><option value="PEN">PEN - Sol
+</option><option value="PGK">PGK - Kina
+</option><option value="PHP">PHP - Philippine Peso
+</option><option value="PKR">PKR - Pakistan Rupee
+</option><option value="PLN">PLN - Zloty
+</option><option value="PYG">PYG - Guarani
+</option><option value="QAR">QAR - Qatari Rial
+</option><option value="RBX">RBX - RBX (Roblox)
+</option><option value="RON">RON - Romanian Leu
+</option><option value="RSD">RSD - Serbian Dinar
+</option><option value="RUB">RUB - Russian Ruble
+</option><option value="RUB_BONUS">RUB_BONUS - Russian Ruble (Bonus)
+</option><option value="RWF">RWF - Rwanda Franc
+</option><option value="SAR">SAR - Saudi Riyal
+</option><option value="SBD">SBD - Solomon Islands Dollar
+</option><option value="SBS">SBS - SBS
+</option><option value="SC">SC - SC (Fun)
+</option><option value="SCR">SCR - Seychelles Rupee
+</option><option value="SDG">SDG - Sudanese Pound
+</option><option value="SEK">SEK - Swedish Krona
+</option><option value="SGD">SGD - Singapore Dollar
+</option><option value="SHP">SHP - Saint Helena Pound
+</option><option value="SLL">SLL - Leone
+</option><option value="SOL">SOL - SOL
+</option><option value="SOS">SOS - Somali Shilling
+</option><option value="SRD">SRD - Surinam Dollar
+</option><option value="SSP">SSP - South Sudanese Pound
+</option><option value="STD">STD - Dobra
+</option><option value="SVC">SVC - El Salvador Colon
+</option><option value="SYP">SYP - Syrian Pound
+</option><option value="SZL">SZL - Lilangeni
+</option><option value="THB">THB - Baht
+</option><option value="TJS">TJS - Somoni
+</option><option value="TKN">TKN - So Custom USD Convertible
+</option><option value="TMT">TMT - Turkmenistan New Manat
+</option><option value="TND">TND - Tunisian Dinar
+</option><option value="TOM">TOM - TOM
+</option><option value="TOP">TOP - Pa’anga
+</option><option value="TRX">TRX - TRX
+</option><option value="TRY">TRY - Turkish Lira
+</option><option value="TTD">TTD - Trinidad and Tobago Dollar
+</option><option value="TWD">TWD - New Taiwan Dollar
+</option><option value="TZS">TZS - Tanzanian Shilling
+</option><option value="UAH">UAH - Hryvnia
+</option><option value="UAH_BONUS">UAH_BONUS - UAH (Bonus)
+</option><option value="UGX">UGX - Uganda Shilling
+</option><option value="USD">USD - US Dollar
+</option><option value="USDC">USDC - USDC
+</option><option value="USDT">USDT - USDT
+</option><option value="USD_BONUS">USD_BONUS - USD (Bonus)
+</option><option value="USN">USN - US Dollar (Next day)
+</option><option value="UYI">UYI - Uruguay Peso en Unidades Indexadas (URUIURUI)
+</option><option value="UYU">UYU - Peso Uruguayo
+</option><option value="UZS">UZS - Uzbekistan Sum
+</option><option value="VEF">VEF - Bolívar
+</option><option value="VND">VND - Dong
+</option><option value="VUV">VUV - Vatu
+</option><option value="WST">WST - Tala
+</option><option value="XAF">XAF - CFA Franc BEAC
+</option><option value="XCD">XCD - East Caribbean Dollar
+</option><option value="XOF">XOF - CFA Franc BCEAO
+</option><option value="XPF">XPF - CFP Franc
+</option><option value="XRP">XRP - XRP
+</option><option value="YER">YER - Yemeni Rial
+</option><option value="ZAR">ZAR - Rand
+</option><option value="ZMW">ZMW - Zambian Kwacha
+</option><option value="ZWL">ZWL - Zimbabwe Dollar
+</option><option value="mBCH">mBCH - mBCH
+</option><option value="mBTC">mBTC - Bitcoin Milli
+</option><option value="mDASH">mDASH - mDASH
+</option><option value="mETH">mETH - Ethereum Milli
+</option><option value="mLTC">mLTC - Litecoin Milli
+</option><option value="mXMR">mXMR - mXMR
+</option><option value="uBTC">uBTC - Bitcoin Nano
+</option><option value="uETH">uETH - Ethereum Nano
+</option><option value="uLTC">uLTC - Litecoin Nano
+</option></select>
+<input id="fSearch" placeholder="Search" style="width:" 200px;"="">
+
+<div style="display: inline-block; padding: 0.2em;">Party with US: <a href="mailto:copyslots@proton.me" style="color: black;"><b id="contact">copyslots@proton.me</b></a></div>
+
+</div>
+
+<div id="blockGames">
+    <div class="game" style="">
+        <a onclick="start(1792)" target="demogame" class="gameLink" style="cursor: pointer;" title="100 Joker Staxx: 100 lines">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/100JokerStaxx100lines.png.png"> -->
+	<img width="100%" height="100%" title="playson: 100 Joker Staxx: 100 lines" src="DemoPlayson_files/100JokerStaxx100lines.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1793)" target="demogame" class="gameLink" style="cursor: pointer;" title="3 Fruits Win: 10 lines">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/3FruitsWin10lines.png.png"> -->
+	<img width="100%" height="100%" title="playson: 3 Fruits Win: 10 lines" src="DemoPlayson_files/3FruitsWin10lines.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1794)" target="demogame" class="gameLink" style="cursor: pointer;" title="5 Fortunator">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/5Fortunator.png.png"> -->
+	<img width="100%" height="100%" title="playson: 5 Fortunator" src="DemoPlayson_files/5Fortunator.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1795)" target="demogame" class="gameLink" style="cursor: pointer;" title="5 Super Sevens &amp; Fruits">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/5SuperSevensFruits.png.png"> -->
+	<img width="100%" height="100%" title="playson: 5 Super Sevens &amp; Fruits" src="DemoPlayson_files/5SuperSevensFruits.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1798)" target="demogame" class="gameLink" style="cursor: pointer;" title="Book of Gold: Classic">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/BookofGoldClassic.png.png"> -->
+	<img width="100%" height="100%" title="playson: Book of Gold: Classic" src="DemoPlayson_files/BookofGoldClassic.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1799)" target="demogame" class="gameLink" style="cursor: pointer;" title="Book of Gold: Double Chance">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/BookofGoldDoubleChance.png.png"> -->
+	<img width="100%" height="100%" title="playson: Book of Gold: Double Chance" src="DemoPlayson_files/BookofGoldDoubleChance.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1804)" target="demogame" class="gameLink" style="cursor: pointer;" title="Buffalo Power Hold and Win">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/BuffaloPowerHoldandWin.png.png"> -->
+	<img width="100%" height="100%" title="playson: Buffalo Power Hold and Win" src="DemoPlayson_files/BuffaloPowerHoldandWin.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1805)" target="demogame" class="gameLink" style="cursor: pointer;" title="Buffalo Power Megaways">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/BuffaloPowerMegaways.png.png"> -->
+	<img width="100%" height="100%" title="playson: Buffalo Power Megaways" src="DemoPlayson_files/BuffaloPowerMegaways.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1803)" target="demogame" class="gameLink" style="cursor: pointer;" title="Buffalo Power: Christmas">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/BuffaloPowerChristmas.png.png"> -->
+	<img width="100%" height="100%" title="playson: Buffalo Power: Christmas" src="DemoPlayson_files/BuffaloPowerChristmas.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1806)" target="demogame" class="gameLink" style="cursor: pointer;" title="Burning Fortunator">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/BurningFortunator.png.png"> -->
+	<img width="100%" height="100%" title="playson: Burning Fortunator" src="DemoPlayson_files/BurningFortunator.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1808)" target="demogame" class="gameLink" style="cursor: pointer;" title="Burning Wins x2">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/BurningWinsx2.png.png"> -->
+	<img width="100%" height="100%" title="playson: Burning Wins x2" src="DemoPlayson_files/BurningWinsx2.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1807)" target="demogame" class="gameLink" style="cursor: pointer;" title="Burning Wins: classic 5 lines">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/BurningWinsclassic5lines.png.png"> -->
+	<img width="100%" height="100%" title="playson: Burning Wins: classic 5 lines" src="DemoPlayson_files/BurningWinsclassic5lines.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1811)" target="demogame" class="gameLink" style="cursor: pointer;" title="Diamond Fortunator: Hold and Win">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/DiamondFortunatorHoldandWin.png.png"> -->
+	<img width="100%" height="100%" title="playson: Diamond Fortunator: Hold and Win" src="DemoPlayson_files/DiamondFortunatorHoldandWin.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1812)" target="demogame" class="gameLink" style="cursor: pointer;" title="Diamond Wins Hold and Win">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/DiamondWinsHoldandWin.png.png"> -->
+	<img width="100%" height="100%" title="playson: Diamond Wins Hold and Win" src="DemoPlayson_files/DiamondWinsHoldandWin.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1813)" target="demogame" class="gameLink" style="cursor: pointer;" title="Divine Dragon: Hold and Win">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/DivineDragonHoldAndWin.png.png"> -->
+	<img width="100%" height="100%" title="playson: Divine Dragon: Hold and Win" src="DemoPlayson_files/DivineDragonHoldAndWin.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1814)" target="demogame" class="gameLink" style="cursor: pointer;" title="Eagle Power: Hold and WIn">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/EaglePowerHoldandWIn.png.png"> -->
+	<img width="100%" height="100%" title="playson: Eagle Power: Hold and WIn" src="DemoPlayson_files/EaglePowerHoldandWIn.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1816)" target="demogame" class="gameLink" style="cursor: pointer;" title="Fruits &amp; Jokers: 100 Lines">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/FruitsJokers100Lines.png.png"> -->
+	<img width="100%" height="100%" title="playson: Fruits &amp; Jokers: 100 Lines" src="DemoPlayson_files/FruitsJokers100Lines.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1817)" target="demogame" class="gameLink" style="cursor: pointer;" title="Fruits &amp; Jokers: 20 lines">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/FruitsJokers20lines.png.png"> -->
+	<img width="100%" height="100%" title="playson: Fruits &amp; Jokers: 20 lines" src="DemoPlayson_files/FruitsJokers20lines.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1818)" target="demogame" class="gameLink" style="cursor: pointer;" title="Fruits &amp; Jokers: 40 lines">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/FruitsandJokers40lines.png.png"> -->
+	<img width="100%" height="100%" title="playson: Fruits &amp; Jokers: 40 lines" src="DemoPlayson_files/FruitsandJokers40lines.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1821)" target="demogame" class="gameLink" style="cursor: pointer;" title="Hot Burning Wins">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/HotBurningWins.png.png"> -->
+	<img width="100%" height="100%" title="playson: Hot Burning Wins" src="DemoPlayson_files/HotBurningWins.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1822)" target="demogame" class="gameLink" style="cursor: pointer;" title="Hot Coins: Hold and Win">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/HotCoinsHoldandWin.png.png"> -->
+	<img width="100%" height="100%" title="playson: Hot Coins: Hold and Win" src="DemoPlayson_files/HotCoinsHoldandWin.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1824)" target="demogame" class="gameLink" style="cursor: pointer;" title="Imperial Fruits: 100 lines">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/ImperialFruits100lines.png.png"> -->
+	<img width="100%" height="100%" title="playson: Imperial Fruits: 100 lines" src="DemoPlayson_files/ImperialFruits100lines.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1823)" target="demogame" class="gameLink" style="cursor: pointer;" title="Imperial Fruits: 5 Lines">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/ImperialFruits.png.png"> -->
+	<img width="100%" height="100%" title="playson: Imperial Fruits: 5 Lines" src="DemoPlayson_files/ImperialFruits.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1826)" target="demogame" class="gameLink" style="cursor: pointer;" title="Joker Expand: 5 lines">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/JokerExpand5lines.png.png"> -->
+	<img width="100%" height="100%" title="playson: Joker Expand: 5 lines" src="DemoPlayson_files/JokerExpand5lines.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1829)" target="demogame" class="gameLink" style="cursor: pointer;" title="Legend of Cleopatra">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/LegendofCleopatra.png.png"> -->
+	<img width="100%" height="100%" title="playson: Legend of Cleopatra" src="DemoPlayson_files/LegendofCleopatra.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1836)" target="demogame" class="gameLink" style="cursor: pointer;" title="Rich Diamonds: Hold and Win">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/RichDiamondsHoldandWin.png.png"> -->
+	<img width="100%" height="100%" title="playson: Rich Diamonds: Hold and Win" src="DemoPlayson_files/RichDiamondsHoldandWin.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1837)" target="demogame" class="gameLink" style="cursor: pointer;" title="Rise of Egypt">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/RiseofEgypt.png.png"> -->
+	<img width="100%" height="100%" title="playson: Rise of Egypt" src="DemoPlayson_files/RiseofEgypt.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1839)" target="demogame" class="gameLink" style="cursor: pointer;" title="Royal Coins: Hold and Win">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/RoyalCoinsHoldandWin.png.png"> -->
+	<img width="100%" height="100%" title="playson: Royal Coins: Hold and Win" src="DemoPlayson_files/RoyalCoinsHoldandWin.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1841)" target="demogame" class="gameLink" style="cursor: pointer;" title="Ruby Hit: Hold and Win">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/RubyHitHoldandWin.png.png"> -->
+	<img width="100%" height="100%" title="playson: Ruby Hit: Hold and Win" src="DemoPlayson_files/RubyHitHoldandWin.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1842)" target="demogame" class="gameLink" style="cursor: pointer;" title="Sevens&amp;Fruits: 20 Lines">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/SevensFruits20Lines.png.png"> -->
+	<img width="100%" height="100%" title="playson: Sevens&amp;Fruits: 20 Lines" src="DemoPlayson_files/SevensFruits20Lines.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1848)" target="demogame" class="gameLink" style="cursor: pointer;" title="Spirit of Egypt: Hold and Win">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/SpiritofEgyptHoldandWin.png.png"> -->
+	<img width="100%" height="100%" title="playson: Spirit of Egypt: Hold and Win" src="DemoPlayson_files/SpiritofEgyptHoldandWin.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1849)" target="demogame" class="gameLink" style="cursor: pointer;" title="Sunny Fruits: Hold and Win">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/SunnyFruits.png.png"> -->
+	<img width="100%" height="100%" title="playson: Sunny Fruits: Hold and Win" src="DemoPlayson_files/SunnyFruits.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1850)" target="demogame" class="gameLink" style="cursor: pointer;" title="Super Burning Wins: classic 5 lines">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/SuperBurningWins.png.png"> -->
+	<img width="100%" height="100%" title="playson: Super Burning Wins: classic 5 lines" src="DemoPlayson_files/SuperBurningWins.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1851)" target="demogame" class="gameLink" style="cursor: pointer;" title="Super Sunny Fruits">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/SuperSunnyFruits.png.png"> -->
+	<img width="100%" height="100%" title="playson: Super Sunny Fruits" src="DemoPlayson_files/SuperSunnyFruits.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1852)" target="demogame" class="gameLink" style="cursor: pointer;" title="Ultra Fortunator: Hold and Win">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/UltraFortunatorHoldandWin.png.png"> -->
+	<img width="100%" height="100%" title="playson: Ultra Fortunator: Hold and Win" src="DemoPlayson_files/UltraFortunatorHoldandWin.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+
+
+    <div class="game" style="">
+        <a onclick="start(1853)" target="demogame" class="gameLink" style="cursor: pointer;" title="Wolf Power: Hold and Win">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/https://cdn.effective-solution.com/CasinoMobule/playson/156-156/WolfPower.png.png"> -->
+	<img width="100%" height="100%" title="playson: Wolf Power: Hold and Win" src="DemoPlayson_files/WolfPower.png">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: none;">
+            <h3 style="color: white;">OFFLINE</h3>
+        </div>
+    </div>
+</div>
+
+<div id="gameWindow" class="box" style="background: black; display: none; position: fixed;">
+
+    <div style="position: absolute; margin-left: 50%; margin-right: 50%; top: 0px;">
+        <a href="javascript:close()" style="color: white; display: block;
+    padding: 10px 50px;">Закрыть</a>
+    </div>
+
+    <div class="box" style="top:40px;">
+        <iframe id="game" style="width: 100%; height:100%; border: none;"></iframe>
+    </div>
+
+</div>
+
+<script id="gameTpl" type="text/x-template">
+    <div class="game" style="">
+        <a onclick="{$href}" target="demogame" class="gameLink" style="cursor: pointer;" title="{$title}">
+         <!--   <img width="100%" height="100%"
+                 src="//shared-static.casinomobule.com/media/m_thumbs/unsafe/294x170/smart/{$icon}.png"> -->
+	<img width="100%" height="100%" title="{$provider}: {$title}"
+                 src="{$icon}">
+
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: {$display};">
+            <h3 style="color: white;">{$label}</h3>
+        </div>
+    </div>
+</script>
+
+<script id="gameTpl_greentube" type="text/x-template">
+    <div class="game" style="">
+        <a onclick="{$href}" target="demogame" class="gameLink" style="cursor: pointer;">
+<img width="100%" height="100%" title="{$title}"
+                 src="{$icon}">
+        </a>
+
+        <div style="position: absolute; background: rgba(28, 29, 56, 0.92);    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 30px;
+    padding-top: 10px; display: {$display};">
+            <h3 style="color: white;">{$label}</h3>
+        </div>
+    </div>
+</script>
+
+<script type="text/javascript">
+    var $ = jQuery
+
+    var gameTpl = document.getElementById('gameTpl').innerText
+    var gameTpl_greentube = document.getElementById('gameTpl_greentube').innerText
+    var defaultLabel = "OFFLINE"
+
+
+    window.addEventListener("load", function load(event){
+
+        loadGames()
+
+
+
+    },false);
+
+    var gamesMap = {}
+    var gamesArray = []
+
+
+    function isMobile(){
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    }
+
+    function loadGames(){
+        //$.get('//partners.casinomobule.com/games.list', function(r){
+$.get('/games-hash-9b2da2.json', function(r){
+            gamesArray = sort(r)
+            gamesMap = {}
+
+            $("#blockGames").empty()
+	    show()	
+	})
+    }
+
+function icon(game){
+   return 'https://cdn.effective-solution.com/CasinoMobule/'+game.provider+'/156-156/' + game.alias + '.png';
+
+
+   if(game.icon && (game.icon.substr(0,2) == '//' || game.icon.substr(0,4) == 'http')){
+	return game.icon;
+   }else if(game.provider == 'netent'){
+        return '//shared-static.casinomobule.com/media/netent/thumbs/500x332/'+game.icon+'.png';
+}else if(game.provider == 'greentube'){
+	//return '//shared-static.casinomobule.com/media/greentube/icons/190x190/jpg/'+game.alias+'.jpg';
+return '//shared-static.casinomobule.com/media/greentube/icons/376x376/'+game.alias+'.png'
+}else{
+return 'not implemented';
+}
+	
+}
+
+    function show(fn){
+
+try {
+            var items = []
+	    var providerSelected = document.getElementById('fProvider').value	
+
+            for(var i=0; i < gamesArray.length; i++){
+                var game = gamesArray[i]
+
+if(!game.is_enabled) continue;
+
+                gamesMap[game.id] = game
+
+                var o = {}
+                for(var k in game){ o[k] =game[k] }
+
+
+                var display = (game.is_enabled ? "none" : "block")
+                var label = defaultLabel
+
+                if(game.desktop_enabled ==false && !isMobile()){
+                    label = "ONLY MOBILE"
+                    display = "block"
+                }else if(game.mobile_enabled == false && isMobile()){
+                    label = "ONLY DESKTOP"
+                    display = "block"
+                }
+
+                o.href = "start("+game.id+")"
+                o.display = display
+                o.label = label
+o.icon = icon(game);
+
+		var item;
+
+		if(game.provider == 'greentube'){
+			item = template(gameTpl_greentube, o)
+		}else{
+	                item = template(gameTpl,o)
+		}
+
+		if(providerSelected == '*' || providerSelected == game.provider || (providerSelected == 'megaways' && (game.title.toLowerCase().indexOf('megaways') > 0))){
+if(fn){
+if(fn(game)) items.push(item);
+}else{
+items.push(item);
+}
+		}
+            }
+
+            document.getElementById('blockGames').innerHTML = items.join("\n")
+}catch(e){
+	console.error("Err while rendering games")
+console.error(e)
+}
+    }
+
+function start(id){
+var game = gamesMap[id]
+var mobile = isMobile() ? 'true' : 'false';
+var lang = document.getElementById('fLang').value
+var domain = (game.provider=='spribe' || game.provider =='pgsoft11') ? 'https://partners.casinomobule.com' : 'https://test.partners.casinomobule.com'
+var curr = $('#fCurrency').val()
+var _bal = parseFloat(localStorage.getItem('z51_balance')); if(isNaN(_bal)||_bal<=0){_bal=100;localStorage.setItem('z51_balance',100);}
+var start_url = domain + '/games.startDemo?partner.alias=demo&game.alias='+game.alias+'&game.provider='+game.provider+'&currency='+curr+'&mobile='+mobile+'&balance='+Math.round(_bal*100)+'&origin=true&lang='+lang +'&lobby_url='+encodeURIComponent(window.location.href)
+
+if(isMobile()){
+	window.location=start_url;
+}else{
+                document.getElementById('game').src=start_url;
+
+                $('#gameWindow').css('display','block')
+                $('body').css('overflow','hidden')
+}
+}
+
+function start_with_lang(game, lang){
+    var mobile = isMobile() ? 'true' : 'false';
+    var domain = (game.provider=='spribe' || game.provider =='pgsoft11') ? 'https://partners.casinomobule.com' : 'https://test.partners.casinomobule.com'
+    var curr = $('#fCurrency').val()
+    var _bal2 = parseFloat(localStorage.getItem('z51_balance')); if(isNaN(_bal2)||_bal2<=0){_bal2=100;localStorage.setItem('z51_balance',100);}
+    var start_url = domain + '/games.startDemo?partner.alias=demo&game.alias='+game.alias+'&game.provider='+game.provider+'&currency='+curr+'&mobile='+mobile+'&balance='+Math.round(_bal2*100)+'&origin=true&lang='+lang +'&lobby_url='+encodeURIComponent(window.location.href)
+
+    if(isMobile()){
+        window.location=start_url;
+    }else{
+        document.getElementById('game').src=start_url;
+
+        $('#gameWindow').css('display','block')
+        $('body').css('overflow','hidden')
+    }
+}
+
+
+    function start_old(id){
+
+        var lang = document.getElementById('fLang').value
+
+        var game = gamesMap[id]
+
+
+	if(game.provider == 'greentube'){
+		var start_url = 'https://test.partners.casinomobule.com/games.startDemo?partner.alias=demo&game.alias='+game.alias+'&game.provider='+game.provider+'&currency=RUB&mobile=false&balance=100000&origin=true&lang='+lang 
+                document.getElementById('game').src=start_url;
+
+		$('#gameWindow').css('display','block')
+	        $('body').css('overflow','hidden')
+        }else{
+
+	var domain = (game.provider=='spribe') ? '//partners.casinomobule.com' : '//test.partners.casinomobule.com'
+
+        $.get(
+            domain + '/netent.generateDemoStartConfig',
+            {
+                'partner.alias' : 'demo',
+		'game.provider': game.provider,
+                'game.alias': game.alias,
+                mobile: isMobile(),
+                currency: $('#fCurrency').val(),
+		balance: 500000,
+		origin: true
+            }
+        , function(r){
+
+                if(r.status == 200){
+	                    startFromConfig(r.response)
+                }else{
+                    alert("Error: "+r.message)
+                }
+            })
+	}
+    }
+
+    function startFromConfig(config){
+
+        $('#gameWindow').css('display','block')
+        $('body').css('overflow','hidden')
+
+
+        config.language = document.getElementById('fLang').value
+        //config.mobileParams.lobbyURL = "http://google.com"
+config.mobileParams.lobbyURL = "https://copyslots.com/"
+
+        console.log("@startFromConfig")
+        console.log(config)
+
+        netent.launch(
+            config,
+            function (netEntExtend) {},
+            function (e) {
+                console.log(e);
+            }
+        );
+    }
+
+    function close(){
+        $('#gameWindow').css('display', 'none')
+        $('#game').attr('src','')
+        $('body').css('overflow','auto')
+    }
+
+    function template(text, params){
+        var content = text
+
+        for(var key in params){
+            content = content.replace(new RegExp("\\{\\$"+key+"\\}","g"), params[key])
+        }
+
+        return content;
+    }
+
+    function sort(games){
+        return games.sort(function(a0,b0){
+            var a = a0.title
+            var b = b0.title
+
+ 	    if(a0.provider == 'spribe'){
+		return -1
+	    }else if(b0.provider == 'spribe'){
+		return 1
+	    }else if(a > b){
+                return 1
+            }else if(a < b){
+                return -1
+            }else{
+                return 0
+            }
+        })
+    }
+
+
+    function loadCurrencies(){
+        $.get(
+            '//test.partners.casinomobule.com/currencies.list',
+            {
+                'partner.alias' : 'demo'
+            }
+            , function(r){
+
+                var html = ''
+
+
+                if(r.status == 200){
+                    for( var i=0; i < r.response.length; i++){
+                        var item = r.response[i]
+
+                        html += '<option value="'+item.code_alpha+'">'+item.code_alpha+' - ' + item.title+'\n'
+                    }
+                }else{
+                    alert("Error: "+r.message)
+                }
+
+                $('#fCurrency').html(html)
+                $('#fCurrency').val('EUR')
+
+            })
+    }
+
+    loadCurrencies()
+
+
+var lastsearch = null;
+
+$('#fSearch').on('keyup', (e) => { 
+
+ var s = $(e.target).val().trim().toLowerCase();
+
+if(s == lastsearch) return;
+lastsearch = s;
+ 
+show(g => g.title.toLowerCase().indexOf(s) >= 0)
+ })
+
+// ── BALANCE SYNC FROM GAME IFRAME ──
+window.addEventListener('message', function(e) {
+  var data = e.data;
+  if (typeof data === 'string') { try { data = JSON.parse(data); } catch(err) {} }
+  if (!data || typeof data !== 'object') return;
+  function num(v) {
+    if (typeof v === 'number' && v >= 0) return v;
+    if (typeof v === 'string') { var n = parseFloat(v); if (!isNaN(n) && n >= 0) return n; }
+    return null;
+  }
+  function findBalance(obj, depth) {
+    if (!obj || typeof obj !== 'object' || depth > 3) return null;
+    for (var k in obj) {
+      if (k.toLowerCase() === 'balance') { var v = num(obj[k]); if (v !== null) return v; }
+    }
+    for (var k2 in obj) {
+      if (typeof obj[k2] === 'object') { var f = findBalance(obj[k2], depth + 1); if (f !== null) return f; }
+    }
+    return null;
+  }
+  var cents = null;
+  cents = findBalance(data, 0);
+  if (cents === null) {
+    var ev = ((data.type || '') + ' ' + (data.event || '') + ' ' + (data.action || '')).toLowerCase();
+    if (ev.indexOf('balance') >= 0) {
+      if (num(data.value) !== null) cents = num(data.value);
+      else if (num(data.amount) !== null) cents = num(data.amount);
+      else if (data.data) { cents = num(data.data.value) !== null ? num(data.data.value) : num(data.data.amount); }
+    }
+  }
+  if (cents === null && num(data.credits) !== null) cents = num(data.credits);
+  if (cents === null && num(data.credit)  !== null) cents = num(data.credit);
+  // Playson: {event:"gameChangeCash", data:[N_cents]}
+  if (cents === null && data.event === 'gameChangeCash' && Array.isArray(data.data) && typeof data.data[0] === 'number') cents = data.data[0];
+  if (cents !== null) { localStorage.setItem('z51_balance', Math.max(0, cents/100).toFixed(2)); }
+});
+
+</script>
+
+<!-- Oko.Tracker -->
+<script type="text/javascript" async="">
+
+    Oko = window.Oko || { push: function(){} };
+
+    (function (d, w) {
+	return ;
+        var host = 'arken.cc'
+
+        var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
+            n.parentNode.insertBefore(s, n);
+        };
+        s.type = "text/javascript";
+        s.async = true;
+        s.onerror = function(){
+            new Image(1, 1).src = '//'+host + "/e.gif?data=%7B%20event%3A%20%22loader.error%22%20%7D";
+        }
+
+        s.src = "//"+host+"/trek.js";
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else {
+            f();
+        }
+    })(document, window);
+</script>
+<noscript>
+    <div><img src="//arken.cc/e.gif?data=%7B%20event%3A%20%22loader.noscript%22%20%7D" style="position:absolute; left:-9999px;" alt=""/></div>
+</noscript>
+<!-- /Oko.Tracker -->
+
+
+
+</body></html>

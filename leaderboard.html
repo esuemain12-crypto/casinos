@@ -1,0 +1,451 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>ZONE 51 — Leaderboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <script src="cloak.js"></script>
+  <script src="cursor.js"></script>  <style>
+    
+
+    /* ── HERO ── */
+    .hero{padding:56px 40px 40px;position:relative;}
+    .hero::after{content:"";position:absolute;bottom:0;left:40px;right:40px;height:1px;background:linear-gradient(90deg,var(--gold-bright),transparent);opacity:0.15;}
+    .hero-inner{max-width:1100px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+    .hero-left .label{font-size:0.58rem;letter-spacing:5px;text-transform:uppercase;color: rgba(255,20,50,0.35) ;margin-bottom:10px;}
+    .hero-left h2{font-family:"Orbitron",sans-serif;font-size:2.4rem;font-weight:900;letter-spacing:5px;color:var(--gold-bright);text-shadow:0 0 40px rgba(255,30,55,0.4);}
+    .hero-left p{color:var(--muted);font-size:0.78rem;margin-top:10px;line-height:1.6;max-width:400px;}
+    .hero-right{text-align:right;}
+    .hero-right .label{font-size:0.58rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+    .countdown{font-family:"Orbitron",sans-serif;font-size:1.3rem;font-weight:700;color:var(--gold);letter-spacing:2px;}
+    .hero-stats{display:flex;gap:0;border:1px solid var(--line);margin-top:28px;width:100%;}
+    .hero-stat{flex:1;min-width:0;padding:14px 24px;text-align:center;border-right:1px solid var(--line);}
+    .hero-stat:last-child{border-right:none;}
+    .hero-stat-val{font-family:"Orbitron",sans-serif;font-size:1.1rem;font-weight:700;color:var(--gold-bright);}
+    .hero-stat-lbl{font-size:0.58rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:3px;}
+
+    /* ── PRIZE STRIP ── */
+    .prize-section{padding:28px 40px;border-bottom:1px solid var(--line);}
+    .prize-section-inner{max-width:1100px;margin:0 auto;}
+    .prize-label{font-size:0.58rem;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
+    .prize-strip{display:flex;gap:8px;flex-wrap:wrap;}
+    .prize-chip{flex-shrink:0;border:1px solid rgba(255,20,50,0.35);background:rgba(255,20,45,0.06);padding:12px 20px;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:90px;}
+    .prize-chip-rank{font-size:0.56rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+    .prize-chip-amt{font-family:"Orbitron",sans-serif;font-size:0.9rem;font-weight:700;color:var(--gold-bright);}
+    .prize-chip.p1{border-color:rgba(255,210,50,0.45);background:rgba(255,210,50,0.05);}
+    .prize-chip.p2{border-color:rgba(200,200,220,0.3);background:rgba(200,200,220,0.04);}
+    .prize-chip.p3{border-color:rgba(180,110,50,0.35);background:rgba(180,110,50,0.04);}
+
+    /* ── TABS ── */
+    .tabs-bar{padding:0 40px;border-bottom:1px solid var(--line);background:var(--panel);}
+    .tabs-inner{max-width:1100px;margin:0 auto;display:flex;gap:0;}
+    .tab{font-family:"Inter",sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;padding:0 22px;height:48px;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--muted);cursor:pointer;transition:all 0.18s;display:flex;align-items:center;}
+    .tab:hover{color:var(--text);}
+    .tab.active{color:var(--gold-bright);border-bottom-color:var(--gold);}
+
+    /* ── MAIN LAYOUT ── */
+    .main{max-width:1100px;margin:0 auto;padding:40px 40px 60px;}
+
+    /* ── PODIUM ── */
+    .podium-outer{display:flex;justify-content:center;align-items:flex-end;gap:0;margin-bottom:48px;}
+    .podium-col{display:flex;flex-direction:column;align-items:center;width:200px;}
+    .podium-info{display:flex;flex-direction:column;align-items:center;padding-bottom:16px;}
+    .podium-crown{font-size:1.4rem;margin-bottom:8px;line-height:1;}
+    .podium-ava{width:64px;height:64px;border:2px solid var(--line);background:var(--panel-2);display:flex;align-items:center;justify-content:center;font-family:"Orbitron",sans-serif;font-size:1.1rem;font-weight:900;color:var(--muted);margin-bottom:12px;position:relative;}
+    .podium-col.p1 .podium-ava{border-color:rgba(255,210,50,0.55);color:#ffd232;box-shadow:0 0 24px rgba(255,210,50,0.15);}
+    .podium-col.p2 .podium-ava{border-color:rgba(200,200,220,0.4);color:#c0c0d0;}
+    .podium-col.p3 .podium-ava{border-color:rgba(180,110,50,0.4);color:#b46e32;}
+    .podium-name{font-size:0.78rem;font-weight:600;color:var(--text);margin-bottom:3px;}
+    .podium-score{font-family:"Orbitron",sans-serif;font-size:0.68rem;font-weight:700;color:var(--gold);margin-bottom:4px;}
+    .podium-prize{font-size:0.66rem;color:var(--muted);}
+    .podium-block{width:100%;background:var(--panel);border:1px solid var(--line);border-bottom:none;display:flex;align-items:center;justify-content:center;font-family:"Orbitron",sans-serif;font-size:1.4rem;font-weight:900;color:var(--muted);}
+    .podium-col.p1 .podium-block{height:100px;border-color:rgba(255,210,50,0.2);background:linear-gradient(180deg,rgba(255,210,50,0.05) 0%,var(--panel) 100%);color:rgba(255,210,50,0.5);}
+    .podium-col.p2 .podium-block{height:76px;border-color:rgba(200,200,220,0.15);}
+    .podium-col.p3 .podium-block{height:60px;border-color:rgba(180,110,50,0.2);}
+    /* podium connector line */
+    .podium-outer{border-bottom:1px solid var(--line);padding-bottom:0;}
+
+    /* ── TABLE ── */
+    .sec-header{display:flex;align-items:center;gap:20px;margin-bottom:24px;}
+    .sec-line{flex:1;height:1px;background:var(--line);}
+    .sec-title{font-family:"Orbitron",sans-serif;font-size:0.66rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);white-space:nowrap;}
+
+    .lb-table{width:100%;border-collapse:collapse;}
+    .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+    .lb-table thead th{text-align:left;padding:10px 16px;font-size:0.56rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line);font-weight:600;white-space:nowrap;}
+    .lb-table thead th:nth-child(4),.lb-table thead th:nth-child(5){text-align:right;}
+    .lb-table tbody tr{border-bottom:1px solid rgba(255,255,255,0.03);transition:background 0.14s;}
+    .lb-table tbody tr:hover{background: rgba(255,20,50,0.35) ;}
+    .lb-table tbody td{padding:13px 16px;font-size:0.8rem;vertical-align:middle;}
+    .lb-table tbody td:nth-child(4),.lb-table tbody td:nth-child(5){text-align:right;}
+    .lb-rank{font-family:"Orbitron",sans-serif;font-size:0.7rem;font-weight:700;color:var(--muted);width:40px;}
+    .lb-rank.t1{color:#ffd232;}
+    .lb-rank.t2{color:#c0c0d0;}
+    .lb-rank.t3{color:#b46e32;}
+    .lb-rank.t3p{color:var(--gold);opacity:0.6;}
+    .lb-user{display:flex;align-items:center;gap:12px;}
+    .lb-ava{width:34px;height:34px;background:var(--panel-2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;color:var(--muted);flex-shrink:0;font-family:"Orbitron",sans-serif;}
+    .lb-username{font-weight:500;color:var(--text);font-size:0.82rem;}
+    .lb-level{font-size:0.6rem;color:var(--muted);margin-top:2px;}
+    .lb-game{font-size:0.72rem;color:var(--muted);}
+    .lb-pts{font-family:"Orbitron",sans-serif;font-size:0.75rem;font-weight:700;color:var(--gold);}
+    .lb-prize{font-size:0.72rem;color:rgba(255,100,100,0.75);}
+
+    /* ── HOW POINTS WORK ── */
+    .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:48px;}
+    .info-card{background:var(--panel);padding:28px 24px;}
+    .info-icon{width:40px;height:40px;border:1px solid rgba(255,20,50,0.35);background:rgba(255,20,45,0.07);display:flex;align-items:center;justify-content:center;color:var(--gold);margin-bottom:16px;}
+    .info-card h4{font-family:"Orbitron",sans-serif;font-size:0.6rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-bright);margin-bottom:8px;}
+    .info-card p{font-size:0.76rem;color:var(--muted);line-height:1.65;}
+
+    /* ── TERMS ── */
+    .terms{margin-top:40px;padding:24px 28px;border:1px solid var(--line);background:var(--panel);}
+    .terms h4{font-family:"Orbitron",sans-serif;font-size:0.58rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+    .terms ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+    .terms li{font-size:0.72rem;color:var(--muted);padding-left:14px;position:relative;line-height:1.5;}
+    .terms li::before{content:"·";position:absolute;left:0;color:var(--gold);opacity:0.4;}
+
+    @media(max-width:800px){
+      .hero-inner{flex-direction:column;align-items:flex-start;}
+      .hero-right{text-align:left;}
+      .main,.prize-section,.tabs-bar,.hero{padding-left:16px;padding-right:16px;}
+      .podium-col{width:120px;}
+      .podium-ava{width:50px;height:50px;font-size:0.85rem;}
+      .info-grid{grid-template-columns:1fr;}
+      .hero-stats{flex-wrap:nowrap;}
+      .hero-stat{padding:12px 10px;}
+      .hero-stat-val{font-size:0.9rem;}
+      .hero-stat-lbl{font-size:0.5rem;letter-spacing:1px;}
+    }
+    @media(max-width:580px){
+      .topbar-right .btn-ghost{display:none;}
+      .topbar{padding:0 14px;}
+      .hero h2{font-size:1.8rem;letter-spacing:4px;}
+      .podium-wrap{gap:12px;}
+      .podium-col{width:100px;}
+      .podium-prize{font-size:0.75rem;}
+      .lb-table thead th:nth-child(3),.lb-table tbody td:nth-child(3){display:none;}
+      .lb-table tbody td{padding:10px 10px;font-size:0.72rem;}
+      .lb-table thead th{padding:8px 10px;}
+      .lb-username{font-size:0.74rem;}
+      .lb-ava{width:28px;height:28px;font-size:0.58rem;}
+      .prize-strip{flex-wrap:wrap;gap:6px;}
+      .prize-chip{flex:0 0 auto;}
+      .main{padding-bottom:60px;}
+    }
+    @media(max-width:400px){
+      .topbar{padding:0 10px;height:50px;}
+      .brand-text{display:none;}
+      .brand-emblem{width:30px;height:30px;}
+      .hero h2{font-size:1.5rem;}
+      .podium-col{width:88px;}
+      .podium-ava{width:44px;height:44px;}
+      .lb-table thead th:nth-child(4),.lb-table tbody td:nth-child(4){display:none;}
+      .hero-stat-lbl{display:none;}
+    }
+  </style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<div class="page-wrap">
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <a href="index.html" class="brand">
+      <div class="brand-emblem"><span>51</span></div>
+      <div class="brand-text"><h1>ZONE 51</h1><p>Access Level: Unrestricted</p></div>
+    </a>
+    <div class="topbar-right">
+      <a href="vip.html" class="btn btn-ghost">VIP Club</a>
+      <a href="games.html" class="btn btn-ghost">Games</a>
+      <a href="index.html" class="btn btn-gold">&#8592; Lobby</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="label">Zone 51 Competition</div>
+        <h2>LEADERBOARD</h2>
+        <p>Compete against the top players every week. Earn points through real-money wagers and climb the ranks to claim your share of the $9,500+ weekly prize pool.</p>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="hero-stat-val">$9,500+</div><div class="hero-stat-lbl">Weekly Pool</div></div>
+          <div class="hero-stat"><div class="hero-stat-val">20</div><div class="hero-stat-lbl">Paid Spots</div></div>
+          <div class="hero-stat"><div class="hero-stat-val">100pts</div><div class="hero-stat-lbl">per $100 wagered</div></div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="label">Tournament ends in</div>
+        <div class="countdown" id="countdown">—</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRIZE STRIP -->
+  <div class="prize-section">
+    <div class="prize-section-inner">
+      <div class="prize-label">Prize Distribution</div>
+      <div class="prize-strip">
+        <div class="prize-chip p1"><span class="prize-chip-rank">&#129351; 1st</span><span class="prize-chip-amt">$5,000</span></div>
+        <div class="prize-chip p2"><span class="prize-chip-rank">&#129352; 2nd</span><span class="prize-chip-amt">$2,500</span></div>
+        <div class="prize-chip p3"><span class="prize-chip-rank">&#129353; 3rd</span><span class="prize-chip-amt">$1,000</span></div>
+        <div class="prize-chip"><span class="prize-chip-rank">4th</span><span class="prize-chip-amt">$500</span></div>
+        <div class="prize-chip"><span class="prize-chip-rank">5th</span><span class="prize-chip-amt">$300</span></div>
+        <div class="prize-chip"><span class="prize-chip-rank">6–10th</span><span class="prize-chip-amt">$100</span></div>
+        <div class="prize-chip"><span class="prize-chip-rank">11–20th</span><span class="prize-chip-amt">$50</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs-bar">
+    <div class="tabs-inner">
+      <button class="tab active" onclick="setTab(this,'weekly')">Weekly</button>
+      <button class="tab" onclick="setTab(this,'monthly')">Monthly</button>
+      <button class="tab" onclick="setTab(this,'alltime')">All Time</button>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- PODIUM -->
+    <div class="podium-outer">
+      <!-- 2nd -->
+      <div class="podium-col p2">
+        <div class="podium-info">
+          <div class="podium-crown">&#129352;</div>
+          <div class="podium-ava">ZX</div>
+          <div class="podium-name">Z3r0X</div>
+          <div class="podium-score" id="p2score">48,320 pts</div>
+          <div class="podium-prize" id="p2prize">$2,500</div>
+        </div>
+        <div class="podium-block" style="height:76px;">2</div>
+      </div>
+      <!-- 1st -->
+      <div class="podium-col p1">
+        <div class="podium-info">
+          <div class="podium-crown">&#129351;</div>
+          <div class="podium-ava">AG</div>
+          <div class="podium-name">Agent_G</div>
+          <div class="podium-score" id="p1score">71,540 pts</div>
+          <div class="podium-prize" id="p1prize">$5,000</div>
+        </div>
+        <div class="podium-block" style="height:100px;">1</div>
+      </div>
+      <!-- 3rd -->
+      <div class="podium-col p3">
+        <div class="podium-info">
+          <div class="podium-crown">&#129353;</div>
+          <div class="podium-ava">SH</div>
+          <div class="podium-name">Shadow_H</div>
+          <div class="podium-score" id="p3score">41,880 pts</div>
+          <div class="podium-prize" id="p3prize">$1,000</div>
+        </div>
+        <div class="podium-block" style="height:60px;">3</div>
+      </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="sec-header" style="margin-top:36px;">
+      <div class="sec-line"></div>
+      <span class="sec-title">Full Rankings</span>
+      <div class="sec-line"></div>
+    </div>
+    <div class="table-wrap">
+    <table class="lb-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Player</th>
+          <th>Top Game</th>
+          <th>Points</th>
+          <th>Prize</th>
+        </tr>
+      </thead>
+      <tbody id="lb-body"></tbody>
+    </table>
+    </div>
+
+    <!-- HOW POINTS WORK -->
+    <div class="sec-header" style="margin-top:48px;">
+      <div class="sec-line"></div>
+      <span class="sec-title">How Points Are Earned</span>
+      <div class="sec-line"></div>
+    </div>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <h4>Point Accumulation</h4>
+        <p>Every $100 wagered in real money earns 100 Tournament Points. Points accumulate throughout the competition period and are tracked in real time on this leaderboard.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <h4>All Games Count</h4>
+        <p>Tournament points are earned across all games in the Zone 51 catalog. Slots, live casino and table games all contribute equally. Bonus wagering does not count toward tournament points.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+        <h4>Prize Payout</h4>
+        <p>At the end of each tournament period, prizes are credited directly to winners' cash balances. No wagering requirements apply to tournament winnings. Monthly and All Time prizes are paid quarterly.</p>
+      </div>
+    </div>
+
+    <!-- TERMS -->
+    <div class="terms">
+      <h4>Tournament Terms</h4>
+      <ul>
+        <li>Weekly tournaments run from Monday 00:00 UTC to Sunday 23:59 UTC. Results are finalized within 1 hour of close.</li>
+        <li>Minimum qualifying wager to appear on the leaderboard: $500 in the tournament period.</li>
+        <li>In the event of a tie in points, the player who reached that points total first will be ranked higher.</li>
+        <li>Zone 51 reserves the right to disqualify any player found to be abusing bonuses or using restricted strategies.</li>
+        <li>Monthly and All Time leaderboards are updated every 24 hours. Prizes are distributed on the 1st of each month.</li>
+        <li>Players must have a verified account to receive tournament prizes. KYC verification must be complete before payout.</li>
+      </ul>
+    </div>
+
+  </div><!-- /main -->
+
+</div>
+
+<script>
+  // Stars
+  var c=document.getElementById('stars'),ctx=c.getContext('2d'),stars=[];
+  function resize(){c.width=window.innerWidth;c.height=window.innerHeight;}
+  function init(){stars=[];for(var i=0;i<160;i++)stars.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*0.8+0.15,a:Math.random()*0.4+0.08,ph:Math.random()*Math.PI*2,sp:Math.random()*0.004+0.001});}
+  function draw(){ctx.clearRect(0,0,c.width,c.height);stars.forEach(function(s){s.ph+=s.sp;var a=s.a*(0.45+0.55*Math.sin(s.ph));ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle='rgba(195,178,130,'+a+')';ctx.fill();});requestAnimationFrame(draw);}
+  resize();init();draw();
+  window.addEventListener('resize',function(){resize();init();});
+
+  // Countdown
+  function updateCountdown(){
+    var now=new Date();
+    var end=new Date(now);
+    var daysUntilMon=(8-end.getUTCDay())%7||7;
+    end.setUTCDate(end.getUTCDate()+daysUntilMon);
+    end.setUTCHours(0,0,0,0);
+    var diff=end-now;
+    var d=Math.floor(diff/86400000);
+    var h=Math.floor((diff%86400000)/3600000);
+    var m=Math.floor((diff%3600000)/60000);
+    var s=Math.floor((diff%60000)/1000);
+    document.getElementById('countdown').textContent=d+'d '+String(h).padStart(2,'0')+'h '+String(m).padStart(2,'0')+'m '+String(s).padStart(2,'0')+'s';
+  }
+  setInterval(updateCountdown,1000);
+  updateCountdown();
+
+  // Data
+  var DATA={
+    weekly:[
+      {init:'AG',name:'Agent_G',   level:'Shadow',    game:'Chaos Crew',           pts:71540, prize:'$5,000'},
+      {init:'ZX',name:'Z3r0X',     level:'Director',  game:'Wanted Dead or Wild',  pts:48320, prize:'$2,500'},
+      {init:'SH',name:'Shadow_H',  level:'Commander', game:'Cubes 2',              pts:41880, prize:'$1,000'},
+      {init:'OP',name:'Operative9',level:'Operative', game:'Chaos Crew 2',         pts:36200, prize:'$500'},
+      {init:'VV',name:'V1ctory',   level:'Director',  game:"Stack 'em",            pts:29850, prize:'$300'},
+      {init:'NO',name:'NightOwl',  level:'Commander', game:'Wanted Dead or Wild',  pts:27410, prize:'$100'},
+      {init:'AP',name:'Apex_00',   level:'Operative', game:'Book of Time',         pts:24990, prize:'$100'},
+      {init:'GK',name:'GhostK',    level:'Agent',     game:'Rocket Reels',         pts:21340, prize:'$100'},
+      {init:'LA',name:'LuckyAce',  level:'Operative', game:'Hand of Anubis',       pts:18720, prize:'$100'},
+      {init:'RX',name:'Reaper_X',  level:'Commander', game:'Cubes',                pts:16050, prize:'$100'},
+      {init:'P7',name:'Phantom7',  level:'Agent',     game:'Chaos Crew',           pts:14230, prize:'$50'},
+      {init:'CR',name:'CodeRed',   level:'Operative', game:'Evil Eyes',            pts:12880, prize:'$50'},
+      {init:'TF',name:'TitanFall', level:'Agent',     game:'Le Bandit',            pts:11420, prize:'$50'},
+      {init:'SL',name:'Silencer',  level:'Recruit',   game:'Xpander',              pts:9810,  prize:'$50'},
+      {init:'OB',name:'Outbreak',  level:'Agent',     game:"Stick 'em",            pts:8340,  prize:'$50'},
+    ],
+    monthly:[
+      {init:'AG',name:'Agent_G',   level:'Shadow',    game:'Chaos Crew',           pts:310500, prize:'$5,000'},
+      {init:'RX',name:'Reaper_X',  level:'Commander', game:'Cubes',                pts:274100, prize:'$2,500'},
+      {init:'NO',name:'NightOwl',  level:'Commander', game:'Wanted Dead or Wild',  pts:251300, prize:'$1,000'},
+      {init:'ZX',name:'Z3r0X',     level:'Director',  game:'Chaos Crew 2',         pts:228800, prize:'$500'},
+      {init:'VV',name:'V1ctory',   level:'Director',  game:"Stack 'em",            pts:198400, prize:'$300'},
+      {init:'OP',name:'Operative9',level:'Operative', game:'Chaos Crew',           pts:184200, prize:'$100'},
+      {init:'GK',name:'GhostK',    level:'Agent',     game:'Book of Time',         pts:161300, prize:'$100'},
+      {init:'AP',name:'Apex_00',   level:'Operative', game:'Rocket Reels',         pts:144800, prize:'$100'},
+      {init:'SH',name:'Shadow_H',  level:'Commander', game:'Evil Eyes',            pts:132600, prize:'$100'},
+      {init:'LA',name:'LuckyAce',  level:'Operative', game:'Hand of Anubis',       pts:118200, prize:'$100'},
+    ],
+    alltime:[
+      {init:'AG',name:'Agent_G',   level:'Shadow',    game:'Chaos Crew',           pts:2104500, prize:'$5,000'},
+      {init:'RX',name:'Reaper_X',  level:'Commander', game:'Cubes',                pts:1874200, prize:'$2,500'},
+      {init:'VV',name:'V1ctory',   level:'Director',  game:"Stack 'em",            pts:1652100, prize:'$1,000'},
+      {init:'ZX',name:'Z3r0X',     level:'Director',  game:'Chaos Crew 2',         pts:1420800, prize:'$500'},
+      {init:'NO',name:'NightOwl',  level:'Commander', game:'Wanted Dead or Wild',  pts:1318400, prize:'$300'},
+      {init:'SH',name:'Shadow_H',  level:'Commander', game:'Evil Eyes',            pts:1190300, prize:'$100'},
+      {init:'OP',name:'Operative9',level:'Operative', game:'Chaos Crew',           pts:994200,  prize:'$100'},
+      {init:'GK',name:'GhostK',    level:'Agent',     game:'Book of Time',         pts:832100,  prize:'$100'},
+      {init:'AP',name:'Apex_00',   level:'Operative', game:'Rocket Reels',         pts:741500,  prize:'$100'},
+      {init:'P7',name:'Phantom7',  level:'Agent',     game:'Chaos Crew',           pts:624800,  prize:'$100'},
+    ]
+  };
+
+  var PODIUM={
+    weekly: [
+      {init:'AG',name:'Agent_G', score:'71,540 pts',prize:'$5,000'},
+      {init:'ZX',name:'Z3r0X',   score:'48,320 pts',prize:'$2,500'},
+      {init:'SH',name:'Shadow_H',score:'41,880 pts',prize:'$1,000'}
+    ],
+    monthly:[
+      {init:'AG',name:'Agent_G',  score:'310,500 pts',prize:'$5,000'},
+      {init:'RX',name:'Reaper_X', score:'274,100 pts',prize:'$2,500'},
+      {init:'NO',name:'NightOwl', score:'251,300 pts',prize:'$1,000'}
+    ],
+    alltime:[
+      {init:'AG',name:'Agent_G',  score:'2,104,500 pts',prize:'$5,000'},
+      {init:'RX',name:'Reaper_X', score:'1,874,200 pts',prize:'$2,500'},
+      {init:'VV',name:'V1ctory',  score:'1,652,100 pts',prize:'$1,000'}
+    ]
+  };
+
+  function rankClass(i){if(i===0)return 't1';if(i===1)return 't2';if(i===2)return 't3';return 't3p';}
+
+  function renderTable(key){
+    var rows=DATA[key];
+    var body=document.getElementById('lb-body');
+    body.innerHTML=rows.map(function(r,i){
+      var rank=i+1;
+      return '<tr>'+
+        '<td><span class="lb-rank '+rankClass(i)+'">'+rank+'</span></td>'+
+        '<td><div class="lb-user"><div class="lb-ava">'+r.init+'</div>'+
+          '<div><div class="lb-username">'+r.name+'</div><div class="lb-level">'+r.level+'</div></div></div></td>'+
+        '<td><span class="lb-game">'+r.game+'</span></td>'+
+        '<td><span class="lb-pts">'+r.pts.toLocaleString()+'</span></td>'+
+        '<td><span class="lb-prize">'+r.prize+'</span></td>'+
+      '</tr>';
+    }).join('');
+  }
+
+  function updatePodium(key){
+    var p=PODIUM[key];
+    document.getElementById('p1score').textContent=p[0].score;
+    document.getElementById('p1prize').textContent=p[0].prize;
+    document.getElementById('p2score').textContent=p[1].score;
+    document.getElementById('p2prize').textContent=p[1].prize;
+    document.getElementById('p3score').textContent=p[2].score;
+    document.getElementById('p3prize').textContent=p[2].prize;
+  }
+
+  function setTab(el,key){
+    document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active');});
+    el.classList.add('active');
+    renderTable(key);
+    updatePodium(key);
+  }
+
+  renderTable('weekly');
+</script>
+<script src="i18n.js"></script>
+<script>document.body.insertAdjacentHTML('beforeend', Z51_FOOTER_HTML('.'));</script>
+<script src="cookie-banner.js"></script>
+
+  <script src="toast.js"></script>
+  <script src="sound.js"></script>
+  <script src="loader.js"></script>
+</body>
+</html>

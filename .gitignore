@@ -1,0 +1,15 @@
+# !! Never commit secrets or runtime state !!
+.env
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Runtime data files (contain private keys and user data)
+admin_data.json
+bonuses.json
+approved_users.json
+
+# Logs
+*.log

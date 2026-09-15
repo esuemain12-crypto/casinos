@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en" class="notranslate" translate="no"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <meta charset="utf-8">
+
+    <title>Chaos Crew 2</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta id="viewport" name="viewport" content="width=device-width,height = device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google" content="notranslate">
+    <meta name="robots" content="noindex">
+    <link rel="shortcut icon" href="https://ha-static.mobule.games/1352/1.21.6/favicon.ico">
+    <style>
+        #GameWrapper {
+            height: 100%;
+            width: 100%;
+        }
+
+        @font-face {
+            font-family: 'icomoon';
+            src: url('ui/fonts/icons/icomoon.eot?dbrolm');
+            src: url('ui/fonts/icons/icomoon.eot?dbrolm#iefix') format('embedded-opentype'),
+                url('ui/fonts/icons/icomoon.woff2?dbrolm') format('woff2'),
+                url('ui/fonts/icons/icomoon.ttf?dbrolm') format('truetype'),
+                url('ui/fonts/icons/icomoon.woff?dbrolm') format('woff'),
+                url('ui/fonts/icons/icomoon.svg?dbrolm#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+    </style>
+    <script type="text/javascript" src="index_data/promise-polyfill.min.js"></script>
+    <script type="text/javascript" src="index_data/array-find-polyfill.min.js"></script>
+    <script>
+        window.oncontextmenu = function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            return false;
+        };
+    </script>
+    <link rel="stylesheet" href="index_data/ui.min.css">
+
+<script src="index_data/relax-integration.js"></script><script src="index_data/rlxfeim.min.js"></script><style>
+
+            @font-face {
+
+                font-family: 'HacksawUI';
+
+                src: url('casino/fonts/localized/en/hacksawui_regular.ttf') format('truetype');
+
+				font-weight: normal;
+
+				font-style: normal;
+
+			}
+
+        
+
+            @font-face {
+
+                font-family: 'HacksawUI';
+
+                src: url('casino/fonts/localized/en/hacksawui_bold.ttf') format('truetype');
+
+				font-weight: bold;
+
+				font-style: normal;
+
+            }
+
+        </style></head>
+
+<body data-theme="default">
+    <div class="HacksawCasinoGameContainer--bottom HacksawCasinoGameContainer" id="GameWrapper" style="transform: scale3d(1, 1, 1); inset: 0px; height: 954px; width: 1069px; transform-origin: left top 0px;" data-canvas-orientation="landscape">
+        <canvas id="webgl" style="width: 100%; height: 100%; outline: none;" tabindex="1" width="1069" height="954"></canvas>
+    </div>
+
+    <div class="HacksawCasinoUiContainer" id="hacksaw-casino" data-theme="default" data-state="featurePlay-freespins" data-orientation="landscape" data-channel="desktop" data-jurisdiction="curacao" data-reveal-behavior="drop" data-layout-type="ribbon" data-layout-position="dock_bottom" data-language="en" data-currency="EUR" data-state-extra="bob_3_fs_super">
+        <div id="ProgressIndicator" class="ProgressIndicator">
+            <div class="si-circle1 si-circle"></div>
+            <div class="si-circle2 si-circle"></div>
+            <div class="si-circle3 si-circle"></div>
+            <div class="si-circle4 si-circle"></div>
+            <div class="si-circle5 si-circle"></div>
+            <div class="si-circle6 si-circle"></div>
+            <div class="si-circle7 si-circle"></div>
+            <div class="si-circle8 si-circle"></div>
+            <div class="si-circle9 si-circle"></div>
+            <div class="si-circle10 si-circle"></div>
+            <div class="si-circle11 si-circle"></div>
+            <div class="si-circle12 si-circle"></div>
+        </div>
+        <div id="FullscreenIndicator" class="FullscreenIndicator">
+            <div class="SlideUpWrapper">
+                <div class="SlideUpIndicator">
+                    <span class="icon-fullscreen"></span>
+                </div>
+            </div>
+        </div>
+
+        <div id="DialogWindow" class="DialogWindow" style="transform: scale3d(1.00849, 1.00849, 1); height: 946px; width: 1060px;">
+            <div class="Overlay"></div>
+        </div>
+        <div id="NotificationHolder" class="NotificationHolder" style="transform: scale3d(1.00849, 1.00849, 1);"></div>
+        <div id="GameInfoWindow" class="GameInfoWindow Modal" style="transform: scale3d(1.00849, 1.00849, 1); height: 946px; width: 1060px;">
+            <div id="GameInfoClose" class="Modal__close-button"><span></span></div>
+            <div class="GameInfo Modal__container">
+                <div class="GameInfo__inner">
+                    <div class="GameInfo__title Modal__title">
+                        <div class="GameInfo__title-container">
+                            <span data-translation="game_info" data-charcount="9">GAME INFO</span>&nbsp;<span>-</span>&nbsp;<span id="GameInfoGameName" class="GameInfoGameName">Chaos Crew 2</span>
+                        </div>
+                        <div class="divider--horizontal"></div>
+                    </div>
+                    <div id="GameInfoBody" class="GameInfo__body"><div><div>
+  <section data-gameinfo-section="intro">
+    <h1>ABOUT THE GAME</h1>
+    <p>Cranky Cat and Sketchy Skull make their triumphant return, in 
+style! Chaos Crew 2™ is a 5-row, 5-reel paylines game that gives you 
+everything you loved from Chaos Crew™, and more: new Sticky and Epic 
+Sticky multipliers, the groundbreaking Best of Bonus feature, and a new 
+way to get a taste of the Bonus game with Epic Drop™!</p>
+    <p>Not only that, but Chaos Crew 2™ raises the stakes with a 
+staggering maximum win of 20,000 times your bet! The max win can be 
+achieved in all game modes that Chaos Crew 2™ has to offer!</p>
+    <p>So what are you waiting for? Let chaos reign!</p>
+  </section>
+  <section data-gameinfo-section="features">
+    <h1>FEATURES</h1>
+    <h2>A DROP OF EPIC PROPORTIONS</h2>
+    <p>The Epic Drop™ feature has a chance to be randomly activated at 
+the start of each spin when playing the base game. When this feature is 
+activated the game will morph into the bonus game and a minimum of five 
+multiplier symbols from the Bonus will drop in to give you their 
+multipliers!</p>
+    <p>On the next spin, the game reverts back to the usual base game 
+and continues as usual… unless you were lucky enough to activate another
+ Epic Drop™!</p>
+    <h2>A VERY CRANKY CAT</h2>
+    <p>The Cranky Cat symbol is a wild multiplier that multiplies all 
+the winning combinations that it’s part of in the base game. More than 
+one Cranky Cat can land at the same time and be part of the same winning
+ combination, or different ones. When more than one Cranky Cat is part 
+of the same win, their values multiply each other and the product is 
+then applied to the win.</p>
+    <div class="FeatureImage"><img src="index_data/wild.png"></div>
+    <p>Each Cranky Cat can have the following values: x2, x3, x4, x5, x10, x20</p>
+    <p>In the base game, at most one Cranky Cat can land at a time on 
+each reel and the Cranky Cat symbol substitutes for all other symbols in
+ the paytable.</p>
+    <h2>BONUS</h2>
+    <p>Land 3 BONUS! scatter symbols at the same time in the base game to activate the Bonus feature!</p>
+    <div class="FeatureImage"><img src="index_data/fs.png"></div>
+    <p>In the Bonus, the game transforms and only non-paying symbols and multiplier scatter symbols will appear!</p>
+    <p>Above each reel is a reel multiplier that starts at 1x. By 
+landing multiplier symbols of different types, the reel multipliers 
+above the reels are progressively increased! When the Bonus ends, all 
+reel multipliers will be added together and then multiplied with your 
+bet to determine the final win amount!</p>
+    <p>The special multiplier symbols that appear in the Bonus feature are as follows.</p>
+    <p>Sketchy Skull: adds its displayed value to the reel multiplier where it landed one time.<br>Sticky
+ Sketchy Skull: stays on the grid and adds its displayed value to the 
+reel multiplier where it landed on every subsequent spin.<br>Epic Sketchy Skull: adds its displayed value to ALL reel multipliers one time.<br>Epic Sticky Sketchy Skull: stays on the grid and adds its displayed value to ALL reel multipliers on every subsequent spin.</p>
+    <p>Possible multiplier values for all Sketchy Skull symbols are: 1x, 2x, 3x, 4x, 5x, 10x, 15x, 20x, 25x, 50x, 100x</p>
+    <div class="FeatureImage"><img src="index_data/epic_add.png"></div>
+    <p>Cranky Cat: multiplies its displayed value with the reel multiplier where it landed one time.<br>Sticky
+ Cranky Cat: stays on the grid and multiplies its displayed value with 
+the reel multiplier where it landed on every subsequent spin.<br>Epic Cranky Cat: multiplies its displayed value with ALL reel multipliers one time.<br>Epic Sticky Cranky Cat: stays on the grid and multiplies its displayed value with ALL reel multipliers on every subsequent spin.</p>
+    <p>Possible multiplier values for all Cranky Cat symbols are: x2, x3, x4, x5, x10, x20</p>
+    <div class="FeatureImage"><img src="index_data/epic_mult.png"></div>
+    <p>The Bonus has 3 refilling lives that reset each time one of the 
+above multiplier symbols lands. Each life represents one spin. Once all 3
+ lives are consumed without a new reset, the Bonus ends.</p>
+    <h2>SUPER BONUS</h2>
+    <p>Land 4 BONUS! scatter symbols at the same time in the base game to activate the Super Bonus feature!</p>
+    <p>The Super Bonus feature follows the rules for the Bonus feature above, with one exception!</p>
+    <p>The first spin of each Super Bonus is guaranteed to have a 
+minimum of 7 multiplier symbols from among those listed in the BONUS 
+section.</p>
+    <h2>BEST OF BONUS</h2>
+    <p>When 3 BONUS! scatter symbols land at the same time as a BEST OF 
+BONUS scatter symbol in the base game, the BEST OF BONUS feature is 
+activated!</p>
+    <div class="FeatureImage"><img src="index_data/bob.png"></div>
+    <p>This feature awards three Bonus features in a row, playing them 
+out in full before storing the result on the scoreboard next to the 
+grid!</p>
+    <p>At the end of the third and final Bonus, the highest value from 
+the scoreboard is awarded and multiplied with your bet to determine the 
+final win amount!</p>
+    <h2>BEST OF SUPER BONUS</h2>
+    <p>When 4 BONUS! scatter symbols land at the same time as a BEST OF 
+BONUS scatter symbol in the base game, the BEST OF SUPER BONUS feature 
+is activated!</p>
+    <p>This feature awards three Super Bonus features in a row, playing 
+them out in full before storing the result on the scoreboard next to the
+ grid!</p>
+    <p>At the end of the third and final Super Bonus, the highest value 
+from the scoreboard is awarded and multiplied with your bet to determine
+ the final win amount!</p>
+  </section>
+  <section data-gameinfo-section="paytable">
+    <h1>SYMBOL PAYOUTS</h1>
+    <ul class="GameInfo__sym-list ">
+      <li class="SymListItem SymListItem--1"><span class="SymListItem__symbol"><img src="index_data/low_1.png"></span><span class="SymListItem__payout-values"><span class="SymListItem__values"><span class="SymListItem__win-length">5</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="1" data-symbol-win-multiplier="20" data-charcount="4">2.00</span></span><span class="SymListItem__values"><span class="SymListItem__win-length">4</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="1" data-symbol-win-multiplier="5" data-charcount="4">0.50</span></span><span class="SymListItem__values"><span class="SymListItem__win-length">3</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="1" data-symbol-win-multiplier="1" data-charcount="4">0.10</span></span></span></li>
+      <li class="SymListItem SymListItem--2"><span class="SymListItem__symbol"><img src="index_data/low_2.png"></span><span class="SymListItem__payout-values"><span class="SymListItem__values"><span class="SymListItem__win-length">5</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="2" data-symbol-win-multiplier="20" data-charcount="4">2.00</span></span><span class="SymListItem__values"><span class="SymListItem__win-length">4</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="2" data-symbol-win-multiplier="5" data-charcount="4">0.50</span></span><span class="SymListItem__values"><span class="SymListItem__win-length">3</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="2" data-symbol-win-multiplier="1" data-charcount="4">0.10</span></span></span></li>
+      <li class="SymListItem SymListItem--3"><span class="SymListItem__symbol"><img src="index_data/low_3.png"></span><span class="SymListItem__payout-values"><span class="SymListItem__values"><span class="SymListItem__win-length">5</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="3" data-symbol-win-multiplier="20" data-charcount="4">2.00</span></span><span class="SymListItem__values"><span class="SymListItem__win-length">4</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="3" data-symbol-win-multiplier="5" data-charcount="4">0.50</span></span><span class="SymListItem__values"><span class="SymListItem__win-length">3</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="3" data-symbol-win-multiplier="1" data-charcount="4">0.10</span></span></span></li>
+      <li class="SymListItem SymListItem--4"><span class="SymListItem__symbol"><img src="index_data/low_4.png"></span><span class="SymListItem__payout-values"><span class="SymListItem__values"><span class="SymListItem__win-length">5</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="4" data-symbol-win-multiplier="20" data-charcount="4">2.00</span></span><span class="SymListItem__values"><span class="SymListItem__win-length">4</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="4" data-symbol-win-multiplier="5" data-charcount="4">0.50</span></span><span class="SymListItem__values"><span class="SymListItem__win-length">3</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="4" data-symbol-win-multiplier="1" data-charcount="4">0.10</span></span></span></li>
+      <li class="SymListItem SymListItem--5"><span class="SymListItem__symbol"><img src="index_data/low_5.png"></span><span class="SymListItem__payout-values"><span class="SymListItem__values"><span class="SymListItem__win-length">5</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="5" data-symbol-win-multiplier="20" data-charcount="4">2.00</span></span><span class="SymListItem__values"><span class="SymListItem__win-length">4</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="5" data-symbol-win-multiplier="5" data-charcount="4">0.50</span></span><span class="SymListItem__values"><span class="SymListItem__win-length">3</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="5" data-symbol-win-multiplier="1" data-charcount="4">0.10</span></span></span></li>
+      <li class="SymListItem SymListItem--6"><span class="SymListItem__symbol"><img src="index_data/high_1.png"></span><span class="SymListItem__payout-values"><span class="SymListItem__values"><span class="SymListItem__win-length">5</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="6" data-symbol-win-multiplier="50" data-charcount="4">5.00</span></span><span class="SymListItem__values"><span class="SymListItem__win-length">4</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="6" data-symbol-win-multiplier="20" data-charcount="4">2.00</span></span><span class="SymListItem__values"><span class="SymListItem__win-length">3</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="6" data-symbol-win-multiplier="5" data-charcount="4">0.50</span></span></span></li>
+      <li class="SymListItem SymListItem--7"><span class="SymListItem__symbol"><img src="index_data/high_2.png"></span><span class="SymListItem__payout-values"><span class="SymListItem__values"><span class="SymListItem__win-length">5</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="7" data-symbol-win-multiplier="50" data-charcount="4">5.00</span></span><span class="SymListItem__values"><span class="SymListItem__win-length">4</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="7" data-symbol-win-multiplier="20" data-charcount="4">2.00</span></span><span class="SymListItem__values"><span class="SymListItem__win-length">3</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="7" data-symbol-win-multiplier="5" data-charcount="4">0.50</span></span></span></li>
+      <li class="SymListItem SymListItem--8"><span class="SymListItem__symbol"><img src="index_data/high_3.png"></span><span class="SymListItem__payout-values"><span class="SymListItem__values"><span class="SymListItem__win-length">5</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="8" data-symbol-win-multiplier="75" data-charcount="4">7.50</span></span><span class="SymListItem__values"><span class="SymListItem__win-length">4</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="8" data-symbol-win-multiplier="30" data-charcount="4">3.00</span></span><span class="SymListItem__values"><span class="SymListItem__win-length">3</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="8" data-symbol-win-multiplier="10" data-charcount="4">1.00</span></span></span></li>
+      <li class="SymListItem SymListItem--9"><span class="SymListItem__symbol"><img src="index_data/high_4.png"></span><span class="SymListItem__payout-values"><span class="SymListItem__values"><span class="SymListItem__win-length">5</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="9" data-symbol-win-multiplier="75" data-charcount="4">7.50</span></span><span class="SymListItem__values"><span class="SymListItem__win-length">4</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="9" data-symbol-win-multiplier="30" data-charcount="4">3.00</span></span><span class="SymListItem__values"><span class="SymListItem__win-length">3</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="9" data-symbol-win-multiplier="10" data-charcount="4">1.00</span></span></span></li>
+      <li class="SymListItem SymListItem--10"><span class="SymListItem__symbol"><img src="index_data/high_5.png"></span><span class="SymListItem__payout-values"><span class="SymListItem__values"><span class="SymListItem__win-length">5</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="10" data-symbol-win-multiplier="100" data-charcount="5">10.00</span></span><span class="SymListItem__values"><span class="SymListItem__win-length">4</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="10" data-symbol-win-multiplier="50" data-charcount="4">5.00</span></span><span class="SymListItem__values"><span class="SymListItem__win-length">3</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="10" data-symbol-win-multiplier="20" data-charcount="4">2.00</span></span></span></li>
+    </ul>
+    <ul class="GameInfo__sym-list GameInfo__sym-list--uniqueSymbols">
+      <li class="SymListItem SymListItem--11"><span class="SymListItem__symbol"><img src="index_data/wild.png"></span><span class="SymListItem__payout-values"><span class="SymListItem__values"><span class="SymListItem__win-length">5</span><span class="SymListItem__win-value" data-symbol-win-value="true" data-symbol-id="11" data-symbol-win-multiplier="200" data-charcount="5">20.00</span></span></span></li>
+    </ul>
+    <p data-part-id="gameRtp">The symbol payouts displayed above reflect
+ the currently selected bet level. The theoretical payout for this game 
+is 96.27%. The RTP was calculated by simulating 10,000,000,000 rounds.</p>
+    
+    
+    <h2>SPECIAL SYMBOLS</h2>
+    <p>BONUS! and BEST OF BONUS appear only in the base game.</p>
+  </section>
+  <section data-gameinfo-section="winways">
+    <h1>WAYS TO WIN</h1>
+    <p>The specified requirements for a winning combination in the base 
+game are also used during bonus features or free spins play unless 
+otherwise stated. Each wager is eligible for all winning combinations 
+unless otherwise stated.</p>
+    <p>You win if matching symbols appear along one of the following 
+predefined lines on adjacent reels from left to right, starting with the
+ leftmost reel. The number of possible lines in this game is 19. Please 
+consult the paytable for the number of each symbol required to win.</p><span data-part-id="winlines" data-winline-width="5" data-winline-height="5"><ul class="GameInfoWinlines"><li class="Winline Winline--cols-5 Winline--rows-5"><span class="Winline__index Winline__col--0 Winline__row--0 is-active"></span><span class="Winline__index Winline__col--1 Winline__row--0 is-active"></span><span class="Winline__index Winline__col--2 Winline__row--0 is-active"></span><span class="Winline__index Winline__col--3 Winline__row--0 is-active"></span><span class="Winline__index Winline__col--4 Winline__row--0 is-active"></span><span class="Winline__index Winline__col--0 Winline__row--1 "></span><span class="Winline__index Winline__col--1 Winline__row--1 "></span><span class="Winline__index Winline__col--2 Winline__row--1 "></span><span class="Winline__index Winline__col--3 Winline__row--1 "></span><span class="Winline__index Winline__col--4 Winline__row--1 "></span><span class="Winline__index Winline__col--0 Winline__row--2 "></span><span class="Winline__index Winline__col--1 Winline__row--2 "></span><span class="Winline__index Winline__col--2 Winline__row--2 "></span><span class="Winline__index Winline__col--3 Winline__row--2 "></span><span class="Winline__index Winline__col--4 Winline__row--2 "></span><span class="Winline__index Winline__col--0 Winline__row--3 "></span><span class="Winline__index Winline__col--1 Winline__row--3 "></span><span class="Winline__index Winline__col--2 Winline__row--3 "></span><span class="Winline__index Winline__col--3 Winline__row--3 "></span><span class="Winline__index Winline__col--4 Winline__row--3 "></span><span class="Winline__index Winline__col--0 Winline__row--4 "></span><span class="Winline__index Winline__col--1 Winline__row--4 "></span><span class="Winline__index Winline__col--2 Winline__row--4 "></span><span class="Winline__index Winline__col--3 Winline__row--4 "></span><span class="Winline__index Winline__col--4 Winline__row--4 "></span></li><li class="Winline Winline--cols-5 Winline--rows-5"><span class="Winline__index Winline__col--0 Winline__row--0 "></span><span class="Winline__index Winline__col--1 Winline__row--0 "></span><span class="Winline__index Winline__col--2 Winline__row--0 "></span><span class="Winline__index Winline__col--3 Winline__row--0 "></span><span class="Winline__index Winline__col--4 Winline__row--0 "></span><span class="Winline__index Winline__col--0 Winline__row--1 is-active"></span><span class="Winline__index Winline__col--1 Winline__row--1 is-active"></span><span class="Winline__index Winline__col--2 Winline__row--1 is-active"></span><span class="Winline__index Winline__col--3 Winline__row--1 is-active"></span><span class="Winline__index Winline__col--4 Winline__row--1 is-active"></span><span class="Winline__index Winline__col--0 Winline__row--2 "></span><span class="Winline__index Winline__col--1 Winline__row--2 "></span><span class="Winline__index Winline__col--2 Winline__row--2 "></span><span class="Winline__index Winline__col--3 Winline__row--2 "></span><span class="Winline__index Winline__col--4 Winline__row--2 "></span><span class="Winline__index Winline__col--0 Winline__row--3 "></span><span class="Winline__index Winline__col--1 Winline__row--3 "></span><span class="Winline__index Winline__col--2 Winline__row--3 "></span><span class="Winline__index Winline__col--3 Winline__row--3 "></span><span class="Winline__index Winline__col--4 Winline__row--3 "></span><span class="Winline__index Winline__col--0 Winline__row--4 "></span><span class="Winline__index Winline__col--1 Winline__row--4 "></span><span class="Winline__index Winline__col--2 Winline__row--4 "></span><span class="Winline__index Winline__col--3 Winline__row--4 "></span><span class="Winline__index Winline__col--4 Winline__row--4 "></span></li><li class="Winline Winline--cols-5 Winline--rows-5"><span class="Winline__index Winline__col--0 Winline__row--0 "></span><span class="Winline__index Winline__col--1 Winline__row--0 "></span><span class="Winline__index Winline__col--2 Winline__row--0 "></span><span class="Winline__index Winline__col--3 Winline__row--0 "></span><span class="Winline__index Winline__col--4 Winline__row--0 "></span><span class="Winline__index Winline__col--0 Winline__row--1 "></span><span class="Winline__index Winline__col--1 Winline__row--1 "></span><span class="Winline__index Winline__col--2 Winline__row--1 "></span><span class="Winline__index Winline__col--3 Winline__row--1 "></span><span class="Winline__index Winline__col--4 Winline__row--1 "></span><span class="Winline__index Winline__col--0 Winline__row--2 is-active"></span><span class="Winline__index Winline__col--1 Winline__row--2 is-active"></span><span class="Winline__index Winline__col--2 Winline__row--2 is-active"></span><span class="Winline__index Winline__col--3 Winline__row--2 is-active"></span><span class="Winline__index Winline__col--4 Winline__row--2 is-active"></span><span class="Winline__index Winline__col--0 Winline__row--3 "></span><span class="Winline__index Winline__col--1 Winline__row--3 "></span><span class="Winline__index Winline__col--2 Winline__row--3 "></span><span class="Winline__index Winline__col--3 Winline__row--3 "></span><span class="Winline__index Winline__col--4 Winline__row--3 "></span><span class="Winline__index Winline__col--0 Winline__row--4 "></span><span class="Winline__index Winline__col--1 Winline__row--4 "></span><span class="Winline__index Winline__col--2 Winline__row--4 "></span><span class="Winline__index Winline__col--3 Winline__row--4 "></span><span class="Winline__index Winline__col--4 Winline__row--4 "></span></li><li class="Winline Winline--cols-5 Winline--rows-5"><span class="Winline__index Winline__col--0 Winline__row--0 "></span><span class="Winline__index Winline__col--1 Winline__row--0 "></span><span class="Winline__index Winline__col--2 Winline__row--0 "></span><span class="Winline__index Winline__col--3 Winline__row--0 "></span><span class="Winline__index Winline__col--4 Winline__row--0 "></span><span class="Winline__index Winline__col--0 Winline__row--1 "></span><span class="Winline__index Winline__col--1 Winline__row--1 "></span><span class="Winline__index Winline__col--2 Winline__row--1 "></span><span class="Winline__index Winline__col--3 Winline__row--1 "></span><span class="Winline__index Winline__col--4 Winline__row--1 "></span><span class="Winline__index Winline__col--0 Winline__row--2 "></span><span class="Winline__index Winline__col--1 Winline__row--2 "></span><span class="Winline__index Winline__col--2 Winline__row--2 "></span><span class="Winline__index Winline__col--3 Winline__row--2 "></span><span class="Winline__index Winline__col--4 Winline__row--2 "></span><span class="Winline__index Winline__col--0 Winline__row--3 is-active"></span><span class="Winline__index Winline__col--1 Winline__row--3 is-active"></span><span class="Winline__index Winline__col--2 Winline__row--3 is-active"></span><span class="Winline__index Winline__col--3 Winline__row--3 is-active"></span><span class="Winline__index Winline__col--4 Winline__row--3 is-active"></span><span class="Winline__index Winline__col--0 Winline__row--4 "></span><span class="Winline__index Winline__col--1 Winline__row--4 "></span><span class="Winline__index Winline__col--2 Winline__row--4 "></span><span class="Winline__index Winline__col--3 Winline__row--4 "></span><span class="Winline__index Winline__col--4 Winline__row--4 "></span></li><li class="Winline Winline--cols-5 Winline--rows-5"><span class="Winline__index Winline__col--0 Winline__row--0 "></span><span class="Winline__index Winline__col--1 Winline__row--0 "></span><span class="Winline__index Winline__col--2 Winline__row--0 "></span><span class="Winline__index Winline__col--3 Winline__row--0 "></span><span class="Winline__index Winline__col--4 Winline__row--0 "></span><span class="Winline__index Winline__col--0 Winline__row--1 "></span><span class="Winline__index Winline__col--1 Winline__row--1 "></span><span class="Winline__index Winline__col--2 Winline__row--1 "></span><span class="Winline__index Winline__col--3 Winline__row--1 "></span><span class="Winline__index Winline__col--4 Winline__row--1 "></span><span class="Winline__index Winline__col--0 Winline__row--2 "></span><span class="Winline__index Winline__col--1 Winline__row--2 "></span><span class="Winline__index Winline__col--2 Winline__row--2 "></span><span class="Winline__index Winline__col--3 Winline__row--2 "></span><span class="Winline__index Winline__col--4 Winline__row--2 "></span><span class="Winline__index Winline__col--0 Winline__row--3 "></span><span class="Winline__index Winline__col--1 Winline__row--3 "></span><span class="Winline__index Winline__col--2 Winline__row--3 "></span><span class="Winline__index Winline__col--3 Winline__row--3 "></span><span class="Winline__index Winline__col--4 Winline__row--3 "></span><span class="Winline__index Winline__col--0 Winline__row--4 is-active"></span><span class="Winline__index Winline__col--1 Winline__row--4 is-active"></span><span class="Winline__index Winline__col--2 Winline__row--4 is-active"></span><span class="Winline__index Winline__col--3 Winline__row--4 is-active"></span><span class="Winline__index Winline__col--4 Winline__row--4 is-active"></span></li><li class="Winline Winline--cols-5 Winline--rows-5"><span class="Winline__index Winline__col--0 Winline__row--0 is-active"></span><span class="Winline__index Winline__col--1 Winline__row--0 "></span><span class="Winline__index Winline__col--2 Winline__row--0 is-active"></span><span class="Winline__index Winline__col--3 Winline__row--0 "></span><span class="Winline__index Winline__col--4 Winline__row--0 is-active"></span><span class="Winline__index Winline__col--0 Winline__row--1 "></span><span class="Winline__index Winline__col--1 Winline__row--1 is-active"></span><span class="Winline__index Winline__col--2 Winline__row--1 "></span><span class="Winline__index Winline__col--3 Winline__row--1 is-active"></span><span class="Winline__index Winline__col--4 Winline__row--1 "></span><span class="Winline__index Winline__col--0 Winline__row--2 "></span><span class="Winline__index Winline__col--1 Winline__row--2 "></span><span class="Winline__index Winline__col--2 Winline__row--2 "></span><span class="Winline__index Winline__col--3 Winline__row--2 "></span><span class="Winline__index Winline__col--4 Winline__row--2 "></span><span class="Winline__index Winline__col--0 Winline__row--3 "></span><span class="Winline__index Winline__col--1 Winline__row--3 "></span><span class="Winline__index Winline__col--2 Winline__row--3 "></span><span class="Winline__index Winline__col--3 Winline__row--3 "></span><span class="Winline__index Winline__col--4 Winline__row--3 "></span><span class="Winline__index Winline__col--0 Winline__row--4 "></span><span class="Winline__index Winline__col--1 Winline__row--4 "></span><span class="Winline__index Winline__col--2 Winline__row--4 "></span><span class="Winline__index Winline__col--3 Winline__row--4 "></span><span class="Winline__index Winline__col--4 Winline__row--4 "></span></li><li class="Winline Winline--cols-5 Winline--rows-5"><span class="Winline__index Winline__col--0 Winline__row--0 "></span><span class="Winline__index Winline__col--1 Winline__row--0 is-active"></span><span class="Winline__index Winline__col--2 Winline__row--0 "></span><span class="Winline__index Winline__col--3 Winline__row--0 is-active"></span><span class="Winline__index Winline__col--4 Winline__row--0 "></span><span class="Winline__index Winline__col--0 Winline__row--1 is-active"></span><span class="Winline__index Winline__col--1 Winline__row--1 "></span><span class="Winline__index Winline__col--2 Winline__row--1 is-active"></span><span class="Winline__index Winline__col--3 Winline__row--1 "></span><span class="Winline__index Winline__col--4 Winline__row--1 is-active"></span><span class="Winline__index Winline__col--0 Winline__row--2 "></span><span class="Winline__index Winline__col--1 Winline__row--2 "></span><span class="Winline__index Winline__col--2 Winline__row--2 "></span><span class="Winline__index Winline__col--3 Winline__row--2 "></span><span class="Winline__index Winline__col--4 Winline__row--2 "></span><span class="Winline__index Winline__col--0 Winline__row--3 "></span><span class="Winline__index Winline__col--1 Winline__row--3 "></span><span class="Winline__index Winline__col--2 Winline__row--3 "></span><span class="Winline__index Winline__col--3 Winline__row--3 "></span><span class="Winline__index Winline__col--4 Winline__row--3 "></span><span class="Winline__index Winline__col--0 Winline__row--4 "></span><span class="Winline__index Winline__col--1 Winline__row--4 "></span><span class="Winline__index Winline__col--2 Winline__row--4 "></span><span class="Winline__index Winline__col--3 Winline__row--4 "></span><span class="Winline__index Winline__col--4 Winline__row--4 "></span></li><li class="Winline Winline--cols-5 Winline--rows-5"><span class="Winline__index Winline__col--0 Winline__row--0 "></span><span class="Winline__index Winline__col--1 Winline__row--0 "></span><span class="Winline__index Winline__col--2 Winline__row--0 "></span><span class="Winline__index Winline__col--3 Winline__row--0 "></span><span class="Winline__index Winline__col--4 Winline__row--0 "></span><span class="Winline__index Winline__col--0 Winline__row--1 is-active"></span><span class="Winline__index Winline__col--1 Winline__row--1 "></span><span class="Winline__index Winline__col--2 Winline__row--1 is-active"></span><span class="Winline__index Winline__col--3 Winline__row--1 "></span><span class="Winline__index Winline__col--4 Winline__row--1 is-active"></span><span class="Winline__index Winline__col--0 Winline__row--2 "></span><span class="Winline__index Winline__col--1 Winline__row--2 is-active"></span><span class="Winline__index Winline__col--2 Winline__row--2 "></span><span class="Winline__index Winline__col--3 Winline__row--2 is-active"></span><span class="Winline__index Winline__col--4 Winline__row--2 "></span><span class="Winline__index Winline__col--0 Winline__row--3 "></span><span class="Winline__index Winline__col--1 Winline__row--3 "></span><span class="Winline__index Winline__col--2 Winline__row--3 "></span><span class="Winline__index Winline__col--3 Winline__row--3 "></span><span class="Winline__index Winline__col--4 Winline__row--3 "></span><span class="Winline__index Winline__col--0 Winline__row--4 "></span><span class="Winline__index Winline__col--1 Winline__row--4 "></span><span class="Winline__index Winline__col--2 Winline__row--4 "></span><span class="Winline__index Winline__col--3 Winline__row--4 "></span><span class="Winline__index Winline__col--4 Winline__row--4 "></span></li><li class="Winline Winline--cols-5 Winline--rows-5"><span class="Winline__index Winline__col--0 Winline__row--0 "></span><span class="Winline__index Winline__col--1 Winline__row--0 "></span><span class="Winline__index Winline__col--2 Winline__row--0 "></span><span class="Winline__index Winline__col--3 Winline__row--0 "></span><span class="Winline__index Winline__col--4 Winline__row--0 "></span><span class="Winline__index Winline__col--0 Winline__row--1 "></span><span class="Winline__index Winline__col--1 Winline__row--1 is-active"></span><span class="Winline__index Winline__col--2 Winline__row--1 "></span><span class="Winline__index Winline__col--3 Winline__row--1 is-active"></span><span class="Winline__index Winline__col--4 Winline__row--1 "></span><span class="Winline__index Winline__col--0 Winline__row--2 is-active"></span><span class="Winline__index Winline__col--1 Winline__row--2 "></span><span class="Winline__index Winline__col--2 Winline__row--2 is-active"></span><span class="Winline__index Winline__col--3 Winline__row--2 "></span><span class="Winline__index Winline__col--4 Winline__row--2 is-active"></span><span class="Winline__index Winline__col--0 Winline__row--3 "></span><span class="Winline__index Winline__col--1 Winline__row--3 "></span><span class="Winline__index Winline__col--2 Winline__row--3 "></span><span class="Winline__index Winline__col--3 Winline__row--3 "></span><span class="Winline__index Winline__col--4 Winline__row--3 "></span><span class="Winline__index Winline__col--0 Winline__row--4 "></span><span class="Winline__index Winline__col--1 Winline__row--4 "></span><span class="Winline__index Winline__col--2 Winline__row--4 "></span><span class="Winline__index Winline__col--3 Winline__row--4 "></span><span class="Winline__index Winline__col--4 Winline__row--4 "></span></li><li class="Winline Winline--cols-5 Winline--rows-5"><span class="Winline__index Winline__col--0 Winline__row--0 "></span><span class="Winline__index Winline__col--1 Winline__row--0 "></span><span class="Winline__index Winline__col--2 Winline__row--0 "></span><span class="Winline__index Winline__col--3 Winline__row--0 "></span><span class="Winline__index Winline__col--4 Winline__row--0 "></span><span class="Winline__index Winline__col--0 Winline__row--1 "></span><span class="Winline__index Winline__col--1 Winline__row--1 "></span><span class="Winline__index Winline__col--2 Winline__row--1 "></span><span class="Winline__index Winline__col--3 Winline__row--1 "></span><span class="Winline__index Winline__col--4 Winline__row--1 "></span><span class="Winline__index Winline__col--0 Winline__row--2 is-active"></span><span class="Winline__index Winline__col--1 Winline__row--2 "></span><span class="Winline__index Winline__col--2 Winline__row--2 is-active"></span><span class="Winline__index Winline__col--3 Winline__row--2 "></span><span class="Winline__index Winline__col--4 Winline__row--2 is-active"></span><span class="Winline__index Winline__col--0 Winline__row--3 "></span><span class="Winline__index Winline__col--1 Winline__row--3 is-active"></span><span class="Winline__index Winline__col--2 Winline__row--3 "></span><span class="Winline__index Winline__col--3 Winline__row--3 is-active"></span><span class="Winline__index Winline__col--4 Winline__row--3 "></span><span class="Winline__index Winline__col--0 Winline__row--4 "></span><span class="Winline__index Winline__col--1 Winline__row--4 "></span><span class="Winline__index Winline__col--2 Winline__row--4 "></span><span class="Winline__index Winline__col--3 Winline__row--4 "></span><span class="Winline__index Winline__col--4 Winline__row--4 "></span></li><li class="Winline Winline--cols-5 Winline--rows-5"><span class="Winline__index Winline__col--0 Winline__row--0 "></span><span class="Winline__index Winline__col--1 Winline__row--0 "></span><span class="Winline__index Winline__col--2 Winline__row--0 "></span><span class="Winline__index Winline__col--3 Winline__row--0 "></span><span class="Winline__index Winline__col--4 Winline__row--0 "></span><span class="Winline__index Winline__col--0 Winline__row--1 "></span><span class="Winline__index Winline__col--1 Winline__row--1 "></span><span class="Winline__index Winline__col--2 Winline__row--1 "></span><span class="Winline__index Winline__col--3 Winline__row--1 "></span><span class="Winline__index Winline__col--4 Winline__row--1 "></span><span class="Winline__index Winline__col--0 Winline__row--2 "></span><span class="Winline__index Winline__col--1 Winline__row--2 is-active"></span><span class="Winline__index Winline__col--2 Winline__row--2 "></span><span class="Winline__index Winline__col--3 Winline__row--2 is-active"></span><span class="Winline__index Winline__col--4 Winline__row--2 "></span><span class="Winline__index Winline__col--0 Winline__row--3 is-active"></span><span class="Winline__index Winline__col--1 Winline__row--3 "></span><span class="Winline__index Winline__col--2 Winline__row--3 is-active"></span><span class="Winline__index Winline__col--3 Winline__row--3 "></span><span class="Winline__index Winline__col--4 Winline__row--3 is-active"></span><span class="Winline__index Winline__col--0 Winline__row--4 "></span><span class="Winline__index Winline__col--1 Winline__row--4 "></span><span class="Winline__index Winline__col--2 Winline__row--4 "></span><span class="Winline__index Winline__col--3 Winline__row--4 "></span><span class="Winline__index Winline__col--4 Winline__row--4 "></span></li><li class="Winline Winline--cols-5 Winline--rows-5"><span class="Winline__index Winline__col--0 Winline__row--0 "></span><span class="Winline__index Winline__col--1 Winline__row--0 "></span><span class="Winline__index Winline__col--2 Winline__row--0 "></span><span class="Winline__index Winline__col--3 Winline__row--0 "></span><span class="Winline__index Winline__col--4 Winline__row--0 "></span><span class="Winline__index Winline__col--0 Winline__row--1 "></span><span class="Winline__index Winline__col--1 Winline__row--1 "></span><span class="Winline__index Winline__col--2 Winline__row--1 "></span><span class="Winline__index Winline__col--3 Winline__row--1 "></span><span class="Winline__index Winline__col--4 Winline__row--1 "></span><span class="Winline__index Winline__col--0 Winline__row--2 "></span><span class="Winline__index Winline__col--1 Winline__row--2 "></span><span class="Winline__index Winline__col--2 Winline__row--2 "></span><span class="Winline__index Winline__col--3 Winline__row--2 "></span><span class="Winline__index Winline__col--4 Winline__row--2 "></span><span class="Winline__index Winline__col--0 Winline__row--3 is-active"></span><span class="Winline__index Winline__col--1 Winline__row--3 "></span><span class="Winline__index Winline__col--2 Winline__row--3 is-active"></span><span class="Winline__index Winline__col--3 Winline__row--3 "></span><span class="Winline__index Winline__col--4 Winline__row--3 is-active"></span><span class="Winline__index Winline__col--0 Winline__row--4 "></span><span class="Winline__index Winline__col--1 Winline__row--4 is-active"></span><span class="Winline__index Winline__col--2 Winline__row--4 "></span><span class="Winline__index Winline__col--3 Winline__row--4 is-active"></span><span class="Winline__index Winline__col--4 Winline__row--4 "></span></li><li class="Winline Winline--cols-5 Winline--rows-5"><span class="Winline__index Winline__col--0 Winline__row--0 "></span><span class="Winline__index Winline__col--1 Winline__row--0 "></span><span class="Winline__index Winline__col--2 Winline__row--0 "></span><span class="Winline__index Winline__col--3 Winline__row--0 "></span><span class="Winline__index Winline__col--4 Winline__row--0 "></span><span class="Winline__index Winline__col--0 Winline__row--1 "></span><span class="Winline__index Winline__col--1 Winline__row--1 "></span><span class="Winline__index Winline__col--2 Winline__row--1 "></span><span class="Winline__index Winline__col--3 Winline__row--1 "></span><span class="Winline__index Winline__col--4 Winline__row--1 "></span><span class="Winline__index Winline__col--0 Winline__row--2 "></span><span class="Winline__index Winline__col--1 Winline__row--2 "></span><span class="Winline__index Winline__col--2 Winline__row--2 "></span><span class="Winline__index Winline__col--3 Winline__row--2 "></span><span class="Winline__index Winline__col--4 Winline__row--2 "></span><span class="Winline__index Winline__col--0 Winline__row--3 "></span><span class="Winline__index Winline__col--1 Winline__row--3 is-active"></span><span class="Winline__index Winline__col--2 Winline__row--3 "></span><span class="Winline__index Winline__col--3 Winline__row--3 is-active"></span><span class="Winline__index Winline__col--4 Winline__row--3 "></span><span class="Winline__index Winline__col--0 Winline__row--4 is-active"></span><span class="Winline__index Winline__col--1 Winline__row--4 "></span><span class="Winline__index Winline__col--2 Winline__row--4 is-active"></span><span class="Winline__index Winline__col--3 Winline__row--4 "></span><span class="Winline__index Winline__col--4 Winline__row--4 is-active"></span></li><li class="Winline Winline--cols-5 Winline--rows-5"><span class="Winline__index Winline__col--0 Winline__row--0 is-active"></span><span class="Winline__index Winline__col--1 Winline__row--0 "></span><span class="Winline__index Winline__col--2 Winline__row--0 "></span><span class="Winline__index Winline__col--3 Winline__row--0 "></span><span class="Winline__index Winline__col--4 Winline__row--0 "></span><span class="Winline__index Winline__col--0 Winline__row--1 "></span><span class="Winline__index Winline__col--1 Winline__row--1 is-active"></span><span class="Winline__index Winline__col--2 Winline__row--1 "></span><span class="Winline__index Winline__col--3 Winline__row--1 "></span><span class="Winline__index Winline__col--4 Winline__row--1 "></span><span class="Winline__index Winline__col--0 Winline__row--2 "></span><span class="Winline__index Winline__col--1 Winline__row--2 "></span><span class="Winline__index Winline__col--2 Winline__row--2 is-active"></span><span class="Winline__index Winline__col--3 Winline__row--2 "></span><span class="Winline__index Winline__col--4 Winline__row--2 "></span><span class="Winline__index Winline__col--0 Winline__row--3 "></span><span class="Winline__index Winline__col--1 Winline__row--3 "></span><span class="Winline__index Winline__col--2 Winline__row--3 "></span><span class="Winline__index Winline__col--3 Winline__row--3 is-active"></span><span class="Winline__index Winline__col--4 Winline__row--3 "></span><span class="Winline__index Winline__col--0 Winline__row--4 "></span><span class="Winline__index Winline__col--1 Winline__row--4 "></span><span class="Winline__index Winline__col--2 Winline__row--4 "></span><span class="Winline__index Winline__col--3 Winline__row--4 "></span><span class="Winline__index Winline__col--4 Winline__row--4 is-active"></span></li><li class="Winline Winline--cols-5 Winline--rows-5"><span class="Winline__index Winline__col--0 Winline__row--0 "></span><span class="Winline__index Winline__col--1 Winline__row--0 "></span><span class="Winline__index Winline__col--2 Winline__row--0 "></span><span class="Winline__index Winline__col--3 Winline__row--0 "></span><span class="Winline__index Winline__col--4 Winline__row--0 "></span><span class="Winline__index Winline__col--0 Winline__row--1 is-active"></span><span class="Winline__index Winline__col--1 Winline__row--1 "></span><span class="Winline__index Winline__col--2 Winline__row--1 "></span><span class="Winline__index Winline__col--3 Winline__row--1 "></span><span class="Winline__index Winline__col--4 Winline__row--1 is-active"></span><span class="Winline__index Winline__col--0 Winline__row--2 "></span><span class="Winline__index Winline__col--1 Winline__row--2 is-active"></span><span class="Winline__index Winline__col--2 Winline__row--2 "></span><span class="Winline__index Winline__col--3 Winline__row--2 is-active"></span><span class="Winline__index Winline__col--4 Winline__row--2 "></span><span class="Winline__index Winline__col--0 Winline__row--3 "></span><span class="Winline__index Winline__col--1 Winline__row--3 "></span><span class="Winline__index Winline__col--2 Winline__row--3 is-active"></span><span class="Winline__index Winline__col--3 Winline__row--3 "></span><span class="Winline__index Winline__col--4 Winline__row--3 "></span><span class="Winline__index Winline__col--0 Winline__row--4 "></span><span class="Winline__index Winline__col--1 Winline__row--4 "></span><span class="Winline__index Winline__col--2 Winline__row--4 "></span><span class="Winline__index Winline__col--3 Winline__row--4 "></span><span class="Winline__index Winline__col--4 Winline__row--4 "></span></li><li class="Winline Winline--cols-5 Winline--rows-5"><span class="Winline__index Winline__col--0 Winline__row--0 "></span><span class="Winline__index Winline__col--1 Winline__row--0 "></span><span class="Winline__index Winline__col--2 Winline__row--0 is-active"></span><span class="Winline__index Winline__col--3 Winline__row--0 "></span><span class="Winline__index Winline__col--4 Winline__row--0 "></span><span class="Winline__index Winline__col--0 Winline__row--1 "></span><span class="Winline__index Winline__col--1 Winline__row--1 is-active"></span><span class="Winline__index Winline__col--2 Winline__row--1 "></span><span class="Winline__index Winline__col--3 Winline__row--1 is-active"></span><span class="Winline__index Winline__col--4 Winline__row--1 "></span><span class="Winline__index Winline__col--0 Winline__row--2 is-active"></span><span class="Winline__index Winline__col--1 Winline__row--2 "></span><span class="Winline__index Winline__col--2 Winline__row--2 "></span><span class="Winline__index Winline__col--3 Winline__row--2 "></span><span class="Winline__index Winline__col--4 Winline__row--2 is-active"></span><span class="Winline__index Winline__col--0 Winline__row--3 "></span><span class="Winline__index Winline__col--1 Winline__row--3 "></span><span class="Winline__index Winline__col--2 Winline__row--3 "></span><span class="Winline__index Winline__col--3 Winline__row--3 "></span><span class="Winline__index Winline__col--4 Winline__row--3 "></span><span class="Winline__index Winline__col--0 Winline__row--4 "></span><span class="Winline__index Winline__col--1 Winline__row--4 "></span><span class="Winline__index Winline__col--2 Winline__row--4 "></span><span class="Winline__index Winline__col--3 Winline__row--4 "></span><span class="Winline__index Winline__col--4 Winline__row--4 "></span></li><li class="Winline Winline--cols-5 Winline--rows-5"><span class="Winline__index Winline__col--0 Winline__row--0 "></span><span class="Winline__index Winline__col--1 Winline__row--0 "></span><span class="Winline__index Winline__col--2 Winline__row--0 "></span><span class="Winline__index Winline__col--3 Winline__row--0 "></span><span class="Winline__index Winline__col--4 Winline__row--0 "></span><span class="Winline__index Winline__col--0 Winline__row--1 "></span><span class="Winline__index Winline__col--1 Winline__row--1 "></span><span class="Winline__index Winline__col--2 Winline__row--1 "></span><span class="Winline__index Winline__col--3 Winline__row--1 "></span><span class="Winline__index Winline__col--4 Winline__row--1 "></span><span class="Winline__index Winline__col--0 Winline__row--2 is-active"></span><span class="Winline__index Winline__col--1 Winline__row--2 "></span><span class="Winline__index Winline__col--2 Winline__row--2 "></span><span class="Winline__index Winline__col--3 Winline__row--2 "></span><span class="Winline__index Winline__col--4 Winline__row--2 is-active"></span><span class="Winline__index Winline__col--0 Winline__row--3 "></span><span class="Winline__index Winline__col--1 Winline__row--3 is-active"></span><span class="Winline__index Winline__col--2 Winline__row--3 "></span><span class="Winline__index Winline__col--3 Winline__row--3 is-active"></span><span class="Winline__index Winline__col--4 Winline__row--3 "></span><span class="Winline__index Winline__col--0 Winline__row--4 "></span><span class="Winline__index Winline__col--1 Winline__row--4 "></span><span class="Winline__index Winline__col--2 Winline__row--4 is-active"></span><span class="Winline__index Winline__col--3 Winline__row--4 "></span><span class="Winline__index Winline__col--4 Winline__row--4 "></span></li><li class="Winline Winline--cols-5 Winline--rows-5"><span class="Winline__index Winline__col--0 Winline__row--0 "></span><span class="Winline__index Winline__col--1 Winline__row--0 "></span><span class="Winline__index Winline__col--2 Winline__row--0 "></span><span class="Winline__index Winline__col--3 Winline__row--0 "></span><span class="Winline__index Winline__col--4 Winline__row--0 "></span><span class="Winline__index Winline__col--0 Winline__row--1 "></span><span class="Winline__index Winline__col--1 Winline__row--1 "></span><span class="Winline__index Winline__col--2 Winline__row--1 is-active"></span><span class="Winline__index Winline__col--3 Winline__row--1 "></span><span class="Winline__index Winline__col--4 Winline__row--1 "></span><span class="Winline__index Winline__col--0 Winline__row--2 "></span><span class="Winline__index Winline__col--1 Winline__row--2 is-active"></span><span class="Winline__index Winline__col--2 Winline__row--2 "></span><span class="Winline__index Winline__col--3 Winline__row--2 is-active"></span><span class="Winline__index Winline__col--4 Winline__row--2 "></span><span class="Winline__index Winline__col--0 Winline__row--3 is-active"></span><span class="Winline__index Winline__col--1 Winline__row--3 "></span><span class="Winline__index Winline__col--2 Winline__row--3 "></span><span class="Winline__index Winline__col--3 Winline__row--3 "></span><span class="Winline__index Winline__col--4 Winline__row--3 is-active"></span><span class="Winline__index Winline__col--0 Winline__row--4 "></span><span class="Winline__index Winline__col--1 Winline__row--4 "></span><span class="Winline__index Winline__col--2 Winline__row--4 "></span><span class="Winline__index Winline__col--3 Winline__row--4 "></span><span class="Winline__index Winline__col--4 Winline__row--4 "></span></li><li class="Winline Winline--cols-5 Winline--rows-5"><span class="Winline__index Winline__col--0 Winline__row--0 "></span><span class="Winline__index Winline__col--1 Winline__row--0 "></span><span class="Winline__index Winline__col--2 Winline__row--0 "></span><span class="Winline__index Winline__col--3 Winline__row--0 "></span><span class="Winline__index Winline__col--4 Winline__row--0 is-active"></span><span class="Winline__index Winline__col--0 Winline__row--1 "></span><span class="Winline__index Winline__col--1 Winline__row--1 "></span><span class="Winline__index Winline__col--2 Winline__row--1 "></span><span class="Winline__index Winline__col--3 Winline__row--1 is-active"></span><span class="Winline__index Winline__col--4 Winline__row--1 "></span><span class="Winline__index Winline__col--0 Winline__row--2 "></span><span class="Winline__index Winline__col--1 Winline__row--2 "></span><span class="Winline__index Winline__col--2 Winline__row--2 is-active"></span><span class="Winline__index Winline__col--3 Winline__row--2 "></span><span class="Winline__index Winline__col--4 Winline__row--2 "></span><span class="Winline__index Winline__col--0 Winline__row--3 "></span><span class="Winline__index Winline__col--1 Winline__row--3 is-active"></span><span class="Winline__index Winline__col--2 Winline__row--3 "></span><span class="Winline__index Winline__col--3 Winline__row--3 "></span><span class="Winline__index Winline__col--4 Winline__row--3 "></span><span class="Winline__index Winline__col--0 Winline__row--4 is-active"></span><span class="Winline__index Winline__col--1 Winline__row--4 "></span><span class="Winline__index Winline__col--2 Winline__row--4 "></span><span class="Winline__index Winline__col--3 Winline__row--4 "></span><span class="Winline__index Winline__col--4 Winline__row--4 "></span></li></ul></span>
+  </section>
+  <section data-gameinfo-section="featureBuy">
+    <h1>BONUS BUY</h1>
+    <p>This game offers the possibility to purchase the special 
+feature(s) directly from the main game by pressing the BUY BONUS button.</p>
+    <p>This game offers the FeatureSpins™ buy option. When FeatureSpins™
+ are activated, each spin guarantees certain features and costs a set 
+amount, based on your current bet level. FeatureSpins™ remain active 
+until you disable them by clicking the DISABLE button.</p>
+    <p data-bonus-game-id="mod_bonus" data-bonus-game-name="bonushunt_featurespins_uc" data-bonus-game-populated="true">The RTP when buying BONUSHUNT FEATURESPINS™ is 96.22%. For full information about this feature, see the section above.</p>
+    <p data-bonus-game-id="mod_reel_mult" data-bonus-game-name="epic_drop_featurespins_uc" data-bonus-game-populated="true">The RTP when buying EPIC DROP™ FEATURESPINS™ is 96.35%. For full information about this feature, see the section above.</p>
+    <p data-bonus-game-id="fs" data-bonus-game-name="bonus_uc" data-bonus-game-populated="true">The RTP when buying BONUS is 96.34%. For full information about this feature, see the section above.</p>
+    <p data-bonus-game-id="fs_super" data-bonus-game-name="super_bonus_uc" data-bonus-game-populated="true">The RTP when buying SUPER BONUS is 96.3%. For full information about this feature, see the section above.</p>
+    <p data-bonus-game-id="bob_3_fs" data-bonus-game-name="best_of_bonus_uc" data-bonus-game-populated="true">The RTP when buying BEST OF BONUS is 96.29%. For full information about this feature, see the section above.</p>
+    <p data-bonus-game-id="bob_3_fs_super" data-bonus-game-name="best_of_super_bonus_uc" data-bonus-game-populated="true">The RTP when buying BEST OF SUPER BONUS is 96.35%. For full information about this feature, see the section above.</p>
+  </section>
+  <h1>GENERAL</h1>
+  <section data-gameinfo-section="generalSection-balance">
+    <p>BALANCE</p>
+    <p>Your current balance is shown in the BALANCE display. Balance, bets and winnings are presented in the player’s chosen currency.</p>
+  </section>
+  <section data-gameinfo-section="generalSection-bet">
+    <p>BET</p>
+    <p>The current bet level is shown in the BET display. Change the bet
+ by clicking on the arrows and choosing the bet level of your choice.</p>
+    <p><span class="icon-arrow-up"></span><span class="icon-arrow-down"></span></p>
+    <p>The allowed bet levels for this game are between €1.00 and €20,000.00. Feature buys can exceed this limit.</p>
+  </section>
+  <section data-gameinfo-section="generalSection-spin">
+    <p>SPIN</p>
+    <p>The game is started by pressing the SPIN symbol button.<span data-part-id="spacebar"> The spacebar on the keyboard can also be used to initiate a spin.</span></p>
+    <p><span class="icon-spin"></span></p>
+  </section>
+  <section data-gameinfo-section="generalSection-win">
+    <p>WIN</p>
+    <p>Winnings and winning combinations are paid according to the 
+paytable. Multiple wins in one round are added together and the total 
+round win will be displayed in the WIN field (to the right of BALANCE). 
+Separate wins in a winning combination will be displayed during the win 
+presentation. Symbol payouts are displayed in the paytable and reflect 
+the current bet configuration. Only the highest win per winning way is 
+paid.</p>
+  </section>
+  <section data-gameinfo-section="generalSection-maxwin">
+    <p>MAX WIN</p>
+    <p>The maximum achievable win in this game is 20,000 times your bet.
+ The maximum win may be achieved by triggering specific combinations 
+and/or features. When this amount is reached the game will display a 
+message indicating the maximum win has been reached. The current round 
+will then immediately end and your winnings will be awarded. If this 
+occurs during free spins and/or other bonus feature(s), the game will 
+return to the main screen and any remaining free spins and/or other 
+bonus feature(s) will be discarded.</p>
+  </section>
+  
+  <section data-gameinfo-section="generalSection-fs">
+    <p>FREE SPINS</p>
+    <p>In Free spins the total win for each spin is shown in the WIN 
+field while the accumulating win for all free spins is shown in the 
+TOTAL WIN field next to the number of remaining spins.</p>
+  </section>
+  <section data-gameinfo-section="generalSection-auto">
+    <p>AUTOPLAY</p>
+    <p>Using Autoplay will let you play a number of game rounds 
+automatically. Press the AUTOPLAY button and choose a number of game 
+rounds to initiate this feature. The remaining number of spins is 
+displayed. Autoplay is stopped by pressing the STOP button.</p>
+    <p><span class="icon-autoplay"></span></p>
+  </section>
+  <section data-gameinfo-section="generalSection-adv">
+    <p>ADVANCED AUTOPLAY SETTINGS</p>
+    <p>The Advanced Autoplay settings allow the player to set number of 
+plays, total session lost limit and single win limit. The autoplay 
+feature will stop when any of the selected limits are exceeded.</p>
+  </section>
+  <section data-gameinfo-section="generalSection-turbo">
+    <p>TURBO PLAY</p>
+    <p>The Turbo Play functionality is used to get the fastest game 
+round possible (not available on all operators and jurisdictions). Turbo
+ Play is activated from the menu.</p>
+  </section>
+  <section data-gameinfo-section="generalSection-add">
+    <h1>ADDITIONAL INFORMATION</h1>
+    <p>In addition to the features described here, the bar on the bottom
+ of the game screen displays the current balance in the chosen currency,
+ the amount paid if a win occurs, and the amount bet on the last/current
+ proposition.</p>
+  </section>
+  <section data-gameinfo-section="generalSection-interrupted">
+    <h1>INTERRUPTED GAME</h1>
+    <p>In the event of disconnection, a previously started round that 
+has been interrupted may be resumed immediately by starting the game 
+again. The results of a completed round (where display of the visual 
+result was interrupted) will only be re-displayed within the game for 
+winning rounds, but all game rounds may be reviewed in Game History. Any
+ amount wagered on an unfinished game will remain paused until you 
+either complete the game or the game is void as a result of account 
+inactivity or system maintenance. When an unfinished game is void, your 
+bet will be refunded to your account. Any awards earned on an unfinished
+ round will not be credited unless you resume and complete the game. 
+Winnings on unfinished game rounds where the player cannot further 
+influence the outcome of the game will be automatically credited to the 
+player’s account after 1 day. Game rounds will never be affected by 
+unforeseen external errors due to hardware, bandwidth, network errors or
+ similar. Game rounds will be either stored and completed by the player 
+at a later time or they will be closed and the wager will be refunded to
+ the player. If an incomplete game round has not been resumed within 1 
+day, the round will be rolled back and the wager will be refunded.</p>
+  </section>
+  <section data-gameinfo-section="generalSection-history">
+    <h1>GAME HISTORY</h1>
+    <p>The result of a completed game may be viewed in Game History 
+immediately after closing the game window. Results of unfinished games 
+are not displayed in Game History.</p>
+  </section>
+  <section data-gameinfo-section="generalSection-terms">
+    <h1>GENERAL TERMS AND CONDITIONS</h1>
+    <p>- Misuse or malfunction voids all pays and plays.<br>- Any visual
+ representation of a physical device (a reel, a wheel of fortune or 
+similar) does not represent a “real” physical device and the 
+probabilities of it stopping on any particular position is determined by
+ the game’s random number generator, and not the number of positions on 
+each device.</p>
+  </section>
+  <section data-gameinfo-section="generalSection-dictionary"></section>
+</div>
+<div class="GameInfo__edition">
+  <p data-part-id="generatedAtDate">Game rules generated 2024-07-25 13:24 UTC</p>
+  <p><span data-part-id="gameVersion">Game version 1.0.1</span><br><span data-part-id="serverVersion">Server version 2.0.163</span></p>
+  <p id="HacksawGamingAnchor" class="GameInfo__reference-link"><a href="https://www.hacksawgaming.com/" target="_blank">www.hacksawgaming.com</a></p>
+</div></div></div>
+                </div>
+            </div>
+        </div>
+        <div id="FeaturePromotionWindow" class="FeaturePromotionWindow Modal" style="transform: scale3d(1.00849, 1.00849, 1); height: 946px; width: 1060px;">
+            <div id="FeaturePromotionClose">
+                <span>
+                    <span class="Modal__close-button"></span>
+                </span>
+            </div>
+            <div class="FeaturePromotion Modal__container">
+                <div class="FeaturePromotion__inner">
+                    <div class="FeaturePromotion__title"></div>
+                    <div id="FeaturePromotionNavBar" class="FeaturePromotionNavBar">
+                        <ul id="FeaturePromotionNavList" class="FeaturePromotionNavBar__navlist">
+                        </ul>
+                    </div>
+                    <div id="FeaturePromotionPages" class="FeaturePromotion__pages-container">
+                    </div>
+                </div>
+                <div id="FeaturePromotionLeave" class="FeaturePromotion__leave" data-translation="leave_promotion_uc" data-charcount="15">LEAVE PROMOTION</div>
+            </div>
+        </div>
+        <div id="BetHistoryWindow" class="BetHistoryWindow Modal" style="transform: scale3d(1.00849, 1.00849, 1); height: 946px; width: 1060px;">
+            <div id="BetHistoryClose" class="Modal__close-button"><span></span></div>
+            <div class="BetHistory Modal__container">
+                <div class="BetHistory__inner">
+                    <div class="BetHistory__title" data-translation="bet_history" data-charcount="11">BET HISTORY</div>
+                    <p id="BetHistoryDateRangeExplainer" class="BetHistory__subtitle--explainer" data-translation="bet_history_date_range" data-charcount="107">If you want to see your history for a different time period please contact the operator's customer support.</p>
+                    
+                    <div class="BetHistory__table-container">
+                        <table id="BetHistoryTable" class="BetHistory__table">
+                            <thead>
+                                <tr>
+                                    <th data-translation="date" data-charcount="4">DATE</th>
+                                    <th data-translation="bet_past" data-charcount="3">BET</th>
+                                    <th data-translation="win_uc" data-charcount="3">WIN</th>
+                                </tr>
+                            </thead>
+                            <tbody id="BetHistoryTableBody" class="BetHistory__table-body">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="FeatureBuyWindow" class="FeatureBuyWindow Modal" data-total-item-count="6" data-base-width="1650" data-base-height="690" style="transform: scale3d(0.64788, 0.64788, 1); height: 1472px; width: 1650px;">
+            <div id="FeatureBuyClose" class="Modal__close-button"><span></span></div>
+            <div class="FeatureBuy Modal__container">
+                <div class="FeatureBuy__inner">
+                    <div class="FeatureBuy__title Modal__title">
+                        <span data-translation="feature_buy_uc" id="FeatureBuyModalTitle" data-charcount="9">BONUS BUY</span>
+                        <div class="divider--horizontal"></div>
+                    </div>
+                    <div id="FeatureBuyBody" class="FeatureBuy__body">
+                        <div id="FeatureBuyAmountHolder" class="FeatureBuyAmountHolder">
+                            <div class="FeatureBuyAmountValueContainer">
+                                <div class="FeatureBuyAmountValueContainer__info">
+                                    <span id="FeatureBuyAmountLabel" class="FeatureBuyAmount__label" data-translation="bet_past" data-charcount="3">BET</span>
+                                    <span id="FeatureBuyAmountValue" class="FeatureBuyAmount__value" data-charcount="5">€1.00</span>
+                                </div>
+                                <div class="FeatureBuyAmountChangers">
+                                    <button id="FeatureBuyAmountIncrease" class="FeatureBuyAmountChanger"><span class="icon-plus"></span></button>
+                                    <button id="FeatureBuyAmountDecrease" class="FeatureBuyAmountChanger is-reached"><span class="icon-minus"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="FeatureBuy__items-container"><div class="FeatureBuyItems"><ul class="FeatureBuyItemList" data-item-count="6"><li class="FeatureBuyItem FeatureSpinItem " data-grid-area="feature" data-feature-buy-id="mod_bonus" data-item-order="0"><div class="FeatureBuyGridCard" data-grid-card-type="grid-card-feature-spins"><div class="FeatureBuyGridCard__inner"><div class="FeatureBuyGridCard__content"><h3 class="FeatureBuyGridCard__title">BONUSHUNT FEATURESPINS™</h3><span class="FeatureBuyGridCard__description">Each spin is 10 times more likely to trigger a Bonus game!</span><span class="FeatureBuyGridCard__description--volatility">Volatility: Extreme</span><div class="FeatureBuyGridCard__img-container">
+				<div class="FeatureBuyGridCard__img-wrapper">
+					<img class="FeatureBuyGridCard__image" src="index_data/bonushunt.png">
+				</div>
+			</div><p class="FeatureBuyGridCard__description--value" data-feature-betcost-value="true" data-feature-betcost-multiplier="5" data-charcount="5">€5.00</p></div><div class="FeatureBuyGridCard__cta-container"><button class="FeatureBuyGridCard__button" data-feature-buy-id-cta="mod_bonus" data-feature-buy-image="gameinfoassets/bonushunt.png">ACTIVATE</button></div></div></div></li><li class="FeatureBuyItem FeatureSpinItem " data-grid-area="feature" data-feature-buy-id="mod_reel_mult" data-item-order="1"><div class="FeatureBuyGridCard" data-grid-card-type="grid-card-feature-spins"><div class="FeatureBuyGridCard__inner"><div class="FeatureBuyGridCard__content"><h3 class="FeatureBuyGridCard__title">EPIC DROP™ FEATURESPINS™</h3><span class="FeatureBuyGridCard__description">Transforms each spin into an Epic Drop™ spin and guarantees that at least 15 multiplier symbols land!</span><span class="FeatureBuyGridCard__description--volatility">Volatility: High</span><div class="FeatureBuyGridCard__img-container">
+				<div class="FeatureBuyGridCard__img-wrapper">
+					<img class="FeatureBuyGridCard__image" src="index_data/epic_mult.png">
+				</div>
+			</div><p class="FeatureBuyGridCard__description--value" data-feature-betcost-value="true" data-feature-betcost-multiplier="200" data-charcount="7">€200.00</p></div><div class="FeatureBuyGridCard__cta-container"><button class="FeatureBuyGridCard__button" data-feature-buy-id-cta="mod_reel_mult" data-feature-buy-image="gameinfoassets/epic_mult.png">ACTIVATE</button></div></div></div></li><li class="FeatureBuyItem BonusBuyItem " data-grid-area="bonus" data-feature-buy-id="fs" data-item-order="2"><div class="FeatureBuyGridCard" data-grid-card-type="grid-card-bonus"><div class="FeatureBuyGridCard__inner"><div class="FeatureBuyGridCard__content"><h3 class="FeatureBuyGridCard__title">BONUS</h3><span class="FeatureBuyGridCard__description">The classic Chaos Crew™ Bonus feature! 3 lives that refresh every time a new multiplier symbol lands!</span><span class="FeatureBuyGridCard__description--volatility">Volatility: Very high</span><div class="FeatureBuyGridCard__img-container">
+				<div class="FeatureBuyGridCard__img-wrapper">
+					<img class="FeatureBuyGridCard__image" src="index_data/fs.png">
+				</div>
+			</div><p class="FeatureBuyGridCard__description--value" data-feature-betcost-value="true" data-feature-betcost-multiplier="100" data-charcount="7">€100.00</p></div><div class="FeatureBuyGridCard__cta-container"><button class="FeatureBuyGridCard__button" data-feature-buy-id-cta="fs" data-feature-buy-image="gameinfoassets/fs.png">BUY</button></div></div></div></li><li class="FeatureBuyItem BonusBuyItem " data-grid-area="bonus" data-feature-buy-id="fs_super" data-item-order="3"><div class="FeatureBuyGridCard" data-grid-card-type="grid-card-bonus"><div class="FeatureBuyGridCard__inner"><div class="FeatureBuyGridCard__content"><h3 class="FeatureBuyGridCard__title">SUPER BONUS</h3><span class="FeatureBuyGridCard__description">The
+ Super Bonus feature takes things to the next level! The first spin of 
+the Super Bonus guarantees a minimum of 7 multiplier symbols!</span><span class="FeatureBuyGridCard__description--volatility">Volatility: Very high</span><div class="FeatureBuyGridCard__img-container">
+				<div class="FeatureBuyGridCard__img-wrapper">
+					<img class="FeatureBuyGridCard__image" src="index_data/super_fs.png">
+				</div>
+			</div><p class="FeatureBuyGridCard__description--value" data-feature-betcost-value="true" data-feature-betcost-multiplier="250" data-charcount="7">€250.00</p></div><div class="FeatureBuyGridCard__cta-container"><button class="FeatureBuyGridCard__button" data-feature-buy-id-cta="fs_super" data-feature-buy-image="gameinfoassets/super_fs.png">BUY</button></div></div></div></li><li class="FeatureBuyItem BestOfBonusItem " data-grid-area="bonus" data-feature-buy-id="bob_3_fs" data-item-order="4"><div class="FeatureBuyGridCard" data-grid-card-type="grid-card-bonus"><div class="FeatureBuyGridCard__inner"><div class="FeatureBuyGridCard__content"><h3 class="FeatureBuyGridCard__title">BEST OF BONUS</h3><span class="FeatureBuyGridCard__description">Buy 3 Bonus games for the price of 2, keep the best result!</span><span class="FeatureBuyGridCard__description--volatility">Volatility: High</span><div class="FeatureBuyGridCard__img-container">
+				<div class="FeatureBuyGridCard__img-wrapper">
+					<img class="FeatureBuyGridCard__image" src="index_data/bob.png">
+				</div>
+			</div><p class="FeatureBuyGridCard__description--value" data-feature-betcost-value="true" data-feature-betcost-multiplier="200" data-charcount="7">€200.00</p></div><div class="FeatureBuyGridCard__cta-container"><button class="FeatureBuyGridCard__button" data-feature-buy-id-cta="bob_3_fs" data-feature-buy-image="gameinfoassets/bob.png">BUY</button></div></div></div></li><li class="FeatureBuyItem BestOfBonusItem " data-grid-area="bonus" data-feature-buy-id="bob_3_fs_super" data-item-order="5"><div class="FeatureBuyGridCard" data-grid-card-type="grid-card-bonus"><div class="FeatureBuyGridCard__inner"><div class="FeatureBuyGridCard__content"><h3 class="FeatureBuyGridCard__title">BEST OF SUPER BONUS</h3><span class="FeatureBuyGridCard__description">Buy 3 Super Bonus games for the price of 2, keep the best result!</span><span class="FeatureBuyGridCard__description--volatility">Volatility: High</span><div class="FeatureBuyGridCard__img-container">
+				<div class="FeatureBuyGridCard__img-wrapper">
+					<img class="FeatureBuyGridCard__image" src="index_data/super_bob.png">
+				</div>
+			</div><p class="FeatureBuyGridCard__description--value" data-feature-betcost-value="true" data-feature-betcost-multiplier="500" data-charcount="7">€500.00</p></div><div class="FeatureBuyGridCard__cta-container"><button class="FeatureBuyGridCard__button" data-feature-buy-id-cta="bob_3_fs_super" data-feature-buy-image="gameinfoassets/super_bob.png">BUY</button></div></div></div></li></ul></div></div></div>
+                    <div id="FeatureBuyConfirmBody" class="FeatureBuy__confirm-box-body" data-feature-buy-confirm="bob_3_fs_super">
+                        <div class="FeatureBuyConfirmBox">
+                            <div class="FeatureBuyConfirmBox__inner">
+                                <div class="FeatureBuyConfirmBox__img-container">
+                                    <div class="FeatureBuyConfirmBox__img-wrapper">
+                                        <img id="FeatureBuyConfirmImage" class="FeatureBuyConfirmBox__image" src="index_data/super_bob.png">
+                                    </div>
+                                </div>
+                                <div class="FeatureBuyConfirmBox__content-container">
+                                    <div class="FeatureBuyConfirmBox__content-wrapper">
+                                        <span id="FeatureBuyConfirmValue" class="FeatureBuyConfirmAmount__value is-visible" data-charcount="7">€500.00</span>
+                                        <span id="FeatureBuyConfirmLabel" class="FeatureBuyConfirmAmount__label" data-translation="feature_buy_confirm" data-charcount="36">Will be subtracted from your balance</span>
+                                    </div>
+                                </div>
+                                <div class="FeatureBuyConfirmBox__cta-container">
+                                    <button id="FeatureBuyConfirmBackButton" class="FeatureBuyConfirmBox__button--dismiss" data-translation="back_uc" data-charcount="4">BACK</button>
+                                    <span class="divider--vertical"></span>
+                                    <button id="FeatureBuyConfirmButton" class="FeatureBuyConfirmBox__button--accept" data-feature-buy-confirm="bob_3_fs_super" data-translation="ok_uc" data-charcount="2">OK</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="CoreOverlay is-visible" id="CoreOverlay" style="transform: unset; inset: 0px; height: 0px; width: 1069px; transform-origin: left top 0px;">
+            <div class="CoreOverlay__inner">
+                <div class="CoreOverlay--session">
+                    
+                </div>
+
+                <div class="CoreOverlay--meta-data">
+                    <div class="CoreOverlay__container GameInfoWidget">
+                        <span id="Clock" class="Clock inline-padding" data-charcount="5">15:04</span>
+                        <span id="GameNameOverlay" class="GameNameOverlay divider-vertical inline-padding">Chaos Crew 2</span>
+                        <span id="RtpOverlay" class="RtpOverlay divider-vertical inline-padding">
+                            <span class="RtpLabel"><span data-translation="rtp_label" data-charcount="3">RTP</span>:</span>
+                            <span id="RtpOverlayValue" class="inline-padding">0</span>
+                        </span>
+                    </div>
+                    <div class="CoreOverlay__container MaxWinWidget" id="MaxWinOverlayContainer">
+                        
+                        
+                    </div>
+                </div>
+
+                <div class="CoreOverlay--game-branding">
+                    <div id="InGameBrandingHolder" class="InGameBrandingHolder is-visible">
+                        <span class="branding-logo"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="UiWrapper" class="UiUserPanelWrapper" style="transform: scale3d(1.00849, 1.00849, 1); width: 1060px;" data-dock-position="bottom">
+    <div class="UiRibbonUserPanel">
+        <div class="UiRibbonUserPanel__container">
+            <div id="MainPanel" class="MainPanel">
+                <div class="MainPanel__container">
+                    <span id="FeatureBuyActiveModifierNotice" class="FeatureBuyActiveModifierNotice">
+                        <span data-translation="feature_spins_active_uc" data-charcount="23">FEATURESPINS™ ACTIVATED</span>
+                    </span>
+                    <div class="ToggleButton__container--feature-buy">
+                        <button id="FeatureBuyToggle" class="ToggleButton--feature-buy is-visible" data-translation="feature_buy_action_uc" data-charcount="9">BUY BONUS</button>
+                    </div>
+                    <div id="DataPanel" class="DataPanel">
+                        <div id="MainMenu" class="MainMenu">
+                            <ul>
+                                <li id="SoundToggle" class="MainMenuItem MainMenuItem--sound">
+                                    <span class="icon-sound-on"></span>
+                                    <span data-translation="sound" data-charcount="5">SOUND</span>
+                                </li>
+                                <li id="MusicToggle" class="MainMenuItem MainMenuItem--music">
+                                    <span class="icon-music-on"></span>
+                                    <span data-translation="music" data-charcount="5">MUSIC</span>
+                                </li>
+                                <li id="SuperTurboToggle" class="MainMenuItem MainMenuItem--super-turbo super-turbo-off">
+                                    <span class="icon-super-turbo-off"></span>
+                                    <span data-translation="super_turbo_uc" data-charcount="11">SUPER TURBO</span>
+                                </li>
+                                <li id="TurboToggle" class="MainMenuItem MainMenuItem--turbo turbo-off">
+                                    <span class="icon-turbo-off"></span>
+                                    <span data-translation="turbo" data-charcount="5">TURBO</span>
+                                </li>
+                                
+                                <li id="GameInfoBtn" class="MainMenuItem MainMenuItem--info">
+                                    <span class="icon-info-a"></span>
+                                    <span data-translation="info_uc" data-charcount="4">INFO</span>
+                                </li>
+                                <li id="LobbyAnchor" class="MainMenuItem MainMenuItem--lobby">
+                                    <span class="icon-home"></span>
+                                    <span data-translation="home" data-charcount="4">HOME</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="ToggleButton__container--main-menu">
+                            <button id="MainMenuToggle" class="Button ToggleButton--main-menu">
+                                <span class="icon-menu"></span>
+                            </button>
+                        </div>
+                        <span class="divider--vertical"></span>
+                        <div class="DataPanel__container">
+                            <div id="FreeRoundsCounterItem" class="FreeRoundsCounter DataPanelItem">
+                                <span class="DataPanelItem__label" data-translation="free_round_uc" data-charcount="10">FREE ROUND</span>
+                                <span id="FreeRoundsCounterValue" class="DataPanelItem__value">0</span>
+                            </div>
+                            <div id="BalanceItem" class="Balance DataPanelItem is-visible">
+                                <span id="BalanceLabel" class="DataPanelItem__label" data-translation="balance" data-charcount="12">DEMO BALANCE</span>
+                                <span id="BalanceValue" class="DataPanelItem__value pulse-animate" data-charcount="7">€493.20</span>
+                            </div>
+                            <div id="BetAmountStaticItem" class="BetAmountStaticItem DataPanelItem is-visible">
+                                <div class="ItemWrapper">
+                                    <div class="ItemWrapper__inner">
+                                        <span id="BetAmountStaticLabel" class="DataPanelItem__label" data-translation="bet_past" data-charcount="8">DEMO BET</span>
+                                        <span id="BetAmountStaticValue" class="DataPanelItem__value pulse-animate" data-charcount="5">€1.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="FreeRoundsWinItem" class="FreeRoundsWin DataPanelItem">
+                                <span class="DataPanelItem__label" data-translation="total_win_uc" data-charcount="9">TOTAL WIN</span>
+                                <span id="FreeRoundsWinValue" class="DataPanelItem__value">0</span>
+                            </div>
+                            <div id="WinAmountItem" class="WinAmount DataPanelItem">
+                                <span id="WinAmountLabel" class="DataPanelItem__label" data-translation="win_uc" data-charcount="3">WIN</span>
+                                <span id="WinAmountValue" class="DataPanelItem__value" data-main-field="win-amount" data-charcount="0"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="FeaturePanel">
+                        <div id="FeatureTotalWinItem" class="FeatureTotalWin">
+                            <span class="DataPanelItem__label FeatureTotalWin__label" data-translation="total_win_uc" data-charcount="9">TOTAL WIN</span>
+                            <span id="FeatureTotalWinValue" class="FeatureTotalWin__value DataPanelItem__value" data-charcount="5">€0.00</span>
+                        </div>
+                        <span class="divider--vertical"></span>
+                        <div id="FeatureCounterItem" class="FeatureCounter">
+                            <span id="FeatureCounterLabel" class="DataPanelItem__label FeatureCounter__label" data-translation="free_spins_label_uc" data-charcount="10">FREE SPINS</span>
+                            <span id="FeatureCounterValue" class="FeatureCounter__value DataPanelItem__value" data-charcount="null">3</span>
+                        </div>
+                    </div>
+                    <div id="ActionPanel" class="ActionPanel">
+                        <div id="BetAmountItem" class="BetAmountWidget is-visible">
+                            <div class="BetAmountWidget__container">
+                                <span id="BetAmountLabel" class="BetAmountWidget__label DataPanelItem__label" data-translation="bet_past" data-charcount="8">DEMO BET</span>
+                                <span id="BetAmountValue" class="BetAmountWidget__value DataPanelItem__value ActiveBetAmountValue" data-charcount="5">€1.00</span>
+                                <span class="BetAmountProgressbar">
+                                    <span id="BetAmountIndicatorProgress" class="BetAmountProgressbar__inner" style="width: 1.35%;"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="divider--vertical"></div>
+                        <div class="ActionPanel__container--game-actions">
+                            <div class="BetAmountChangersWidget">
+                                <button id="BetAmountIncrease" class="BetAmountChanger--increase-bet is-disabled">
+                                    <span class="icon-arrow-up"></span>
+                                </button>
+                                <button id="BetAmountDecrease" class="BetAmountChanger--decrease-bet is-reached is-disabled">
+                                    <span class="icon-arrow-down"></span>
+                                </button>
+                            </div>
+                            <button id="PlaceBetBtn" class="Button CircleButton--place-bet" type="button">
+                                <span class="icon-spin branding-logo"></span>
+                            </button>
+                            <button id="StartAutoplayBtn" class="Button CircleButton--start-autoplay" type="button">
+                                <span class="icon-autoplay2"></span>
+                            </button>
+                            <button id="StopAutoplayBtn" class="Button CircleButton--stop-autoplay" type="button">
+                                <span class="icon-stop"></span>
+                                <span id="AutoplayCounter" class="AutoplayCounter">0</span>
+                            </button>
+                            <button id="StopBtn" class="Button CircleButton--stop-round" type="button">
+                                <span class="icon-stop"></span>
+                            </button>
+                        </div>
+                        <div class="ActionPanel__container--autoplay">
+                            <button id="AutoplayBtn" class="Button ToggleButton--autoplay-menu is-disabled">
+                                <span class="icon-autoplay2"></span>
+                            </button>
+                        </div>
+                        <div class="ToggleButton__container--feature-promotion">
+                            
+                        </div>
+                    </div>
+                    <div class="AutoplayMenuPanel">
+                        <div id="AutoplayNav" class="AutoplayMenu">
+                            <div class="AutoplayMenu__inner">
+                                <div class="AutoplayMenu__container--super-title">
+                                    <p class="AutoplayMenu__super-title" data-translation="autoplay" data-charcount="8">AUTOPLAY</p>
+                                    <button id="AutoplayAdvancedToggle" class="ToggleButton--advanced-autoplay-menu" data-target="AdvancedAutoplaySections">
+                                        <span class="icon-arrow-up"></span>
+                                        <span class="toggle-text" data-translation="autoplay_menu_advanced" data-charcount="8">ADVANCED</span>
+                                    </button>
+                                </div>
+                                <div class="AutoplayMenu__body">
+                                    <div class="AutoplayMenu__container--basic">
+                                        <div class="Fieldset Menu-section">
+                                            <div class="Fieldset__legend" data-translation="nr_autoplay_rounds" data-charcount="16">NUMBER OF ROUNDS</div>
+                                            <div class="Fieldset__items-group">
+                                                <ul id="AutoplayNavList" class="TabGroup__list"><li class="TabRoundedButton AutoplayValue is-selected" data-value="10"><span>10</span></li><li class="TabRoundedButton AutoplayValue" data-value="25"><span>25</span></li><li class="TabRoundedButton AutoplayValue" data-value="50"><span>50</span></li><li class="TabRoundedButton AutoplayValue" data-value="75"><span>75</span></li><li class="TabRoundedButton AutoplayValue" data-value="100"><span>100</span></li><li class="TabRoundedButton AutoplayValue" data-value="500"><span>500</span></li><li class="TabRoundedButton AutoplayValue" data-value="1000"><span>1000</span></li></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="AutoplayMenu__container--togglable" id="AdvancedAutoplaySections">
+                                        <div class="Fieldset Menu-section" id="StopOnFeatureSection">
+                                            <div class="Fieldset__legend" data-translation="autoplay_feature_stop" data-charcount="27">STOP ON SPECIAL FEATURE WIN</div>
+                                            <div class="Fieldset__items-group">
+                                                <div class="Toggle">
+                                                    <input type="checkbox" id="StopOnFeatureToggle" class="Toggle--input">
+                                                    <label for="StopOnFeatureToggle" class="Toggle--label">Toggle</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="Fieldset Menu-section">
+                                            <div class="Fieldset__legend" data-translation="loss_limit" data-charcount="10">LOSS LIMIT</div>
+                                            <div class="Fieldset__items-group">
+                                                <ul id="LossLimitNavList" class="TabGroup__list"><li class="TabRoundedButton LossLimitValue" data-value="5"><span>5X BET</span></li><li class="TabRoundedButton LossLimitValue" data-value="20"><span>20X BET</span></li><li class="TabRoundedButton LossLimitValue" data-value="50"><span>50X BET</span></li>
+                                                    <li id="LossLimitNoLimit" class="Button TabRoundedButton Button--no-loss-limits LossLimitValue" data-value="0">
+                                                        <span data-translation="no_limit" data-charcount="8">NO LIMIT</span>
+                                                    </li>
+                                                    <li class="TabComboInput LossLimitValue" data-value="0">
+                                                        <span data-translation="custom" data-charcount="6">Custom</span>
+                                                        <input id="LossLimitCustomInput" name="lossLimitCustom" type="text" placeholder="0.00" autocomplete="off">
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="Fieldset Menu-section">
+                                            <div class="Fieldset__legend" data-translation="win_limit" data-charcount="16">SINGLE WIN LIMIT</div>
+                                            <div class="Fieldset__items-group">
+                                                <ul id="WinLimitNavList" class="TabGroup__list"><li class="TabRoundedButton WinLimitValue" data-value="10"><span>10X BET</span></li><li class="TabRoundedButton WinLimitValue" data-value="20"><span>20X BET</span></li><li class="TabRoundedButton WinLimitValue" data-value="75"><span>75X BET</span></li>
+                                                    
+                                                    <li id="WinLimitNoLimit" class="Button TabRoundedButton Button--no-win-limits WinLimitValue" data-value="0">
+                                                        <span data-translation="no_limit" data-charcount="8">NO LIMIT</span>
+                                                    </li>
+                                                    <li class="TabComboInput WinLimitValue" data-value="0">
+                                                        <span data-translation="custom" data-charcount="6">Custom</span>
+                                                        <input id="WinLimitCustomInput" name="winLimitCustom" type="text" placeholder="0.00" autocomplete="off">
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="FeedbackMsg" class="FeedbackMsg"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        <div id="InternalReplayOverlay" class="InternalReplayOverlay">
+            <div class="InternalReplayWatermark"></div>
+        </div>
+    </div>
+
+    <div id="ReplayFrameHolder" class="ReplayFrameHolder">
+        <div id="ReplayClose" class="ReplayFrameHolder__close" data-translation="close" data-charcount="5">Close</div>
+    </div>
+
+    <script type="text/javascript" src="index_data/hacksaw-casino.min.js"></script>
+    <script type="text/javascript" src="index_data/hacksaw-ui.min.js"></script>
+    <script type="text/javascript" src="index_data/integration.js"></script>
+    <script type="text/javascript" src="index_data/main.js"></script><script type="text/javascript" src="index_data/needles.umd.js"></script>
+
+     
+    <script type="text/javascript" src="index_data/nosleep.min.js"></script>
+    <script type="text/javascript" src="index_data/analytics.min.js"></script>
+    <script type="text/javascript" src="index_data/reporter.min.js"></script>
+
+
+
+
+<div id="PreloadIndicator"></div></body></html>
